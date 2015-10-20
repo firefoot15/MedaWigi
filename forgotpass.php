@@ -7,7 +7,7 @@
         <form id="emailcheck" action="forgotpass.php" method="POST">
             Email: <input type="text" id="email" name="email" required="required"/>
                    <input type="submit" name="submit" />
-                   <input type="button" name="cancel" value="Cancel"/>
+                   <input type="button" name="cancel" value="Cancel" onclick="document.location.href='index.php'"/>
         </form><br/>
     </body>    
 </html>
