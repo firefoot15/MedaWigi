@@ -8,7 +8,13 @@
             Email: <input type="text" id="email" name="email" required="required"/>
                    <input type="submit" name="submit" />
                    <input type="button" name="cancel" value="Cancel" onclick="document.location.href='index.php'"/>
-        </form><br/>
+        </form><br/><br/>
+        
+        <form id="secretcheck" action="forgotpass.php" method="POST"> 
+            What is your stripper name?: <input type="text" id="secretquestionform" name="secretquestionform" required="required"/>
+            <input type="submit" name="secretsubmit" />
+            <input type="button" name="secretcancel" value="Cancel" />
+        </form>
     </body>    
 </html>
 
@@ -22,7 +28,7 @@ if(isset($_POST['submit'])){
     mysql_connect("localhost", "root","") or die(mysql_error());
     mysql_select_db("medawigi") or die("Cannot connect to database");
     $query = mysql_query("SELECT * from accounts WHERE email ='$email'");
-    $exists = mysql_num_rows($query);//checking to see if email exists
+    $exists = mysql_num_rows($query);
     if($exists > 0)
     {
         while($row = mysql_fetch_assoc($query))
