@@ -1,0 +1,80 @@
+.profile_button {
+ display: block;
+ background: #ee2c2c;
+ width: 600px;
+ height: 50px;
+ text-align: center;
+ padding: 30px 0 0 0;
+ font: 1.2em/12px Verdana, Arial, Helvetica, sans-serif;
+ color: #fff;
+ text-decoration: none;
+ -webkit-border-radius: 30px;
+ -khtml-border-radius: 30px;
+ -moz-border-radius: 30px;
+ border-radius: 30px;
+ margin-left:auto;
+ margin-right:auto;
+ 
+    background-image: url("profilepic.png");
+	background-size: 90px auto;
+    background-repeat: no-repeat; 
+    background-position: 0px 0px;
+    border: none;
+    cursor: pointer;
+    padding-left: 16px;   
+    vertical-align: middle;
+ }
+
+.profile_button:hover {
+ background: #cd2626;
+ 
+    background-image: url("profilepic.png");
+	background-size: 90px auto;
+    background-repeat: no-repeat; 
+    background-position: 0px 0px; 
+    border: none;   
+    cursor: pointer; 
+    padding-left: 16px; 
+    vertical-align: middle;
+ }
+ 
+.myportal_button {
+ display: block;
+ background: #ee2c2c;
+ width: 600px;
+ height: 50px;
+ text-align: center;
+ padding: 30px 0 0 0;
+ font: 1.2em/12px Verdana, Arial, Helvetica, sans-serif;
+ color: #fff;
+ text-decoration: none;
+ -webkit-border-radius: 30px;
+ -khtml-border-radius: 30px;
+ -moz-border-radius: 30px;
+ border-radius: 30px;
+ margin-left:auto;
+ margin-right:auto;
+ }
+ 
+.myportal_button:hover {
+ background: #cd2626;
+ }
+ /*
+.regular_button {
+ display: block;
+ background: #ee2c2c;
+ width: 60px;
+ height: 3px;
+ text-align: center;
+ font: 1.2em/8px Verdana, Arial, Helvetica, sans-serif;
+ color: #eeeeee;
+ text-decoration: none;
+ -webkit-border-radius: 3px;
+ -khtml-border-radius: 3px;
+ -moz-border-radius: 3px;
+ border-radius: 3px;
+ }
+ 
+.regular_button:hover {
+ background: #cd2626;
+ }*/
