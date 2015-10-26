@@ -203,30 +203,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	// Write to tables
 	if($bool) 
 	{
-		mysql_query("UPDATE accounts SET firstName='$firstName' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET lastName='$lastName' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET middleName='$middleName' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET suffix='$suffix' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET email='$email' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET username='$username' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET password='$password' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET secretQuest='$secretQuest' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET answerQuest='$answerQuest' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET gender='$gender' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET race='$race' WHERE accountID = '$accountID'");
-		mysql_query("UPDATE accounts SET birthDate='$birthDate' WHERE accountID = '$accountID'");
-		
+		mysql_query("UPDATE accounts SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', email='$email', username='$username', password='$password', secretQuest='$secretQuest', answerQuest='$answerQuest', gender='$gender', race='$race', birthDate='$birthDate' WHERE accountID = '$accountID'");
+
+ /* //Only updates first instance found
 		$query = mysql_query("Select * from persons WHERE accountID = '$accountID'");
 		$row = mysql_fetch_array($query);
 		$personID = $row['personID'];
 
-		mysql_query("UPDATE persons SET firstName='$firstName' WHERE personID = '$personID'");
-		mysql_query("UPDATE persons SET lastName='$lastName' WHERE personID = '$personID'");
-		mysql_query("UPDATE persons SET middleName='$middleName' WHERE personID = '$personID'");
-		mysql_query("UPDATE persons SET suffix='$suffix' WHERE personID = '$personID'");
-		mysql_query("UPDATE persons SET gender='$gender' WHERE personID = '$personID'");
-		mysql_query("UPDATE persons SET race='$race' WHERE personID = '$personID'");
-		mysql_query("UPDATE persons SET birthDate='$birthDate' WHERE personID = '$personID'");		
+		mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$personID'");
+*/	
 
 		Print '<script>alert("Successfully changed!");</script>';
 		Print '<script>window.location.assign("myportal.php");</script>'; 

@@ -9,15 +9,15 @@
 		else{
 			header("location:index.php");}
 
-		$user = $_SESSION['user'];		
+		$user = $_SESSION['user'];	
 		$id = isset($_GET['id']) ? $_GET['id'] : '';
+		// id sent from myportal.php
 		
 		mysql_connect("localhost", "root","") or die(mysql_error());
 		mysql_select_db("medawigi") or die("Cannot connect to database.");
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
 		$row = mysql_fetch_array($query);		
 		
-		$personID = $row['personID'];
 		$firstName = $row['firstName'];
 		$lastName = $row['lastName'];
 		$middleName = $row['middleName'];
@@ -140,19 +140,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$month = mysql_real_escape_string($_POST['month']);
 	$day = mysql_real_escape_string($_POST['day']);
 	$year = mysql_real_escape_string($_POST['year']);
-
+	
 	$birthDate = $month.'-'.$day.'-'.$year;
 	//no value in $personID due to request_method
 
 	// Write to tables
-	mysql_query("UPDATE persons SET firstName='$firstName' WHERE personID = '$personID'");
-	mysql_query("UPDATE persons SET lastName='$lastName' WHERE personID = '$personID'");
-	mysql_query("UPDATE persons SET middleName='$middleName' WHERE personID = '$personID'");
-	mysql_query("UPDATE persons SET suffix='$suffix' WHERE personID = '$personID'");
-	mysql_query("UPDATE persons SET nickname='$nickname' WHERE personID = '$personID'");
-	mysql_query("UPDATE persons SET gender='$gender' WHERE personID = '$personID'");
-	mysql_query("UPDATE persons SET race='$race' WHERE personID = '$personID'");
-	mysql_query("UPDATE persons SET birthDate='$birthDate' WHERE personID = '$personID'");
+	mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', nickname='$nickname', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$id'");
 
 	Print '<script>alert("Successfully changed!");</script>';
 	Print '<script>window.location.assign("myportal.php");</script>'; 
