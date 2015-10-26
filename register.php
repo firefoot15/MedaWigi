@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
-		<th colspan="2" align="center">Sign Up!</th>
+		<th colspan="2" align="center">Create Account</th>
 		<form action="register.php" method="post">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" required="required" maxlength="30"/></td></tr>
@@ -143,15 +143,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$query = mysql_query("Select * from accounts"); 
 	while($row = mysql_fetch_array($query)) 
 	{
-		$table_users = $row['username']; 
-		if($username == $table_users) 
+		$table_user = $row['username']; 
+		if($username == $table_user) 
 		{
 			$bool = false;
 			Print '<script>alert("Username has been taken!");</script>'; 
 			Print '<script>window.location.assign("register.php");</script>'; 
 		}	
-		$table_users = $row['email']; 
-		if($email == $table_users) 
+		$table_email = $row['email']; 
+		if($email == $table_email) 
 		{
 			$bool = false; 
 			Print '<script>alert("Email already in use.");</script>'; 
