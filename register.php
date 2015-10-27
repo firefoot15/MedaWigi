@@ -5,7 +5,7 @@
 	<body>
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
 		<th colspan="2" align="center">Create Account</th>
-		<form action="register.php" method="post">
+		<form action="register.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" required="required" maxlength="30"/></td></tr>
 			<tr><td>Middle Initial*: </td>

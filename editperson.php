@@ -10,8 +10,11 @@
 			header("location:index.php");}
 
 		$user = $_SESSION['user'];	
-		$id = isset($_GET['id']) ? $_GET['id'] : '';
+		
 		// id sent from myportal.php
+		$id = isset($_GET['id']) ? $_GET['id'] : '';
+		if(!empty($_GET['id'])){
+			$_SESSION['id'] = $id;}
 		
 		mysql_connect("localhost", "root","") or die(mysql_error());
 		mysql_select_db("medawigi") or die("Cannot connect to database.");
@@ -35,7 +38,7 @@
 	<body>
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
 		<th colspan="2" align="center">Edit Person</th>
-		<form action="editperson.php" method="post">			
+		<form action="editperson.php" method="POST">			
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" value="<?php echo $firstName; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Middle Initial*: </td>
@@ -126,10 +129,10 @@
 		</form>
 		</table>
 	</body>
-
+</html>
 
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){ 
 	$firstName = mysql_real_escape_string($_POST['firstName']);
 	$lastName = mysql_real_escape_string($_POST['lastName']);
 	$middleName = mysql_real_escape_string($_POST['middleName']);
@@ -140,10 +143,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$month = mysql_real_escape_string($_POST['month']);
 	$day = mysql_real_escape_string($_POST['day']);
 	$year = mysql_real_escape_string($_POST['year']);
-	
-	$birthDate = $month.'-'.$day.'-'.$year;
-	//no value in $personID due to request_method
 
+	$birthDate = $month.'-'.$day.'-'.$year;
+	$id = $_SESSION['id'];
+	
 	// Write to tables
 	mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', nickname='$nickname', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$id'");
 
@@ -151,4 +154,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	Print '<script>window.location.assign("myportal.php");</script>'; 
 }
 ?> 
-</html>

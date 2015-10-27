@@ -39,7 +39,7 @@
 	<body>
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
 		<th colspan="2" align="center">Edit Account</th>
-		<form action="editaccount.php" method="post">			
+		<form action="editaccount.php" method="POST">			
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" value="<?php echo $firstName; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Middle Initial*: </td>
@@ -130,7 +130,7 @@
 		</form>
 		</table>
 	</body>
-
+</html>
 
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -205,7 +205,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	{
 		mysql_query("UPDATE accounts SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', email='$email', username='$username', password='$password', secretQuest='$secretQuest', answerQuest='$answerQuest', gender='$gender', race='$race', birthDate='$birthDate' WHERE accountID = '$accountID'");
 
- /* //Only updates first instance found
+/*  //Only updates first instance found
 		$query = mysql_query("Select * from persons WHERE accountID = '$accountID'");
 		$row = mysql_fetch_array($query);
 		$personID = $row['personID'];
@@ -218,4 +218,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 }
 ?> 
-</html>

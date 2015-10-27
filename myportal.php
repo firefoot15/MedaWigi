@@ -6,7 +6,7 @@
 	<body>
 		
 		<h2 align="center">My Portal</h2>
-		<form action="myportal.php" method="post">
+		<form action="myportal.php" method="POST">
 		
 		<?php
 		session_start();
