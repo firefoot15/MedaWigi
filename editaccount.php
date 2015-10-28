@@ -16,7 +16,7 @@
 		$query = mysql_query("Select * from accounts WHERE username = '$user'");
 		$row = mysql_fetch_array($query);
 
-		$accountID = $row['accountID'];
+		$accountID = $accountID = str_pad($row['accountID'], 4, '0', STR_PAD_LEFT);
 		$firstName = $row['firstName'];
 		$lastName = $row['lastName'];
 		$middleName = $row['middleName'];
@@ -29,7 +29,6 @@
 		$gender = $row['gender'];
 		$race = $row['race'];
 		$birthDate = $row['birthDate'];
-
 		
 		$month = substr($birthDate, 0, 2);
 		$day = substr($birthDate, 3, 2);
@@ -179,7 +178,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		Print '<script>window.location.assign("editaccount.php");</script>';		
 	}
 	
-	// Check accounts table for duplicates... except current
+	// Check accounts table for duplicates
 	$query = mysql_query("Select * from accounts"); 
 	while($row = mysql_fetch_array($query)) 
 	{
@@ -199,19 +198,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			Print '<script>window.location.assign("editaccount.php");</script>'; 
 		}	
 	}
-	
+
 	// Write to tables
 	if($bool) 
 	{
 		mysql_query("UPDATE accounts SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', email='$email', username='$username', password='$password', secretQuest='$secretQuest', answerQuest='$answerQuest', gender='$gender', race='$race', birthDate='$birthDate' WHERE accountID = '$accountID'");
 
-/*  //Only updates first instance found
-		$query = mysql_query("Select * from persons WHERE accountID = '$accountID'");
-		$row = mysql_fetch_array($query);
-		$personID = $row['personID'];
-
-		mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$personID'");
-*/	
+		// It will be necessary to remove this later, it is dependent on the default nickname
+		$query = mysql_query("Select * from persons");
+		while($row = mysql_fetch_array($query))
+		{
+			$table_id = $row['personID'];   		
+			$table_aid = substr($row['apid'], 0, 4);
+			$table_nn = $row['nickname']; 		
+			if($accountID == $table_aid && 'Me' == $table_nn)
+			{
+				$personID = $row['personID'];
+				mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$personID'");	
+			}
+		}
 
 		Print '<script>alert("Successfully changed!");</script>';
 		Print '<script>window.location.assign("myportal.php");</script>'; 

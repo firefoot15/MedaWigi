@@ -146,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	$birthDate = $month.'-'.$day.'-'.$year;
 	$id = $_SESSION['id'];
-	
+
 	// Write to tables
 	mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', nickname='$nickname', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$id'");
 

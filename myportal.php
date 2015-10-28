@@ -23,17 +23,24 @@
 		$accountID = $row['accountID'];
 	
 		$count = 0;
-		$query = mysql_query("Select * from persons WHERE accountID = '$accountID'");
+		$query = mysql_query("Select * from persons");
 		while($row = mysql_fetch_array($query))
-		{
-			$count++;
-			$nickname = $row['nickname'];
-			$personID = $row['personID'];
-			?>
-				<!-- display profile buttons-->
-				<a href="editperson.php?id=<?php echo htmlspecialchars($personID); ?>" class="profile_button"><?php echo htmlspecialchars($nickname); ?></a>
-				<a href="deleteperson.php?id=<?php echo htmlspecialchars($personID); ?>">Delete Person</a><br/>
-			<?php	
+		{  		
+			$table_aid = substr($row['apid'], 0, 4);	
+			if($accountID == $table_aid)
+			{
+				$count++;
+				$nickname = $row['nickname'];
+				$personID = $row['personID'];
+				echo '<img src="data:image/png;base64,'.base64_encode( $row['profilepic'] ).'"/>';
+				?>
+					<!-- display profile buttons-->
+					<!--<link rel="stylesheet" type="text/css" media="screen" href="style.php?id=<?php //echo htmlspecialchars($personID); ?>>-->
+				
+					<a href="editperson.php?id=<?php echo htmlspecialchars($personID); ?>" class="profile_button"><?php echo htmlspecialchars($nickname); ?></a>
+					<a href="deleteperson.php?id=<?php echo htmlspecialchars($personID); ?>">Delete <?php echo htmlspecialchars($nickname); ?></a><br/>
+				<?php	
+			}
 		}
 		if($count < 10)
 		{

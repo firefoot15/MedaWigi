@@ -163,10 +163,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($bool) 
 	{
 		mysql_query("INSERT INTO accounts (firstName, lastName, middleName, suffix, email, username, password, secretQuest, answerQuest, gender, race, birthDate) VALUES ('$firstName','$lastName','$middleName','$suffix','$email','$username','$password','$secretQuest','$answerQuest','$gender','$race','$birthDate')"); 
-		$nickname = 'Me';
-		$accountID = mysql_insert_id();	
+		$accountID = str_pad(mysql_insert_id(), 4, '0', STR_PAD_LEFT);	
 		
-		mysql_query("INSERT INTO persons (firstName, lastName, middleName, suffix, gender, race, birthDate, nickname, accountID) VALUES ('$firstName','$lastName','$middleName','$suffix','$gender','$race','$birthDate','$nickname','$accountID')"); 		
+		mysql_query("INSERT INTO persons (firstName, lastName, middleName, suffix, gender, race, birthDate, nickname, apid) VALUES ('$firstName','$lastName','$middleName','$suffix','$gender','$race','$birthDate','Me','')"); 
+		$personID = str_pad(mysql_insert_id(), 4, '0', STR_PAD_LEFT);	
+		$apid = $accountID.$personID;
+		mysql_query("UPDATE persons SET apid='$apid' WHERE personID = '$personID'");		
+		
 		Print '<script>alert("Successfully registered!");</script>';
 		Print '<script>window.location.assign("index.php");</script>'; 
 	}
