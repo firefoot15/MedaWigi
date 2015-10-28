@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>Edit Person Page</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 			
 		<?php
@@ -35,8 +36,8 @@
 		$year = substr($birthDate, 6, 2);
 		?>
 		
-	<body>
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
+	<body><center>
+		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#202020">
 		<th colspan="2" align="center">Edit Person</th>
 		<form action="editperson.php" method="POST">			
 			<tr><td>First Name: </td>
@@ -124,11 +125,11 @@
 				</select></td></tr>
 			<tr><td>*optional</td></tr>
 			<tr><td colspan="2" align="center">
-				<a href="myportal.php"><input type="button" value="Cancel" /></a>
-				<input type="submit" value="Submit"></td></tr> 
+				<a href="myportal.php"><input type="button" value="Cancel" class="basic_button"/></a>
+				<input type="submit" value="Submit" class="basic_button"></td></tr> 
 		</form>
 		</table>
-	</body>
+	</center></body>
 </html>
 
 <?php

@@ -1,6 +1,36 @@
+h2{
+	color: #1490CC;
+}
+
+body {
+	background-color: #202020;
+	color: #1490CC;
+	}
+
+a:hover, a:visited, a:link, a:active
+	{
+    text-decoration: none;
+	}
+
+.basic_button{
+	background: #FF5440;
+	color: #fff;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+    border-style: solid;
+    border-color: #FF5440;
+	}
+	
+.basic_button:hover{
+	background: #CC142E;
+    border-color: #CC142E;
+	}
+
 .profile_button {
  display: block;
- background: #ee2c2c;
+ background: #FF5440;
  width: 600px;
  height: 50px;
  text-align: center;
@@ -26,7 +56,7 @@
  }
 
 .profile_button:hover {
- background: #cd2626;
+ background: #CC142E;
  
     background-image: url("profilepic.png");
 	background-size: 90px auto;
@@ -40,7 +70,7 @@
  
 .myportal_button {
  display: block;
- background: #ee2c2c;
+ background: #FF5440;
  width: 600px;
  height: 50px;
  text-align: center;
@@ -57,24 +87,5 @@
  }
  
 .myportal_button:hover {
- background: #cd2626;
+ background: #CC142E;
  }
- /*
-.regular_button {
- display: block;
- background: #ee2c2c;
- width: 60px;
- height: 3px;
- text-align: center;
- font: 1.2em/8px Verdana, Arial, Helvetica, sans-serif;
- color: #eeeeee;
- text-decoration: none;
- -webkit-border-radius: 3px;
- -khtml-border-radius: 3px;
- -moz-border-radius: 3px;
- border-radius: 3px;
- }
- 
-.regular_button:hover {
- background: #cd2626;
- }*/

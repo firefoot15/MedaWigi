@@ -3,7 +3,7 @@
 		<title>My Portal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body>
+	<body><center>
 		
 		<h2 align="center">My Portal</h2>
 		<form action="myportal.php" method="POST">
@@ -34,11 +34,9 @@
 				$personID = $row['personID'];
 				echo '<img src="data:image/png;base64,'.base64_encode( $row['profilepic'] ).'"/>';
 				?>
-					<!-- display profile buttons-->
-					<!--<link rel="stylesheet" type="text/css" media="screen" href="style.php?id=<?php //echo htmlspecialchars($personID); ?>>-->
-				
-					<a href="editperson.php?id=<?php echo htmlspecialchars($personID); ?>" class="profile_button"><?php echo htmlspecialchars($nickname); ?></a>
-					<a href="deleteperson.php?id=<?php echo htmlspecialchars($personID); ?>">Delete <?php echo htmlspecialchars($nickname); ?></a><br/>
+					<!-- display profile buttons-->				
+					<a href="editperson.php?id=<?php echo htmlspecialchars($personID); ?>" class="profile_button"><?php echo htmlspecialchars($nickname); ?></a></br>
+					<a href="deleteperson.php?id=<?php echo htmlspecialchars($personID); ?>" onClick="window.location.reload()">Delete <?php echo htmlspecialchars($nickname); ?> </a><br/></br>
 				<?php	
 			}
 		}
@@ -46,14 +44,14 @@
 		{
 			?>
 				<!-- display add person button-->
-				<a href="addperson.php" class="myportal_button">Add Person</a></br>
+				<a href="addperson.php" class="myportal_button">Add Person</a></br></br>
 			<?php
 		}
 		?>
 			<!-- display edit account button-->
-			<a href="editaccount.php" class="myportal_button">Edit Account</a></br>
+			<a href="editaccount.php" class="myportal_button">Edit Account</a></br></br>
 			<!-- display logout button-->
 			<a href="logout.php" class="myportal_button">Logout</a>
 		</form>
-	</body>
+	</center></body>
 </html>
