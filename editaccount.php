@@ -1,8 +1,3 @@
-<html>
-	<head>
-		<title>Edit Account Page</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
 			
 		<?php
 		session_start();
@@ -35,10 +30,14 @@
 		$day = substr($birthDate, 3, 2);
 		$year = substr($birthDate, 6, 2);
 		?>
-		
+<html>
+	<head>
+		<title>Edit Account Page</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>		
 	<body><center>
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="202020">
-		<th colspan="2" align="center">Edit Account</th>
+		<th colspan="2">Edit Account</th>
 		<form action="editaccount.php" method="POST">			
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" value="<?php echo $firstName; ?>" required="required" maxlength="30"/></td></tr>

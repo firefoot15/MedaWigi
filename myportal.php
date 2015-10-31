@@ -1,13 +1,15 @@
+<div id="wrapper">
 <html>
 	<head>
 		<title>My Portal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
+
+	<h2>M y P o r t a l </h2>
+	<div id="banner"></div>
 	<body><center>
-		
-		<h2 align="center">My Portal</h2>
-		<form action="myportal.php" method="POST">
-		
+		<form action="myportal.php" method="POST"></br>
+
 		<?php
 		session_start();
 		if($_SESSION['user']){ }
@@ -32,11 +34,13 @@
 				$count++;
 				$nickname = $row['nickname'];
 				$personID = $row['personID'];
-				echo '<img src="data:image/png;base64,'.base64_encode( $row['profilepic'] ).'"/>';
+				$avatarPath = $row['profilepic'];
 				?>
 					<!-- display profile buttons-->				
-					<a href="editperson.php?id=<?php echo htmlspecialchars($personID); ?>" class="profile_button"><?php echo htmlspecialchars($nickname); ?></a></br>
-					<a href="deleteperson.php?id=<?php echo htmlspecialchars($personID); ?>" onClick="window.location.reload()">Delete <?php echo htmlspecialchars($nickname); ?> </a><br/></br>
+					<a href="editperson.php?id=<?php echo htmlspecialchars($personID); ?>" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a></br>
+					
+					<!-- display delete person link-->
+					<a href="deleteperson.php?id=<?php echo htmlspecialchars($personID); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/></br>
 				<?php	
 			}
 		}
@@ -44,7 +48,7 @@
 		{
 			?>
 				<!-- display add person button-->
-				<a href="addperson.php" class="myportal_button">Add Person</a></br></br>
+				<a href="addperson.php" class="myportal_button" value="">Add Person</a></br></br>
 			<?php
 		}
 		?>
@@ -54,4 +58,4 @@
 			<a href="logout.php" class="myportal_button">Logout</a>
 		</form>
 	</center></body>
-</html>
+</html></div>

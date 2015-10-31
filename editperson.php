@@ -1,9 +1,4 @@
-<html>
-	<head>
-		<title>Edit Person Page</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-			
+	
 		<?php
 		session_start();
 		if($_SESSION['user']){ }
@@ -21,7 +16,7 @@
 		mysql_select_db("medawigi") or die("Cannot connect to database.");
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
 		$row = mysql_fetch_array($query);		
-		
+
 		$firstName = $row['firstName'];
 		$lastName = $row['lastName'];
 		$middleName = $row['middleName'];
@@ -35,10 +30,14 @@
 		$day = substr($birthDate, 3, 2);
 		$year = substr($birthDate, 6, 2);
 		?>
-		
+<html>
+	<head>
+		<title>Edit Person Page</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>		
 	<body><center>
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#202020">
-		<th colspan="2" align="center">Edit Person</th>
+		<th colspan="2">Edit Person</th>
 		<form action="editperson.php" method="POST">			
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" value="<?php echo $firstName; ?>" required="required" maxlength="30"/></td></tr>
@@ -128,7 +127,8 @@
 				<a href="myportal.php"><input type="button" value="Cancel" class="basic_button"/></a>
 				<input type="submit" value="Submit" class="basic_button"></td></tr> 
 		</form>
-		</table>
+		</table></br></br>		
+			<a href="avatar.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Change Avatar" class="basic_button"/></a></br></br>
 	</center></body>
 </html>
 
@@ -147,7 +147,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	$birthDate = $month.'-'.$day.'-'.$year;
 	$id = $_SESSION['id'];
-
+	
 	// Write to tables
 	mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', nickname='$nickname', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$id'");
 

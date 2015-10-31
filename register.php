@@ -5,7 +5,7 @@
 	</head>
 	<body><center>
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#202020">
-		<th colspan="2" align="center">Create Account</th>
+		<th colspan="2">Create Account</th>
 		<form action="register.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" required="required" maxlength="30"/></td></tr>
@@ -165,8 +165,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	{
 		mysql_query("INSERT INTO accounts (firstName, lastName, middleName, suffix, email, username, password, secretQuest, answerQuest, gender, race, birthDate) VALUES ('$firstName','$lastName','$middleName','$suffix','$email','$username','$password','$secretQuest','$answerQuest','$gender','$race','$birthDate')"); 
 		$accountID = str_pad(mysql_insert_id(), 4, '0', STR_PAD_LEFT);	
+		$avatarPath = "images/profilepic".rand(1, 16).".png";
 		
-		mysql_query("INSERT INTO persons (firstName, lastName, middleName, suffix, gender, race, birthDate, nickname, apid) VALUES ('$firstName','$lastName','$middleName','$suffix','$gender','$race','$birthDate','Me','')"); 
+		mysql_query("INSERT INTO persons (firstName, lastName, middleName, suffix, gender, race, birthDate, nickname, apid, profilepic) VALUES ('$firstName','$lastName','$middleName','$suffix','$gender','$race','$birthDate','Me','','$avatarPath')"); 
 		$personID = str_pad(mysql_insert_id(), 4, '0', STR_PAD_LEFT);	
 		$apid = $accountID.$personID;
 		mysql_query("UPDATE persons SET apid='$apid' WHERE personID = '$personID'");		
