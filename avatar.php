@@ -5,12 +5,12 @@
 		else{
 			header("location:index.php");}
 
-		$user = $_SESSION['user'];	
-		
-		// id sent from editperson.php
-		$id = isset($_GET['id']) ? $_GET['id'] : '';
-		if(!empty($_GET['id'])){
-			$_SESSION['id'] = $id;}
+		if($_SESSION['id']){ }
+		else{
+			header("location:myportal.php");}
+
+		$user = $_SESSION['user'];			
+		$id = $_SESSION['id'];	
 		
 		mysql_connect("localhost", "root","") or die(mysql_error());
 		mysql_select_db("medawigi") or die("Cannot connect to database.");
@@ -26,10 +26,12 @@
 		<title>Set Avatar</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body><center>
-		<a>Current Avatar:</a></br></br>
+	<div id="banner"></div>		
+	<body><center></br></br>
+		<h2>Pick Avatar</h2>	
+		<th>Current Avatar:</th></br></br>
 		<input type="image" src="<?php echo htmlspecialchars($avatarPath); ?>"/>
-		<table border="0" cellpadding="5" cellspacing="5" bgcolor="#202020">
+		<table border="0" cellpadding="5" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="4">Select a new avatar...</th>
 			<tr><td><img src="images/profilepic1.png"/></td>
 			<td><img src="images/profilepic2.png"/></td>
@@ -65,7 +67,7 @@
 				?>
 			</select></br></br>
 			<tr><td colspan="2" align="center">
-				<a href="myportal.php"><input type="button" value="Cancel" class="basic_button"/></a>
+				<a href="editperson.php"><input type="button" value="Cancel" class="basic_button"/></a>
 				<input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</form>		
 	</center></body>

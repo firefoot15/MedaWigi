@@ -35,8 +35,10 @@
 		<title>Edit Account Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>		
-	<body><center>
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="202020">
+	<div id="banner"></div>			
+	<body><center></br></br>
+		<h2>Edit Account</h2>	
+		<table border="0" cellpadding="2" cellspacing="5" bgcolor="1490CC">
 		<th colspan="2">Edit Account</th>
 		<form action="editaccount.php" method="POST">			
 			<tr><td>First Name: </td>

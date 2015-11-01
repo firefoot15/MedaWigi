@@ -5,12 +5,12 @@
 		else{
 			header("location:index.php");}
 
-		$user = $_SESSION['user'];	
-		
-		// id sent from myportal.php
-		$id = isset($_GET['id']) ? $_GET['id'] : '';
-		if(!empty($_GET['id'])){
-			$_SESSION['id'] = $id;}
+		if($_SESSION['id']){ }
+		else{
+			header("location:myportal.php");}
+
+		$user = $_SESSION['user'];			
+		$id = $_SESSION['id'];	
 		
 		mysql_connect("localhost", "root","") or die(mysql_error());
 		mysql_select_db("medawigi") or die("Cannot connect to database.");
@@ -34,9 +34,11 @@
 	<head>
 		<title>Edit Person Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>		
-	<body><center>
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#202020">
+	</head>	
+	<div id="banner"></div>		
+	<body><center></br></br>
+		<h2>Edit Person</h2>
+		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="2">Edit Person</th>
 		<form action="editperson.php" method="POST">			
 			<tr><td>First Name: </td>

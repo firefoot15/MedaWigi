@@ -2,6 +2,7 @@ h2{
 	position: absolute;
 	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
 	color: #202020;
+	text-align: left;	
 	width: 800px;
 	height: 300px;	
 	-ms-transform: rotate(270deg); 		/* IE 9 */
@@ -12,7 +13,8 @@ h2{
 
 body {
 	background-color: #202020;
-	color: #1490CC;
+	font: 16px Verdana, Arial, Helvetica, sans-serif;	
+	color: #202020;
 	}
 
 a:hover, a:visited, a:link, a:active
@@ -85,7 +87,7 @@ a:hover, a:visited, a:link, a:active
 	position: absolute;
 	top: 0;
 	left: 250px;
-	width: 650px;
+	width: 800px;
 	height: 100%;
 	z-index: -30;
 	background: #1490CC;

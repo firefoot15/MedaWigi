@@ -3,9 +3,11 @@
 		<title>Registration Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body><center>
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#202020">
-		<th colspan="2">Create Account</th>
+	<div id="banner"></div>			
+	<body><center></br></br>
+		<h2>Create Account</h2>	
+		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+		<th colspan="2">Sign Up!</th>
 		<form action="register.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" required="required" maxlength="30"/></td></tr>
@@ -108,7 +110,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$day = mysql_real_escape_string($_POST['day']);
 	$year = mysql_real_escape_string($_POST['year']);
 		
-
 	$bool = true;
 	$birthDate = $month.'-'.$day.'-'.$year;
 	

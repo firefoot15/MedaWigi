@@ -10,6 +10,6 @@
 		mysql_select_db("medawigi") or die("Cannot connect to database");
 		$id = $_GET['id'];
 		mysql_query("DELETE FROM journal WHERE journalID='$id'");
-		header("location:myportal.php");
+		header("location:journal.php");
 	}
 ?>
