@@ -37,7 +37,7 @@
 				$avatarPath = $row['profilepic'];
 				?>
 					<!-- display profile buttons-->				
-					<a href="editperson.php?id=<?php echo htmlspecialchars($personID); ?>" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a></br>
+					<a href="journal.php?id=<?php echo htmlspecialchars($personID); ?>" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a></br>
 					
 					<!-- display delete person link-->
 					<a href="deleteperson.php?id=<?php echo htmlspecialchars($personID); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/></br>
