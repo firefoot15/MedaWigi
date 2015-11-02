@@ -80,7 +80,10 @@
 				<select name="year">
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
 						$k=$j%100;
-						echo "<option value='$k' selected>$j</option>";}
+						if($k<10)
+							echo "<option value='0$k' selected>$j</option>";
+						else
+							echo "<option value='$k' selected>$j</option>";}
 					?>
 				</select></td></tr>
 			<tr><td>*optional</td></tr>
@@ -111,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$year = mysql_real_escape_string($_POST['year']);
 		
 	$bool = true;
-	$birthDate = $month.'-'.$day.'-'.$year;
+	$birthDate = $year.'-'.$month.'-'.$day;
 	
 	// Validate password
 	if($pass1 != $pass2)

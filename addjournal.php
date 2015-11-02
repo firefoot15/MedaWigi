@@ -56,7 +56,10 @@
 				<select name="year">
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
 						$k=$j%100;
-						echo "<option value='$k'>$j</option>";}
+						if($k<10)
+							echo "<option value='0$k'>$j</option>";
+						else
+							echo "<option value='$k'>$j</option>";}
 					?>
 				</select></td></tr>		
 			<tr><td>Time: </td>
@@ -108,7 +111,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$subject = mysql_real_escape_string($_POST['subject']);
 	$content = mysql_real_escape_string($_POST['content']);
 
-	$date = $month.'-'.$day.'-'.$year;
+	$date = $year.'-'.$month.'-'.$day;
 	if(empty($hour) || empty($minute) || empty($period))
 		$time = "";
 	else

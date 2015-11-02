@@ -21,9 +21,9 @@
 		$subject = $row['journalSubject'];
 		$content = $row['journalContent'];
 			
-		$month = substr($date, 0, 2);
-		$day = substr($date, 3, 2);
-		$year = substr($date, 6, 2);
+		$year = substr($date, 0, 2);
+		$month = substr($date, 3, 2);
+		$day = substr($date, 6, 2);
 							
 		$hour = substr($time, 0, 2);
 		$minute = substr($time, 3, 2);
@@ -74,9 +74,15 @@
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
 						$k=$j%100;
 						if($year == $k){
-							echo "<option value='$k' selected>$j</option>";}
+							if($k<10)
+								echo "<option value='0$k' selected>$j</option>";
+							else
+								echo "<option value='$k' selected>$j</option>";}
 						else{
-							echo "<option value='$k'>$j</option>";}}
+							if($k<10)
+								echo "<option value='0$k'>$j</option>";
+							else
+								echo "<option value='$k'>$j</option>";}}
 					?>
 				</select></td></tr>
 			<tr><td>Time: </td>
@@ -84,7 +90,7 @@
 					<?php for($i=13; $i>0; $i--){
 						if(empty($hour)){
 							if($i == 13){
-								echo "<option value='' selected></option>";}							
+								echo "<option value='' selected></option>";}
 							elseif($i<10){
 								echo "<option value='0$i'>0$i</option>";}
 							else{
@@ -159,7 +165,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$content = mysql_real_escape_string($_POST['content']);
 
 	$jid = $_SESSION['jid'];	
-	$date = $month.'-'.$day.'-'.$year;
+	$date = $year.'-'.$month.'-'.$day;
 	if(empty($hour) || empty($minute) || empty($period))
 		$time = "";
 	else

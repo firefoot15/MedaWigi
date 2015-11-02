@@ -26,9 +26,9 @@
 		$race = $row['race'];
 		$birthDate = $row['birthDate'];
 		
-		$month = substr($birthDate, 0, 2);
-		$day = substr($birthDate, 3, 2);
-		$year = substr($birthDate, 6, 2);
+		$year = substr($birthDate, 0, 2);
+		$month = substr($birthDate, 3, 2);
+		$day = substr($birthDate, 6, 2);
 		?>
 <html>
 	<head>
@@ -91,7 +91,7 @@
 					<option value="12"<?php if($month == '12') echo 'selected="selected"'; ?>>December</option>
 				</select>
 				<select name="day">
-					<?php for($i=31; $i>=0; $i--){ 
+					<?php for($i=31; $i>=1; $i--){ 
 						if($i == 0){
 							if($day == $i){
 								echo "<option value='' selected></option>";}
@@ -115,13 +115,21 @@
 						if(empty($year)){
 							if($i == 80){
 								echo "<option value='' selected></option>";}
+							elseif($k<10){
+								echo "<option value='0$k'>$j</option>";}	
 							else{
 								echo "<option value='$k'>$j</option>";}}
 						else{
-							if($year == $k){
-								echo "<option value='$k' selected>$j</option>";}
+							if($k<10){
+								if($year == $k){
+									echo "<option value='0$k' selected>$j</option>";}
+								else{
+									echo "<option value='0$k'>$j</option>";}}
 							else{
-								echo "<option value='$k'>$j</option>";}}}
+								if($year == $k){
+									echo "<option value='$k' selected>$j</option>";}
+								else{
+									echo "<option value='$k'>$j</option>";}}}}
 					?>
 				</select></td></tr>
 			<tr><td>*optional</td></tr>
@@ -147,7 +155,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$day = mysql_real_escape_string($_POST['day']);
 	$year = mysql_real_escape_string($_POST['year']);
 
-	$birthDate = $month.'-'.$day.'-'.$year;
+	$birthDate = $year.'-'.$month.'-'.$day;
 	$id = $_SESSION['id'];
 	
 	// Write to tables

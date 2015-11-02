@@ -26,9 +26,9 @@
 		$race = $row['race'];
 		$birthDate = $row['birthDate'];
 		
-		$month = substr($birthDate, 0, 2);
-		$day = substr($birthDate, 3, 2);
-		$year = substr($birthDate, 6, 2);
+		$year = substr($birthDate, 0, 2);
+		$month = substr($birthDate, 3, 2);
+		$day = substr($birthDate, 6, 2);
 		?>
 <html>
 	<head>
@@ -118,10 +118,16 @@
 				<select name="year">
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
 						$k=$j%100;
-						if($year == $k){
-							echo "<option value='$k' selected>$j</option>";}
+						if($k<10){
+							if($year == $k){
+								echo "<option value='0$k' selected>$j</option>";}
+							else{
+								echo "<option value='0$k'>$j</option>";}}
 						else{
-							echo "<option value='$k'>$j</option>";}}
+							if($year == $k){
+								echo "<option value='$k' selected>$j</option>";}
+							else{
+								echo "<option value='$k'>$j</option>";}}}		
 					?>
 				</select></td></tr>
 			<tr><td>*optional</td></tr>
@@ -152,7 +158,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$year = mysql_real_escape_string($_POST['year']);
 		
 	$bool = true;
-	$birthDate = $month.'-'.$day.'-'.$year;
+	$birthDate = $year.'-'.$month.'-'.$day;
 	
 	// Validate password
 	if($pass1 != $pass2)

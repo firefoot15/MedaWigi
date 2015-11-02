@@ -25,7 +25,7 @@
 	<style>
 		table, th, td{
 			width: 550px;
-			font-size: 10px;
+			font-size: 12px;
 		}
 	</style>
 	<div id="banner"></div>	
