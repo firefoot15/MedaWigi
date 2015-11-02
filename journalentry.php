@@ -14,8 +14,17 @@
 		mysql_connect("localhost", "root","") or die(mysql_error()); 
 		mysql_select_db("medawigi") or die("Cannot connect to database");
 		$query = mysql_query("Select * from journal Where journalID='$jid'"); 
-		$row = mysql_fetch_array($query);	
+		$row = mysql_fetch_array($query);
+
+		$date = $row['journalDate'];
+		$time = $row['journalTime'];
+		$subject = $row['journalSubject'];
 		
+		$year = substr($date, 0, 2);
+		$month = substr($date, 3, 2);
+		$day = substr($date, 6, 2);		
+		
+		$reformatted_date = $month.'-'.$day.'-'.$year;
 		?>
 <html>
 	<head>
@@ -31,6 +40,15 @@
 	<div id="banner"></div>	
 	<body><center></br></br>
 		<h2>View Entry</h2>
+		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+		<th colspan="2">Current Entry</th>		
+			<tr><td>Date: </td>
+				<td><?php echo htmlspecialchars($reformatted_date); ?></td></tr>	
+			<tr><td>Time: </td>
+				<td><?php echo htmlspecialchars($time); ?></td></tr>					
+			<tr><td>Subject: </td>
+				<td><?php echo htmlspecialchars($subject); ?></td></tr>			
+		</table>
 		<table border="1px" font color="#202020">		
 			<?php
 					// Output table entries

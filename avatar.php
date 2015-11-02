@@ -67,7 +67,7 @@
 				?>
 			</select></br></br>
 			<tr><td colspan="2" align="center">
-				<a href="editperson.php"><input type="button" value="Cancel" class="basic_button"/></a>
+				<a href="editperson.php"><input type="button" value="Done" class="basic_button"/></a>
 				<input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</form>		
 	</center></body>
@@ -82,6 +82,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	mysql_query("UPDATE persons SET profilepic='$avatarPath' WHERE personID = '$id'");
 
 	Print '<script>alert("Successfully changed!");</script>';
-	Print '<script>window.location.assign("myportal.php");</script>'; 
+	Print '<script>window.location.assign("avatar.php");</script>'; 
 }
 ?> 

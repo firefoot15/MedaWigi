@@ -37,7 +37,7 @@
 				$_SESSION['id'] = $row['personID'];
 				?>
 					<!-- display profile buttons-->				
-					<a href="journal.php" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a></br>
+					<a href="personhome.php" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a></br>
 					
 					<!-- display delete person link-->
 					<a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/></br>

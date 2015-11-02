@@ -134,7 +134,7 @@
 				</select></td></tr>
 			<tr><td>*optional</td></tr>
 			<tr><td colspan="2" align="center">
-				<a href="myportal.php"><input type="button" value="Cancel" class="basic_button"/></a>
+				<a href="personhome.php"><input type="button" value="Cancel" class="basic_button"/></a>
 				<input type="submit" value="Submit" class="basic_button"></td></tr> 
 		</form>
 		</table></br></br>		
