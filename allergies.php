@@ -12,6 +12,7 @@
 		$user = $_SESSION['user'];			
 		$id = $_SESSION['id'];	
 		?>
+			<!-- View allergies form-->
 <html>
 	<head>
 		<title>Allergies</title>
@@ -60,9 +61,9 @@
 				Print "</tr>";
 			}	
 			?>
-
+			<!-- Add allergies form-->
 		</table></br>
-		<form action="addallergy.php" method="POST">	
+		<form action="allergies.php" method="POST">	
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="2">New Entry</th>		
 			<tr><td>Name: </td>
@@ -83,8 +84,8 @@
 		</table></br>
 		
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
-		<th colspan="3"></th>		
-			<tr><td></td>			
+		<th colspan="4"></th>		
+			<tr><td></td><td></td>			
 				<td><a href="personhome.php"><input type="button" value="Done" class="basic_button"/></a></td>
 				<td><input type="submit" value="Add Entry" class="basic_button"></td></tr> 			
 		</table>		
@@ -101,3 +102,16 @@
 		</script>		
 	</center></body>
 </html>
+
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){ 
+	$name = mysql_real_escape_string($_POST['name']);
+	$type = mysql_real_escape_string($_POST['type']);
+	$severity = mysql_real_escape_string($_POST['severity']);
+
+	mysql_query("INSERT INTO allergies (allergyName, allergyType, allergySeverity, apid) VALUES ('$name','$type','$severity','$apid')"); 	
+
+	Print '<script>alert("Successfully added!");</script>';
+	Print '<script>window.location.assign("allergies.php");</script>'; 
+}
+?>
