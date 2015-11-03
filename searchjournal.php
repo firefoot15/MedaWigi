@@ -1,3 +1,6 @@
+		<!-- --------------------------------------------------------------------- -->	
+		<!-- need if statement in edit/delete/view to specify which page to return -->
+		<!-- --------------------------------------------------------------------- -->		
 		
 		<?php
 		session_start();
@@ -11,7 +14,29 @@
 
 		$user = $_SESSION['user'];			
 		$id = $_SESSION['id'];	
-		// $subjectArray = $_POST['result'];	
+		
+		mysql_connect("localhost", "root","") or die(mysql_error());
+		mysql_select_db("medawigi") or die("Cannot connect to database.");
+		$query = mysql_query("Select * from persons WHERE personID = '$id'");	
+		$row = mysql_fetch_array($query);			
+
+		$subjectArray = array();			
+		$apid = $row['apid'];			
+		$query = mysql_query("Select * from journal WHERE apid = '$apid' ORDER BY journalDate ASC, journalTime ASC");
+		while($row = mysql_fetch_array($query))
+		{
+			// added to pass subject array to searchjournal.php
+			$flag = true;
+			if(empty($subjectArray))
+				array_push($subjectArray, $row['journalSubject']);
+			for($i = 0; $i < count($subjectArray); $i++){
+				if($subjectArray[$i] == $row['journalSubject'])
+					$flag = false;}
+			if($flag)
+				array_push($subjectArray, $row['journalSubject']);		
+			
+			sort($subjectArray);
+		}
 		?>
 <html>
 	<head>
@@ -26,19 +51,17 @@
 	</style>	
 	<div id="banner"></div>	
 	<body><center></br></br>
-		<h2>Journal Entries</h2>	
+		<h2>Search Journal</h2>	
+		<form action="searchjournal.php?criteria" method="POST">		
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="2">Basic Search</th>
-		<form action="searchjournal.php?criteria" method="POST">
 			<tr><td>Subject: </td>
-				<!--<td><select name="subjectChoice">
-					<?php /*for($i=0; $i < count($subjectArray); $i++){							
+				<td><select name="subjectChoice">
+					<?php for($i=0; $i < count($subjectArray); $i++){							
 						echo "<option value='$subjectArray[$i]'>$subjectArray[$i]</option>";}
-						*/
+						
 					?>				
-				</select></td></tr>	-->	
-			
-				<td><input type="text" name="subjectChoice"/></td></tr>	
+				</select></td></tr>
 			<tr><td>From: </td>
 				<td><select name="monthChoice1">
 					<option value="01">January</option>
@@ -94,13 +117,18 @@
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
 						echo "<option value='$j'>$j</option>";}
 					?>
-				</select></td></tr>		
-			<tr><td></td><td><input type="submit" name="submit" value="Search" class="basic_button"/></td></tr>
-			<tr><td></td><td><a href="journal.php"><input type="button" value="Reset" class="basic_button"/></a></td></tr>			
-			
-			
-		</form>		
+				</select></td></tr>	
+
+		</table></br>		
+		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+		<th colspan="4"></th>
+			<tr><td></td>
+				<td></td>
+				<td><a href="journal.php"><input type="button" value="Done" class="basic_button"/></a></td>
+				<td><input type="submit" name="submit" value="Search" class="basic_button"/></td></tr>
+		
 		</table>
+		</form>			
 		<script>
 			function deleteFunction(id)
 			{
@@ -137,12 +165,7 @@
 			$start_date = $year1.'-'.$month1.'-'.$day1;
 			$end_date = $year2.'-'.$month2.'-'.$day2;
 			
-			mysql_connect("localhost", "root","") or die(mysql_error());
-			mysql_select_db("medawigi") or die("Cannot connect to database.");
-			$query = mysql_query("Select * from persons WHERE personID = '$id'");	
-			$row = mysql_fetch_array($query);				
-			$apid = $row['apid'];			
-			$query = mysql_query("Select * from journal WHERE apid = '$apid' AND journalSubject = '$topic'");
+			$query = mysql_query("Select * from journal WHERE apid = '$apid' AND journalSubject = '$topic' ORDER BY journalDate ASC, journalTime ASC");
 			while($row = mysql_fetch_array($query)){
 					
 				$date = $row['journalDate'];
@@ -153,6 +176,9 @@
 				$year = substr($date, 0, 2);
 				$month = substr($date, 3, 2);
 				$day = substr($date, 6, 2);
+				
+				$reformatted_date = $month.'-'.$day.'-'.$year;
+				
 				if($year <= date("Y")%100)
 					$table_date = '20'.$year.'-'.$month.'-'.$day;	
 				else
@@ -162,13 +188,13 @@
 
 				// Output table entries
 				Print "<tr>";
-					Print '<td align="center">'.$row['journalDate']."</td>";
-					Print '<td align="center">'.$row['journalTime']."</td>"; 
-					Print '<td align="center">'.$row['journalSubject']."</td>";
-					Print '<td align="center"><a href="journalentry.php?id='.$row['journalID'].'"><img src="images/viewButton.png" height="13" width="13"/></a> </td>';
+					Print '<td align="center">'.$reformatted_date."</td>";
+					Print '<td align="center">'.$time."</td>"; 
+					Print '<td align="center">'.$subject."</td>";
+					Print '<td align="center"><a href="viewjournal.php?id='.$row['journalID'].'"><img src="images/viewButton.png" height="13" width="13"/></a> </td>';
 					Print '<td align="center"><a href="editjournal.php?id='.$row['journalID'].'"><img src="images/editButton.png" height="11" width="11"/></a> </td>';
 					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['journalID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a> </td>';
-				Print "</tr>";			
+				Print "</tr>";		
 				}
 			}
 		}

@@ -1,4 +1,8 @@
-			
+<!-- 	EDIT ACCOUNT PAGE
+		User account edit form
+		Input validation - especially password, username, email
+		Only updates accounts table
+ -->			
 		<?php
 		session_start();
 		if($_SESSION['user']){ }
@@ -12,7 +16,7 @@
 		$query = mysql_query("Select * from accounts WHERE username = '$user'");
 		$row = mysql_fetch_array($query);
 
-		$accountID = $accountID = str_pad($row['accountID'], 4, '0', STR_PAD_LEFT);
+		$accountID = $row['accountID'];
 		$firstName = $row['firstName'];
 		$lastName = $row['lastName'];
 		$middleName = $row['middleName'];
@@ -211,20 +215,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($bool) 
 	{
 		mysql_query("UPDATE accounts SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', email='$email', username='$username', password='$password', secretQuest='$secretQuest', answerQuest='$answerQuest', gender='$gender', race='$race', birthDate='$birthDate' WHERE accountID = '$accountID'");
-
-		// It will be necessary to remove this later, it is dependent on the default nickname
-		$query = mysql_query("Select * from persons");
-		while($row = mysql_fetch_array($query))
-		{
-			$table_id = $row['personID'];   		
-			$table_aid = substr($row['apid'], 0, 4);
-			$table_nn = $row['nickname']; 		
-			if($accountID == $table_aid && 'Me' == $table_nn)
-			{
-				$personID = $row['personID'];
-				mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$personID'");	
-			}
-		}
 
 		Print '<script>alert("Successfully changed!");</script>';
 		Print '<script>window.location.assign("myportal.php");</script>'; 

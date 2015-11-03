@@ -1,4 +1,9 @@
-	
+<!-- 	EDIT PERSON PAGE
+		Edit form for individual profiles
+		General input validation, no account information
+		Link to avatar page
+		Only updates persons table
+ -->		
 		<?php
 		session_start();
 		if($_SESSION['user']){ }

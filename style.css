@@ -1,10 +1,10 @@
 h2{
 	position: absolute;
 	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
-	color: #202020;
+	color: #1490CC;
 	text-align: left;	
-	width: 800px;
-	height: 300px;	
+	width: 788px;    
+	height: 450px;	
 	-ms-transform: rotate(270deg); 		/* IE 9 */
 	-moz-transform: rotate(270deg); 	/* Firefox */
 	-webkit-transform: rotate(270deg); 	/* Safari & Chrome */
@@ -38,6 +38,24 @@ a:hover, a:visited, a:link, a:active
     border-color: #CC142E;
 	}
 
+.basic_button2{
+	display: block;
+	background: #FF5440;
+	color: #fff;
+	width: 160px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+    border-style: solid;
+    border-color: #FF5440;
+	}
+
+.basic_button2:hover{
+	background: #CC142E;
+    border-color: #CC142E;
+	}
+	
 .profile_button {
 	display: block;
 	background: #FF5440;

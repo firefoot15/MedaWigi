@@ -4,7 +4,7 @@
 		if($_SESSION['user']){ }
 		else{
 			header("location:index.php");}
-
+				
 		if(!empty($_GET['id'])){
 			$_SESSION['jid'] = $_GET['id'];}
 			
@@ -38,9 +38,9 @@
 	<div id="banner"></div>		
 	<body><center></br></br>
 		<h2>Edit Entry</h2>	
+		<form action="editjournal.php" method="POST">		
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="2">Edit Entry</th>		
-		<form action="editjournal.php" method="POST">
 			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01"<?php if($month == '01') echo 'selected="selected"'; ?>>January</option>
@@ -142,14 +142,15 @@
 			<tr><td>Subject: </td>
 				<td><input type="text" name="subject" value="<?php echo $subject; ?>" maxlength="30"/></td></tr>
 			<tr><td>Content: </td>
-				<td><textarea rows="20" cols="50" type="text" name="content" required="required" maxlength="1000"><?php echo $content; ?></textarea></td></tr>			
-			<tr><td colspan="2" align="center">
-				<a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a>
-				<input type="submit" value="Submit" class="basic_button"></td></tr> 	
-				
-				<!-- content size not registering at all-->
+				<td><textarea rows="20" cols="50" type="text" name="content" required="required" maxlength="1000"><?php echo $content; ?></textarea></td></tr>		
+		</table></br>
+		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+		<th colspan="3"></th>		
+			<tr><td></td>
+				<td><a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
+				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 	
+		</table>		
 		</form>
-		</table>
 	</center></body>
 </html>
 

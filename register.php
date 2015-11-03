@@ -1,3 +1,9 @@
+<!-- 	REGISTRATION PAGE
+		User account registration form
+		Input validation - especially password, username, email
+		Write to both accounts and persons tables
+ -->
+
 <html>
 	<head>
 		<title>Registration Page</title>

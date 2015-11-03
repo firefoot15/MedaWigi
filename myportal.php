@@ -1,3 +1,10 @@
+<!-- 	MY PORTAL
+		Home page for account
+		Selection of profiles to view/delete
+		Caps number of profiles at 10
+		Edit account, add person & logout option
+ -->		
+
 <div id="wrapper">
 <html>
 	<head>
@@ -5,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 
-	<h2>M y P o r t a l</h2>
+	<h2>My Portal</h2>
 	<div id="banner"></div>
 	<body><center>
 		<form action="myportal.php" method="POST"></br>
@@ -34,6 +41,8 @@
 				$count++;
 				$nickname = $row['nickname'];
 				$avatarPath = $row['profilepic'];
+				
+				// Create session ID	
 				$_SESSION['id'] = $row['personID'];
 				?>
 					<!-- display profile buttons-->				
