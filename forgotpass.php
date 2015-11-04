@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Forgot Your Password</title>
+        <title>Forgot Your Password?</title>
     </head>
     <body>
         <h2>Forgot Your Password?</h2><br/>
