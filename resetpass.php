@@ -7,6 +7,10 @@
 	</head>
 	<body>
 		<?php
+        include 'connect.php';
+        
+        session_start();
+        
 		$passError = $confirmPassError = "";
 		$password = $confirmPass = "";
 
@@ -18,29 +22,30 @@
 			if(empty($_POST["confirmPass"])) {
 				$confirmPassError = "Please confirm the new password.";
 			}
+            if($_SESSION['id']){
+			     }
 
-			if($_POST["cancel"]) {
-				header("location: index.php");
-			}
 
 			else {
 				$password = mysql_real_escape_string($_POST['password']);
 				$confirmPass = mysql_real_escape_string($_POST['confirmPass']);
-				$email = mysql_real_escape_string($_POST['email']);
-				$bool = true;
+				$email = isset($_GET['sessionEmail']) ? $_GET['sessionEmail']:'';
+                
+                if(!empty($_GET['sessionEmail'])) {$_SESSION['sessionEmail']=$email;}
 
-				mysql_connect("localhost", "root", "") or die(mysql_error());
-				mysql_select_db("medawigi") or die("Cannot connect to database.");
 				$query = mysql_query("SELECT * from accounts WHERE email='$email'");
-				$table_emails = "";
+				
+                $exists = mysql_num_rows($query);
+                if($exists >0) {
+                    while($row = mysql_fetch_assoc($query)){
+                        $table_users = $row['email'];
+                        if($email == $table_users) {
+                            $query2 = mysql_query("UPDATE accounts SET password=$password");
+                        }
+                    }
+                }
 
-				while($row = mysql_fetch_assoc($query)) {
-					$table_emails = $row['email'];
-					
-					if($email == $table_emails) {
-						Print'<script>alert("The password is reset.");</script>';
-					}
-				}
+				
 
 			}
 		}
@@ -52,7 +57,7 @@
 			<span class="error">* <?php echo $passError;?></span><br/>
 			Confirm Password: <input type"text" name="confirmPass" value="<?php echo $confirmPass;?>"/>
 			<span class="error">* <?php echo $confirmPassError;?></span><br/>
-			<input type="submit" name"cancel" value="Cancel"/>
+			<input type="button" name"cancel" value="Cancel" />
 			<input type="submit" name="submit" value="Submit"/>
 		</form>
 		<span class="error">* Required field.</span>
