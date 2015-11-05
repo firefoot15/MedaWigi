@@ -1,5 +1,6 @@
 		
 		<?php
+        include 'connect.php';
 		session_start();
 		if($_SESSION['user']){ }
 		else{
@@ -26,7 +27,8 @@
 	</style>
 	<div id="banner"></div>	
 	<body><center></br></br>
-		<h2>Allergies</h2>			
+		<h2>Allergies</h2>		
+        <div class="wrapper">    
 		<table border="1px" font color="#202020">
 			<tr>
 				<th>Name</th>
@@ -36,8 +38,6 @@
 				<th>Delete</th>				
 			</tr>				
 			<?php
-			mysql_connect("localhost", "root","") or die(mysql_error());
-			mysql_select_db("medawigi") or die("Cannot connect to database.");
 			$query = mysql_query("Select * from persons WHERE personID = '$id'");	
 			$row = mysql_fetch_array($query);	
 			$count = mysql_num_rows($query);						
@@ -100,7 +100,7 @@
 				}
 			}
 		</script>		
-	</center></body>
+    </div></center></body>
 </html>
 
 <?php

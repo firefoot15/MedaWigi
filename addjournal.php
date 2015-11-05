@@ -1,5 +1,6 @@
 	
 		<?php
+        include 'connect.php';
 		session_start();
 		if($_SESSION['user']){ }
 		else{
@@ -12,8 +13,6 @@
 		$user = $_SESSION['user'];			
 		$id = $_SESSION['id'];	
 			
-		mysql_connect("localhost", "root","") or die(mysql_error()); 
-		mysql_select_db("medawigi") or die("Cannot connect to database"); 
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
 		$row = mysql_fetch_array($query);		
 		$apid = $row['apid'];	
@@ -27,6 +26,7 @@
 	<div id="banner"></div>		
 	<body><center></br></br>
 		<h2>New Entry</h2>	
+        <div class="wrapper">      
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="2">New Entry</th>		
 		<form action="addjournal.php" id="usrform" method="POST">
@@ -97,7 +97,7 @@
 				<input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</form>
 		</table>
-	</center></body>
+    </div></center></body>
 </html>		
 
 <?php

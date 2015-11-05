@@ -1,5 +1,6 @@
 		
 		<?php
+        include 'connect.php';
 		session_start();
 		if($_SESSION['user']){ }
 		else{
@@ -11,8 +12,6 @@
 		$user = $_SESSION['user'];			
 		$jid = $_SESSION['jid'];
 		
-		mysql_connect("localhost", "root","") or die(mysql_error()); 
-		mysql_select_db("medawigi") or die("Cannot connect to database");
 		$query = mysql_query("Select * from journal Where journalID='$jid'"); 
 		$row = mysql_fetch_array($query);
 
@@ -33,13 +32,14 @@
 	</head>	
 	<style>
 		table, th, td{
-			width: 550px;
+			width: 500px;
 			font-size: 12px;
 		}
 	</style>
 	<div id="banner"></div>	
 	<body><center></br></br>
 		<h2>View Entry</h2>
+        <div class="wrapper">    
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="2">Current Entry</th>		
 			<tr><td>Date: </td>
@@ -60,5 +60,5 @@
 			<tr><td colspan="2" align="center">
 				<a href="journal.php"><input type="button" value="Done" class="basic_button"/></a></tr></td>
 		</table>	
-	</center></body>
+    </div></center></body>
 </html>

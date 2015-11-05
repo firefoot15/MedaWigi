@@ -5,19 +5,19 @@
 		Edit account, add person & logout option
  -->		
 
-<div id="wrapper">
 <html>
 	<head>
 		<title>My Portal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-
 	<h2>My Portal</h2>
+    <div class="wrapper">
 	<div id="banner"></div>
-	<body><center>
+	<body><center>    
 		<form action="myportal.php" method="POST"></br>
-
 		<?php
+        
+        include 'connect.php'; 
 		session_start();
 		if($_SESSION['user']){ }
 		else{
@@ -25,8 +25,6 @@
 
 		$user = $_SESSION['user'];
 
-		mysql_connect("localhost", "root","") or die(mysql_error());
-		mysql_select_db("medawigi") or die("Cannot connect to database.");
 		$query = mysql_query("Select * from accounts WHERE username = '$user'");
 		$row = mysql_fetch_array($query);
 		$accountID = $row['accountID'];
@@ -66,5 +64,5 @@
 			<!-- display logout button-->
 			<a href="logout.php" class="myportal_button">Logout</a>
 		</form>
-	</center></body>
-</html></div>
+    </center></body></div>
+</html>

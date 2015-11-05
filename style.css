@@ -1,14 +1,16 @@
-h2{
+h2 {
 	position: absolute;
 	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
 	color: #1490CC;
-	text-align: left;	
-	width: 788px;    
-	height: 450px;	
+	width: 1000px;   
+	height: 100px;
+    text-align: left;
 	-ms-transform: rotate(270deg); 		/* IE 9 */
 	-moz-transform: rotate(270deg); 	/* Firefox */
 	-webkit-transform: rotate(270deg); 	/* Safari & Chrome */
 	-o-transform: rotate(270deg); 		/* Opera */
+    margin-top: 10%;
+    margin-left: -281px;    
 	}
 
 body {
@@ -22,7 +24,7 @@ a:hover, a:visited, a:link, a:active
     text-decoration: none;
 	}
 
-.basic_button{
+.basic_button {
 	background: #FF5440;
 	color: #fff;
 	-webkit-border-radius: 2px;
@@ -33,12 +35,12 @@ a:hover, a:visited, a:link, a:active
     border-color: #FF5440;
 	}
 	
-.basic_button:hover{
+.basic_button:hover {
 	background: #CC142E;
     border-color: #CC142E;
 	}
 
-.basic_button2{
+.basic_button2 {
 	display: block;
 	background: #FF5440;
 	color: #fff;
@@ -51,11 +53,11 @@ a:hover, a:visited, a:link, a:active
     border-color: #FF5440;
 	}
 
-.basic_button2:hover{
+.basic_button2:hover {
 	background: #CC142E;
     border-color: #CC142E;
 	}
-	
+
 .profile_button {
 	display: block;
 	background: #FF5440;
@@ -70,8 +72,6 @@ a:hover, a:visited, a:link, a:active
 	-moz-border-radius: 30px;
 	border-top-right-radius: 30px;
 	border-bottom-right-radius: 30px;
-	margin-left: auto;
-	margin-right: auto;
 	}
 
 .profile_button:hover {
@@ -93,15 +93,17 @@ a:hover, a:visited, a:link, a:active
 	-moz-border-radius: 30px;
 	border-top-right-radius: 30px;
 	border-bottom-right-radius: 30px;
-	margin-left: auto;
-	margin-right: auto;
 	}
  
 .myportal_button:hover {
 	background: #CC142E;
 	}
-	
-#banner{ 
+
+.wrapper {
+    width: 1024;
+    }
+
+#banner { 
 	position: absolute;
 	top: 0;
 	left: 250px;
@@ -109,9 +111,5 @@ a:hover, a:visited, a:link, a:active
 	height: 100%;
 	z-index: -30;
 	background: #1490CC;
-	}
-	
-#wrapper {
-    margin-left:auto;
-    margin-right:auto;
+    overflow: hidden;
 	}

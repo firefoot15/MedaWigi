@@ -1,5 +1,6 @@
 	
 		<?php
+        include 'connect.php';
 		session_start();
 		if($_SESSION['user']){ }
 		else{
@@ -12,8 +13,6 @@
 		$user = $_SESSION['user'];			
 		$id = $_SESSION['id'];	
 		
-		mysql_connect("localhost", "root","") or die(mysql_error());
-		mysql_select_db("medawigi") or die("Cannot connect to database.");
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
 		$row = mysql_fetch_array($query);		
 		
@@ -29,6 +28,7 @@
 	<div id="banner"></div>		
 	<body><center></br></br>
 		<h2>Pick Avatar</h2>	
+        <div class="wrapper">
 		<th>Current Avatar:</th></br></br>
 		<input type="image" src="<?php echo htmlspecialchars($avatarPath); ?>"/>
 		<table border="0" cellpadding="5" cellspacing="5" bgcolor="#1490CC">
@@ -70,7 +70,7 @@
 				<a href="editperson.php"><input type="button" value="Done" class="basic_button"/></a>
 				<input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</form>		
-	</center></body>
+    </div></center></body>
 </html>		
 
 <?php

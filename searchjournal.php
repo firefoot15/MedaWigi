@@ -3,6 +3,7 @@
 		<!-- --------------------------------------------------------------------- -->		
 		
 		<?php
+        include 'connect.php';
 		session_start();
 		if($_SESSION['user']){ }
 		else{
@@ -15,8 +16,6 @@
 		$user = $_SESSION['user'];			
 		$id = $_SESSION['id'];	
 		
-		mysql_connect("localhost", "root","") or die(mysql_error());
-		mysql_select_db("medawigi") or die("Cannot connect to database.");
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");	
 		$row = mysql_fetch_array($query);			
 
@@ -45,13 +44,14 @@
 	</head>	
 	<style>
 		table, th, td{
-			width: 550px;
+			width: 500px;
 			font-size: 12px;
 		}
 	</style>	
 	<div id="banner"></div>	
 	<body><center></br></br>
 		<h2>Search Journal</h2>	
+        <div class="wrapper">    
 		<form action="searchjournal.php?criteria" method="POST">		
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="2">Basic Search</th>
@@ -211,5 +211,5 @@
 
 		
 
-	</center></body>
+    </div></center></body>
 </html>	

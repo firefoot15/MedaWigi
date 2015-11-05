@@ -11,17 +11,18 @@
 	</head>
 	<div id="banner"></div>			
 	<body><center></br></br>
-		<h2>Create Account</h2>	
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+		<h2>Create Account</h2>
+        <div class="wrapper">    
+		<table class="table1" cellpadding="2" cellspacing="5">
 		<th colspan="2">Sign Up!</th>
 		<form action="register.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" required="required" maxlength="30"/></td></tr>
-			<tr><td>Middle Initial*: </td>
+			<tr><td>Middle Initial: </td>
 				<td><input type="text" name="middleName" maxlength="1"/></td></tr>
 			<tr><td>Last Name: </td>
 				<td><input type="text" name="lastName" required="required" maxlength="30"/></td></tr>
-			<tr><td>Suffix*: </td>
+			<tr><td>Suffix: </td>
 				<td><select name="suffix">
 					<option value=""></option>
 					<option value="Jr">Jr</option>
@@ -92,16 +93,18 @@
 							echo "<option value='$k' selected>$j</option>";}
 					?>
 				</select></td></tr>
-			<tr><td>*optional</td></tr>
-			<tr><td colspan="2" align="center">
-				<a href="index.php"><input type="button" value="Cancel" class="basic_button"/></a>
+			<tr><td></td></tr>
+            <tr><td></td>
+				<td><a href="index.php"><input type="button" value="Cancel" class="basic_button"/></a>
 				<input type="submit" value="Submit" class="basic_button"></td></tr>
 		</form>
 		</table>
-	</center></body>
+    </div></center></body>
 </html>
 
 <?php
+include 'connect.php'; 
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$firstName = mysql_real_escape_string($_POST['firstName']);
 	$lastName = mysql_real_escape_string($_POST['lastName']);
@@ -149,8 +152,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 	
 	// Check accounts table for duplicates
-	mysql_connect("localhost", "root", "") or die(mysql_error()); 
-	mysql_select_db("medawigi") or die("Cannot connect to database."); 
 	$query = mysql_query("Select * from accounts"); 
 	while($row = mysql_fetch_array($query)) 
 	{
@@ -173,7 +174,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	// Write to tables
 	if($bool) 
 	{
-		mysql_query("INSERT INTO accounts (firstName, lastName, middleName, suffix, email, username, password, secretQuest, answerQuest, gender, race, birthDate) VALUES ('$firstName','$lastName','$middleName','$suffix','$email','$username','$password','$secretQuest','$answerQuest','$gender','$race','$birthDate')"); 
+		mysql_query("INSERT INTO accounts (firstName, lastName, middleName, suffix, email, username, password, secretQuest, answerQuest) VALUES ('$firstName','$lastName','$middleName','$suffix','$email','$username','$password','$secretQuest','$answerQuest')"); 
 		$accountID = str_pad(mysql_insert_id(), 4, '0', STR_PAD_LEFT);	
 		$avatarPath = "images/profilepic".rand(1, 16).".png";
 		

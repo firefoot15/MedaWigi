@@ -1,5 +1,6 @@
 	
 		<?php
+        include 'connect.php';
 		session_start();
 		if($_SESSION['user']){ }
 		else{
@@ -11,8 +12,6 @@
 		$user = $_SESSION['user'];			
 		$aid = $_SESSION['aid'];
 		
-		mysql_connect("localhost", "root","") or die(mysql_error()); 
-		mysql_select_db("medawigi") or die("Cannot connect to database");
 		$query = mysql_query("Select * from allergies Where allergyID='$aid'"); 
 		$row = mysql_fetch_array($query);
 		
@@ -28,6 +27,7 @@
 	<div id="banner"></div>		
 	<body><center></br></br>
 		<h2>Edit Entry</h2>	
+        <div class="wrapper">    
 		<form action="editallergy.php" method="POST">			
 		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="2">Edit Entry</th>					
@@ -54,7 +54,7 @@
 				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</table>
 		</form>		
-	</center></body>
+    </div></center></body>
 </html>
 
 <?php
