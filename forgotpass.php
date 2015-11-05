@@ -10,7 +10,7 @@
                    <input type="button" name="cancel" value="Cancel" onclick="document.location.href='index.php'"/>
         </form><br/><br/>
         
-        <form id="secretcheck" action="forgotpass.php" method="POST"> 
+        <form id="secretcheck" action="forgotpass.php" style="display:none;" method="POST"> 
             What is your stripper name?: <input type="text" id="secretquestionform" name="secretquestionform" required="required"/>
             <input type="submit" name="secretsubmit" />
             <input type="button" name="secretcancel" value="Cancel" />
