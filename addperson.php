@@ -51,10 +51,11 @@ include 'connect.php';
 session_start();
 
 //Check to see if user is the same
-if($_SESSION['user']){ }
+if($_SESSION['user']){}
 		else{
 			header("location:index.php");
         }
+
 //Store username that's logged in        
 $user = $_SESSION['user'];
 
