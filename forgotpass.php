@@ -38,12 +38,13 @@ if(isset($_POST['submit'])){
             $table_users = $row['sessionEmail'];
             if($sessionEmail == $table_users)
             {
-                $bool = false;
                 Print'<script>alert("This email is currently in use!");</script>';
             }
             else{
                 $bool = false;
+                if(!$bool){
                 Print'<script>alert("This email is currently not in use");</script>';
+                }
             }
         }
         
