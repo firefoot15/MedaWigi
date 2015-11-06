@@ -1,0 +1,139 @@
+h2 {
+	position: absolute;
+	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
+	color: #fff;
+	width: 1000px;   
+	height: 100px;
+    text-align: left;
+	-ms-transform: rotate(270deg); 		/* IE 9 */
+	-moz-transform: rotate(270deg); 	/* Firefox */
+	-webkit-transform: rotate(270deg); 	/* Safari & Chrome */
+	-o-transform: rotate(270deg); 		/* Opera */
+    margin-top: 10%;
+    margin-left: -281px;    
+	}
+
+body {
+	background-color: #202020;
+	font: 16px Verdana, Arial, Helvetica, sans-serif;	
+	color: #202020;
+	}
+
+a:hover, a:visited, a:link, a:active
+	{
+    text-decoration: none;
+	}
+
+.basic_button {
+	background: #ee2c2c;
+	color: #fff;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+    border-style: solid;
+    border-color: #ee2c2c;
+	}
+	
+.basic_button:hover {
+	background: #cd2626;
+    border-color: #cd2626;
+	}
+
+.basic_button2 {
+	display: block;
+	background: #ee2c2c;
+	color: #fff;
+	width: 160px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+    border-style: solid;
+    border-color: #ee2c2c;
+	}
+
+.basic_button2:hover {
+	background: #cd2626;
+    border-color: #cd2626;
+	}
+
+.profile_button {
+	display: block;
+	background: #ee2c2c;
+	width: 400px;
+	height: 70px;
+	text-align: left;
+	padding: 0 0 0 0;
+	font: 3.2em/12px Verdana, Arial, Helvetica, sans-serif;
+	color: #fff;
+	-webkit-border-radius: 30px;
+	-khtml-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	}
+
+.profile_button:hover {
+	background: #cd2626;
+	}
+ 
+.myportal_button {
+    display: block;
+	background: #ee2c2c;
+	width: 400px;
+	height: 70px;
+    text-align: left;
+	text-indent: 20px;
+	padding: 0 0 0 0;
+    font: 3.2em/100px Verdana, Arial, Helvetica, sans-serif;     
+    color: #fff;
+	-webkit-border-radius: 30px;
+	-khtml-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	}
+ 
+.myportal_button:hover {
+	background: #cd2626;
+	}
+
+.table1 {
+    border: 0;
+    background: #fff;
+    color: #202020;
+    }
+
+.table1 td:first-child {
+    text-align: right;
+    }
+
+.table2 {
+    border: 0;
+    background: #fff;
+    color: #202020;
+    width: 500px;    
+    }
+
+.table3 {
+    background: #fff;
+    color: #202020;
+    font-size: 12px;
+    width: 500px;
+    }
+
+.wrapper {
+    width: 1024;
+    }
+
+#banner { 
+	position: absolute;
+	top: 0;
+	left: 250px;
+	width: 800px;
+	height: 100%;
+	z-index: -30;
+	background: #fff;
+    overflow: hidden;
+	}
