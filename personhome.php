@@ -11,12 +11,15 @@
 		else{
 			header("location:index.php");}
 
-		if($_SESSION['id']){ }
+		if($_GET['id']){ }
 		else{
 			header("location:myportal.php");}
 
 		$user = $_SESSION['user'];			
-		$id = $_SESSION['id'];	
+		$id = $_GET['id'];	
+
+            // Create sessionID	
+			$_SESSION['id'] = $id;    
 		
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
 		$row = mysql_fetch_array($query);			

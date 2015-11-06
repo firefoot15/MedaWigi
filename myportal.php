@@ -49,17 +49,14 @@
             $query = mysql_query("Select * from persons WHERE personID = '$idArray[$j]'");
             $row = mysql_fetch_array($query);
             $nickname = $row['nickname'];
-			$avatarPath = $row['profilepic'];   
-
-            // Create sessionID	
-			$_SESSION['id'] = $idArray[$j];               
+			$avatarPath = $row['profilepic'];              
             
             // The personID in 0_personID is attached to the account, it CANNOT be deleted
             if($j == 0)
             {
                 ?>
                     <!-- display profile button-->				
-                    <a href="personhome.php" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/><br/>
+                    <a href="personhome.php?id=<?php echo htmlspecialchars($row['personID']); ?>" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/><br/>
                 <?php
             }
                 
@@ -68,7 +65,7 @@
             {
                 ?>
 				    <!-- display profile buttons-->				
-				    <a href="personhome.php" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/>
+				    <a href="personhome.php?id=<?php echo htmlspecialchars($row['personID']); ?>" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/>
 					
 				    <!-- display delete person link-->
 				    <a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>
