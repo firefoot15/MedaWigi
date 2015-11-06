@@ -1,7 +1,7 @@
 h2 {
 	position: absolute;
 	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
-	color: #1490CC;
+	color: #fff;
 	width: 1000px;   
 	height: 100px;
     text-align: left;
@@ -25,24 +25,24 @@ a:hover, a:visited, a:link, a:active
 	}
 
 .basic_button {
-	background: #FF5440;
+	background: #ee2c2c;
 	color: #fff;
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
     border-style: solid;
-    border-color: #FF5440;
+    border-color: #ee2c2c;
 	}
 	
 .basic_button:hover {
-	background: #CC142E;
-    border-color: #CC142E;
+	background: #cd2626;
+    border-color: #cd2626;
 	}
 
 .basic_button2 {
 	display: block;
-	background: #FF5440;
+	background: #ee2c2c;
 	color: #fff;
 	width: 160px;
 	-webkit-border-radius: 2px;
@@ -50,17 +50,17 @@ a:hover, a:visited, a:link, a:active
 	-moz-border-radius: 2px;
 	border-radius: 2px;
     border-style: solid;
-    border-color: #FF5440;
+    border-color: #ee2c2c;
 	}
 
 .basic_button2:hover {
-	background: #CC142E;
-    border-color: #CC142E;
+	background: #cd2626;
+    border-color: #cd2626;
 	}
 
 .profile_button {
 	display: block;
-	background: #FF5440;
+	background: #ee2c2c;
 	width: 400px;
 	height: 70px;
 	text-align: left;
@@ -75,12 +75,12 @@ a:hover, a:visited, a:link, a:active
 	}
 
 .profile_button:hover {
-	background: #CC142E;
+	background: #cd2626;
 	}
  
 .myportal_button {
     display: block;
-	background: #FF5440;
+	background: #ee2c2c;
 	width: 400px;
 	height: 70px;
     text-align: left;
@@ -96,8 +96,32 @@ a:hover, a:visited, a:link, a:active
 	}
  
 .myportal_button:hover {
-	background: #CC142E;
+	background: #cd2626;
 	}
+
+.table1 {
+    border: 0;
+    background: #fff;
+    color: #202020;
+    }
+
+.table1 td:first-child {
+    text-align: right;
+    }
+
+.table2 {
+    border: 0;
+    background: #fff;
+    color: #202020;
+    width: 500px;    
+    }
+
+.table3 {
+    background: #fff;
+    color: #202020;
+    font-size: 12px;
+    width: 500px;
+    }
 
 .wrapper {
     width: 1024;
@@ -110,6 +134,6 @@ a:hover, a:visited, a:link, a:active
 	width: 800px;
 	height: 100%;
 	z-index: -30;
-	background: #1490CC;
+	background: #fff;
     overflow: hidden;
 	}

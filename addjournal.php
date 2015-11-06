@@ -27,9 +27,9 @@
 	<body><center></br></br>
 		<h2>New Entry</h2>	
         <div class="wrapper">      
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+		<table class="table1" cellpadding="2" cellspacing="5">
 		<th colspan="2">New Entry</th>		
-		<form action="addjournal.php" id="usrform" method="POST">
+		<form action="addjournal.php" method="POST">
 			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01">January</option>
@@ -92,8 +92,8 @@
 				<td><input type="text" name="subject" maxlength="30"/></td></tr>
 			<tr><td>Content: </td>
 				<td><textarea rows="20" cols="50" type="text" name="content" required="required" maxlength="1000"></textarea></td></tr>
-			<tr><td colspan="2" align="center">
-				<a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a>
+            <tr><td></td>
+				<td><a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a>
 				<input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</form>
 		</table>
