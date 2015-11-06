@@ -25,44 +25,71 @@
 
 		$user = $_SESSION['user'];
 
+        // Use username to access accountID in accounts table
 		$query = mysql_query("Select * from accounts WHERE username = '$user'");
 		$row = mysql_fetch_array($query);
 		$accountID = $row['accountID'];
-	
-		$count = 0;
-		$query = mysql_query("Select * from persons");
-		while($row = mysql_fetch_array($query))
-		{  		
-			$table_aid = substr($row['apid'], 0, 4);	
-			if($accountID == $table_aid)
-			{
-				$count++;
-				$nickname = $row['nickname'];
-				$avatarPath = $row['profilepic'];
-				
-				// Create session ID	
-				$_SESSION['id'] = $row['personID'];
-				?>
-					<!-- display profile buttons-->				
-					<a href="personhome.php" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br>
+            
+		// Use accountID to access personIDs in mappings table      
+        $query = mysql_query("Select * from mappings WHERE accountID = '$accountID'");
+		$row = mysql_fetch_array($query);
+            
+        // Move personIDs to array    
+        $idArray = array();    
+        for($i = 0; $i < 10; $i++)
+        {
+            $colName = $i.'_personID';
+            if($row[$colName] != 0)
+                array_push($idArray, $row[$colName]);  
+        }     
+
+        // Use personIDs in array to populate buttons         
+        for($j = 0; $j < count($idArray); $j++)    
+        {
+            $query = mysql_query("Select * from persons WHERE personID = '$idArray[$j]'");
+            $row = mysql_fetch_array($query);
+            $nickname = $row['nickname'];
+			$avatarPath = $row['profilepic'];   
+
+            // Create sessionID	
+			$_SESSION['id'] = $idArray[$j];               
+            
+            // The personID in 0_personID is attached to the account, it CANNOT be deleted
+            if($j == 0)
+            {
+                ?>
+                    <!-- display profile button-->				
+                    <a href="personhome.php" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/><br/>
+                <?php
+            }
+                
+            // Otherwise, it is possible to delete  
+            else
+            {
+                ?>
+				    <!-- display profile buttons-->				
+				    <a href="personhome.php" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/>
 					
-					<!-- display delete person link-->
-					<a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>
-				<?php	
-			}
-		}
-		if($count < 10)
+				    <!-- display delete person link-->
+				    <a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>
+                <?php                     
+            }               
+        }
+             
+        // Limit of 10 profiles attached to any account
+		if(count($idArray) < 10)
 		{
-			?>
-				<!-- display add person button-->
+            ?>
+                <!-- display add person button-->
 				<a href="addperson.php" class="myportal_button" value="">Add Person</a><br/><br/>
 			<?php
 		}
-		?>
+		?>    
+
 			<!-- display edit account button-->
-			<a href="editaccount.php" class="myportal_button">Edit Account</a><br/><br/>
+			<a href="editaccount.php" class="myportal_button">Edit Account</a><br/><br/>         
 			<!-- display logout button-->
 			<a href="logout.php" class="myportal_button">Logout</a>
 		</form>
     </center></body></div>
-</html>
+</html>            

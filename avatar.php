@@ -29,10 +29,9 @@
 	<body><center></br></br>
 		<h2>Pick Avatar</h2>	
         <div class="wrapper">
-		<th>Current Avatar:</th></br></br>
 		<input type="image" src="<?php echo htmlspecialchars($avatarPath); ?>"/>
-		<table border="0" cellpadding="5" cellspacing="5" bgcolor="#1490CC">
-		<th colspan="4">Select a new avatar...</th>
+		<table class="table4" cellpadding="5" cellspacing="5">
+		<th colspan="4">Current Avatar</th>
 			<tr><td><img src="images/profilepic1.png"/></td>
 			<td><img src="images/profilepic2.png"/></td>
 			<td><img src="images/profilepic3.png"/></td>
@@ -58,16 +57,17 @@
 			<tr><td>13.</td><td>14.</td><td>15.</td><td>16.</td></tr>
 		</table>
 		<form action="avatar.php" method="POST">
-			<select name="avatar">
+			<tr><td>Select a new avatar: </td>            
+			<td><select name="avatar">
 				<?php for($i=16; $i>=1; $i--){
 					if($avatarNum == $i){
 						echo "<option value='images/profilepic$i.png' selected>$i</option>";}
 					else{
 						echo "<option value='images/profilepic$i.png'>$i</option>";}}
 				?>
-			</select></br></br>
-			<tr><td colspan="2" align="center">
-				<a href="editperson.php"><input type="button" value="Done" class="basic_button"/></a>
+                </select></td></tr></br></br>
+			<tr><td></td>
+				<td><a href="editperson.php"><input type="button" value="Done" class="basic_button"/></a>
 				<input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</form>		
     </div></center></body>

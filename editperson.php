@@ -168,6 +168,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', nickname='$nickname', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$id'");
 
 	Print '<script>alert("Successfully changed!");</script>';
-	Print '<script>window.location.assign("myportal.php");</script>'; 
+	Print '<script>window.location.assign("personhome.php");</script>'; 
 }
 ?> 

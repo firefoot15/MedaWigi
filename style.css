@@ -12,6 +12,7 @@ h2 {
     margin-top: 10%;
     margin-left: -281px;    
 	}
+	
 h3 {
 	position: absolute;
 	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
@@ -135,6 +136,12 @@ a:hover, a:visited, a:link, a:active
     color: #202020;
     font-size: 12px;
     width: 500px;
+    }
+
+.table4 {
+    border: 0;
+    background: #fff;
+    color: #202020;
     }
 
 .wrapper {

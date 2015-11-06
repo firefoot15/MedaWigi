@@ -27,7 +27,7 @@
 		$month = substr($birthDate, 3, 2);
 		$day = substr($birthDate, 6, 2);
 
-		$reformatted_date = $month.'/'.$day;		
+		$reformatted_date = $month.'/'.$day;	
 		
 		?>
 <html>
@@ -40,8 +40,8 @@
 		<h2>H O M E</h2>
         <div class="wrapper">
 		<th>Welcome <?php if($nickname == 'Me')echo htmlspecialchars($firstName); else echo htmlspecialchars($nickname);?>!</th></br></br>
-		<th><?php if(date("m/d" == $reformatted_date)) echo 'Happy Birthday!'; ?></th></br></br>
-		<table border="0" cellpadding="5" cellspacing="5" bgcolor="#1490CC">
+		<th><?php if(date("m/d") == $reformatted_date) echo 'Happy Birthday!'; ?></th></br></br>
+		<table class="table4" cellpadding="5" cellspacing="5">
 		<th colspan="2">Options:</th>
 			<tr><td><a href="medications.php" class="basic_button2">Medications</a></td>
             <td><a href="calendar.php" class="basic_button2">Calendar</a></td></tr>
