@@ -12,6 +12,20 @@ h2 {
     margin-top: 10%;
     margin-left: -281px;    
 	}
+h3 {
+	position: absolute;
+	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
+	color: #fff;
+	width: 1000px;   
+	height: 100px;
+    text-align: left;
+	-ms-transform: rotate(270deg); 		/* IE 9 */
+	-moz-transform: rotate(270deg); 	/* Firefox */
+	-webkit-transform: rotate(270deg); 	/* Safari & Chrome */
+	-o-transform: rotate(270deg); 		/* Opera */
+    margin-top: 1%;
+    margin-left: -301px;    
+	}
 
 body {
 	background-color: #202020;

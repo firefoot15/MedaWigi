@@ -14,7 +14,7 @@
     <div class="wrapper">
 	<div id="banner"></div>
 	<body><center>    
-		<form action="myportal.php" method="POST"></br>
+		<form action="myportal.php" method="POST"><br/>
 		<?php
         
         include 'connect.php'; 
@@ -44,10 +44,10 @@
 				$_SESSION['id'] = $row['personID'];
 				?>
 					<!-- display profile buttons-->				
-					<a href="personhome.php" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a></br>
+					<a href="personhome.php" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br>
 					
 					<!-- display delete person link-->
-					<a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/></br>
+					<a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>
 				<?php	
 			}
 		}
@@ -55,12 +55,12 @@
 		{
 			?>
 				<!-- display add person button-->
-				<a href="addperson.php" class="myportal_button" value="">Add Person</a></br></br>
+				<a href="addperson.php" class="myportal_button" value="">Add Person</a><br/><br/>
 			<?php
 		}
 		?>
 			<!-- display edit account button-->
-			<a href="editaccount.php" class="myportal_button">Edit Account</a></br></br>
+			<a href="editaccount.php" class="myportal_button">Edit Account</a><br/><br/>
 			<!-- display logout button-->
 			<a href="logout.php" class="myportal_button">Logout</a>
 		</form>
