@@ -57,7 +57,8 @@
 			
             <tr><td><a href="myportal.php" class="basic_button2">Return to Portal</a></td>
 			<td><a href="logout.php" class="basic_button2">Logout</a></td></tr>		
-			<!-- add current condition notebox -->
+			<!-- add current condition notebox 
+					also ICE on main page?-->
 		</table>
 
 		
