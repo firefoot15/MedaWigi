@@ -1,3 +1,31 @@
+<?php
+include 'connect.php';
+session_start();
+
+//Check to see if user is the same
+if($_SESSION['user']){}
+		else{
+			header("location:index.php");
+        }
+
+//Store username that's logged in        
+$user = $_SESSION['user'];
+    
+//SQL Operations
+//Adding the person onto the account that is logged in
+    if(isset($_POST['submitRegisteredUserButton'])){
+        $email = mysql_real_escape_string($_POST['newRegisteredUserText']);
+        $queryOne = mysql_query("Select * from accounts WHERE username = '$user'");
+        $queryTwo = mysql_query("Select * from accounts WHERE email = '$email'");
+    }
+    
+    if(isset($_POST['submitNewPersonButton'])){
+        $nickname = mysql_real_escape_string($_POST['nicknameText']);
+        $firstName = mysql_real_escape_string($_POST['firstNameText']);
+        $lastName = mysql_real_escape_string($_POST['lastNameText']);    
+        $query = mysql_query("Select * from accounts WHERE username = '$user'");
+    }
+?>
 <html>
     <head> 
     <title>Add A Person</title>
@@ -44,22 +72,3 @@
     }
 </script>
 
-<?php
-include 'connect.php';
-
-//Start session
-session_start();
-
-//Check to see if user is the same
-if($_SESSION['user']){}
-		else{
-			header("location:index.php");
-        }
-
-//Store username that's logged in        
-$user = $_SESSION['user'];
-
-//SQL Operations
-//Adding the person onto the account that is logged in
-$query = mysql_query("Select * from accounts WHERE username = '$user'");
-?>

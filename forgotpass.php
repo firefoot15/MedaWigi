@@ -42,6 +42,7 @@ if(isset($_POST['submit'])){
                 Print'<script>alert("This email is currently in use!");</script>';
             }
             else{
+                $bool = false;
                 Print'<script>alert("This email is currently not in use");</script>';
             }
         }
