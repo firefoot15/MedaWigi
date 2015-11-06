@@ -1,35 +1,32 @@
-<?php
-include 'connect.php';
-?>
-
 <html>
     <head>
         <title>Calendar</title>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <script src="zabuto_calendar.js"></script>
+        <link rel="stylesheet" type="text/css" href="calendarstyle.css">
+
     </head>
-    <div id="calendar"></div>
+    
     <body>
         
-        <link rel="stylesheet" href="css/jquery.e-calendar.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="js/jquery.e-calendar.js"></script>
+        <div id="my-calendar"></div>
 
-        <?php
-        $(document).ready(function() {
-        $('#calendar').eCalendar({
-        weekDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-        months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
-        'September', 'October', 'November', 'December'],
-        textArrows: {previous:'<', next:'>'},
-        eventTitle: 'Events',
-        url: '',
-        events: [
-        {title: 'Event 1', description: 'Description 1', <a href="http://www.jqueryscript.net/time-clock/">date</a>time: new Date(2014, 7, 15, 17)},
-        {title: 'Event 2', description: 'Description 2', datetime: new Date(2014, 7, 14, 16)},
-        {title: 'Event 3', description: 'jQueryScript.Net', datetime: new Date(2014, 7, 10, 16)}
-        ]});
-        });
-        ?>
-        
-        
+        <script type="application/javascript">
+            $(document).ready(function () {
+                $("#my-calendar").zabuto_calendar({
+                    language: "en",
+                    cell_border: true,
+                    today: true,
+                    
+                
+                });
+            });
+            
+            
+        </script>
+    
     </body>
+    
 </html>
