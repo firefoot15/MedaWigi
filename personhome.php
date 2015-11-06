@@ -44,7 +44,7 @@
 		<table border="0" cellpadding="5" cellspacing="5" bgcolor="#1490CC">
 		<th colspan="2">Options:</th>
 			<tr><td><a href="medications.php" class="basic_button2">Medications</a></td>
-            <td><a href="contacts.php" class="basic_button2">ICE</a></td></tr>
+            <td><a href="calendar.php" class="basic_button2">Calendar</a></td></tr>
 
 			<tr><td><a href="immunizations.php" class="basic_button2">Immunizations</a></td>
             <td><a href="journal.php" class="basic_button2">Journal</a></td></tr>
