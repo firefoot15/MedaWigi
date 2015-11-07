@@ -29,8 +29,32 @@
 		$period = substr($time, 6, 2);
 
         $pid = $row['personID'];
-        $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
-        $person = mysql_result($query2, 0);   
+        $query = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+        $person = mysql_result($query, 0);   
+
+        // Use username to access accountID in accounts table
+		$query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+		$accountID = mysql_result($query, 0);    
+            
+		// Use accountID to access personIDs in mappings table      
+        $query = mysql_query("Select * from mappings WHERE accountID = '$accountID'");
+		$row = mysql_fetch_array($query);
+            
+        // Move personIDs to array    
+        $idArray = array();  
+        $nameArray = array();
+        for($i = 0; $i < 10; $i++)
+        {
+            $colName = $i.'_personID';
+            $pid = $row[$colName];
+            if($pid != 0)
+            {
+                array_push($idArray, $pid);
+                $query = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+                $nickname = mysql_result($query, 0);                 
+                array_push($nameArray, $nickname);
+            }  
+        }  
 		?>
 
 <html>
@@ -142,7 +166,17 @@
 					<option value="AM"<?php if($period == 'AM') echo 'selected="selected"'; ?>>AM</option>
 					<option value="PM"<?php if($period == 'PM') echo 'selected="selected"'; ?>>PM</option>
 				</select></td></tr>						
-			
+			<tr><td>Person: </td>
+				<td><select name="person">
+					<?php for($i=0; $i < count($idArray); $i++){	
+                        if($person == $nameArray[$i]){ 
+                            echo "<option value='$idArray[$i]' selected>$nameArray[$i]</option>";}
+                        else{
+                            echo "<option value='$idArray[$i]'>$nameArray[$i]</option>";}}
+                    
+					?>				
+				</select></td></tr>              
+            <!-- make selection-->
             
             
             
@@ -151,9 +185,10 @@
 			<tr><td>Content: </td>
 				<td><textarea rows="20" cols="50" type="text" name="content" required="required" maxlength="1000"><?php echo $content; ?></textarea></td></tr>		
 		</table></br>
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
-		<th colspan="3"></th>		
-			<tr><td></td>
+        
+        <table>
+        <th colspan="4"></th>    
+            <tr><td></td><td></td>
 				<td><a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
 				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</table>		
@@ -174,8 +209,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$content = mysql_real_escape_string($_POST['content']);
 
 	$jid = $_SESSION['jid'];	
-	$date = $year.'-'.$month.'-'.$day;
-	if(empty($hour) || empty($minute) || empty($period))
+
+	if(empty($year) || empty($month) || empty($day))
+		$birthDate = "";
+	else
+		$birthDate = $year.'-'.$month.'-'.$day;    
+    
+    
+    if(empty($hour) || empty($minute) || empty($period))
 		$time = "";
 	else
 		$time = $hour.':'.$minute.' '.$period;

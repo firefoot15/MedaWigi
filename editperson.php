@@ -35,6 +35,7 @@
 		$month = substr($birthDate, 3, 2);
 		$day = substr($birthDate, 6, 2);
 		?>
+
 <html>
 	<head>
 		<title>Edit Person Page</title>
@@ -125,7 +126,9 @@
 							else{
 								echo "<option value='$k'>$j</option>";}}
 						else{
-							if($k<10){
+							if($i == 80){
+                                echo "<option value=''></option>";}
+                            elseif($k<10){
 								if($year == $k){
 									echo "<option value='0$k' selected>$j</option>";}
 								else{
@@ -159,9 +162,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$month = mysql_real_escape_string($_POST['month']);
 	$day = mysql_real_escape_string($_POST['day']);
 	$year = mysql_real_escape_string($_POST['year']);
-
-	$birthDate = $year.'-'.$month.'-'.$day;
+	
 	$id = $_SESSION['id'];
+    
+	if(empty($year) || empty($month) || empty($day))
+		$birthDate = "";
+	else
+		$birthDate = $year.'-'.$month.'-'.$day;    
 	
 	// Write to tables
 	mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', nickname='$nickname', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$id'");
