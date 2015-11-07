@@ -57,7 +57,7 @@
         <table>
 		<th colspan="4"></th>		
             <tr><td></td><td></td>			
-                <td><a href="personhome.php"><input type="button" value="Done" class="basic_button"/></a></td>
+                <td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
                 <td><input type="submit" name="addEntryButton" value="Add Entry" onclick="showAddEntryForm()" class="basic_button"/></td></tr> 
 		</table></br> 
             

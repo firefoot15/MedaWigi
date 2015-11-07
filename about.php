@@ -23,6 +23,6 @@
         <div class="wrapper"> 
 		<p><b>MedaWigi</b><br><br>When you want it, you got it, all your medical<br>information in one place, supplied by MedaWigi!</p>
 		<p>For more information or to report<br>problems, contact the authors:<br>.<br>.<br>.<br></p>
-		<a href="personhome.php" class="basic_button2">Return to Home</a>
+		<a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>" class="basic_button2">Return to Home</a>
     </div></center></body>
 </html>	

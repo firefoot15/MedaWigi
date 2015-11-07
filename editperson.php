@@ -140,8 +140,8 @@
 				</select></td></tr>
 			<tr><td></td></tr>
             <tr><td></td>
-				<td><a href="personhome.php"><input type="button" value="Cancel" class="basic_button"/></a>
-				<input type="submit" value="Submit" class="basic_button"></td></tr> 
+				<td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Cancel" class="basic_button"/></a>
+				<input type="submit" value="Submit" class="basic_button"/></td></tr> 
 		</form>
 		</table></br></br>		
 			<a href="avatar.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Change Avatar" class="basic_button"/></a></br></br>

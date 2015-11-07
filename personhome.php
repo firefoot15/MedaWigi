@@ -37,7 +37,7 @@
 <html>
 	<head>
 		<title>Home</title>
-		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<div id="banner"></div>	
 	<body><center></br></br>		
