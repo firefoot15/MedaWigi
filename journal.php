@@ -23,7 +23,7 @@
 	<body><center></br></br>
 		<h2>Journal Entries</h2>
         <div class="wrapper">
-		<form action="searchjournal.php" method="POST">		
+            
 		<table>
 		<th colspan="3"></th>
 			<tr><td><a href="addjournal.php"><input type="button" value="Add Entry" class="basic_button2"/></a></td>
@@ -79,8 +79,7 @@
 			}	
 			?>
 
-		</table></br>
-		</form>			
+		</table></br>		
 		<script>
 			function deleteFunction(id)
 			{

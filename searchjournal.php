@@ -14,17 +14,37 @@
 			header("location:myportal.php");}
 
 		$user = $_SESSION['user'];			
-		$id = $_SESSION['id'];	
-		
-		$query = mysql_query("Select * from persons WHERE personID = '$id'");	
-		$row = mysql_fetch_array($query);			
+		$id = $_SESSION['id'];		
 
-		$subjectArray = array();			
-		$apid = $row['apid'];			
-		$query = mysql_query("Select * from journal WHERE apid = '$apid' ORDER BY journalDate ASC, journalTime ASC");
+        // Use username to access accountID in accounts table            
+        $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+        $accountID = mysql_result($query, 0);   
+
+		// Use accountID to access personIDs in mappings table      
+        $query = mysql_query("Select * from mappings WHERE accountID = '$accountID'");
+		$row = mysql_fetch_array($query);
+            
+        // Move personIDs to array    
+        $idArray = array();  
+        $nameArray = array();
+        for($i = 0; $i < 10; $i++)
+        {
+            $colName = $i.'_personID';
+            $pid = $row[$colName];
+            if($pid != 0)
+            {
+                array_push($idArray, $pid);
+                $query = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+                $nickname = mysql_result($query, 0);                 
+                array_push($nameArray, $nickname);
+            }  
+        }  
+
+        // Move journalSubjects into array
+		$subjectArray = array();					
+		$query = mysql_query("Select * from journal WHERE accountID = '$accountID'");
 		while($row = mysql_fetch_array($query))
 		{
-			// added to pass subject array to searchjournal.php
 			$flag = true;
 			if(empty($subjectArray))
 				array_push($subjectArray, $row['journalSubject']);
@@ -33,27 +53,28 @@
 					$flag = false;}
 			if($flag)
 				array_push($subjectArray, $row['journalSubject']);		
-			
 			sort($subjectArray);
 		}
 		?>
+
 <html>
 	<head>
 		<title>Journal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>	
-	<style>
-		table, th, td{
-			width: 500px;
-			font-size: 12px;
-		}
-	</style>	
+	</head>		
 	<body><center></br></br>
 		<h2>Search Journal</h2>	
         <div class="wrapper">    
 		<form action="searchjournal.php?criteria" method="POST">		
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+		<table class="table2">
 		<th colspan="2">Basic Search</th>
+			<tr><td>Person: </td>
+				<td><select name="personChoice">
+					<?php for($i=0; $i < count($idArray); $i++){							
+						echo "<option value='$idArray[$i]'>$nameArray[$i]</option>";}
+						
+					?>				
+				</select></td></tr>            
 			<tr><td>Subject: </td>
 				<td><select name="subjectChoice">
 					<?php for($i=0; $i < count($subjectArray); $i++){							
@@ -117,15 +138,13 @@
 						echo "<option value='$j'>$j</option>";}
 					?>
 				</select></td></tr>	
-
 		</table></br>		
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
-		<th colspan="4"></th>
-			<tr><td></td>
-				<td></td>
+            
+        <table>
+        <th colspan="4"></th>    
+            <tr><td></td><td></td>
 				<td><a href="journal.php"><input type="button" value="Done" class="basic_button"/></a></td>
 				<td><input type="submit" name="submit" value="Search" class="basic_button"/></td></tr>
-		
 		</table>
 		</form>			
 		<script>
@@ -138,22 +157,12 @@
 				}
 			}
 		</script>			
-		<table border="1px" font color="#202020">
-			<tr>
-				<th>Date</th>
-				<th>Time</th>
-				<th>Subject</th>
-				<th>Content</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>			
-
-	
 	
 <?php	
 	if(isset($_POST['submit'])){
 		if(isset($_GET['criteria'])){
-			$topic = $_POST['subjectChoice'];
+			$person = $_POST['personChoice'];            
+			$subject = $_POST['subjectChoice'];
 			$month1 = $_POST['monthChoice1'];
 			$day1 = $_POST['dayChoice1'];			
 			$year1 = $_POST['yearChoice1'];	
@@ -163,43 +172,69 @@
 				
 			$start_date = $year1.'-'.$month1.'-'.$day1;
 			$end_date = $year2.'-'.$month2.'-'.$day2;
-			
-			$query = mysql_query("Select * from journal WHERE apid = '$apid' AND journalSubject = '$topic' ORDER BY journalDate ASC, journalTime ASC");
-			while($row = mysql_fetch_array($query)){
-					
-				$date = $row['journalDate'];
-				$time = $row['journalTime'];
-				$subject = $row['journalSubject'];
-				$content = $row['journalContent'];
-				
-				$year = substr($date, 0, 2);
-				$month = substr($date, 3, 2);
-				$day = substr($date, 6, 2);
-				
-				$reformatted_date = $month.'-'.$day.'-'.$year;
-				
-				if($year <= date("Y")%100)
-					$table_date = '20'.$year.'-'.$month.'-'.$day;	
-				else
-					$table_date = '19'.$year.'-'.$month.'-'.$day;						
+            
+			$query = mysql_query("Select * from journal WHERE accountID = '$accountID' AND journalSubject = '$subject' AND personID = '$person' ORDER BY journalDate ASC, journalTime ASC");
+            if(mysql_num_rows($query) == 0){
+                Print 'There are no matches for this search.';
+            }
+            else{
+            ?>
 
-				if(checkRange($start_date, $end_date, $table_date)){
+        <table class="table3" border="1px">
+			<tr>
+				<th>Date</th>
+				<th>Time</th>
+                <th>Person</th>                
+				<th>Subject</th>
+				<th>Content</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>		
+			
+            <?php
+
+                while($row = mysql_fetch_array($query)){
+                
+				    $date = $row['journalDate'];
+                    $time = $row['journalTime'];
+				
+				    $year = substr($date, 0, 2);
+				    $month = substr($date, 3, 2);
+				    $day = substr($date, 6, 2);
+				
+				    $reformatted_date = $month.'-'.$day.'-'.$year;
+                
+                    // Use personID from journal table to access nickname in persons table
+                    $pid = $row['personID'];
+                    $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+                    $person = mysql_result($query2, 0);                    
+				
+				    // Put date in a format checkRange() can use
+                    if($year <= date("Y")%100)
+					   $table_date = '20'.$year.'-'.$month.'-'.$day;	
+				    else
+					   $table_date = '19'.$year.'-'.$month.'-'.$day;						
+
+				    if(checkRange($start_date, $end_date, $table_date)){
 
 				// Output table entries
 				Print "<tr>";
 					Print '<td align="center">'.$reformatted_date."</td>";
 					Print '<td align="center">'.$time."</td>"; 
+                    Print '<td align="center">'.$person."</td>";///                    
 					Print '<td align="center">'.$subject."</td>";
 					Print '<td align="center"><a href="viewjournal.php?id='.$row['journalID'].'"><img src="images/viewButton.png" height="13" width="13"/></a> </td>';
 					Print '<td align="center"><a href="editjournal.php?id='.$row['journalID'].'"><img src="images/editButton.png" height="11" width="11"/></a> </td>';
 					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['journalID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a> </td>';
 				Print "</tr>";		
-				}
-			}
+				    }
+                }    
+            }
 		}
 	}
 	function checkRange($start_date, $end_date, $table_date){
-		// Convert to timestamp
+		
+        // Convert to timestamp
 		$start_ts = strtotime($start_date);
 		$end_ts = strtotime($end_date);
 		$table_ts = strtotime($table_date);
@@ -207,8 +242,7 @@
 		return (($table_ts >= $start_ts) && ($table_ts <= $end_ts));
 	}
 ?>
-
-		
-
+            
+        </table>
     </div></center></body>
 </html>	

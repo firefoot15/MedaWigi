@@ -176,10 +176,6 @@
                     
 					?>				
 				</select></td></tr>              
-            <!-- make selection-->
-            
-            
-            
             <tr><td>Subject: </td>
 				<td><input type="text" name="subject" value="<?php echo $subject; ?>" maxlength="30"/></td></tr>
 			<tr><td>Content: </td>

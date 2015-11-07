@@ -180,7 +180,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		mysql_query("INSERT INTO persons (firstName, lastName, middleName, suffix, gender, race, birthDate, nickname, profilepic) VALUES ('$firstName','$lastName','$middleName','$suffix','$gender','$race','$birthDate','Me','$avatarPath')"); 
 		$personID = mysql_insert_id();	
 		
-		mysql_query("INSERT INTO mappings (accountID, 0_personID, 1_personID, 2_personID, 3_personID, 4_personID, 5_personID, 6_personID, 7_personID, 8_personID, 9_personID) VALUES ('$accountID','$personID',0,0,0,0,0,0,0,0,0)");		
+		mysql_query("INSERT INTO mappings (accountID, 0_personID) VALUES ('$accountID','$personID')");		
 		
 		Print '<script>alert("Successfully registered!");</script>';
 		Print '<script>window.location.assign("index.php");</script>'; 
