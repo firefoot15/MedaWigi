@@ -29,7 +29,7 @@
 		<h2>Edit Entry</h2>	
         <div class="wrapper">    
 		<form action="editallergy.php" method="POST">			
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+		<table class="table1" cellpadding="2" cellspacing="5">
 		<th colspan="2">Edit Entry</th>					
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>" required="required" maxlength="30"/></td></tr>
@@ -47,7 +47,8 @@
 					<option value="Severe"<?php if($severity == 'Severe') echo 'selected="selected"'; ?>>Severe</option>
 				</select></td></tr>		
 		</table></br>
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+            
+		<table>
 		<th colspan="3"></th>		
 			<tr><td></td>			
 				<td><a href="allergies.php"><input type="button" value="Cancel" class="basic_button"/></a></td>

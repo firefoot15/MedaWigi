@@ -19,7 +19,7 @@
 		$id = $_GET['id'];	
 
             // Create sessionID	
-			$_SESSION['id'] = $id;    
+			$_SESSION['id'] = $id;
 		
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
 		$row = mysql_fetch_array($query);			
@@ -30,13 +30,14 @@
 		$month = substr($birthDate, 3, 2);
 		$day = substr($birthDate, 6, 2);
 
-		$reformatted_date = $month.'/'.$day;	
+		$reformatted_date = $month.'/'.$day;
+        date_default_timezone_set('America/New_York');
 		
 		?>
 <html>
 	<head>
 		<title>Home</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
 	</head>
 	<div id="banner"></div>	
 	<body><center></br></br>		

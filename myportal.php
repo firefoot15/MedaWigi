@@ -51,22 +51,15 @@
             $nickname = $row['nickname'];
 			$avatarPath = $row['profilepic'];              
             
-            // The personID in 0_personID is attached to the account, it CANNOT be deleted
-            if($j == 0)
+            ?>
+                <!-- display profile button-->				
+                <a href="personhome.php?id=<?php echo htmlspecialchars($row['personID']); ?>" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/>
+            <?php
+
+            // The personID in 0_personID is attached to the account, it CANNOT be deleted 
+            if($j != 0)
             {
                 ?>
-                    <!-- display profile button-->				
-                    <a href="personhome.php?id=<?php echo htmlspecialchars($row['personID']); ?>" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/><br/>
-                <?php
-            }
-                
-            // Otherwise, it is possible to delete  
-            else
-            {
-                ?>
-				    <!-- display profile buttons-->				
-				    <a href="personhome.php?id=<?php echo htmlspecialchars($row['personID']); ?>" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/>
-					
 				    <!-- display delete person link-->
 				    <a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>
                 <?php                     
@@ -78,13 +71,13 @@
 		{
             ?>
                 <!-- display add person button-->
-				<a href="addperson.php" class="myportal_button" value="">Add Person</a><br/><br/>
+				<a href="addperson.php" class="myportal_button" value="">Add Person</a><br/>
 			<?php
 		}
 		?>    
 
 			<!-- display edit account button-->
-			<a href="editaccount.php" class="myportal_button">Edit Account</a><br/><br/>         
+			<a href="editaccount.php" class="myportal_button">Edit Account</a><br/>        
 			<!-- display logout button-->
 			<a href="logout.php" class="myportal_button">Logout</a>
 		</form>
