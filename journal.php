@@ -6,6 +6,8 @@
 		else{
 			header("location:index.php");}
 
+        /*  This is necessary even though journal entries are accessed via accountID
+            because the journal button is still located on the home page   */
 		if($_SESSION['id']){ }
 		else{
 			header("location:myportal.php");}
@@ -18,44 +20,39 @@
 		<title>Journal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>	
-	<style>
-		table, th, td{
-			width: 500px;
-			font-size: 12px;
-		}
-	</style>
 	<div id="banner"></div>	
 	<body><center></br></br>
 		<h2>Journal Entries</h2>
         <div class="wrapper">
 		<form action="searchjournal.php" method="POST">		
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
-		<th colspan="4"></th>
-			<tr><td></td>
-				<td><a href="addjournal.php"><input type="button" value="Add Entry" class="basic_button2"/></a></td>
+		<table>
+		<th colspan="3"></th>
+			<tr><td><a href="addjournal.php"><input type="button" value="Add Entry" class="basic_button2"/></a></td>
 				<td></td><td></td><td><a href="searchjournal.php"><input type="button" value="Set Search Criteria" class="basic_button2"/></a></td>				
-				<td><a href="personhome.php"><input type="button" value="Done" class="basic_button2"/></a></td></tr>
-		</table>		
-		<table border="1px" font color="#202020">
+				<td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button2"/></a></td></tr>
+        </table></br>
+            
+		<table class="table3" border="1px">
 			<tr>
 				<th>Date</th>
 				<th>Time</th>
+                <th>Person</th>
 				<th>Subject</th>
 				<th>Content</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>				
 			<?php
-			$query = mysql_query("Select * from persons WHERE personID = '$id'");	
-			$row = mysql_fetch_array($query);	
-			$count = mysql_num_rows($query);						
-			$apid = $row['apid'];		
-			
-			// Sort by date & time
-			$query = mysql_query("Select * from journal WHERE apid = '$apid' ORDER BY journalDate ASC, journalTime ASC");
+            
+            // Use username to access accountID in accounts table            
+            $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+            $accountID = mysql_result($query, 0);   
+
+            // Sort by date/time
+            $query = mysql_query("Select * from journal WHERE accountID = '$accountID' ORDER BY journalDate ASC, journalTime ASC");
 			while($row = mysql_fetch_array($query))
 			{			
-				$date = $row['journalDate'];
+                $date = $row['journalDate'];
 				$time = $row['journalTime'];
 				$subject = $row['journalSubject'];
 		
@@ -64,11 +61,17 @@
 				$day = substr($date, 6, 2);		
 		
 				$reformatted_date = $month.'-'.$day.'-'.$year;
-		
+                
+                // Use personID from journal table to access nickname in persons table
+                $pid = $row['personID'];
+                $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+                $person = mysql_result($query2, 0);    
+		          
 				// Output table entries
 				Print "<tr>";
 					Print '<td align="center">'.$reformatted_date."</td>";
 					Print '<td align="center">'.$time."</td>"; 
+                    Print '<td align="center">'.$person."</td>";
 					Print '<td align="center">'.$subject."</td>";
 					Print '<td align="center"><a href="viewjournal.php?id='.$row['journalID'].'"><img src="images/viewButton.png" height="13" width="13"/></a> </td>';
 					Print '<td align="center"><a href="editjournal.php?id='.$row['journalID'].'"><img src="images/editButton.png" height="11" width="11"/></a> </td>';

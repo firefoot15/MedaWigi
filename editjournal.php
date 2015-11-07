@@ -28,7 +28,11 @@
 		$minute = substr($time, 3, 2);
 		$period = substr($time, 6, 2);
 
+        $pid = $row['personID'];
+        $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+        $person = mysql_result($query2, 0);   
 		?>
+
 <html>
 	<head>
 		<title>Edit Entry</title>
@@ -39,7 +43,7 @@
 		<h2>Edit Entry</h2>
         <div class="wrapper">    
 		<form action="editjournal.php" method="POST">		
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+		<table class="table2">
 		<th colspan="2">Edit Entry</th>		
 			<tr><td>Date: </td>
 				<td><select name="month">
@@ -139,7 +143,11 @@
 					<option value="AM"<?php if($period == 'AM') echo 'selected="selected"'; ?>>AM</option>
 					<option value="PM"<?php if($period == 'PM') echo 'selected="selected"'; ?>>PM</option>
 				</select></td></tr>						
-			<tr><td>Subject: </td>
+			
+            
+            
+            
+            <tr><td>Subject: </td>
 				<td><input type="text" name="subject" value="<?php echo $subject; ?>" maxlength="30"/></td></tr>
 			<tr><td>Content: </td>
 				<td><textarea rows="20" cols="50" type="text" name="content" required="required" maxlength="1000"><?php echo $content; ?></textarea></td></tr>		
@@ -161,7 +169,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$year = mysql_real_escape_string($_POST['year']);
 	$hour = mysql_real_escape_string($_POST['hour']);
 	$minute = mysql_real_escape_string($_POST['minute']);
-	$period = mysql_real_escape_string($_POST['period']);		
+	$period = mysql_real_escape_string($_POST['period']);	
+    $person = mysql_real_escape_string($_POST['person']);    
 	$subject = mysql_real_escape_string($_POST['subject']);
 	$content = mysql_real_escape_string($_POST['content']);
 
@@ -172,7 +181,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	else
 		$time = $hour.':'.$minute.' '.$period;
 
-	mysql_query("UPDATE journal SET journalDate='$date', journalTime='$time', journalSubject='$subject', journalContent='$content' WHERE journalID='$jid'");
+	mysql_query("UPDATE journal SET journalDate='$date', journalTime='$time', personID='$person', journalSubject='$subject', journalContent='$content' WHERE journalID='$jid'");
 
 	Print '<script>alert("Successfully changed!");</script>';
 	Print '<script>window.location.assign("journal.php");</script>'; 

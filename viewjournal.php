@@ -24,7 +24,12 @@
 		$day = substr($date, 6, 2);		
 		
 		$reformatted_date = $month.'-'.$day.'-'.$year;
+
+        $pid = $row['personID'];
+        $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+        $person = mysql_result($query2, 0);   
 		?>
+
 <html>
 	<head>
 		<title>View Entry</title>
@@ -32,14 +37,16 @@
 	</head>	
 	<div id="banner"></div>	
 	<body><center></br></br>
-    <h2>View Entry</h2>
+        <h2>View Entry</h2>
         <div class="wrapper">    
         <table class="table2">
         <th colspan="2">Current Entry</th>
             <tr><td>Date: </td>
 				<td><?php echo htmlspecialchars($reformatted_date); ?></td></tr>	
 			<tr><td>Time: </td>
-				<td><?php echo htmlspecialchars($time); ?></td></tr>					
+				<td><?php echo htmlspecialchars($time); ?></td></tr>	
+			<tr><td>Person: </td>
+				<td><?php echo htmlspecialchars($person); ?></td></tr>            
 			<tr><td>Subject: </td>
 				<td><?php echo htmlspecialchars($subject); ?></td></tr>			
         </table></br>

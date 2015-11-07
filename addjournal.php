@@ -13,9 +13,29 @@
 		$user = $_SESSION['user'];			
 		$id = $_SESSION['id'];	
 			
-		$query = mysql_query("Select * from persons WHERE personID = '$id'");
-		$row = mysql_fetch_array($query);		
-		$apid = $row['apid'];	
+        // Use username to access accountID in accounts table
+		$query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+		$accountID = mysql_result($query, 0);    
+            
+		// Use accountID to access personIDs in mappings table      
+        $query = mysql_query("Select * from mappings WHERE accountID = '$accountID'");
+		$row = mysql_fetch_array($query);
+            
+        // Move personIDs to array    
+        $idArray = array();  
+        $nameArray = array();
+        for($i = 0; $i < 10; $i++)
+        {
+            $colName = $i.'_personID';
+            $pid = $row[$colName];
+            if($pid != 0)
+            {
+                array_push($idArray, $pid);
+                $query = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+                $nickname = mysql_result($query, 0);                 
+                array_push($nameArray, $nickname);
+            }  
+        }   
 		?>
 		
 <html>
@@ -26,10 +46,10 @@
 	<div id="banner"></div>		
 	<body><center></br></br>
 		<h2>New Entry</h2>	
-        <div class="wrapper">      
-		<table border="0" cellpadding="2" cellspacing="5" bgcolor="#1490CC">
+        <div class="wrapper">     
+		<form action="addjournal.php" method="POST">            
+		<table class="table2">
 		<th colspan="2">New Entry</th>		
-		<form action="addjournal.php" id="usrform" method="POST">
 			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01">January</option>
@@ -87,16 +107,27 @@
 					<option value=""></option>
 					<option value="AM">AM</option>
 					<option value="PM">PM</option>
-				</select></td></tr>		
+				</select></td></tr>	
+			<tr><td>Person: </td>
+				<td><select name="person">
+					<?php for($i=0; $i < count($idArray); $i++){							
+						echo "<option value='$idArray[$i]'>$nameArray[$i]</option>";}
+						
+					?>				
+				</select></td></tr>            
 			<tr><td>Subject: </td>
 				<td><input type="text" name="subject" maxlength="30"/></td></tr>
 			<tr><td>Content: </td>
 				<td><textarea rows="20" cols="50" type="text" name="content" required="required" maxlength="1000"></textarea></td></tr>
-			<tr><td colspan="2" align="center">
-				<a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a>
-				<input type="submit" value="Submit" class="basic_button"></td></tr> 	
-		</form>
+        </table></br>
+            
+        <table>
+        <th colspan="4"></th>    
+            <tr><td></td><td></td>
+                <td><a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
+				<td><input type="submit" value="Submit" class="basic_button"/></td></tr> 	
 		</table>
+		</form>            
     </div></center></body>
 </html>		
 
@@ -108,6 +139,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$hour = mysql_real_escape_string($_POST['hour']);
 	$minute = mysql_real_escape_string($_POST['minute']);
 	$period = mysql_real_escape_string($_POST['period']);
+    $person = mysql_real_escape_string($_POST['person']);
 	$subject = mysql_real_escape_string($_POST['subject']);
 	$content = mysql_real_escape_string($_POST['content']);
 
@@ -117,7 +149,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	else
 		$time = $hour.':'.$minute.' '.$period;
 	
-	mysql_query("INSERT INTO journal (journalDate, journalTime, journalSubject, journalContent, apid) VALUES ('$date','$time','$subject','$content','$apid')"); 	
+	mysql_query("INSERT INTO journal (journalDate, journalTime, personID, journalSubject, journalContent, accountID) VALUES ('$date','$time','$person','$subject','$content','$accountID')"); 	
 
 	Print '<script>alert("Successfully added!");</script>';
 	Print '<script>window.location.assign("journal.php");</script>'; 
