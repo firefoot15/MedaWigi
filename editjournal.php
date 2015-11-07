@@ -37,8 +37,7 @@
 	<head>
 		<title>Edit Entry</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>	
-	<div id="banner"></div>		
+	</head>		
 	<body><center></br></br>
 		<h2>Edit Entry</h2>
         <div class="wrapper">    

@@ -24,8 +24,7 @@
 	<head>
 		<title>Set Avatar</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-	<div id="banner"></div>		
+	</head>	
 	<body><center></br></br>
 		<h2>Pick Avatar</h2>	
         <div class="wrapper">

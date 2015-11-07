@@ -39,8 +39,7 @@
 	<head>
 		<title>Edit Person Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>	
-	<div id="banner"></div>		
+	</head>		
 	<body><center></br></br>
 		<h2>Edit Person</h2>
         <div class="wrapper">    

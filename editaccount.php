@@ -32,8 +32,7 @@
 	<head>
 		<title>Edit Account Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>		
-	<div id="banner"></div>			
+	</head>				
 	<body><center></br></br>
 		<h2>Edit Account</h2>	
         <div class="wrapper">    

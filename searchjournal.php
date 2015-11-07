@@ -48,7 +48,6 @@
 			font-size: 12px;
 		}
 	</style>	
-	<div id="banner"></div>	
 	<body><center></br></br>
 		<h2>Search Journal</h2>	
         <div class="wrapper">    

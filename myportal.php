@@ -10,9 +10,9 @@
 		<title>My Portal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<h2>My Portal</h2>
+	<body><center></br></br>
+    <h2>My Portal</h2>	    
     <div class="wrapper">
-	<div id="banner"></div>
 	<body><center>    
 		<form action="myportal.php" method="POST"><br/>
 		<?php

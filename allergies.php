@@ -20,7 +20,6 @@
 		<title>Allergies</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>	
-	<div id="banner"></div>	
 	<body><center></br></br>
 		<h2>Allergies</h2>		
         <div class="wrapper">    

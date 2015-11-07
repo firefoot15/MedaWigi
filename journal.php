@@ -20,7 +20,6 @@
 		<title>Journal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>	
-	<div id="banner"></div>	
 	<body><center></br></br>
 		<h2>Journal Entries</h2>
         <div class="wrapper">

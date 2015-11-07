@@ -39,7 +39,6 @@
 		<title>Home</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<div id="banner"></div>	
 	<body><center></br></br>		
 		<h2>H O M E</h2>
         <div class="wrapper">

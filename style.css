@@ -30,6 +30,9 @@ h3 {
 
 body {
 	background-color: #202020;
+    background-image: url('images/background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 	font: 16px Verdana, Arial, Helvetica, sans-serif;	
 	color: #202020;
 	}
@@ -147,14 +150,3 @@ a:hover, a:visited, a:link, a:active
 .wrapper {
     width: 1024;
     }
-
-#banner { 
-	position: absolute;
-	top: 0;
-	left: 250px;
-	width: 800px;
-	height: 100%;
-	z-index: -30;
-	background: #fff;
-    overflow: hidden;
-	}
