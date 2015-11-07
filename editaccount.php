@@ -143,6 +143,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($bool) 
 	{
 		mysql_query("UPDATE accounts SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', email='$email', username='$username', password='$password', secretQuest='$secretQuest', answerQuest='$answerQuest' WHERE accountID = '$accountID'");
+        
+        $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
+        $personID = mysql_result($query, 0);
+		     
+        mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix' WHERE personID = '$personID'");
 
 		Print '<script>alert("Successfully changed!");</script>';
 		Print '<script>window.location.assign("myportal.php");</script>'; 

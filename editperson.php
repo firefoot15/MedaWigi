@@ -166,6 +166,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	// Write to tables
 	mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', nickname='$nickname', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$id'");
+    
+	$query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+	$accountID = mysql_result($query, 0);     
+
+    $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
+    $pid = mysql_result($query, 0);
+    
+    if($pid == $id){
+        mysql_query("UPDATE accounts SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix' WHERE accountID = '$accountID'");
+    }
 
 	Print '<script>alert("Successfully changed!");</script>';
 	Print '<script>window.location.assign("personhome.php");</script>'; 

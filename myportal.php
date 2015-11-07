@@ -26,9 +26,8 @@
 		$user = $_SESSION['user'];
 
         // Use username to access accountID in accounts table
-		$query = mysql_query("Select * from accounts WHERE username = '$user'");
-		$row = mysql_fetch_array($query);
-		$accountID = $row['accountID'];
+		$query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+		$accountID = mysql_result($query, 0);    
             
 		// Use accountID to access personIDs in mappings table      
         $query = mysql_query("Select * from mappings WHERE accountID = '$accountID'");
