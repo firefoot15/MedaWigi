@@ -37,6 +37,7 @@
                 $query = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
                 $nickname = mysql_result($query, 0);                 
                 array_push($nameArray, $nickname);
+                sort($nameArray);
             }  
         }  
 

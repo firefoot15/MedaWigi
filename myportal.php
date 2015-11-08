@@ -60,7 +60,8 @@
             {
                 ?>
 				    <!-- display delete person link-->
-				    <a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>
+				    <!--<a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>-->
+                    <a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" >Delete </a><br/><br/>
                 <?php                     
             }               
         }
