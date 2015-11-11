@@ -66,7 +66,7 @@
         // Remove connections for linked account
         if($temp < 0)
         {
-            // mysql_query("DELETE FROM journal WHERE accountID = '$accountID' AND personID='$id'");
+            mysql_query("DELETE FROM journal WHERE accountID = '$accountID' AND personID='$id'");
         }
 
         // Remove all entries for user account        
