@@ -1,5 +1,5 @@
 <!-- 	ALLERGIES PAGE
-        Displays all allergies assoicated with personID.
+        Displays all allergies associated with personID.
         Hidden add allergy form.
  -->
 
@@ -14,8 +14,8 @@
 		else{
 			header("location:myportal.php");}
 
-		$user = $_SESSION['user'];			
-		$id = $_SESSION['id'];	
+		$user = $_SESSION['user'];
+		$id = $_SESSION['id'];
 		?>
 
 			<!-- View allergies form-->
@@ -25,7 +25,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>	
 	<body><center></br></br>
-		<h2>Allergies</h2>		
+		<h2>Allergies</h2>
         <div class="wrapper">    
         <table class="table3" border="1px">
 			<tr>
@@ -33,9 +33,9 @@
 				<th>Type</th>
 				<th>Severity</th>
 				<th>Edit</th>
-				<th>Delete</th>				
-			</tr>				
-			<?php	
+				<th>Delete</th>
+			</tr>
+			<?php
 			
 			// Sort by type
 			$query = mysql_query("Select * from allergies WHERE personID = '$id' ORDER BY allergyType ASC");
@@ -53,13 +53,13 @@
 					Print '<td align="center"><a href="editallergy.php?id='.$row['allergyID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
 					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['allergyID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a> </td>';
 				Print "</tr>";
-			}	
+			}
 			?>
         </table></br>    
             
         <table>
-		<th colspan="4"></th>		
-            <tr><td></td><td></td>			
+		<th colspan="4"></th>
+            <tr><td></td><td></td>
                 <td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
                 <td><input type="submit" name="addEntryButton" value="Add Entry" onclick="showAddEntryForm()" class="basic_button"/></td></tr> 
 		</table></br> 
@@ -67,11 +67,11 @@
             			<!-- Add allergies form-->
         <form action="allergies.php" id="addEntry" name="addEntryFrom" style="display:none;" method="POST">       
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th colspan="2">New Entry</th>		
+		<th colspan="2">New Entry</th>
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" required="required" maxlength="30"/></td></tr>
 			<tr><td>Type: </td>
-				<td><select name="type">			
+				<td><select name="type">
 					<option value="Indoors">Indoors</option>
 					<option value="Outdoors">Outdoors</option>
 					<option value="Food">Food</option>
@@ -82,7 +82,7 @@
 					<option value="Mild">Mild</option>
 					<option value="Moderate">Moderate</option>
 					<option value="Severe">Severe</option>
-				</select></td></tr>	
+				</select></td></tr>
         </table></br>  
     
         <table>    
@@ -110,7 +110,7 @@
             {
                 document.getElementById('addEntry').style.display="none";
             }            
-		</script>		
+		</script>
     </div></center></body>
 </html>
 
@@ -120,7 +120,7 @@ if (isset($_POST['submitAddEntry'])) {
 	$type = mysql_real_escape_string($_POST['type']);
 	$severity = mysql_real_escape_string($_POST['severity']);
 
-	mysql_query("INSERT INTO allergies (allergyName, allergyType, allergySeverity, personID) VALUES ('$name','$type','$severity','$id')"); 	
+	mysql_query("INSERT INTO allergies (allergyName, allergyType, allergySeverity, personID) VALUES ('$name','$type','$severity','$id')");
 
 	Print '<script>alert("Successfully added!");</script>';
 	Print '<script>window.location.assign("allergies.php");</script>'; 
