@@ -40,7 +40,7 @@
             $colName = $i.'_personID';
             $pid = abs($row[$colName]);
             if($pid != 0)
-                array_push($idArray, $pid);  
+                array_push($idArray, $pid);    
         }     
 
         // Use personIDs in array to populate buttons         
