@@ -1,21 +1,29 @@
 <html>
-    <head>
-        <title>Forgot Your Password?</title>
-    </head>
-    <body>
-        <h2>Forgot Your Password?</h2><br/>
-        <form id="emailcheck" action="forgotpass.php" method="POST">
-            Email: <input type="text" id="email" name="email" required="required"/>
-                   <input type="submit" name="submit" />
-                   <input type="button" name="cancel" value="Cancel" onclick="document.location.href='index.php'"/>
-        </form><br/><br/>
-        
-        <form id="secretcheck" action="forgotpass.php" style="display:none;" method="POST"> 
-            What is your stripper name?: <input type="text" id="secretquestionform" name="secretquestionform" required="required"/>
-            <input type="submit" name="secretsubmit" />
-            <input type="button" name="secretcancel" value="Cancel" />
-        </form>
-    </body>    
+
+<head>
+    <title>Forgot Your Password?</title>
+</head>
+
+<body>
+    <h2>Forgot Your Password?</h2>
+    <br/>
+    <form id="emailcheck" action="forgotpass.php" method="POST">
+        Email:
+        <input type="text" id="email" name="email" required="required" />
+        <input type="submit" name="submit" />
+        <input type="button" name="cancel" value="Cancel" onclick="document.location.href='index.php'" />
+    </form>
+    <br/>
+    <br/>
+
+    <form id="secretcheck" action="forgotpass.php" style="display:none;" method="POST">
+        What is your stripper name?:
+        <input type="text" id="secretquestionform" name="secretquestionform" required="required" />
+        <input type="submit" name="secretsubmit" />
+        <input type="button" name="secretcancel" value="Cancel" />
+    </form>
+</body>
+
 </html>
 
 <?php
