@@ -12,8 +12,8 @@
 
 
 		<form action="checklogin.php" method="POST">
-			Enter Username:<input type="text" name="username" required="required" /> <br/>
-			Enter Password: <input type="password" name="password" required="required" /> <br/>
+			Enter Username:<input type="text" name="username" required="required" PLACEHOLDER="Enter your Username"/> <br/>
+			Enter Password: <input type="password" name="password" required="required" PLACEHOLDER="Enter your password"/> <br/>
 
 			<a href="register.php">New User?</a> <br/>
 			<a href="forgotpass.php"> Forgot Password?</a> <br/>
