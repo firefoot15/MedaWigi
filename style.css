@@ -1,3 +1,4 @@
+/* Vertical header */
 h2 {
 	position: absolute;
 	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
@@ -13,6 +14,7 @@ h2 {
     margin-left: -281px;    
 	}
 	
+/* Curtis has been experimenting */
 h3 {
 	position: absolute;
 	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
@@ -42,6 +44,7 @@ a:hover, a:visited, a:link, a:active
     text-decoration: none;
 	}
 
+/* Default button */
 .basic_button {
 	background: #ee2c2c;
 	color: #fff;
@@ -58,6 +61,7 @@ a:hover, a:visited, a:link, a:active
     border-color: #cd2626;
 	}
 
+/* Default button with width constraint */
 .basic_button2 {
 	display: block;
 	background: #ee2c2c;
@@ -76,26 +80,7 @@ a:hover, a:visited, a:link, a:active
     border-color: #cd2626;
 	}
 
-.profile_button {
-	display: block;
-	background: #ee2c2c;
-	width: 400px;
-	height: 70px;
-	text-align: left;
-	padding: 0 0 0 0;
-	font: 3.2em/12px Verdana, Arial, Helvetica, sans-serif;
-	color: #fff;
-	-webkit-border-radius: 30px;
-	-khtml-border-radius: 30px;
-	-moz-border-radius: 30px;
-	border-top-right-radius: 30px;
-	border-bottom-right-radius: 30px;
-	}
-
-.profile_button:hover {
-	background: #cd2626;
-	}
- 
+/* Default my portal button */
 .myportal_button {
     display: block;
 	background: #ee2c2c;
@@ -117,6 +102,29 @@ a:hover, a:visited, a:link, a:active
 	background: #cd2626;
 	}
 
+/* My portal button with profile image */
+.profile_button {
+	display: block;
+	background: #ee2c2c;
+	width: 400px;
+	height: 70px;
+	text-align: left;
+	padding: 0 0 0 0;
+	font: 3.2em/12px Verdana, Arial, Helvetica, sans-serif;
+	color: #fff;
+	-webkit-border-radius: 30px;
+	-khtml-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	}
+
+.profile_button:hover {
+	background: #cd2626;
+	}
+
+/* Default form table with first column right-aligned 
+    appears on register.php, editaccount.php, editperson.php */
 .table1 {
     border: 0;
     background: #fff;
@@ -127,6 +135,8 @@ a:hover, a:visited, a:link, a:active
     text-align: right;
     }
 
+/* Default form table with width constraint
+    appears on addjournal.php, viewjournal.php, editjournal.php */
 .table2 {
     border: 0;
     background: #fff;
@@ -134,6 +144,8 @@ a:hover, a:visited, a:link, a:active
     width: 500px;    
     }
 
+/* Form table with border
+    appears on allergies.php, journal.php */
 .table3 {
     background: #fff;
     color: #202020;
@@ -141,6 +153,8 @@ a:hover, a:visited, a:link, a:active
     width: 500px;
     }
 
+/* Default form table 
+    appears on personhome.php */
 .table4 {
     border: 0;
     background: #fff;
