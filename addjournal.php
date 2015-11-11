@@ -27,7 +27,7 @@
         for($i = 0; $i < 10; $i++)
         {
             $colName = $i.'_personID';
-            $pid = $row[$colName];
+            $pid = abs($row[$colName]);
             if($pid != 0)
             {
                 array_push($idArray, $pid);

@@ -1,8 +1,3 @@
-<html>
-	<head>
-		<title>My Portal</title>
-	</head>
-    <body><center>    
 
 <?php
     include 'connect.php';
@@ -27,20 +22,17 @@
     {
         $colName = $i.'_personID';
         if($row[$colName] != 0)
-            array_push($idArray, $row[$colName]);  
+            array_push($idArray, $row[$colName]);
     }  
 
-    mysql_query("DELETE FROM mappings WHERE accountID = '$accountID'");  
-    mysql_query("INSERT INTO mappings (accountID, 0_personID) VALUES ('$accountID','$idArray[0]')");
-
 	// Get personID of profile user desires to delete
-	if($_SERVER['REQUEST_METHOD'] == "GET")    
+	if($_SERVER['REQUEST_METHOD'] == "GET")
 	{
         $id = $_GET['id'];
         $temp;
         for($j = 1, $k =1; $j < count($idArray); $j++)
         {            
-            // Insert personIDs user does not desire to delete. 
+            // Update personIDs user does not desire to delete
             if(abs($idArray[$j]) != $id)
             {   
                 switch($k)
@@ -74,48 +66,29 @@
                         break;    
                 }
                 $k++;
-                /////////////////// the mappings table is correct regardless ////////////////////////////
-                
             }
             
+            // Preserve signed value
             else
             {
-                // Preserve signed value
                 $temp = $idArray[$j];  
             }
 
-            // If negative, linked account -> journal?           
+            // Remove connections for linked account       
             if($temp < 0)
             {
-                mysql_query("DELETE FROM journal WHERE accountID = '$accountID'"); 
+                $abstemp = abs($temp);
+                mysql_query("DELETE FROM journal WHERE accountID = '$accountID' AND personID='$abstemp'");
             }
             
-            // Else remove from all tables using personIDs           
+            // Remove all entries for user account           
             else 
             {
                 mysql_query("DELETE FROM persons WHERE personID='$id'");
                 mysql_query("DELETE FROM allergies WHERE personID='$id'");                     
                 mysql_query("DELETE FROM journal WHERE personID='$id'");                  
-            }
-                
-                // need to check zero case, should not occur?
-
-                
-                ?>
-        		<th>Welcome <?php echo $temp;?>!</th></br></br>
-    </center></body></html>
-        <?php
-                
+            }                
         }
+        header("location:myportal.php");
     }
-?>
-<!--WHAT HAPPENS IN ZERO CASE? Zero case will never occur. Check journal outcomes.// Update server for journal table.
-
-            
-
-  
-            }   
-        }  		
-		//header("location:myportal.php");
-	}*/
 ?>

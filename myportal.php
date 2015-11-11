@@ -38,8 +38,9 @@
         for($i = 0; $i < 10; $i++)
         {
             $colName = $i.'_personID';
-            if($row[$colName] != 0)
-                array_push($idArray, $row[$colName]);  
+            $pid = abs($row[$colName]);
+            if($pid != 0)
+                array_push($idArray, $pid);  
         }     
 
         // Use personIDs in array to populate buttons         
@@ -60,8 +61,7 @@
             {
                 ?>
 				    <!-- display delete person link-->
-				    <!--<a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>-->
-                    <a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" >Delete </a><br/><br/>
+				    <a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>
                 <?php                     
             }               
         }
