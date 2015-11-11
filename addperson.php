@@ -3,7 +3,6 @@
     <title>Add A Person</title>
     <link rel="stylesheet" type="text/css" href="style.css">    
     </head>
-    <div id="banner"></div>
     <div class="wrapper"></div>
     <body><center>
         <h1>Add New People!</h1>
@@ -51,6 +50,9 @@ include 'connect.php';
 session_start();
 $bool = true;
 
+//Global variable to count number of people being added
+$personNumber
+
 //Check to see if user is the same
 if($_SESSION['user']){}
 		else{
@@ -62,20 +64,42 @@ $user = $_SESSION['user'];
     
 //SQL Operations
 //Adding the person onto the account that is logged in
+    
+    //If adding on a registered user
     if(isset($_POST['submitRegisteredUserButton'])){
         $email = mysql_real_escape_string($_POST['newRegisteredUserText']);
         $queryOne = mysql_query("Select * from accounts WHERE username = '$user'");
         $queryTwo = mysql_query("Select * from accounts WHERE email = '$email'");
     }
     
+    //If adding on a new person
     if(isset($_POST['submitNewPersonButton'])){
         $nickname = mysql_real_escape_string($_POST['nicknameText']);
         $firstName = mysql_real_escape_string($_POST['firstNameText']);
         $lastName = mysql_real_escape_string($_POST['lastNameText']);    
-        $query = mysql_query("Select * from accounts WHERE username = '$user'");
+        $query = mysql_query("Select accountID from accounts WHERE username = '$user'");
+        $accountID = mysql_result($query, 0); 
+        $queryTwo = mysql_query("SELECT * from mappings where accountID = '$accountID'");
         if($bool)
         {
             mysql_query("INSERT INTO persons (firstName, lastName, nickname) VALUES ('$firstName','$lastName','$nickname')");
+            //Auto incremented value stored in variable
+            $personID = mysql_insert_id();
+            
+            //Array to store personID
+            $personIdArray =  array();
+            for($i = 0; $i < 10; $i++)
+            {
+                $$colName = $i.'_personID';
+                
+            }
+            
+            //Go into mappings and store personID into appropriate column where row = accountID of current session. 
+            //Need to store into column x_personID where x is the person (always > 0) because 0_personID is the user
+            //How should I specify the number?
+            mysql_query("INSERT INTO mappings WHERE accountID = '$accountID'  (_personID) VALUES ('$personID')");
+            
+            
             Print '<script>alert("The new person was successfully added!");</script>';
             Print '<script>window.location.assign("myportal.php");</script>';
             

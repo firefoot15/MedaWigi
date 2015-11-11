@@ -10,7 +10,7 @@
 		<title>My Portal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body><center></br></br>
+	<body><center><br/><br>
     <h2>My Portal</h2>	    
     <div class="wrapper">
 	<body><center>    

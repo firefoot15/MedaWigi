@@ -9,7 +9,7 @@
 		<title>Registration Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>		
-	<body><center></br></br>
+	<body><center><br/><br/>
 		<h2>Create Account</h2>
         <div class="wrapper">    
 		<table class="table1" cellpadding="2" cellspacing="5">
@@ -173,13 +173,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	// Write to tables
 	if($bool) 
 	{
-		mysql_query("INSERT INTO accounts (firstName, lastName, middleName, suffix, email, username, password, secretQuest, answerQuest) VALUES ('$firstName','$lastName','$middleName','$suffix','$email','$username','$password','$secretQuest','$answerQuest')"); 
+		mysql_query("INSERT INTO accounts (firstName, lastName, middleName, suffix, email, username, password, secretQuest, answerQuest) VALUES ('$firstName','$lastName','$middleName','$suffix','$email','$username','$password','$secretQuest','$answerQuest')");
+        //Grabs the auto-incremented accountID and stores it in accountID variable
+        //No parameter means using most recent sql connection
 		$accountID = mysql_insert_id();	
 		$avatarPath = "images/profilepic".rand(1, 16).".png";
 		
 		mysql_query("INSERT INTO persons (firstName, lastName, middleName, suffix, gender, race, birthDate, nickname, profilepic) VALUES ('$firstName','$lastName','$middleName','$suffix','$gender','$race','$birthDate','Me','$avatarPath')"); 
+        //Grabs the auto-incremented personID and stores it in personID variable
 		$personID = mysql_insert_id();	
 		
+        //Mappings table designed to link different people and same accounts as needed
 		mysql_query("INSERT INTO mappings (accountID, 0_personID) VALUES ('$accountID','$personID')");		
 		
 		Print '<script>alert("Successfully registered!");</script>';
