@@ -1,8 +1,3 @@
-<html>
-	<head>
-		<title>My Portal</title>
-	</head>
-    <body><center>  
 
 <?php
     include 'connect.php';
@@ -28,7 +23,7 @@
         $temp = 0;
         for($i = 1; $i < 10; $i++)
         {            
-            // Remove personID user desires to delete // from current row only
+            // Remove personID user desires to delete from current account
             $colName = $i.'_personID';
             if(abs($row[$colName]) == $id)
             {                                 
@@ -62,7 +57,9 @@
                         mysql_query("UPDATE mappings SET 9_personID=0 WHERE accountID = '$accountID'"); 
                         break;    
                 }
-                $temp = $row[$colName]; // signed value
+                
+                // Preserve signed value
+                $temp = $row[$colName];
             }
         }                     
         
@@ -75,27 +72,18 @@
         // Remove all entries for user account        
         else
         {
-            // mysql_query("DELETE FROM persons WHERE personID='$id'");
-            // mysql_query("DELETE FROM allergies WHERE personID='$id'");                     
-            // mysql_query("DELETE FROM journal WHERE personID='$id'");              
+            mysql_query("DELETE FROM persons WHERE personID='$id'");
+            mysql_query("DELETE FROM allergies WHERE personID='$id'");                     
+            mysql_query("DELETE FROM journal WHERE personID='$id'");              
             
-            // Also remove all instances from table
-            $query2 = mysql_query("Select * from mappings");
-            while($row2 = mysql_fetch_array($query2))
+            $query = mysql_query("Select * from mappings");
+            while($row = mysql_fetch_array($query))
             {
-                $mid = $row2['mappingID'];
-                
- 
+                $mid = $row['mappingID'];
                 for($i = 1; $i < 10; $i++)
                 {
-                    $colName2 = $i.'_personID';
-                    
-                    
-                                                                              ?>
-        		<th><?php echo $row2[$colName2];?>!</th></br></br>
-    </center></body></html>
-        <?php                            
-               
+                    // Remove personID user desires to delete from all accounts
+                    $colName = $i.'_personID';                       
                     if($row2[$colName2] == $temp*(-1)) 
                     {
                         switch($i)
@@ -128,17 +116,10 @@
                                 mysql_query("UPDATE mappings SET 9_personID=0 WHERE mappingID = '$mid'"); 
                                 break;    
                         }                
-                    }
-
-                    
-                    
-                    
+                    } 
                 }
-                
-          
-                
             }
         }
-        //header("location:myportal.php");
+        header("location:myportal.php");
     }
 ?>
