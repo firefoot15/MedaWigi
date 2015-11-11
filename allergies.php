@@ -1,4 +1,8 @@
-		
+<!-- 	ALLERGIES PAGE
+        Displays all allergies assoicated with personID.
+        Hidden add allergy form.
+ -->
+
 		<?php
         include 'connect.php';
 		session_start();

@@ -1,4 +1,7 @@
-	
+<!-- 	EDIT ALLERGIES PAGE
+        Receives allergyID and updates single row from table based on user input.
+ -->
+
 		<?php
         include 'connect.php';
 		session_start();

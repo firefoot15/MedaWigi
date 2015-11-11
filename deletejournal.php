@@ -1,3 +1,7 @@
+<!-- 	DELETE JOURNAL PAGE
+		Receives journalID and deletes single row from table.
+ -->
+
 <?php
     include 'connect.php';
 	session_start(); 

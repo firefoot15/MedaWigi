@@ -2,7 +2,7 @@
 		Edit form for individual profiles
 		General input validation, no account information
 		Link to avatar page
-		Only updates persons table
+		Updates accounts and persons table
  -->		
 		<?php
 
@@ -173,12 +173,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	// Write to tables
 	mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', nickname='$nickname', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$id'");
     
-	$query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+	// Access accountID associated with person
+    $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
 	$accountID = mysql_result($query, 0);     
 
+    // Access personID associated with account
     $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
     $pid = mysql_result($query, 0);
     
+    // Update accounts table if personID assoicated with account is the same as the current personID
     if($pid == $id){
         mysql_query("UPDATE accounts SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix' WHERE accountID = '$accountID'");
     }

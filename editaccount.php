@@ -1,7 +1,7 @@
 <!-- 	EDIT ACCOUNT PAGE
 		User account edit form
 		Input validation - especially password, username, email
-		Only updates accounts table
+		Updates accounts and persons table
  -->			
 		<?php
         include 'connect.php'; 
@@ -33,7 +33,7 @@
 		<title>Edit Account Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>				
-	<body><center></br></br>
+	<body><center><br/><br/>
 		<h2>Edit Account</h2>	
         <div class="wrapper">    
 		<table class="table1" cellpadding="2" cellspacing="5">
@@ -143,9 +143,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	{
 		mysql_query("UPDATE accounts SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', email='$email', username='$username', password='$password', secretQuest='$secretQuest', answerQuest='$answerQuest' WHERE accountID = '$accountID'");
         
+        // Access personID associated with account
         $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
         $personID = mysql_result($query, 0);
 		     
+        // Update persons table based upon personID
         mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix' WHERE personID = '$personID'");
 
 		Print '<script>alert("Successfully changed!");</script>';

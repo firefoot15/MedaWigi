@@ -1,3 +1,7 @@
+<!-- 	DELETE ALLERGY PAGE
+		Receives allergyID and deletes single row from table.
+ -->
+
 <?php
     include 'connect.php';
 	session_start(); 

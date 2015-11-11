@@ -1,3 +1,9 @@
+<!-- 	DELETE PERSON PAGE
+		Receives personID from myportal.php 
+        Delete dependent on whether person is linked or original to account.
+        IF linked, remove personID from mappings table only on account's row.
+        Otherwise, remove every instance of personID from all tables.
+ -->
 
 <?php
     include 'connect.php';
@@ -66,7 +72,7 @@
         // Remove connections for linked account
         if($temp < 0)
         {
-            mysql_query("DELETE FROM journal WHERE accountID = '$accountID' AND personID='$id'");
+            // mysql_query("DELETE FROM journal WHERE accountID = '$accountID' AND personID='$id'");
         }
 
         // Remove all entries for user account        
