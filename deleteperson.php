@@ -90,7 +90,7 @@
                 {
                     // Remove personID user desires to delete from all accounts
                     $colName = $i.'_personID';                       
-                    if($row2[$colName2] == $temp*(-1)) 
+                    if($row[$colName] == $temp*(-1)) 
                     {
                         switch($i)
                         {

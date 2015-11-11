@@ -42,7 +42,7 @@
 	<body><center></br></br>		
 		<h2>H O M E</h2>
         <div class="wrapper">
-		<th>Welcome <?php if($nickname == 'Me')echo htmlspecialchars($firstName); else echo htmlspecialchars($nickname);?>!</th></br></br>
+            <th><b><?php if($nickname == 'Me')echo 'My'; else echo htmlspecialchars($nickname)."'s";?> Page</b></th></br></br>
 		<th><?php if(date("m/d") == $reformatted_date) echo 'Happy Birthday!'; ?></th></br></br>
 		<table class="table4" cellpadding="5" cellspacing="5">
 		<th colspan="2">Options:</th>
