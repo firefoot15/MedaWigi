@@ -51,7 +51,7 @@ session_start();
 $bool = true;
 
 //Global variable to count number of people being added
-$personNumber
+$personNumber;
 
 //Check to see if user is the same
 if($_SESSION['user']){}
