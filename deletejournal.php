@@ -12,7 +12,7 @@
 	if($_SERVER['REQUEST_METHOD'] == "GET")
 	{
 		$id = $_GET['id'];
-		mysql_query("DELETE FROM journal WHERE journalID='$id'");
+		mysql_query("DELETE FROM events WHERE eventID='$id'");
 		header("location:journal.php");
 	}
 ?>

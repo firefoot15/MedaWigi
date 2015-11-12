@@ -7,21 +7,21 @@
 			header("location:index.php");}
 
 		if(!empty($_GET['id'])){
-			$_SESSION['jid'] = $_GET['id'];}
+			$_SESSION['eid'] = $_GET['id'];}
 			
-		$user = $_SESSION['user'];			
-		$jid = $_SESSION['jid'];
+		$user = $_SESSION['user'];
+		$eid = $_SESSION['eid'];
 		
-		$query = mysql_query("Select * from journal Where journalID='$jid'"); 
+		$query = mysql_query("Select * from events Where eventID='$eid'"); 
 		$row = mysql_fetch_array($query);
 
-		$date = $row['journalDate'];
-		$time = $row['journalTime'];
-		$subject = $row['journalSubject'];
+		$date = $row['eventDate'];
+		$time = $row['eventTime'];
+		$subject = $row['eventSubject'];
 		
 		$year = substr($date, 0, 2);
 		$month = substr($date, 3, 2);
-		$day = substr($date, 6, 2);		
+		$day = substr($date, 6, 2);
 		
 		$reformatted_date = $month.'-'.$day.'-'.$year;
 
@@ -41,19 +41,19 @@
         <table class="table2">
         <th colspan="2">Current Entry</th>
             <tr><td>Date: </td>
-				<td><?php echo htmlspecialchars($reformatted_date); ?></td></tr>	
+				<td><?php echo htmlspecialchars($reformatted_date); ?></td></tr>
 			<tr><td>Time: </td>
-				<td><?php echo htmlspecialchars($time); ?></td></tr>	
+				<td><?php echo htmlspecialchars($time); ?></td></tr>
 			<tr><td>Person: </td>
 				<td><?php echo htmlspecialchars($person); ?></td></tr>            
 			<tr><td>Subject: </td>
-				<td><?php echo htmlspecialchars($subject); ?></td></tr>			
+				<td><?php echo htmlspecialchars($subject); ?></td></tr>
         </table></br>
     
-		<table class="table3" border="1px">		
+		<table class="table3" border="1px">
 			<?php
 					// Output table entries
-					Print '<tr><td align="center">'.$row['journalContent']."</tr></td>";
+					Print '<tr><td align="center">'.$row['eventContent']."</tr></td>";
 			?>
 		</table></br>
 

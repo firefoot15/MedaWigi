@@ -7,18 +7,18 @@
 			header("location:index.php");}
 				
 		if(!empty($_GET['id'])){
-			$_SESSION['jid'] = $_GET['id'];}
+			$_SESSION['eid'] = $_GET['id'];}
 			
-		$user = $_SESSION['user'];			
-		$jid = $_SESSION['jid'];
+		$user = $_SESSION['user'];
+		$eid = $_SESSION['eid'];
 		
-		$query = mysql_query("Select * from journal Where journalID='$jid'"); 
+		$query = mysql_query("Select * from events Where eventID='$eid'"); 
 		$row = mysql_fetch_array($query);
 		
-		$date = $row['journalDate'];
-		$time = $row['journalTime'];
-		$subject = $row['journalSubject'];
-		$content = $row['journalContent'];
+		$date = $row['eventDate'];
+		$time = $row['eventTime'];
+		$subject = $row['eventSubject'];
+		$content = $row['eventContent'];
 			
 		$year = substr($date, 0, 2);
 		$month = substr($date, 3, 2);
@@ -65,9 +65,9 @@
 	<body><center></br></br>
 		<h2>Edit Entry</h2>
         <div class="wrapper">    
-		<form action="editjournal.php" method="POST">		
+		<form action="editjournal.php" method="POST">
 		<table class="table2">
-		<th colspan="2">Edit Entry</th>		
+		<th colspan="2">Edit Entry</th>
 			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01"<?php if($month == '01') echo 'selected="selected"'; ?>>January</option>
@@ -84,7 +84,7 @@
 					<option value="12"<?php if($month == '12') echo 'selected="selected"'; ?>>December</option>
 				</select>
 				<select name="day">
-					<?php for($i=31; $i>0; $i--){ 						
+					<?php for($i=31; $i>0; $i--){ 
 						if($i<10){ 
 							if($day == $i){
 								echo "<option value='0$i' selected>$i</option>";}
@@ -141,11 +141,11 @@
 					<?php for($i=60; $i>=0; $i-=5){
 						if(empty($minute)){
 							if($i == 60){
-								echo "<option value='' selected></option>";}							
+								echo "<option value='' selected></option>";}
 							elseif($i<10){
 								echo "<option value='0$i'>0$i</option>";}
 							else{
-								echo "<option value='$i'>$i</option>";}}						
+								echo "<option value='$i'>$i</option>";}}
 						else{
 							if($i == 60){
 								echo "<option value=''></option>";}
@@ -165,29 +165,29 @@
 					<option value=""<?php if(empty($period)) echo 'selected="selected"'; ?>></option>
 					<option value="AM"<?php if($period == 'AM') echo 'selected="selected"'; ?>>AM</option>
 					<option value="PM"<?php if($period == 'PM') echo 'selected="selected"'; ?>>PM</option>
-				</select></td></tr>						
+				</select></td></tr>
 			<tr><td>Person: </td>
 				<td><select name="person">
-					<?php for($i=0; $i < count($idArray); $i++){	
+					<?php for($i=0; $i < count($idArray); $i++){
                         if($person == $nameArray[$i]){ 
                             echo "<option value='$idArray[$i]' selected>$nameArray[$i]</option>";}
                         else{
                             echo "<option value='$idArray[$i]'>$nameArray[$i]</option>";}}
                     
-					?>				
+					?>
 				</select></td></tr>              
             <tr><td>Subject: </td>
 				<td><input type="text" name="subject" value="<?php echo $subject; ?>" maxlength="30"/></td></tr>
 			<tr><td>Content: </td>
-				<td><textarea rows="20" cols="50" type="text" name="content" required="required" maxlength="1000"><?php echo $content; ?></textarea></td></tr>		
+				<td><textarea rows="20" cols="50" type="text" name="content" required="required" maxlength="1000"><?php echo $content; ?></textarea></td></tr>
 		</table></br>
         
         <table>
         <th colspan="4"></th>    
             <tr><td></td><td></td>
 				<td><a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
-				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 	
-		</table>		
+				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 
+		</table>
 		</form>
     </div></center></body>
 </html>
@@ -199,12 +199,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$year = mysql_real_escape_string($_POST['year']);
 	$hour = mysql_real_escape_string($_POST['hour']);
 	$minute = mysql_real_escape_string($_POST['minute']);
-	$period = mysql_real_escape_string($_POST['period']);	
+	$period = mysql_real_escape_string($_POST['period']);
     $person = mysql_real_escape_string($_POST['person']);    
 	$subject = mysql_real_escape_string($_POST['subject']);
 	$content = mysql_real_escape_string($_POST['content']);
 
-	$jid = $_SESSION['jid'];	
+	$eid = $_SESSION['eid'];
 
 	if(empty($year) || empty($month) || empty($day))
 		$birthDate = "";
@@ -217,7 +217,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	else
 		$time = $hour.':'.$minute.' '.$period;
 
-	mysql_query("UPDATE journal SET journalDate='$date', journalTime='$time', personID='$person', journalSubject='$subject', journalContent='$content' WHERE journalID='$jid'");
+	mysql_query("UPDATE events SET eventDate='$date', eventTime='$time', personID='$person', eventSubject='$subject', eventContent='$content' WHERE eventID='$eid'");
 
 	Print '<script>alert("Successfully changed!");</script>';
 	Print '<script>window.location.assign("journal.php");</script>'; 

@@ -10,8 +10,8 @@
 		else{
 			header("location:myportal.php");}
 
-		$user = $_SESSION['user'];			
-		$id = $_SESSION['id'];	
+		$user = $_SESSION['user'];
+		$id = $_SESSION['id'];
 			
         // Use username to access accountID in accounts table
 		$query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
@@ -37,18 +37,18 @@
             }  
         }   
 		?>
-		
+
 <html>
 	<head>
 		<title>New Entry</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>			
+	</head>
 	<body><center></br></br>
-		<h2>New Entry</h2>	
+		<h2>New Entry</h2>
         <div class="wrapper">     
 		<form action="addjournal.php" method="POST">            
 		<table class="table2">
-		<th colspan="2">New Entry</th>		
+		<th colspan="2">New Entry</th>
 			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01">January</option>
@@ -80,7 +80,7 @@
 						else
 							echo "<option value='$k'>$j</option>";}
 					?>
-				</select></td></tr>		
+				</select></td></tr>
 			<tr><td>Time: </td>
 				<td><select name="hour">
 					<?php for($i=13; $i>=1; $i--){
@@ -109,10 +109,10 @@
 				</select></td></tr>	
 			<tr><td>Person: </td>
 				<td><select name="person">
-					<?php for($i=0; $i < count($idArray); $i++){							
+					<?php for($i=0; $i < count($idArray); $i++){
 						echo "<option value='$idArray[$i]'>$nameArray[$i]</option>";}
 						
-					?>				
+					?>
 				</select></td></tr>            
 			<tr><td>Subject: </td>
 				<td><input type="text" name="subject" maxlength="30"/></td></tr>
@@ -124,11 +124,11 @@
         <th colspan="4"></th>    
             <tr><td></td><td></td>
                 <td><a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
-				<td><input type="submit" value="Submit" class="basic_button"/></td></tr> 	
+				<td><input type="submit" value="Submit" class="basic_button"/></td></tr> 
 		</table>
 		</form>            
     </div></center></body>
-</html>		
+</html>
 
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){ 
@@ -148,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	else
 		$time = $hour.':'.$minute.' '.$period;
 	
-	mysql_query("INSERT INTO journal (journalDate, journalTime, personID, journalSubject, journalContent, accountID) VALUES ('$date','$time','$person','$subject','$content','$accountID')"); 	
+	mysql_query("INSERT INTO events (eventDate, eventTime, personID, eventSubject, eventContent) VALUES ('$date','$time','$person','$subject','$content')"); 
 
 	Print '<script>alert("Successfully added!");</script>';
 	Print '<script>window.location.assign("journal.php");</script>'; 
