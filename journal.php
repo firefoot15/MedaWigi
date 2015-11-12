@@ -45,7 +45,7 @@
 			</tr>
 			<?php
             
-            // Use username to access accountID in accounts table            // accountID might not be necessary for journal table? 
+            // Use username to access accountID in accounts table
             $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
             $accountID = mysql_result($query, 0);   
 

@@ -1,7 +1,3 @@
-    <!-- --------------------------------------------------------------------- -->
-    <!-- need if statement in edit/delete/view to specify which page to return -->
-    <!-- --------------------------------------------------------------------- -->
-
         <?php
         include 'connect.php';
         session_start();
@@ -15,22 +11,6 @@
 
         $user = $_SESSION['user'];
         $id = $_SESSION['id'];
-
-        if(isset($_SESSION['sessionArray'])){
-            $sessionArray = $_SESSION['sessionArray'];
-            print_r($sessionArray);
-            
-			$pid = $sessionArray[0];            
-			$subject = $sessionArray[1];
-            $date1 = $sessionArray[2];
-            $date2 = $sessionArray[3];
-            
-            $year1 = substr($date1, 0, 2);
-			$month1 = substr($date1, 3, 2);
-			$day1 = substr($date1, 6, 2);
-			$year2 = substr($date2, 0, 2);
-			$month2 = substr($date2, 3, 2);
-			$day2 = substr($date2, 6, 2);}
 
         // Use username to access accountID in accounts table            
         $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
@@ -73,16 +53,45 @@
                         $flag = false;
                 }
                 if($flag)
-                    array_push($subjectArray, $row['eventSubject']);               
+                    array_push($subjectArray, $row['eventSubject']);              
             }
             sort($subjectArray); 
         }
+
+        // Populate search fields
+        // Default values for uninitialized session array
+		$person = $id;
+		$subject = $subjectArray[0];
+        $startYear = (date("Y") - 10)%100;
+		$startMonth = 01;
+		$startDay = 01;
+		$endYear = date("Y");
+		$endMonth = date("m");
+		$endDay = date("d");
+
+        // Overwrite with values from session array if they exist
+        if(isset($_SESSION['sessionArray'])){
+            $sessionArray = $_SESSION['sessionArray'];
+            
+			$person = $sessionArray[0];  
+			$subject = $sessionArray[1];
+            $startDateSA = $sessionArray[2];
+            $endDateSA = $sessionArray[3];
+            
+            $startYear = substr($startDateSA, 0, 2);
+			$startMonth = substr($startDateSA, 3, 2);
+			$startDay = substr($startDateSA, 6, 2);
+			$endYear = substr($endDateSA, 0, 2);
+			$endMonth = substr($endDateSA, 3, 2);
+			$endDay = substr($endDateSA, 6, 2);}
+
+
         ?>
 
 <html>
 	<head>
 		<title>Journal</title>
-		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>		
 	<body><center></br></br>
 		<h2>Search Journal</h2>
@@ -91,73 +100,111 @@
 		<table class="table2">
 		<th colspan="2">Basic Search</th>
 			<tr><td>Person: </td>
-				<td><select name="personChoice">
+				<td><select name="person">
 					<?php for($i=0; $i < count($idArray); $i++){
-						echo "<option value='$idArray[$i]'>$nameArray[$i]</option>";}
+                        if($person == $idArray[$i]){ 
+                            echo "<option value='$idArray[$i]' selected>$nameArray[$i]</option>";}
+                        else{
+                            echo "<option value='$idArray[$i]'>$nameArray[$i]</option>";}}
 
 					?>
 				</select></td></tr>            
 			<tr><td>Subject: </td>
-				<td><select name="subjectChoice">
+				<td><select name="subject">
 					<?php for($i=0; $i < count($subjectArray); $i++){
-						echo "<option value='$subjectArray[$i]'>$subjectArray[$i]</option>";}
+                        if($subject == $subjectArray[$i]){ 
+                            echo "<option value='$subjectArray[$i]' selected>$subjectArray[$i]</option>";}
+                        else{    
+                            echo "<option value='$subjectArray[$i]'>$subjectArray[$i]</option>";}}
 
 					?>
 				</select></td></tr>
 			<tr><td>From: </td>
-				<td><select name="monthChoice1">
-					<option value="01">January</option>
-					<option value="02">February</option>
-					<option value="03">March</option>
-					<option value="04">April</option>
-					<option value="05">May</option>
-					<option value="06">June</option>
-					<option value="07">July</option>
-					<option value="08">August</option>
-					<option value="09">September</option>
-					<option value="10">October</option>
-					<option value="11">November</option>
-					<option value="12">December</option>
+				<td><select name="startMonth">
+					<option value="01"<?php if($startMonth == '01') echo 'selected="selected"'; ?>>January</option>
+					<option value="02"<?php if($startMonth == '02') echo 'selected="selected"'; ?>>February</option>
+					<option value="03"<?php if($startMonth == '03') echo 'selected="selected"'; ?>>March</option>
+					<option value="04"<?php if($startMonth == '04') echo 'selected="selected"'; ?>>April</option>
+					<option value="05"<?php if($startMonth == '05') echo 'selected="selected"'; ?>>May</option>
+					<option value="06"<?php if($startMonth == '06') echo 'selected="selected"'; ?>>June</option>
+					<option value="07"<?php if($startMonth == '07') echo 'selected="selected"'; ?>>July</option>
+					<option value="08"<?php if($startMonth == '08') echo 'selected="selected"'; ?>>August</option>
+					<option value="09"<?php if($startMonth == '09') echo 'selected="selected"'; ?>>September</option>
+					<option value="10"<?php if($startMonth == '10') echo 'selected="selected"'; ?>>October</option>
+					<option value="11"<?php if($startMonth == '11') echo 'selected="selected"'; ?>>November</option>
+					<option value="12"<?php if($startMonth == '12') echo 'selected="selected"'; ?>>December</option>
 				</select>
-				<select name="dayChoice1">
-					<?php for($i=31; $i>=1; $i--){
-						if($i<10)
-							echo "<option value='0$i' selected>$i</option>";
-						else
-							echo "<option value='$i' selected>$i</option>";}
+				<select name="startDay">
+					<?php for($i=31; $i>0; $i--){ 
+						if($i<10){ 
+							if($startDay == $i){
+								echo "<option value='0$i' selected>$i</option>";}
+							else{
+								echo "<option value='0$i'>$i</option>";}}
+						else{
+							if($startDay == $i){
+								echo "<option value='$i' selected>$i</option>";}
+							else{
+								echo "<option value='$i'>$i</option>";}}}
 					?>
 				</select>
-				<select name="yearChoice1">
+				<select name="startYear">
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
-						echo "<option value='$j'>$j</option>";}
+						$k=$j%100;
+						if($startYear == $k){
+							if($k<10)
+								echo "<option value='0$k' selected>$j</option>";
+							else
+								echo "<option value='$k' selected>$j</option>";}
+						else{
+							if($k<10)
+								echo "<option value='0$k'>$j</option>";
+							else
+								echo "<option value='$k'>$j</option>";}}
 					?>
 				</select></td></tr>
 			<tr><td>To: </td>
-				<td><select name="monthChoice2">
-					<option value="01">January</option>
-					<option value="02">February</option>
-					<option value="03">March</option>
-					<option value="04">April</option>
-					<option value="05">May</option>
-					<option value="06">June</option>
-					<option value="07">July</option>
-					<option value="08">August</option>
-					<option value="09">September</option>
-					<option value="10">October</option>
-					<option value="11">November</option>
-					<option value="12">December</option>
+				<td><select name="endMonth">
+					<option value="01"<?php if($endMonth == '01') echo 'selected="selected"'; ?>>January</option>
+					<option value="02"<?php if($endMonth == '02') echo 'selected="selected"'; ?>>February</option>
+					<option value="03"<?php if($endMonth == '03') echo 'selected="selected"'; ?>>March</option>
+					<option value="04"<?php if($endMonth == '04') echo 'selected="selected"'; ?>>April</option>
+					<option value="05"<?php if($endMonth == '05') echo 'selected="selected"'; ?>>May</option>
+					<option value="06"<?php if($endMonth == '06') echo 'selected="selected"'; ?>>June</option>
+					<option value="07"<?php if($endMonth == '07') echo 'selected="selected"'; ?>>July</option>
+					<option value="08"<?php if($endMonth == '08') echo 'selected="selected"'; ?>>August</option>
+					<option value="09"<?php if($endMonth == '09') echo 'selected="selected"'; ?>>September</option>
+					<option value="10"<?php if($endMonth == '10') echo 'selected="selected"'; ?>>October</option>
+					<option value="11"<?php if($endMonth == '11') echo 'selected="selected"'; ?>>November</option>
+					<option value="12"<?php if($endMonth == '12') echo 'selected="selected"'; ?>>December</option>
 				</select>
-				<select name="dayChoice2">
-					<?php for($i=31; $i>=1; $i--){
-						if($i<10)
-							echo "<option value='0$i' selected>$i</option>";
-						else
-							echo "<option value='$i' selected>$i</option>";}
+				<select name="endDay">
+					<?php for($i=31; $i>0; $i--){ 
+						if($i<10){ 
+							if($endDay == $i){
+								echo "<option value='0$i' selected>$i</option>";}
+							else{
+								echo "<option value='0$i'>$i</option>";}}
+						else{
+							if($endDay == $i){
+								echo "<option value='$i' selected>$i</option>";} ////////////////////////////////////// change date range?
+							else{
+								echo "<option value='$i'>$i</option>";}}}
 					?>
 				</select>
-				<select name="yearChoice2">
+				<select name="endYear">
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
-						echo "<option value='$j'>$j</option>";}
+						$k=$j%100;
+						if($endYear == $k){
+							if($k<10)
+								echo "<option value='0$k' selected>$j</option>";
+							else
+								echo "<option value='$k' selected>$j</option>";}
+						else{
+							if($k<10)
+								echo "<option value='0$k'>$j</option>";
+							else
+								echo "<option value='$k'>$j</option>";}}
 					?>
 				</select></td></tr>
 		</table></br>
@@ -183,26 +230,36 @@
 <?php	
 	if(isset($_POST['submit'])){
 		if(isset($_GET['criteria'])){
-			$pid = $_POST['personChoice'];            
-			$subject = $_POST['subjectChoice'];
-			$month1 = $_POST['monthChoice1'];
-			$day1 = $_POST['dayChoice1'];
-			$year1 = $_POST['yearChoice1'];
-			$month2 = $_POST['monthChoice2'];
-			$day2 = $_POST['dayChoice2'];
-			$year2 = $_POST['yearChoice2'];
+			$pid = $_POST['person'];            
+			$subject = $_POST['subject'];
+			$startMonth = $_POST['startMonth'];
+			$startDay = $_POST['startDay'];
+			$startYear = $_POST['startYear'];
+			$endMonth = $_POST['endMonth'];
+			$endDay = $_POST['endDay'];
+			$endYear = $_POST['endYear'];
 
-            // Reformat for checkRange() function
-			$start_date = $year1.'-'.$month1.'-'.$day1;
-			$end_date = $year2.'-'.$month2.'-'.$day2;
-            
             // Reformat for session array
-            $date1 = ($year1%100).'-'.$month1.'-'.$day1;
-            $date2 = ($year2%100).'-'.$month2.'-'.$day2;
+            $startDateSA = $startYear.'-'.$startMonth.'-'.$startDay;
+            $endDateSA = $endYear.'-'.$endMonth.'-'.$endDay;
                 
             // Preserve search variables
-            $tempArray = array($pid, $subject, $date1, $date2);
-            $_SESSION['sessionArray'] = $tempArray;
+            $sessionArray = array($pid, $subject, $startDateSA, $endDateSA);
+            $_SESSION['sessionArray'] = $sessionArray;
+            
+            // Reformat for checkRange() function
+            if($startYear > date("Y")%100)
+                $startYear = '19'.$startYear;
+            else
+                $startYear = '20'.$startYear;
+            
+            if($endYear > date("Y")%100)
+                $endYear = '19'.$endYear;
+            else
+                $endYear = '20'.$endYear;
+                
+			$startDateCR = $startYear.'-'.$startMonth.'-'.$startDay;
+			$endDateCR = $endYear.'-'.$endMonth.'-'.$endDay;
 
             // Sort output by date
             $query = mysql_query("Select * from events WHERE personID = '$pid' AND eventSubject = '$subject' ORDER BY eventDate ASC, eventTime ASC");
@@ -239,13 +296,13 @@
                     $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
                     $person = mysql_result($query2, 0);       
 				
-				    // Put date in a format checkRange() can use
-                    if($year <= date("Y")%100)
-					   $table_date = '20'.$year.'-'.$month.'-'.$day;
+				    // Reformat for checkRange() function
+                    if($year > date("Y")%100)
+					   $tableDateCR = '19'.$year.'-'.$month.'-'.$day;
 				    else
-					   $table_date = '19'.$year.'-'.$month.'-'.$day;
+					   $tableDateCR = '20'.$year.'-'.$month.'-'.$day;
 
-				    if(checkRange($start_date, $end_date, $table_date)){
+				    if(checkRange($startDateCR, $endDateCR, $tableDateCR)){
 
 				// Output table entries
 				Print "<tr>";
@@ -262,12 +319,12 @@
             }
 		}
 	}
-	function checkRange($start_date, $end_date, $table_date){
+	function checkRange($startDateCR, $endDateCR, $tableDateCR){
 		
         // Convert to timestamp
-		$start_ts = strtotime($start_date);
-		$end_ts = strtotime($end_date);
-		$table_ts = strtotime($table_date);
+		$start_ts = strtotime($startDateCR);
+		$end_ts = strtotime($endDateCR);
+		$table_ts = strtotime($tableDateCR);
 		
 		return (($table_ts >= $start_ts) && ($table_ts <= $end_ts));
 	}
