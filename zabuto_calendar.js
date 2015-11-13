@@ -6,6 +6,7 @@
  * - Twitter Bootstrap (3.0.2)
  */
 
+
 if (typeof jQuery == 'undefined') {
     throw new Error('jQuery is not loaded');
 }
@@ -250,6 +251,8 @@ $.fn.zabuto_calendar = function (options) {
             var lastDayinMonth = calcLastDayInMonth(year, month);
             var firstDow = calcDayOfWeek(year, month, 1);
             var lastDow = calcDayOfWeek(year, month, lastDayinMonth);
+            
+            /* currDayOfMonth stores the current day within for loop */
             var currDayOfMonth = 1;
 
             var weekStartsOn = $calendarElement.data('weekStartsOn');
@@ -273,33 +276,50 @@ $.fn.zabuto_calendar = function (options) {
                         $dowRow.append('<td></td>');
                     } else {
                         var dateId = $calendarElement.attr('id') + '_' + dateAsString(year, month, currDayOfMonth);
+                        
                         var dayId = dateId + '_day';
 
                         var $dayElement = $('<div id="' + dayId + '" class="day" >' + currDayOfMonth + '</div>');
                         $dayElement.data('day', currDayOfMonth);
+                        
 
                         if ($calendarElement.data('showToday') === true) {
                             if (isToday(year, month, currDayOfMonth)) {
                                 $dayElement.html('<span class="badge badge-today">' + currDayOfMonth + '</span>');
                             }
                         }
-
-                        var $dowElement = $('<td id="' + dateId + '"></td>');
+                        
+                        
+                        var $dowElement = $('<td id="' + dateId + '" class="day"></td>');
+                        
+                        
                         $dowElement.append($dayElement);
-
                         $dowElement.data('date', dateAsString(year, month, currDayOfMonth));
+                        
                         $dowElement.data('hasEvent', false);
 
-                        if (typeof($calendarElement.data('actionFunction')) === 'function') {
-                            $dowElement.addClass('dow-clickable');
-                            $dowElement.click(function () {
-                                $calendarElement.data('selectedDate', $(this).data('date'));
-                            });
-                            $dowElement.click($calendarElement.data('actionFunction'));
-                        }
+                        
+//                        if (typeof($calendarElement.data('actionFunction')) === 'function') {
+//                            $dowElement.addClass('dow-clickable');
+//                            $dowElement.click(function () {    
+//                                $calendarElement.data('selectedDate', $(this).data('date'));
+//                                alert("Day clicked:" + $calendarElement.data('selectedDate'));
+//                            });
+//                            $dowElement.click($calendarElement.data('actionFunction'));
+//                        }
+                       
 
+                        
                         $dowRow.append($dowElement);
-
+                        
+                        /*When day is clicked*/
+                        $dowElement.click(function() {
+                            $calendarElement.data('selectedDate', $(this).data('date'));
+                            alert("Day clicked:" + $calendarElement.data('selectedDate'));
+                        });
+                        
+                    
+                        
                         currDayOfMonth++;
                     }
                     if (dow == 6) {
@@ -309,6 +329,9 @@ $.fn.zabuto_calendar = function (options) {
 
                 $tableObj.append($dowRow);
             }
+            
+                        
+         
             return $tableObj;
         }
 
@@ -528,6 +551,11 @@ $.fn.zabuto_calendar = function (options) {
 
     return this;
 };
+
+function myDateFunction(id) {
+    var date = $("#" + id).data("date");
+    var hasEvent = $("#" + id).data("hasEvent");
+}
 
 /**
  * Default settings
