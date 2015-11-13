@@ -27,8 +27,8 @@
 		$firstName = $row['firstName'];
 		$birthDate = $row['birthDate'];
 
-		$month = substr($birthDate, 3, 2);
-		$day = substr($birthDate, 6, 2);
+		$month = substr($birthDate, 5, 2);
+		$day = substr($birthDate, 8, 2);
 
 		$reformatted_date = $month.'/'.$day;
         date_default_timezone_set('America/New_York');

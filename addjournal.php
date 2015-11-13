@@ -73,12 +73,11 @@
 					?>
 				</select>
 				<select name="year">
-					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
-						$k=$j%100;
-						if($k<10)
-							echo "<option value='0$k'>$j</option>";
-						else
-							echo "<option value='$k'>$j</option>";}
+					<?php for($i=1, $j=date("Y")+5; $i<=40; $i++, $j--){
+                        if($j == date("Y"))
+                            echo "<option value='$j' selected>$j</option>";
+                        else
+							echo "<option value='$j'>$j</option>";}
 					?>
 				</select></td></tr>
 			<tr><td>Time: </td>

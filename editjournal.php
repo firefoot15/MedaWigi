@@ -20,9 +20,9 @@
 		$subject = $row['eventSubject'];
 		$content = $row['eventContent'];
 			
-		$year = substr($date, 0, 2);
-		$month = substr($date, 3, 2);
-		$day = substr($date, 6, 2);
+		$year = substr($date, 0, 4);
+		$month = substr($date, 5, 2);
+		$day = substr($date, 8, 2);
 							
 		$hour = substr($time, 0, 2);
 		$minute = substr($time, 3, 2);
@@ -98,18 +98,11 @@
 					?>
 				</select>
 				<select name="year">
-					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
-						$k=$j%100;
-						if($year == $k){
-							if($k<10)
-								echo "<option value='0$k' selected>$j</option>";
-							else
-								echo "<option value='$k' selected>$j</option>";}
+					<?php for($i=1, $j=date("Y")+5; $i<=40; $i++, $j--){
+						if($year == $j){
+				            echo "<option value='$j' selected>$j</option>";}
 						else{
-							if($k<10)
-								echo "<option value='0$k'>$j</option>";
-							else
-								echo "<option value='$k'>$j</option>";}}
+				            echo "<option value='$j'>$j</option>";}}
 					?>
 				</select></td></tr>
 			<tr><td>Time: </td>

@@ -19,9 +19,9 @@
 		$time = $row['eventTime'];
 		$subject = $row['eventSubject'];
 		
-		$year = substr($date, 0, 2);
-		$month = substr($date, 3, 2);
-		$day = substr($date, 6, 2);
+		$year = substr($date, 0, 4);
+		$month = substr($date, 5, 2);
+		$day = substr($date, 8, 2);
 		
 		$reformatted_date = $month.'-'.$day.'-'.$year;
 
