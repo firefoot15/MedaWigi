@@ -39,15 +39,16 @@
 			<tr><td>Secret Question: </td>
 				<td><select name="secretQuest">
 					<option value="What is your favorite color?">What is your favorite color?</option>
-					<option value="What is your stripper name?">What is your stripper name?</option>
+					<option value="What is your stripper name?">What is your stripper name?</option>                    
+                    <option value="What was your mother's maiden name?">What was your mother's maiden name?</option>
 				</select></td></tr>
 			<tr><td>Secret Answer: </td>
 				<td><input type="text" name="answerQuest" required="required" maxlength="50"/></td></tr>
 			<tr><td>Gender: </td>
 				<td><f2>
-					<input type="radio" name="gender" value="Male" checked>Male<br>
-					<input type="radio" name="gender" value="Female" checked>Female<br>
-					<input type="radio" name="gender" value="Other" checked>Other<br>
+					<input type="radio" name="gender" value="Male">Male<br>
+					<input type="radio" name="gender" value="Female">Female<br>
+					<input type="radio" name="gender" value="Other">Other<br>
 					<input type="radio" name="gender" value="Unspecified" checked>Unspecified<br>
 				</f2></td></tr>
 			<tr><td>Race: </td>
@@ -58,7 +59,7 @@
 					<option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
 					<option value="White">White</option>
 					<option value="Other">Other</option>
-					<option value="Unspecified">Unspecified</option>
+					<option value="Unspecified" selected>Unspecified</option>
 				</select></td></tr>
 			<tr><td>Date of Birth: </td>
 				<td><select name="month">
@@ -85,11 +86,7 @@
 				</select>
 				<select name="year">
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
-						$k=$j%100;
-						if($k<10)
-							echo "<option value='0$k' selected>$j</option>";
-						else
-							echo "<option value='$k' selected>$j</option>";}
+                            echo "<option value='$j' selected>$j</option>";}
 					?>
 				</select></td></tr>
 			<tr><td></td></tr>

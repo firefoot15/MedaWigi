@@ -39,14 +39,14 @@
 <html>
 	<head>
 		<title>Edit Person Page</title>
-		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>		
 	<body><center></br></br>
 		<h2>Edit Person</h2>
         <div class="wrapper">    
 		<table class="table1" cellpadding="2" cellspacing="5">
 		<th colspan="2">Edit Person</th>
-		<form action="editperson.php" method="POST">			
+		<form action="editperson.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" value="<?php echo $firstName; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Middle Initial: </td>
@@ -77,8 +77,7 @@
 					<option value="Native Hawaiian or Other Pacific Islander"<?php if($race == 'Native Hawaiian or Other Pacific Islander') echo 'selected="selected"'; ?>>Native Hawaiian or Other Pacific Islander</option>
 					<option value="White"<?php if($race== 'White') echo 'selected="selected"'; ?>>White</option>
 					<option value="Other"<?php if($race == 'Other') echo 'selected="selected"'; ?>>Other</option>
-					<option value="Unspecified"<?php if($race == 'Unspecified') echo 'selected="selected"'; ?>>Unspecified</option>
-					<option value=""<?php if($race == '') echo 'selected="selected"'; ?>></option>	                    
+					<option value="Unspecified"<?php if($race == 'Unspecified') echo 'selected="selected"'; ?>>Unspecified</option>                 
 				</select></td></tr>
 			<tr><td>Date of Birth: </td>
 				<td><select name="month">
@@ -117,27 +116,19 @@
 				</select>
 				<select name="year">
 					<?php for($i=0, $j=date("Y"); $i<=80; $i++, $j--){
-						$k=$j%100;
 						if(empty($year)){
 							if($i == 80){
-								echo "<option value='' selected></option>";}
-							elseif($k<10){
-								echo "<option value='0$k'>$j</option>";}	
+								echo "<option value='' selected></option>";}	
 							else{
-								echo "<option value='$k'>$j</option>";}}
+								echo "<option value='$j'>$j</option>";}}
 						else{
 							if($i == 80){
                                 echo "<option value=''></option>";}
-                            elseif($k<10){
-								if($year == $k){
-									echo "<option value='0$k' selected>$j</option>";}
-								else{
-									echo "<option value='0$k'>$j</option>";}}
 							else{
-								if($year == $k){
-									echo "<option value='$k' selected>$j</option>";}
+								if($year == $j){
+									echo "<option value='$j' selected>$j</option>";}
 								else{
-									echo "<option value='$k'>$j</option>";}}}}
+									echo "<option value='$j'>$j</option>";}}}}
 					?>
 				</select></td></tr>
 			<tr><td></td></tr>
@@ -157,15 +148,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$middleName = mysql_real_escape_string($_POST['middleName']);
 	$suffix = mysql_real_escape_string($_POST['suffix']);
 	$nickname = mysql_real_escape_string($_POST['nickname']);
-    $gender;
+    $gender = mysql_real_escape_string($_POST['gender']);
 	$race = mysql_real_escape_string($_POST['race']);
 	$month = mysql_real_escape_string($_POST['month']);
 	$day = mysql_real_escape_string($_POST['day']);
 	$year = mysql_real_escape_string($_POST['year']);
-    
-    // If default value for radio buttons is not set in addperson.php, receive error message
-    if(isset($_POST['gender']))
-        $gender = mysql_real_escape_string($_POST['gender']);
 	
 	$id = $_SESSION['id'];
     
