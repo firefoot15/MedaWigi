@@ -48,7 +48,7 @@
 <?php
 include 'connect.php';
 session_start();
-$bool = true;
+$switchBool = false;
 
 //Global variable to count number of people being added
 $personNumber;
@@ -87,23 +87,23 @@ $user = $_SESSION['user'];
         $row =  mysql_fetch_array($queryTwo);
         
         
-        if($bool)
-        {
             //Query to insert into persons table
-            mysql_query("INSERT INTO persons (firstName, lastName, nickname) VALUES ('$firstName','$lastName','$nickname')");
+            mysql_query("INSERT INTO persons (firstName, lastName, gender, race, nickname) VALUES ('$firstName','$lastName', 'Unspecified', 'Unspecified','$nickname')");
             //Auto incremented value stored in variable
             $personID = mysql_insert_id();
 //            echo "<script type='text/javascript'>alert('$personID');</script>";
             
             
-            //Test query to force update into mappings
-//            mysql_query("UPDATE mappings SET 1_personID = '$personID' WHERE accountID ='$accountID'");
-            
-                for($i =1; $i < 10; $i++)
+
+                //Switch statement that inserts into specified column....hopefully
+                for($i = 1; $i < 10 && $switchBool == false; $i++)
                 {
+                    //$row[$colName] == 0
                     $colName = $i.'_personID';
+                    //What needs to be added here?
                     if($row[$colName] == 0)
                     {
+                        $switchBool = true;
                         switch($i)
                         {
                             case 1:
@@ -134,6 +134,7 @@ $user = $_SESSION['user'];
                                 mysql_query("UPDATE mappings SET 9_personID = '$personID' WHERE accountID ='$accountID'");
                                 break;    
                         }
+                        
                     }
                 }
                                    
@@ -141,7 +142,7 @@ $user = $_SESSION['user'];
             Print '<script>alert("The new person was successfully added!");</script>';
             Print '<script>window.location.assign("myportal.php");</script>';
             
-        }
+        
     }
 ?>
 
