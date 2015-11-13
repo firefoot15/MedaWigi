@@ -62,8 +62,9 @@
 				<td><input type="password" name="pass2" required="required" maxlength="15"/></td></tr>
 			<tr><td>Secret Question: </td>
 				<td><select name="secretQuest">
-					<option value="What is your favorite color?"<?php if($secretQuest == 'What is your favorite color?') echo 'selected="selected"'; ?>>What is your favorite color?</option>
-					<option value="What is your stripper name?"<?php if($secretQuest == 'What is your stripper name?') echo 'selected="selected"'; ?>>What is your stripper name?</option>
+					<option value="What is your favorite color?"<?php if($secretQuest == "What is your favorite color?") echo 'selected="selected"'; ?>>What is your favorite color?</option>
+                    <option value="What is your stripper name?"<?php if($secretQuest == "What is your stripper name?") echo 'selected="selected"'; ?>>What is your stripper name?</option>
+					<option value="What was your mother's maiden name?"<?php if($secretQuest == "What was your mother's maiden name?") echo 'selected="selected"'; ?>>What was your mother's maiden name?</option>                    
 				</select></td></tr>
 			<tr><td>Secret Answer: </td>
 				<td><input type="text" name="answerQuest" value="<?php echo $answerQuest; ?>" required="required" maxlength="50"/></td></tr>
