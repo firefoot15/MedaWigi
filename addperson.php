@@ -76,30 +76,68 @@ $user = $_SESSION['user'];
     if(isset($_POST['submitNewPersonButton'])){
         $nickname = mysql_real_escape_string($_POST['nicknameText']);
         $firstName = mysql_real_escape_string($_POST['firstNameText']);
-        $lastName = mysql_real_escape_string($_POST['lastNameText']);    
-        $query = mysql_query("Select accountID from accounts WHERE username = '$user'");
-        $accountID = mysql_result($query, 0); 
+        $lastName = mysql_real_escape_string($_POST['lastNameText']);
+        
+        //Grab and store accountID
+        $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+        $accountID = mysql_result($query, 0);
+        
+        //Take row in mappings table for user's accountID, store in row var
         $queryTwo = mysql_query("SELECT * from mappings where accountID = '$accountID'");
+        $row =  mysql_fetch_array($queryTwo);
+        
+        
         if($bool)
         {
+            //Query to insert into persons table
             mysql_query("INSERT INTO persons (firstName, lastName, nickname) VALUES ('$firstName','$lastName','$nickname')");
             //Auto incremented value stored in variable
             $personID = mysql_insert_id();
-            
-            //Array to store personID
-            $personIdArray =  array();
-            for($i = 0; $i < 10; $i++)
-            {
-                $$colName = $i.'_personID';
-                
-            }
-            
-            //Go into mappings and store personID into appropriate column where row = accountID of current session. 
-            //Need to store into column x_personID where x is the person (always > 0) because 0_personID is the user
-            //How should I specify the number?
-            mysql_query("INSERT INTO mappings WHERE accountID = '$accountID'  (_personID) VALUES ('$personID')");
+//            echo "<script type='text/javascript'>alert('$personID');</script>";
             
             
+            //Test query to force update into mappings
+//            mysql_query("UPDATE mappings SET 1_personID = '$personID' WHERE accountID ='$accountID'");
+            
+                for($i =1; $i < 10; $i++)
+                {
+                    $colName = $i.'_personID';
+                    if($row[$colName] == 0)
+                    {
+                        switch($i)
+                        {
+                            case 1:
+                                mysql_query("UPDATE mappings SET 1_personID = '$personID' WHERE accountID ='$accountID'");
+                                break;
+                            case 2:
+                                mysql_query("UPDATE mappings SET 2_personID = '$personID' WHERE accountID ='$accountID'");
+                                break;
+                            case 3:
+                                mysql_query("UPDATE mappings SET 3_personID = '$personID' WHERE accountID ='$accountID'");
+                                break;
+                            case 4:
+                                mysql_query("UPDATE mappings SET 4_personID = '$personID' WHERE accountID ='$accountID'");
+                                break;
+                            case 5:
+                                mysql_query("UPDATE mappings SET 5_personID = '$personID' WHERE accountID ='$accountID'");
+                                break;
+                            case 6:
+                                mysql_query("UPDATE mappings SET 6_personID = '$personID' WHERE accountID ='$accountID'");
+                                break;
+                            case 7:
+                                mysql_query("UPDATE mappings SET 7_personID = '$personID' WHERE accountID ='$accountID'");
+                                break;
+                            case 8:
+                                mysql_query("UPDATE mappings SET 8_personID = '$personID' WHERE accountID ='$accountID'");
+                                break;
+                            case 9:
+                                mysql_query("UPDATE mappings SET 9_personID = '$personID' WHERE accountID ='$accountID'");
+                                break;    
+                        }
+                    }
+                }
+                                   
+            //Alert successful add and move to myportal
             Print '<script>alert("The new person was successfully added!");</script>';
             Print '<script>window.location.assign("myportal.php");</script>';
             
