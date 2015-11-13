@@ -14,7 +14,7 @@ $query = mysql_query("Select accountID from accounts WHERE username = '$user' li
 $accountID = mysql_result($query,0);
 
 /* Select existing journal entries for accountID */
-$query = mysql_query("Select * from journal WHERE accountID='$accountID' ORDER BY journalDate ASC, journalTime ASC");
+$query = mysql_query("Select * from events WHERE accountID='$accountID' ORDER BY journalDate ASC, journalTime ASC");
 $exists = mysql_num_rows($query);
 
 if($exists>0) {
