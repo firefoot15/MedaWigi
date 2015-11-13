@@ -39,7 +39,7 @@
 <html>
 	<head>
 		<title>Edit Person Page</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
 	</head>		
 	<body><center></br></br>
 		<h2>Edit Person</h2>
@@ -157,11 +157,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$middleName = mysql_real_escape_string($_POST['middleName']);
 	$suffix = mysql_real_escape_string($_POST['suffix']);
 	$nickname = mysql_real_escape_string($_POST['nickname']);
-	$gender = mysql_real_escape_string($_POST['gender']);
+    $gender;
 	$race = mysql_real_escape_string($_POST['race']);
 	$month = mysql_real_escape_string($_POST['month']);
 	$day = mysql_real_escape_string($_POST['day']);
 	$year = mysql_real_escape_string($_POST['year']);
+    
+    // If default value for radio buttons is not set in addperson.php, receive error message
+    if(isset($_POST['gender']))
+        $gender = mysql_real_escape_string($_POST['gender']);
 	
 	$id = $_SESSION['id'];
     
