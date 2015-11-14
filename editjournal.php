@@ -197,12 +197,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$subject = mysql_real_escape_string($_POST['subject']);
 	$content = mysql_real_escape_string($_POST['content']);
 
-	$eid = $_SESSION['eid'];
-
 	if(empty($year) || empty($month) || empty($day))
-		$birthDate = "";
+		$date = "";
 	else
-		$birthDate = $year.'-'.$month.'-'.$day;    
+		$date = $year.'-'.$month.'-'.$day;    
     
     
     if(empty($hour) || empty($minute) || empty($period))

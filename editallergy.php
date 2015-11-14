@@ -1,4 +1,4 @@
-<!-- 	EDIT ALLERGIES PAGE
+<!-- 	EDIT ALLERGY PAGE
         Receives allergyID and updates single row from table based on user input.
  -->
 
@@ -65,8 +65,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$name = mysql_real_escape_string($_POST['name']);
 	$type = mysql_real_escape_string($_POST['type']);
 	$severity = mysql_real_escape_string($_POST['severity']);
-
-	$aid = $_SESSION['aid'];	
 
 	mysql_query("UPDATE allergies SET allergyName='$name', allergyType='$type', allergySeverity='$severity' WHERE allergyID='$aid'");
 

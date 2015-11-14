@@ -142,6 +142,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$content = mysql_real_escape_string($_POST['content']);
 
 	$date = $year.'-'.$month.'-'.$day;
+    
 	if(empty($hour) || empty($minute) || empty($period))
 		$time = "";
 	else

@@ -64,12 +64,13 @@
         }
 
         $sessionFlag = false;   /////////////////////////////////////////////////////////////////////////////////////////
+// if search is refreshed from same page, both search and previous appear, clear session variable onClick?
 
         // Populate search fields
         // Default values for uninitialized session array
 		$person = $id;
 		$subject = $subjectArray[0];
-        $startYear = (date("Y") - 10)%100;
+        $startYear = (date("Y") - 10);
 		$startMonth = 01;
 		$startDay = 01;
 		$endYear = date("Y");
@@ -81,18 +82,19 @@
         {
             $sessionFlag = true;
             $sessionArray = $_SESSION['sessionArray'];
+            print_r($sessionArray);
             
 			$person = $sessionArray[0];  
 			$subject = $sessionArray[1];
-            $startDateSA = $sessionArray[2];
-            $endDateSA = $sessionArray[3];
+            $startDate = $sessionArray[2];
+            $endDate = $sessionArray[3];
             
-            $startYear = substr($startDateSA, 0, 2);
-			$startMonth = substr($startDateSA, 3, 2);
-			$startDay = substr($startDateSA, 6, 2);
-			$endYear = substr($endDateSA, 0, 2);
-			$endMonth = substr($endDateSA, 3, 2);
-			$endDay = substr($endDateSA, 6, 2);
+            $startYear = substr($startDate, 0, 4);
+			$startMonth = substr($startDate, 5, 2);
+			$startDay = substr($startDate, 8, 2);
+			$endYear = substr($endDate, 0, 4);
+			$endMonth = substr($endDate, 5, 2);
+			$endDay = substr($endDate, 8, 2);
         }
 
 // Search form
@@ -100,7 +102,7 @@
 <html>
 	<head>
 		<title>Journal</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
 	</head>		
 	<body><center></br></br>
 		<h2>Search Events</h2>
@@ -159,17 +161,10 @@
 				</select>
 				<select name="startYear">
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
-						$k=$j%100;
-						if($startYear == $k){
-							if($k<10)
-								echo "<option value='0$k' selected>$j</option>";
-							else
-								echo "<option value='$k' selected>$j</option>";}
+						if($startYear == $j){
+				            echo "<option value='$j' selected>$j</option>";}
 						else{
-							if($k<10)
-								echo "<option value='0$k'>$j</option>";
-							else
-								echo "<option value='$k'>$j</option>";}}
+				            echo "<option value='$j'>$j</option>";}}
 					?>
 				</select></td></tr>
 			<tr><td>To: </td>
@@ -203,22 +198,15 @@
 				</select>
 				<select name="endYear">
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
-						$k=$j%100;
-						if($endYear == $k){
-							if($k<10)
-								echo "<option value='0$k' selected>$j</option>";
-							else
-								echo "<option value='$k' selected>$j</option>";}
+						if($endYear == $j){
+				            echo "<option value='$j' selected>$j</option>";}
 						else{
-							if($k<10)
-								echo "<option value='0$k'>$j</option>";
-							else
-								echo "<option value='$k'>$j</option>";}}
+				            echo "<option value='$j'>$j</option>";}}
 					?>
 				</select></td></tr>
 		</table></br>
             
-        <input type="submit" name="submit" value="Search" class="basic_button"/> 
+        <input type="submit" name="submit" value="Search" class="basic_button"/> <!-- onclick="unset($_SESSION['sessionArray'])"-->
 		</form>
 		<script>
 			function deleteFunction(id)
@@ -250,58 +238,35 @@
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
-			<?php
-            
-            // Use username to access accountID in accounts table
-            $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
-            $accountID = mysql_result($query, 0);   
-
-            // Use accountID to access personIDs in mappings table      
-            $query = mysql_query("Select * from mappings WHERE accountID = '$accountID'");
-            $row = mysql_fetch_array($query);
-            
-            // Move personIDs to array    
-            $idArray = array();  
-            for($i = 0; $i < 10; $i++)
-            {
-                $colName = $i.'_personID';
-                $pid = abs($row[$colName]);
-                if($pid != 0)
-                    array_push($idArray, $pid);
-            }              
-            
-            for($j = 0; $j < count($idArray); $j++)
-            {
-                $pid = $idArray[$j];
+			<?php          
                 
-                // Use personID from journal table to access nickname in persons table
-                $query = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
-                $person = mysql_result($query, 0);
+            // Use personID from journal table to access nickname in persons table
+            $query = mysql_query("Select nickname from persons WHERE personID = '$person' limit 1");
+            $nickname = mysql_result($query, 0);  
                 
-                $query = mysql_query("Select * from events WHERE personID = '$pid'");
-                while($row = mysql_fetch_array($query))
-                {
-                    $date = $row['eventDate'];
-				    $time = $row['eventTime'];
-				    $subject = $row['eventSubject'];
+            $query = mysql_query("Select * from events WHERE personID = '$person'");
+            while($row = mysql_fetch_array($query))
+            {
+                $date = $row['eventDate'];
+			    $time = $row['eventTime'];
+			    $subject = $row['eventSubject'];
 		
-				    $year = substr($date, 0, 2);
-				    $month = substr($date, 3, 2);
-				    $day = substr($date, 6, 2);
+			    $year = substr($date, 0, 4);
+			    $month = substr($date, 5, 2);
+			    $day = substr($date, 8, 2);
 
-                    $reformatted_date = $month.'-'.$day.'-'.$year;    
-                    
-                    // Output table entries
-                    Print "<tr>";
-                        Print '<td align="center">'.$reformatted_date."</td>";
-                        Print '<td align="center">'.$time."</td>"; 
-                        Print '<td align="center">'.$person."</td>";
-                        Print '<td align="center">'.$subject."</td>";
-                        Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="13" width="13"/></a> </td>';
-                        Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="11" width="11"/></a> </td>';
-                        Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a> </td>';
-                    Print "</tr>";                   
-                }
+                $reformatted_date = $month.'-'.$day.'-'.$year;    
+                
+                // Output table entries
+                Print "<tr>";
+                    Print '<td align="center">'.$reformatted_date."</td>";
+                    Print '<td align="center">'.$time."</td>"; 
+                    Print '<td align="center">'.$nickname."</td>";
+                    Print '<td align="center">'.$subject."</td>";
+                    Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="13" width="13"/></a></td>';
+                    Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
+                    Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a></td>';
+                Print "</tr>";                   
             }
             ?>  
 
@@ -326,32 +291,18 @@
                 $endDay = $_POST['endDay'];
                 $endYear = $_POST['endYear'];
 
-                // Reformat for session array
-                $startDateSA = $startYear.'-'.$startMonth.'-'.$startDay;
-                $endDateSA = $endYear.'-'.$endMonth.'-'.$endDay;
+                // Reformatted date
+                $startDate = $startYear.'-'.$startMonth.'-'.$startDay;
+                $endDate = $endYear.'-'.$endMonth.'-'.$endDay;
                 
                 // Preserve search variables
-                $sessionArray = array($pid, $subject, $startDateSA, $endDateSA);
+                $sessionArray = array($pid, $subject, $startDate, $endDate);
                 $_SESSION['sessionArray'] = $sessionArray;
             
-                // Reformat for checkRange() function
-                if($startYear > date("Y")%100)
-                    $startYear = '19'.$startYear;
-                else
-                    $startYear = '20'.$startYear;
-            
-                if($endYear > date("Y")%100)
-                    $endYear = '19'.$endYear;
-                else
-                    $endYear = '20'.$endYear;
-                
-                $startDateCR = $startYear.'-'.$startMonth.'-'.$startDay;
-                $endDateCR = $endYear.'-'.$endMonth.'-'.$endDay;
-
                 // Sort output by date
                 $query = mysql_query("Select * from events WHERE personID = '$pid' AND eventSubject = '$subject' ORDER BY eventDate ASC, eventTime ASC");
                 if(mysql_num_rows($query) == 0){
-                    Print 'There are no matches for this search.';}
+                    Print 'There are no matches for this search.';} //////////////////////////////////////////////////NO MATCHES
                 else{
                 ?>
 
@@ -374,34 +325,32 @@
 				    $date = $row['eventDate'];
                     $time = $row['eventTime'];
 				
-				    $year = substr($date, 0, 2);
-				    $month = substr($date, 3, 2);
-				    $day = substr($date, 6, 2);
+				    $year = substr($date, 0, 4);
+				    $month = substr($date, 5, 2);
+				    $day = substr($date, 8, 2);
 				
+                    // Reformat for output
 				    $reformatted_date = $month.'-'.$day.'-'.$year;
+                    
+                    // Reformat for checkRange() function
+				    $tableDate = $year.'-'.$month.'-'.$day;
                 
                     // Use personID from event table to access nickname in persons table
                     $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
-                    $person = mysql_result($query2, 0);       
-				
-				    // Reformat for checkRange() function
-                    if($year > date("Y")%100)
-					   $tableDateCR = '19'.$year.'-'.$month.'-'.$day;
-				    else
-					   $tableDateCR = '20'.$year.'-'.$month.'-'.$day;
+                    $nickname = mysql_result($query2, 0);       
 
-				    if(checkRange($startDateCR, $endDateCR, $tableDateCR))
+				    if(checkRange($startDate, $endDate, $tableDate))
                     {
 
 				// Output table entries
 				Print "<tr>";
 					Print '<td align="center">'.$reformatted_date."</td>";
 					Print '<td align="center">'.$time."</td>"; 
-                    Print '<td align="center">'.$person."</td>";                 
+                    Print '<td align="center">'.$nickname."</td>";                 
 					Print '<td align="center">'.$subject."</td>";
-					Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="13" width="13"/></a> </td>';
-					Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="11" width="11"/></a> </td>';
-					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a> </td>';
+					Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="13" width="13"/></a></td>';
+					Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
+					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a></td>';
 				Print "</tr>";
 				    }
                 }    
@@ -409,13 +358,13 @@
 		}
     
     // Checks that dates from events table is within range of dates specified by the user.
-	function checkRange($startDateCR, $endDateCR, $tableDateCR)
+	function checkRange($startDate, $endDate, $tableDate)
     {
 		
         // Convert to timestamp
-		$start_ts = strtotime($startDateCR);
-		$end_ts = strtotime($endDateCR);
-		$table_ts = strtotime($tableDateCR);
+		$start_ts = strtotime($startDate);
+		$end_ts = strtotime($endDate);
+		$table_ts = strtotime($tableDate);
 		
 		return (($table_ts >= $start_ts) && ($table_ts <= $end_ts));
 	}             
