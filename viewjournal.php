@@ -56,7 +56,7 @@
 		<table class="table3" border="1px">
 			<?php
 					// Output table entries
-					Print '<tr><td align="center">'.$row['eventContent']."</tr></td>";
+					Print '<tr><td>'.$row['eventContent']."</td></tr>";
 			?>
 		</table></br>
 

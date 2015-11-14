@@ -37,7 +37,6 @@
 			</tr>
 			<?php
 			
-			// Sort by type
 			$query = mysql_query("Select * from contacts WHERE personID = '$id'");
 			while($row = mysql_fetch_array($query))
 			{			

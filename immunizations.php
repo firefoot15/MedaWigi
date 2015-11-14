@@ -37,7 +37,7 @@
 			</tr>
 			<?php
             
-			// Sort by type
+			// Sort by date
 			$query = mysql_query("Select * from immunizations WHERE personID = '$id' ORDER BY immunDate DESC");
 			while($row = mysql_fetch_array($query))
 			{
