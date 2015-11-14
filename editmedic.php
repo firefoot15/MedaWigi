@@ -40,7 +40,7 @@
 			<tr><td>Status: </td>
                 <td><input type="checkbox" name="status" value="Current"<?php if($status == 'Current') echo 'checked="checked"'; ?>></td></tr>
             <tr><td>Rx #: </td>
-				<td><input type="text" name="rx" value="<?php echo $rx; ?>" maxlength="18"/></td></tr>
+				<td><input type="text" name="rx" value="<?php echo $rx; ?>" maxlength="15"/></td></tr>
 			<tr><td>Directions: </td>
 				<td><textarea rows="10" cols="50" type="text" name="directions" required="required" maxlength="100"><?php echo $directions; ?></textarea></td></tr>
 		</table></br>
@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     else
         $status = 'Expired';
 
-	mysql_query("UPDATE medications SET medicName='$name', medicDirections='$directions', medicRxNo='$rs', medicStatus='$status' WHERE medicID='$mid'");
+	mysql_query("UPDATE medications SET medicName='$name', medicDirections='$directions', medicRxNo='$rx', medicStatus='$status' WHERE medicID='$mid'");
 
 	Print '<script>alert("Successfully changed!");</script>';
 	Print '<script>window.location.assign("medications.php");</script>'; 

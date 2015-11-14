@@ -31,9 +31,9 @@
 		$race = $row['race'];
 		$birthDate = $row['birthDate'];
 		
-		$year = substr($birthDate, 0, 2);
-		$month = substr($birthDate, 3, 2);
-		$day = substr($birthDate, 6, 2);
+		$year = substr($birthDate, 0, 4);
+		$month = substr($birthDate, 5, 2);
+		$day = substr($birthDate, 8, 2);
 		?>
 
 <html>

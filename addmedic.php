@@ -33,7 +33,7 @@
 			<tr><td>Status: </td>
                 <td><input type="checkbox" name="status" value="Current"/></td></tr>
 			<tr><td>Rx #: </td>
-				<td><input type="text" name="rx" maxlength="18"/></td></tr>              
+				<td><input type="text" name="rx" maxlength="15"/></td></tr>              
 			<tr><td>Directions: </td>
 				<td><textarea rows="10" cols="50" type="text" name="directions" required="required" maxlength="100"></textarea></td></tr>
         </table></br>
