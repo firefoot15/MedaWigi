@@ -1,5 +1,5 @@
 <!-- 	EDIT IMMUNIZATION PAGE
-        Receives immunID and updates single row from table based on user input.
+        Receives immunID and updates single row from table.
  -->
 
 		<?php

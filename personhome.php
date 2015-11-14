@@ -56,7 +56,7 @@
 			<td><a href="insurance.php" class="basic_button2">Insurance</a></td></tr>		
 			
             <tr><td><a href="editperson.php" class="basic_button2">Edit Person</a></td>
-            <td><a href="about.php" class="basic_button2">About</a></td></tr>
+            <td><a href="contacts.php" class="basic_button2">Contacts</a></td></tr>
 			
             <tr><td><a href="myportal.php" class="basic_button2">Return to Portal</a></td>
 			<td><a href="logout.php" class="basic_button2">Logout</a></td></tr>		

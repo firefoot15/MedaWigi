@@ -1,4 +1,7 @@
-	
+<!-- 	EDIT JOURNAL PAGE
+        Receives journalID and updates single row from table.
+ -->
+
 		<?php
         include 'connect.php';
 		session_start();

@@ -1,4 +1,7 @@
-	
+<!-- 	ADD JOURNAL PAGE
+        Creates new event.
+ -->
+
 		<?php
         include 'connect.php';
 		session_start();

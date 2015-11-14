@@ -1,5 +1,5 @@
 <!-- 	EDIT ALLERGY PAGE
-        Receives allergyID and updates single row from table based on user input.
+        Receives allergyID and updates single row from table.
  -->
 
 		<?php

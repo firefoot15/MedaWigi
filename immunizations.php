@@ -38,7 +38,7 @@
 			<?php
             
 			// Sort by type
-			$query = mysql_query("Select * from immunizations WHERE personID = '$id' ORDER BY immunDate ASC");
+			$query = mysql_query("Select * from immunizations WHERE personID = '$id' ORDER BY immunDate DESC");
 			while($row = mysql_fetch_array($query))
 			{
 				$name = $row['immunName'];
