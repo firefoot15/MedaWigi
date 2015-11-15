@@ -37,9 +37,10 @@
 	<head>
 		<title>Insurance</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>	
 	<body><center></br></br>
-		<h2>Insurance</h2>
+		<h2>INSURANCE</h2>
         <div class="wrapper">   
             
         <?php

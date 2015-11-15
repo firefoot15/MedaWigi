@@ -23,22 +23,6 @@ th2 {
     font-size: 140%;
 }
 
-/* Curtis has been experimenting */
-h3 {
-	position: absolute;
-	font: bold 72px Verdana, Arial, Helvetica, sans-serif;
-	color: #fff;
-	width: 1000px;   
-	height: 100px;
-    text-align: left;
-	-ms-transform: rotate(270deg); 		/* IE 9 */
-	-moz-transform: rotate(270deg); 	/* Firefox */
-	-webkit-transform: rotate(270deg); 	/* Safari & Chrome */
-	-o-transform: rotate(270deg); 		/* Opera */
-    margin-top: 1%;
-    margin-left: -301px;    
-	}
-
 body {
 	background-color: #202020;
     background-image: url('images/background.png');
@@ -48,6 +32,7 @@ body {
 	color: #202020;
 	}
 
+/* Removes line from under links */
 a:hover, a:visited, a:link, a:active
 	{
     text-decoration: none;
@@ -134,6 +119,10 @@ a:hover, a:visited, a:link, a:active
 	background: #cd2626;
 	}
 
+.delete_link {
+	color: #202020;
+	}
+
 /* Default form table with first column right-aligned 
     appears on register.php, editaccount.php, editperson.php */
 .table1 {
@@ -180,7 +169,6 @@ a:hover, a:visited, a:link, a:active
 	
 /*
 List items don't have bullets or numbers
-
 menu.html
 */
 ul,
@@ -190,12 +178,11 @@ li {
 }
 
 /*
-links are white 
-
+Links are white 
 menu.html
 */
-a {
-  font-family: "Verdana";
+#menu-list a {
+  font-family: "Oswald";
   font-size: 24px;
   text-decoration: none;
   color: #ffffff;
@@ -204,7 +191,6 @@ a {
 /*
 Link hover and active
 This allows people to see which link they are hovering over
-
 menu.html
 */
 a:hover,
@@ -213,8 +199,7 @@ a:active {
 }
 
 /*
-top bar that shows up on every page
-
+Top bar that shows up on every page
 menu.html
 */
 .top {
@@ -224,11 +209,10 @@ menu.html
 
 /*
 Medawigi that goes in the top bar
-
 menu.html
 */
 #logo img {
-  content: url("http://www.cc4r.fr/uploads/images/facebook-logo.png");
+  content: url("./images/logo.png");
   position: absolute;
   left: 10px;
   height: 50px;

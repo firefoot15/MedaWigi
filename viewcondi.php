@@ -1,5 +1,5 @@
-<!-- 	VIEW MEDICATION PAGE
-        Receives medicID and displays single row from table.
+<!-- 	VIEW CONDITION PAGE
+        Receives condiID and displays single row from table.
  -->
 
 		<?php
@@ -10,17 +10,14 @@
 			header("location:index.php");}
 
 		if(!empty($_GET['id'])){
-			$_SESSION['mid'] = $_GET['id'];}
+			$_SESSION['oid'] = $_GET['id'];}
 			
 		$user = $_SESSION['user'];
-		$mid = $_SESSION['mid'];
+		$oid = $_SESSION['oid'];
 		
-		$query = mysql_query("Select * from medications Where medicID='$mid'"); 
+		$query = mysql_query("Select * from conditions Where condiID='$oid'"); 
 		$row = mysql_fetch_array($query);
-
-        $name = $row['medicName'];     
-        $status = $row['medicStatus'];
-        $rx = $row['medicRxNo'];
+        $name = $row['condiName'];     
 		?>
 
 <html>
@@ -35,20 +32,16 @@
         <table class="table2">
         <th colspan="2">Current Entry</th>
             <tr><td>Name: </td>
-				<td><?php echo htmlspecialchars($name); ?></td></tr>
-			<tr><td>Status: </td>
-				<td><?php echo htmlspecialchars($status); ?></td></tr>
-			<tr><td>Rx #: </td>
-				<td><?php echo htmlspecialchars($rx); ?></td></tr>            
+				<td><?php echo htmlspecialchars($name); ?></td></tr>          
         </table></br>
     
 		<table class="table3">
 			<?php
 					// Output table entries
-					Print '<tr><td>'.$row['medicDirections']."</td></tr>";
+					Print '<tr><td>'.$row['condiDescription']."</td></tr>";
 			?>
 		</table></br>
 
-        <a href="medications.php"><input type="button" value="Done" class="basic_button"/></a>
+        <a href="conditions.php"><input type="button" value="Done" class="basic_button"/></a>
     </div></center></body>
 </html>

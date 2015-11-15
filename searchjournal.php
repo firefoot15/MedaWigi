@@ -92,9 +92,10 @@
 	<head>
 		<title>Journal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>		
 	<body><center></br></br>
-		<h2>Search Journal</h2>
+		<h2>SEARCH EVENTS</h2>
         <div class="wrapper">    
 		<form action="searchjournal.php?criteria" method="POST">
 		<table class="table2">

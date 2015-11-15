@@ -16,9 +16,10 @@
 	<head>
 		<title>About</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>	   
 	<body><center></br></br>
-		<h2>About</h2>
+		<h2>ABOUT</h2>
         <div class="wrapper"> 
 		<p><b>MedaWigi</b><br><br>When you want it, you got it, all your medical<br>information in one place, supplied by MedaWigi!</p>
 		<p>For more information or to report<br>problems, contact the authors:<br>.<br>.<br>.<br></p>
