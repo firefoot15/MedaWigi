@@ -9,9 +9,10 @@
 	<head>
 		<title>My Portal</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>
-	<body><center><br/><br>
-    <h2>My Portal</h2>	    
+	<body><center>
+    <h2>MY PORTAL</h2>	    
     <div class="wrapper">
 	<body><center>    
 		<form action="myportal.php" method="POST"><br/>
@@ -61,7 +62,7 @@
             {
                 ?>
 				    <!-- display delete person link-->
-				    <a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="11" width="11"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>
+				    <a href="deleteperson.php?id=<?php echo htmlspecialchars($row['personID']); ?>" onClick="window.location.reload()"><img src="images/deleteButton.png" height="20" width="20"/> Delete <?php echo htmlspecialchars($nickname); ?></a><br/><br/>
                 <?php                     
             }               
         }

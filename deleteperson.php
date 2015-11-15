@@ -79,6 +79,7 @@
             mysql_query("DELETE FROM medications WHERE personID='$id'");
             mysql_query("DELETE FROM immunizations WHERE personID='$id'"); 
             mysql_query("DELETE FROM allergies WHERE personID='$id'");
+            mysql_query("DELETE FROM conditions WHERE personID='$id'");            
             mysql_query("DELETE FROM persons WHERE personID='$id'");    
             mysql_query("DELETE FROM events WHERE personID='$id'");
             mysql_query("DELETE FROM insurance WHERE personID='$id'");

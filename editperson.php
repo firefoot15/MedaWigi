@@ -40,12 +40,13 @@
 	<head>
 		<title>Edit Person Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>		
 	<body><center></br></br>
-		<h2>Edit Person</h2>
+		<h2>EDIT PERSON</h2>
         <div class="wrapper">    
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th colspan="2">Edit Person</th>
+		<th2 colspan="2">EDIT PERSON</th2>
 		<form action="editperson.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" value="<?php echo $firstName; ?>" required="required" maxlength="30"/></td></tr>
