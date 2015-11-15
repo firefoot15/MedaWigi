@@ -37,7 +37,7 @@
 	<head>
 		<title>View Entry</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>	
 	<body><center></br></br>
         <h2>VIEW ENTRY</h2>
@@ -54,7 +54,7 @@
 				<td><?php echo htmlspecialchars($subject); ?></td></tr>
         </table></br>
     
-		<table class="table3" border="1px">
+		<table class="table3">
 			<?php
 					// Output table entries
 					Print '<tr><td>'.$row['eventContent']."</td></tr>";
