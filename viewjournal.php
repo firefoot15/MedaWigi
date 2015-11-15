@@ -37,9 +37,10 @@
 	<head>
 		<title>View Entry</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'
 	</head>	
 	<body><center></br></br>
-        <h2>View Entry</h2>
+        <h2>VIEW ENTRY</h2>
         <div class="wrapper">    
         <table class="table2">
         <th colspan="2">Current Entry</th>

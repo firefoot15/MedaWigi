@@ -8,9 +8,10 @@
 	<head>
 		<title>Registration Page</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'
 	</head>		
 	<body><center><br/><br/>
-		<h2>Create Account</h2>
+		<h2>CREATE ACCOUNT</h2>
         <div class="wrapper">    
 		<table class="table1" cellpadding="2" cellspacing="5">
 		<th colspan="2">Sign Up!</th>

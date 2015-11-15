@@ -28,9 +28,10 @@
 	<head>
 		<title>Edit Entry</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'
 	</head>		
 	<body><center></br></br>
-		<h2>Edit Entry</h2>
+		<h2>EDIT ENTRY</h2>
         <div class="wrapper">    
 		<form action="editmedic.php" method="POST">
 		<table class="table2">

@@ -24,9 +24,10 @@
 	<head>
 		<title>Set Avatar</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'
 	</head>	
 	<body><center></br></br>
-		<h2>Pick Avatar</h2>	
+		<h2>PICK AVATAR</h2>	
         <div class="wrapper">
 		<input type="image" src="<?php echo htmlspecialchars($avatarPath); ?>"/>
 		<table class="table4" cellpadding="5" cellspacing="5">

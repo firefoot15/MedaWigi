@@ -21,9 +21,10 @@
 	<head>
 		<title>New Entry</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'
 	</head>
 	<body><center></br></br>
-		<h2>New Entry</h2>
+		<h2>NEW ENTRY</h2>
         <div class="wrapper">     
 		<form action="addcondi.php" method="POST">            
 		<table class="table2">
