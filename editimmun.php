@@ -37,7 +37,7 @@
         <div class="wrapper">    
 		<form action="editimmun.php" method="POST">
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th colspan="2">Edit Entry</th>
+		<th2 colspan="2">Edit Immunization</th2>
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Date Administered: </td>
