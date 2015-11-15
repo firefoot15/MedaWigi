@@ -176,3 +176,88 @@ a:hover, a:visited, a:link, a:active
 .wrapper {
     width: 1024;
     }
+
+	
+/*
+List items don't have bullets or numbers
+
+menu.html
+*/
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+}
+
+/*
+links are white 
+
+menu.html
+*/
+a {
+  font-family: "Verdana";
+  font-size: 24px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/*
+Link hover and active
+This allows people to see which link they are hovering over
+
+menu.html
+*/
+a:hover,
+a:active {
+  font-size: 175%;
+}
+
+/*
+top bar that shows up on every page
+
+menu.html
+*/
+.top {
+  height: 75px;
+  background-color: red;
+}
+
+/*
+Medawigi that goes in the top bar
+
+menu.html
+*/
+#logo img {
+  content: url("http://www.cc4r.fr/uploads/images/facebook-logo.png");
+  position: absolute;
+  left: 10px;
+  height: 50px;
+  margin-top: 10px;
+}
+
+/*
+The list of links 
+menu.html
+*/
+#menu-list {
+  right: 0px;
+  position: absolute;
+  visibility: hidden;
+  margin-top: 65px;
+  float: right;
+  width: 200px;
+  background-color: #1492cc;
+}
+/*
+Sammich is the Hamburger menu button
+associated with menu.html
+*/
+
+.sammich {
+  position: absolute;
+  margin-top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  float: right;
+}	
