@@ -1,4 +1,4 @@
-<script>
+
 function menu() {
   if (document.getElementById("menu-list").style.visibility == "hidden") {
     document.getElementById("menu-list").style.visibility = "visible";
@@ -6,6 +6,4 @@ function menu() {
   } else {
     document.getElementById("menu-list").style.visibility = "hidden";
     
-  }
-}
-</script>
+  }}
