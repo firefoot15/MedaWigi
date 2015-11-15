@@ -1,47 +1,63 @@
 <html>
-    <head> 
+
+<head>
     <title>Add A Person</title>
-    <link rel="stylesheet" type="text/css" href="style.css">    
-    </head>
-    <div class="wrapper"></div>
-    <body><center>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<div class="wrapper"></div>
+
+<body>
+    <center>
         <h1>Add New People!</h1>
         <h3>Add Person</h3>
-        <input type="button" name="registereduserbutton" value="Registered User?" onclick="showRegisteredUserForm()" class="basic_button"/>
-        <input type="button" name="newpersonbutton" value="New Person?" onclick="showNewPersonForm()" class="basic_button"/>
-        <input type="button" name="goback" value="Go back" onclick="document.location.href='myportal.php'" class="basic_button"/>
-        <br/><br/>
+        <input type="button" name="registereduserbutton" value="Registered User?" onclick="showRegisteredUserForm()" class="basic_button" />
+        <input type="button" name="newpersonbutton" value="New Person?" onclick="showNewPersonForm()" class="basic_button" />
+        <input type="button" name="goback" value="Go back" onclick="document.location.href='myportal.php'" class="basic_button" />
+        <br/>
+        <br/>
         <form action="addperson.php" id="newRegisteredUser" name="newRegisteredUserForm" style="display:none;" method="POST">
-            Email: <input type="text" name="newRegisteredUserText"/><br/><br/>  
-            <input type="submit" name="submitRegisteredUserButton" value="Add" class="basic_button"/>
-            <input type="reset" name="cancelRegisteredUserButton" value="Cancel" onclick="hideRegisteredUserForm()" class="basic_button"/>  
+            Email:
+            <input type="text" name="newRegisteredUserText" />
+            <br/>
+            <br/>
+            <input type="submit" name="submitRegisteredUserButton" value="Add" class="basic_button" />
+            <input type="reset" name="cancelRegisteredUserButton" value="Cancel" onclick="hideRegisteredUserForm()" class="basic_button" />
         </form>
-        
-        <form action ="addperson.php" id="newPerson" name="NewPersonForm" style="display:none;" method="POST">
-            Nickname*: <input type="text" name="nicknameText"/><br/><br/>
-            First Name: <input type="text" name="firstNameText"/><br/><br/>
-            Last Name: <input type="text" name="lastNameText"/><br/><br/>
-            <input type="submit" name="submitNewPersonButton" value="Add" class="basic_button"/>
-            <input type="reset" name="cancelNewPersonButton" value="Cancel" onclick="hideNewPersonForm()" class="basic_button"/>
+
+        <form action="addperson.php" id="newPerson" name="NewPersonForm" style="display:none;" method="POST">
+            Nickname*:
+            <input type="text" name="nicknameText" />
+            <br/>
+            <br/> First Name:
+            <input type="text" name="firstNameText" />
+            <br/>
+            <br/> Last Name:
+            <input type="text" name="lastNameText" />
+            <br/>
+            <br/>
+            <input type="submit" name="submitNewPersonButton" value="Add" class="basic_button" />
+            <input type="reset" name="cancelNewPersonButton" value="Cancel" onclick="hideNewPersonForm()" class="basic_button" />
         </form>
-    </center></body>
+    </center>
+</body>
+
 </html>
 
 <script>
-    function showRegisteredUserForm(){
-        document.getElementById('newRegisteredUser').style.display="block";
-        }
-    
-    function showNewPersonForm(){
-        document.getElementById('newPerson').style.display="block";
+    function showRegisteredUserForm() {
+        document.getElementById('newRegisteredUser').style.display = "block";
     }
-    
-    function hideRegisteredUserForm(){
-        document.getElementById('newRegisteredUser').style.display="none";
+
+    function showNewPersonForm() {
+        document.getElementById('newPerson').style.display = "block";
     }
-    
-    function hideNewPersonForm(){
-        document.getElementById('newPerson').style.display="none";
+
+    function hideRegisteredUserForm() {
+        document.getElementById('newRegisteredUser').style.display = "none";
+    }
+
+    function hideNewPersonForm() {
+        document.getElementById('newPerson').style.display = "none";
     }
 </script>
 
@@ -49,6 +65,7 @@
 include 'connect.php';
 session_start();
 $switchBool = false;
+$sameUserBool = false;
 
 //Check to see if user is the same
 if($_SESSION['user']){}
@@ -58,43 +75,41 @@ if($_SESSION['user']){}
 
 //Store username that's logged in        
 $user = $_SESSION['user'];
-    
-    /*SQL Operations*/
 
-    
     //If adding on a registered user
     if(isset($_POST['submitRegisteredUserButton'])){
-        
-        /*Grab necessary information from queries and store it*/
         
         //Store posted email address
         $email = mysql_real_escape_string($_POST['newRegisteredUserText']);
         
         //Store accountID of registered user that is being added onto account as a person
-        $registeredUserQuery = mysql_query("Select * from accounts WHERE email = '$email' limit 1");
-        $registeredUserQueryRow = mysql_fetch_array($registeredUserQuery);
-        $registeredUserAccountID = $registeredUserQueryRow[0];
+        $registeredUserQuery = mysql_query("Select accountID from accounts WHERE email = '$email'");
+        $registeredUserAccountID = mysql_result($registeredUserQuery, 0);
         
         //Store accountID of user that is logged in and adding on a new registered user as a person
-        $accountQuery = mysql_query("Select * from accounts WHERE username = '$user' limit 1");
-        $accountQueryRow = mysql_fetch_array($accountQuery);
-        $accountID = accountQueryRow[0];
+        $accountQuery = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+        $accountID = mysql_result($accountQuery,0);
         
         //Store personID of user that is logged in and adding on a new registered user as a person
-        $personQuery = mysql_query("Select * from persons WHERE accountID = '$accountID'");
-        $personQueryRow = mysql_fetch_array($personQuery);
-        $personID = $personQueryRow[0];
+        $personQuery = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID'");
+        $personID = mysql_result($personQuery,0);
         
         //Store personID of registered user that is being added onto account as a person
-        $newRegisteredPersonQuery = mysql_query("Select * from persons WHERE accountID = '$registeredUserAccountID'");
-        $newRegisteredPersonQueryRow = mysql_fetch_array($newRegisteredPersonQuery);
-        $newRegisteredPersonID = $newRegisteredPersonQueryRow[0];
+        $newRegisteredPersonQuery = mysql_query("Select 0_personID from mappings WHERE accountID = '$registeredUserAccountID'");
+        $newRegisteredPersonID = mysql_result($newRegisteredPersonQuery, 0);
         
         //Query for correct row in mappings
         $mappingsQuery = mysql_query("SELECT * from mappings where accountID = '$accountID'");
         $row = mysql_fetch_array($mappingsQuery);
         
-        for($i = 1; $i < 10 && $switchBool == false; $i++)
+        //Check to see if user is trying to add themself
+        if($accountID == $registeredUserAccountID)
+        {
+            $sameUserBool = true;
+        }
+        
+        //i starts at 1 and goes to 10 since 9 people can be added 
+        for($i = 1; $i < 10 && $switchBool == false && $sameUserBool == false; $i++)  
             {
                 $colName = $i.'_personID';
             
@@ -102,6 +117,7 @@ $user = $_SESSION['user'];
                     if($row[$colName] == 0)
                     {
                         $switchBool = true;
+                        $sameUserBool = false;
                         switch($i)
                         {
                             case 1:
@@ -136,8 +152,16 @@ $user = $_SESSION['user'];
                     }
                 }
         //Alert successful add and move to myportal
-//            Print '<script>alert("The new person was successfully added!");</script>';
-//            Print '<script>window.location.assign("myportal.php");</script>';
+        if($sameUserBool == false){
+        Print '<script>alert("The new person was successfully added!");</script>';
+        Print '<script>window.location.assign("myportal.php");</script>';
+        }
+        
+        if($sameUserBool == true)
+        {
+            Print'<script>alert("You cannot add yourself to your own account!");</script>';
+            Print '<script>window.location.assign("myportal.php");</script>';
+        }
     }
     
     //If adding on a new person
@@ -152,12 +176,13 @@ $user = $_SESSION['user'];
         
         //Take row in mappings table for user's accountID, store in row var
         $mappingsQuery = mysql_query("SELECT * from mappings where accountID = '$accountID'");
-        $row =  mysql_fetch_array($mappingsQuery);    
-            
-            //Query to insert into persons table
-            mysql_query("INSERT INTO persons (firstName, lastName, gender, race, nickname) VALUES ('$firstName','$lastName', 'Unspecified', 'Unspecified','$nickname')");
-            //Auto incremented value stored in variable
-            $personID = mysql_insert_id();
+        $row =  mysql_fetch_array($mappingsQuery);
+        
+        //Query to insert into persons table
+        $newProfilePic = "images/profilepic".rand(1, 16).".png";
+        mysql_query("INSERT INTO persons (firstName, lastName, gender, race, nickname, profilepic) VALUES ('$firstName','$lastName', 'Unspecified', 'Unspecified','$nickname', '$newProfilePic')");
+        //Auto incremented value stored in variable
+        $personID = mysql_insert_id();
 
                 //Switch statement that inserts into specified column....hopefully
                 for($i = 1; $i < 10 && $switchBool == false; $i++)
@@ -203,9 +228,6 @@ $user = $_SESSION['user'];
                                    
             //Alert successful add and move to myportal
             Print '<script>alert("The new person was successfully added!");</script>';
-            Print '<script>window.location.assign("myportal.php");</script>';
-            
-        
+            Print '<script>window.location.assign("myportal.php");</script>';    
     }
 ?>
-

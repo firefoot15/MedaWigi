@@ -23,12 +23,12 @@
 	<head>
 		<title>Contacts</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>	
 	<body><center></br></br>
 		<h2>CONTACTS</h2>
         <div class="wrapper">    
-        <table class="table3" border="1px">
+        <table class="table3">
 			<tr>
 				<th>Name</th>
 				<th>Relationship</th>

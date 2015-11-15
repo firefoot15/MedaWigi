@@ -32,6 +32,7 @@ body {
 	color: #202020;
 	}
 
+/* Removes line from under links */
 a:hover, a:visited, a:link, a:active
 	{
     text-decoration: none;
