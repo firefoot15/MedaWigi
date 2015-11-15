@@ -129,6 +129,7 @@ a:hover, a:visited, a:link, a:active
     border: 0;
     background: #fff;
     color: #202020;
+    font-size: 20px;
     }
 
 .table1 td:first-child {
