@@ -1,7 +1,8 @@
 <html>
 	<head> 
 		<title> MedaWiGi</title>
-	</head>
+
+</head>
 	<body>
 		<center>
 		<h1> MedaWiGi</h1>
