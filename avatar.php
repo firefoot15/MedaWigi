@@ -55,22 +55,29 @@
 			<td><img src="images/profilepic16.png"/></td></tr>
 			<tr><td>13.</td><td>14.</td><td>15.</td><td>16.</td></tr>
 		</table>
-		<form action="avatar.php" method="POST">
+
+        <form action="avatar.php" method="POST">
+        <table class="table1" cellpadding="5" cellspacing="5">  
+		<th colspan="2"></th>            
 			<tr><td>Select a new avatar: </td>            
-			<td><select name="avatar">
-				<?php for($i=16; $i>=1; $i--){
-					if($avatarNum == $i){
-						echo "<option value='images/profilepic$i.png' selected>$i</option>";}
-					else{
-						echo "<option value='images/profilepic$i.png'>$i</option>";}}
-				?>
-                </select></td></tr></br></br>
-			<tr><td></td>
-				<td><a href="editperson.php"><input type="button" value="Done" class="basic_button"/></a>
-				<input type="submit" value="Submit" class="basic_button"></td></tr> 	
-		</form>		
+                <td><select name="avatar">
+				    <?php for($i=16; $i>=1; $i--){
+                        if($avatarNum == $i){
+                            echo "<option value='images/profilepic$i.png' selected>$i</option>";}
+                        else{
+                            echo "<option value='images/profilepic$i.png'>$i</option>";}}
+				    ?>
+                </select></td></tr>
+            <tr><td>*Images designed by Freepik</td>
+                <td></td></tr>
+        </table>
+            
+            <a href="editperson.php"><input type="button" value="Done" class="basic_button"/></a>
+            <input type="submit" value="Submit" class="basic_button">          
+
+		</form>            
     </div></center></body>
-</html>		
+</html>
 
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){ 
