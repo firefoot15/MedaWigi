@@ -245,4 +245,122 @@ associated with menu.html
   width: 50px;
   height: 50px;
   float: right;
+}
+
+/*
+rounded textboxes for text fields
+*/
+input[type="text"] {
+  width: 200px;
+  height: 25px;
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  
+  zoom: 1;
+  /* for IE7*/
+  
+  vertical-align: middle;
+}
+
+/*
+input for email makes it rounded!
+*/
+input[type="Email"] {
+  width: 200px;
+  height: 25px;
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  
+  zoom: 1;
+  /* for IE7*/
+  
+  vertical-align: middle;
+}
+
+/*
+all text areas will have round edges!
+*/
+textarea {
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  
+  zoom: 1;
+  /* for IE7*/
+  
+  vertical-align: middle;
+}
+
+/*
+rounded edges on password field
+*/ 
+input[type="password"] {
+  width: 200px;
+  height: 25px;
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  
+  zoom: 1;
+  /* for IE7*/
+  
+  vertical-align: middle;
+}
+/*
+contact.html uses this
+*/
+select {
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  zoom: 1;
+  /* for IE7*/
+  vertical-align: middle;
 }	
