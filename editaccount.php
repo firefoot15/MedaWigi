@@ -38,7 +38,7 @@
 		<h2>EDIT ACCOUNT</h2>	
         <div class="wrapper">    
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th colspan="2">Edit Account</th>
+		<th2 colspan="2">Edit Account</th2>
 		<form action="editaccount.php" method="POST">			
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" value="<?php echo $firstName; ?>" required="required" maxlength="30"/></td></tr>

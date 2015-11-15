@@ -149,7 +149,7 @@ a:hover, a:visited, a:link, a:active
 .table3 {
     background: #fff;
     color: #202020;
-    font-size: 12px;
+    font-size: 16px;
     width: 500px;
     }
 
@@ -163,10 +163,11 @@ a:hover, a:visited, a:link, a:active
     }
 
 .wrapper {
+    margin-left:auto;
+    margin-right:auto;    
     width: 1024;
     }
 
-	
 /*
 List items don't have bullets or numbers
 menu.html
@@ -208,7 +209,7 @@ menu.html
 }
 
 /*
-Medawigi that goes in the top bar
+Medawigi that goes in the top bar 
 menu.html
 */
 #logo img {

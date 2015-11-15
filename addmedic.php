@@ -28,7 +28,7 @@
         <div class="wrapper">     
 		<form action="addmedic.php" method="POST">            
 		<table class="table2">
-		<th colspan="2">New Entry</th>         
+		<th2 colspan="2">Add Medication</th2>         
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" required="required" maxlength="50" size="50"/></td></tr>          
 			<tr><td>Status: </td>

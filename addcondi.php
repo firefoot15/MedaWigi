@@ -28,7 +28,7 @@
         <div class="wrapper">     
 		<form action="addcondi.php" method="POST">            
 		<table class="table2">
-		<th colspan="2">New Entry</th>         
+		<th2 colspan="2">Add Condition</th2>         
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" required="required" maxlength="30"/></td></tr>                     
 			<tr><td>Description: </td>

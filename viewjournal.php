@@ -40,7 +40,7 @@
         <h2>VIEW ENTRY</h2>
         <div class="wrapper">    
         <table class="table2">
-        <th colspan="2">Current Entry</th>
+        <th2 colspan="2">View Event</th2>
             <tr><td>Date: </td>
 				<td><?php echo htmlspecialchars($reformatted_date); ?></td></tr>
 			<tr><td>Time: </td>
