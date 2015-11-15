@@ -16,7 +16,7 @@
 	<head>
 		<title>About</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>	   
 	<body><center></br></br>
 		<h2>ABOUT</h2>
