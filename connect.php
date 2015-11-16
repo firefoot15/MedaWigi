@@ -10,5 +10,4 @@ $localSQL = mysql_connect("localhost", "root", "") or die(mysql_error());
 //$serverSQL = mysql_connect("localhost:33333", "firefoot15", "thanksforallthefish") or die(mysql_error());
 //mysql_select_db("medawigi") or die("Cannot connect to database.");
 
-
 ?>
