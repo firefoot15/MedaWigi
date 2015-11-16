@@ -20,7 +20,9 @@
         var events_array = [];
         function createEventsForArray(id,date,title,type,time,description) 
         {
-        events_array.push({
+
+            
+            events_array.push({
             "id": id,
             "date": date,
             "title": title,
@@ -30,6 +32,7 @@
             "time": time,
             "description": description
         });
+         
             return events_array;
         }
         
@@ -111,22 +114,23 @@
             array_push($personIDArray, $personID);
         }
     }
+    
 
     // Create journey events for each person and populate calendar
-    for($i=0; $i<count($personIDArray); $i++) {
-        $personID = $personIDArray[$i];
+    for($ind=0; $ind<count($personIDArray); $ind++) {
+        
+        $personID = $personIDArray[$ind];
         $query = mysql_query("Select * from events WHERE personID='$personID'");
-    
-        while($row = mysql_fetch_array($query)) {
+        
+     
+        while($row = mysql_fetch_assoc($query)) {
+            
             $id = $row['eventID'];
             $date = $row['eventDate'];  
             $time = $row['eventTime'];
             $subject = $row['eventSubject'];
             $content = $row['eventContent'];
             $type = "journal";
-//            echo $id . " ";
-              echo $date . "<br>";
-//            echo $subject . " " . "<br>";
             
             echo "<script> createEventsForArray('$id', '$date', '$subject', '$type', '$time', '$content'); 
             </script>";   
@@ -134,7 +138,6 @@
         }
             
     }
- 
         ?>
 
 </body>
