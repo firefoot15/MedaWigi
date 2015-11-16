@@ -89,11 +89,12 @@
 
 </div>
 
-	<body><center></br></br>
+	<body>
 		<h2>EDIT PERSON</h2>
-        <div class="wrapper">    
+        <div class="wrapper"> 
+        <table class="page_table"><tr><td></td><td><center>
+        <h1>Edit Person</h1>    
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th2 colspan="2">EDIT PERSON</th2>
 		<form action="editperson.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" value="<?php echo $firstName; ?>" required="required" maxlength="30"/></td></tr>
@@ -184,9 +185,12 @@
 				<td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Cancel" class="basic_button"/></a>
 				<input type="submit" value="Submit" class="basic_button"/></td></tr> 
 		</form>
-		</table></br></br>		
-			<a href="avatar.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Change Avatar" class="basic_button"/></a></br></br>
-    </div></center></body>
+		</table>
+        <br>
+        <br>    
+        <a href="avatar.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Change Avatar" class="basic_button"/></a></br></br>
+        </center></td></tr></table>
+    </div></body>
 </html>
 
 <?php
