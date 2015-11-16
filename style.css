@@ -233,6 +233,7 @@ menu.html
   font-size: 24px;
   text-decoration: none;
   color: #ffffff;
+  font-size: 175%;
 }
 
 /*
@@ -242,7 +243,7 @@ menu.html
 */
 a:hover,
 a:active {
-  font-size: 175%;
+font-size:175%;
 }
 
 /*
@@ -262,8 +263,7 @@ menu.html
   content: url("./images/logo.png");
   position: absolute;
   left: 10px;
-  height: 50px;
-  margin-top: 10px;
+  height: 85px;
 }
 
 /*
@@ -271,7 +271,7 @@ The list of links
 menu.html
 */
 #menu-list {
-  right: 0px;
+  right: 5px;
   position: absolute;
   visibility: hidden;
   margin-top: 65px;
@@ -286,9 +286,9 @@ associated with menu.html
 
 .sammich {
   position: absolute;
-  margin-top: 10px;
-  right: 10px;
-  width: 50px;
+  right: 0px;
+margin-top:5px;  
+width: 50px;
   height: 50px;
   float: right;
 }
@@ -297,7 +297,7 @@ associated with menu.html
 rounded textboxes for text fields
 */
 input[type="text"] {
-  height: 25px;
+  height: 30px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -321,10 +321,10 @@ input for email makes it rounded!
 */
 input[type="Email"] {
   width: 200px;
-  height: 25px;
+  height: 30px;
   //rounded corners
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -369,7 +369,7 @@ rounded edges on password field
 */ 
 input[type="password"] {
   width: 200px;
-  height: 25px;
+  height: 30px;
   //rounded corners
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
