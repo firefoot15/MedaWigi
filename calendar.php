@@ -1,23 +1,120 @@
 <html>
 
 <head>
-    <title>Calendar</title>
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <script src="zabuto_calendar.js"></script>
+    <title>Cal Temp</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js">
+    </script>
+    <script src="calendarjavascript.js"></script>
     <link rel="stylesheet" type="text/css" href="calendarstyle.css">
 
     <div id="my-calendar"></div>
+    <div id="list-container"></div>
+    <div id="modal-container"></div>
+
 
 
 </head>
 
 <body>
+    <script>
+        
+        var events_array = [];
+        function createEventsForArray(id,date,title,type,time,description) 
+        {
+        events_array.push({
+            "id": id,
+            "date": date,
+            "title": title,
+            "type": type,
+            "disabled": true,
+            "reminder": "",
+            "time": time,
+            "description": description
+        });
+            return events_array;
+        }
+        
+        
+        
+        
+//        var events_array = [{
+//            "id": "2015-01-03-1",
+//            "date": "2015-01-03",
+//            "title": "Appointment with John Doe",
+//            "type": "appointment",
+//            "disabled": true,
+//            "reminder": "",
+//            "time": "09:00",
+//            "description": "Lorem ipsum dolor sit amet."
+//            }, {
+//            "id": "2015-01-15-1",
+//            "date": "2015-01-15",
+//            "title": "Appointment with Jane Doe",
+//            "type": "eventtype2",
+//            "disabled": true,
+//            "reminder": "-5",
+//            "time": "11:00",
+//            "description": "Lorem ipsum dolor sit amet."
+//            }, {
+//            "id": "2015-02-02-1",
+//            "date": "2015-02-02",
+//            "title": "Appointment with clicable Jim Doe",
+//            "type": "eventtype3",
+//            "disabled": false,
+//            "reminder": "3",
+//            "time": "09:00",
+//            "description": "Lorem ipsum dolor sit amet."
+//            }];
 
+        $(document).ready(function () {
+            $("#my-calendar").zabuto_calendar({
+                language: "en",
+                callbacks: {
+                    on_cell_double_clicked: function () {
+                        return cellDoubleClicked(this);
+                    },
+                    on_cell_clicked: function () {
+                        return cellClicked(this);
+                    },
+                    on_nav_clicked: function () {
+                        return navClicked(this);
+                    },
+                    on_event_clicked: function () {
+                        return eventClicked(this);
+                    }
+                },
+                events: {
+                    local: events_array,
+                    ajax: {
+                        url: "show_data.php" // load ajax json events here...
+                    }
+                },
+                legend: [
+                    {
+                        label: "Rendez-vous",
+                        type: "appointment"
+                    },
+                    {
+                        label: "Journal Event",
+                        type: "journal"
+                    },
+                    {
+                        label: "Evenement B",
+                        type: "eventtype3"
+                    },
+                    {
+                        label: "<span class='fa fa-bell-o'></span> Rappel",
+                        type: "reminder"
+                    }
+    ]
+            });
 
-
-    <?php
+        });
+    </script>
+    
+     <?php
 
     include 'connect.php';
 
@@ -46,54 +143,31 @@
         }
     }
 
-
-        
-
+    // Create journey events for each person and populate calendar
     for($i=0; $i<count($personIDArray); $i++) {
         $personID = $personIDArray[$i];
         $query = mysql_query("Select * from events WHERE personID='$personID'");
     
         while($row = mysql_fetch_array($query)) {
+            $id = $row['eventID'];
             $date = $row['eventDate'];  
-        
-    
-            echo '<script language="javascript">
-            var js_var = "<?php echo $date;?>";
+            $time = $row['eventTime'];
+            $subject = $row['eventSubject'];
+            $content = $row['eventContent'];
+            $type = "journal";
+            echo $id;
+            echo $date;
+            echo $subject;
+            echo "<br>";
             
-            var eventData = {
-            date: js_var,
-            badge: true,
-            title: "Event",
-            body: "",
-            footer: "",
-            classname: ""
-            };
-            </script>';
-        
-            echo '<script>alert(eventData); </script>';
+            echo "<script> createEventsForArray('$id', '$date', '$subject', '$type', '$time', '$content'); 
+            </script>";   
+   
         }
+            
     }
-    
+ 
         ?>
-    
-    
-    
-    <script>
-        $(document).ready(function () {
-            $("#my-calendar").zabuto_calendar({
-                language: "en",
-                cell_border: true,
-                today: true,
-                data: eventData
-            });
-    
-        });
-        
-    </script>
-
-
-
-
 
 </body>
 
