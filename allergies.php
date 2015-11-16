@@ -30,9 +30,9 @@
         <div class="wrapper">    
         <table class="table3">
 			<tr>
-				<th>Name</th>
-				<th>Type</th>
-				<th>Severity</th>
+				<th align="left">Name</th>
+				<th align="left">Type</th>
+				<th align="left">Severity</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
@@ -48,11 +48,11 @@
 
 				// Output table entries
 				Print "<tr>";
-					Print '<td align="center">'.$name."</td>";
-					Print '<td align="center">'.$type."</td>"; 
-					Print '<td align="center">'.$severity."</td>";
-					Print '<td align="center"><a href="editallergy.php?id='.$row['allergyID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
-					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['allergyID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a> </td>';
+					Print '<td>'.$name."</td>";
+					Print '<td>'.$type."</td>"; 
+					Print '<td>'.$severity."</td>";
+					Print '<td align="center"><a href="editallergy.php?id='.$row['allergyID'].'"><img src="images/editButton.png" height="14" width="14"/></a></td>';
+					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['allergyID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a> </td>';
 				Print "</tr>";
 			}
 			?>

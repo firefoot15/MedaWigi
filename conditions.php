@@ -29,7 +29,7 @@
         <div class="wrapper">    
         <table class="table3">
 			<tr>
-				<th>Name</th>
+				<th align="left">Name</th>
 				<th>Description</th>
 				<th>Edit</th>
 				<th>Delete</th>
@@ -39,14 +39,14 @@
 			$query = mysql_query("Select * from conditions WHERE personID = '$id'");
 			while($row = mysql_fetch_array($query))
 			{
-				$name = $row['condiName'];              
+				$name = $row['condiName'];  
                 
                 // Output table entries
                 Print "<tr>";
-                    Print '<td align="center">'.$name."</td>";               
-                    Print '<td align="center"><a href="viewcondi.php?id='.$row['condiID'].'"><img src="images/viewButton.png" height="13" width="13"/></a></td>';                
-                    Print '<td align="center"><a href="editcondi.php?id='.$row['condiID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
-                    Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['condiID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a></td>';
+                    Print '<td>'.$name."</td>";               
+                    Print '<td align="center"><a href="viewcondi.php?id='.$row['condiID'].'"><img src="images/viewButton.png" height="17" width="17"/></a></td>';                
+                    Print '<td align="center"><a href="editcondi.php?id='.$row['condiID'].'"><img src="images/editButton.png" height="14" width="14"/></a></td>';
+                    Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['condiID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a></td>';
                 Print "</tr>";                   
             }
             ?>

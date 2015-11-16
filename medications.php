@@ -29,9 +29,9 @@
         <div class="wrapper">    
         <table class="table3">
 			<tr>
-				<th>Name</th>
-				<th>Status</th>                
-                <th>Rx #</th>
+				<th align="left">Name</th>
+				<th align="left">Status</th>                
+                <th align="left">Rx #</th>
 				<th>Directions</th>
 				<th>Edit</th>
 				<th>Delete</th>
@@ -48,12 +48,12 @@
                 
                 // Output table entries
                 Print "<tr>";
-                    Print '<td align="center">'.$name."</td>";
-                    Print '<td align="center">'.$status."</td>";
-                    Print '<td align="center">'.$rx."</td>";                 
-                    Print '<td align="center"><a href="viewmedic.php?id='.$row['medicID'].'"><img src="images/viewButton.png" height="13" width="13"/></a></td>';                
-                    Print '<td align="center"><a href="editmedic.php?id='.$row['medicID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
-                    Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['medicID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a></td>';
+                    Print '<td>'.$name."</td>";
+                    Print '<td>'.$status."</td>";
+                    Print '<td>'.$rx."</td>";                 
+                    Print '<td align="center"><a href="viewmedic.php?id='.$row['medicID'].'"><img src="images/viewButton.png" height="17" width="17"/></a></td>';                
+                    Print '<td align="center"><a href="editmedic.php?id='.$row['medicID'].'"><img src="images/editButton.png" height="14" width="14"/></a></td>';
+                    Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['medicID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a></td>';
                 Print "</tr>";                   
             }
             ?>

@@ -30,9 +30,9 @@
         <div class="wrapper">    
         <table class="table3">
 			<tr>
-				<th>Name</th>
-				<th>Date Administered</th>
-				<th>Location Administered</th>
+				<th align="left">Name</th>
+				<th align="left">Date Administered</th>
+				<th align="left">Location Administered</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
@@ -54,11 +54,11 @@
 
 				// Output table entries
 				Print "<tr>";
-					Print '<td align="center">'.$name."</td>";
-					Print '<td align="center">'.$reformatted_date."</td>"; 
-					Print '<td align="center">'.$location."</td>";
-					Print '<td align="center"><a href="editimmun.php?id='.$row['immunID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
-					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['immunID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a> </td>';
+					Print '<td>'.$name."</td>";
+					Print '<td>'.$reformatted_date."</td>"; 
+					Print '<td>'.$location."</td>";
+					Print '<td align="center"><a href="editimmun.php?id='.$row['immunID'].'"><img src="images/editButton.png" height="14" width="14"/></a></td>';
+					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['immunID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a></td>';
 				Print "</tr>";
 			}
 			?>

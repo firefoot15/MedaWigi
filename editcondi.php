@@ -37,7 +37,7 @@
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Description: </td>
-				<td><textarea rows="20" cols="50" type="text" name="description" required="required" maxlength="350"><?php echo $description; ?></textarea></td></tr>
+				<td><textarea rows="10" cols="50" type="text" name="description" required="required" maxlength="350"><?php echo $description; ?></textarea></td></tr>
 		</table></br>
         
         <table>
