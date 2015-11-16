@@ -1,6 +1,6 @@
 <!--    JOURNAL PAGE
         Users set search criteria for events. 
-        Returns entries for all persons attached to account.
+        Returns entries for all persons attached to account. ////////////////////////////////////// CHANGE THIS
         Includes CRUD functions.
  -->
 		<?php
@@ -63,8 +63,7 @@
             sort($subjectArray); 
         }
 
-        $sessionFlag = false;   /////////////////////////////////////////////////////////////////////////////////////////
-// if search is refreshed from same page, both search and previous appear, clear session variable onClick?
+        $sessionFlag = false;
 
         // Populate search fields
         // Default values for uninitialized session array
@@ -82,7 +81,7 @@
         {
             $sessionFlag = true;
             $sessionArray = $_SESSION['sessionArray'];
-            print_r($sessionArray);
+            // print_r($sessionArray);
             
 			$person = $sessionArray[0];  
 			$subject = $sessionArray[1];
@@ -102,14 +101,14 @@
 <html>
 	<head>
 		<title>Journal</title>
-		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+		<link rel="stylesheet" type="text/css" href="style.css">
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>		
 	<body><center></br></br>
-		<h2>SEARCH EVENTS</h2>
+		<h2>SEARCH ENTRIES</h2>
         <div class="wrapper">    
 		<form action="journal.php" method="POST">
-		<table class="table2">
+		<table class="table5">
 		<th colspan="2">Basic Search</th>
 			<tr><td>Person: </td>
 				<td><select name="person">
@@ -206,24 +205,18 @@
 					?>
 				</select></td></tr>
 		</table></br>
-            
-        <input type="submit" name="submit" value="Search" class="basic_button"/> <!-- onclick="unset($_SESSION['sessionArray'])"-->
-		</form>
-		<script>
-			function deleteFunction(id)
-			{
-				var r=confirm("Are you sure you want to delete this record?");
-				if (r==true)
-				{
-					window.location.assign("deletejournal.php?id=" + id);
-				}
-			}
-		</script>            
+
+		<table>
+		<th colspan="2"></th>
+            <tr><td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
+                <td><input type="submit" name="submit" value="Search" class="basic_button"/></td></tr>
+        </table>            
+		</form>      
 
     
             <?php
-            // End search form
-    
+            // End search form ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /*
             // The session array exists
             if($sessionFlag)
             {
@@ -264,9 +257,9 @@
                     Print '<td align="center">'.$time."</td>"; 
                     Print '<td align="center">'.$nickname."</td>";
                     Print '<td align="center">'.$subject."</td>";
-                    Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="13" width="13"/></a></td>';
-                    Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
-                    Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a></td>';
+                    Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="17" width="17"/></a></td>';
+                    Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="14" width="14"/></a></td>';
+                    Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a></td>';
                 Print "</tr>";                   
             }
             ?>  
@@ -279,7 +272,8 @@
             
             // The session array has not yet been created
             else{}
-    
+    */
+    /*
             // Resume normal functions
             if(isset($_POST['submit']))
             {
@@ -349,9 +343,9 @@
 					Print '<td align="center">'.$time."</td>"; 
                     Print '<td align="center">'.$nickname."</td>";                 
 					Print '<td align="center">'.$subject."</td>";
-					Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="13" width="13"/></a></td>';
-					Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
-					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a></td>';
+					Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="17" width="17"/></a></td>';
+					Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="14" width="14"/></a></td>';
+					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a></td>';
 				Print "</tr>";
 				    }
                 }    
@@ -379,4 +373,4 @@
                 <td><a href="addjournal.php"><input type="button" value="Add Entry" class="basic_button"/></a></td></tr>
         </table>
     </div></center></body>
-</html>
+</html>*/ ?>

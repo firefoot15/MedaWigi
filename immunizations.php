@@ -29,6 +29,7 @@
 		<h2>IMMUNIZATIONS</h2>
         <div class="wrapper">    
         <table class="table3">
+        <th2 colspan="5">Immunizations</th2>
 			<tr>
 				<th align="left">Name</th>
 				<th align="left">Date Administered</th>

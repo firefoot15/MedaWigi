@@ -43,8 +43,8 @@
 			<tr><td>Relationship: </td>
 				<td><input type="text" name="relationship" value="<?php echo $relationship; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Phone: </td>
-				<td><input type="text" name="areaCode" value="<?php echo $areaCode; ?>" required="required" maxlength="3" size="3"/>
-                    <input type="text" name="exchangeCode" value="<?php echo $exchangeCode; ?>" required="required" maxlength="3" size="3"/>
+				<td><input type="text" name="areaCode" value="<?php echo $areaCode; ?>" required="required" maxlength="3" size="3"/>-
+                    <input type="text" name="exchangeCode" value="<?php echo $exchangeCode; ?>" required="required" maxlength="3" size="3"/>-
                     <input type="text" name="subscriberNumber" value="<?php echo $subscriberNumber; ?>" required="required" maxlength="4" size="4"/></td></tr>
 		</table></br>
             

@@ -28,6 +28,7 @@
 		<h2>MEDICATIONS</h2>
         <div class="wrapper">    
         <table class="table3">
+        <th2 colspan="6">Medications</th2>
 			<tr>
 				<th align="left">Name</th>
 				<th align="left">Status</th>                

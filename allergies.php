@@ -29,6 +29,7 @@
 		<h2>ALLERGIES</h2>
         <div class="wrapper">    
         <table class="table3">
+        <th2 colspan="5">Allergies</th2>
 			<tr>
 				<th align="left">Name</th>
 				<th align="left">Type</th>

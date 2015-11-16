@@ -28,6 +28,7 @@
 		<h2>CONDITIONS</h2>
         <div class="wrapper">    
         <table class="table3">
+        <th2 colspan="4">Conditions</th2>
 			<tr>
 				<th align="left">Name</th>
 				<th>Description</th>

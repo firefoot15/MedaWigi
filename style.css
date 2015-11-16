@@ -273,9 +273,7 @@ associated with menu.html
 rounded textboxes for text fields
 */
 input[type="text"] {
-  width: 200px;
   height: 25px;
-  //rounded corners
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
