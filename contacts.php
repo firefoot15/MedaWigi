@@ -74,6 +74,7 @@
 		<h2>CONTACTS</h2>
         <div class="wrapper">    
         <table class="table3">
+        <th2 colspan="5">Contacts</th2>
 			<tr>
 				<th align="left">Name</th>
 				<th align="left">Relationship</th>
@@ -118,8 +119,8 @@
 			<tr><td>Relationship: </td>
 				<td><input type="text" name="relationship" required="required" maxlength="30"/></td></tr>
 			<tr><td>Phone: </td>
-				<td><input type="text" name="areaCode" required="required" maxlength="3" size="3"/>
-                    <input type="text" name="exchangeCode" required="required" maxlength="3" size="3"/>
+				<td><input type="text" name="areaCode" required="required" maxlength="3" size="3"/>-
+                    <input type="text" name="exchangeCode" required="required" maxlength="3" size="3"/>-
                     <input type="text" name="subscriberNumber" required="required" maxlength="4" size="4"/></td></tr>
         </table></br>
     
