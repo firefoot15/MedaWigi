@@ -25,9 +25,11 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     </head>	
-	<body><center></br></br>
+	<body></br></br>
 		<h2>IMMUNIZATIONS</h2>
-        <div class="wrapper">    
+        <div class="wrapper">  
+        <table class="page_table"><tr><td class="page_table"></td><td><center>   
+            
         <table class="table3">
         <th2 colspan="5">Immunizations</th2>
 			<tr>
@@ -120,6 +122,12 @@
                 <td><input type="submit" name="submitAddEntry" value="Submit" onclick="submitAddEntryForm()" class="basic_button"/></td></tr>  
 		</table>
         </form>
+    </center></td></tr></table> 
+
+
+
+
+
 
 		<script>
 			function deleteFunction(id)
@@ -139,7 +147,7 @@
                 document.getElementById('addEntry').style.display="none";
             }            
 		</script>
-    </div></center></body>
+    </div></body>
 </html>
 
 <?php

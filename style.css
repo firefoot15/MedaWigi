@@ -128,6 +128,33 @@ a:hover, a:visited, a:link, a:active
 	font-size: 125%;
 	}
 
+/*  */
+.page_table {
+    width: 1192px;
+    padding: 0;
+    }
+
+.page_table tr {
+    padding: 0;
+    }
+
+.page_table td {
+    padding: 0;
+    }
+
+.page_table td:first-child {
+    width: 250px;
+    }
+
+.page_table td:second-child {
+    width: 942px;
+    }
+
+.page_table th2 {
+    font-size: 200%;
+    font: bold;
+    }
+
 /* Default form table with first column right-aligned 
     appears on register.php, editaccount.php, editperson.php */
 .table1 {
@@ -184,9 +211,7 @@ a:hover, a:visited, a:link, a:active
     width: 400px;    
     }
 
-.wrapper {
-    margin-left:auto;
-    margin-right:auto;    
+.wrapper {  
     width: 1024;
     }
 
