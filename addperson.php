@@ -3,13 +3,14 @@
 <head>
     <title>Add A Person</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 </head>
 <div class="wrapper"></div>
 
 <body>
     <center>
         <h1>Add New People!</h1>
-        <h3>Add Person</h3>
+        <h2>Add Person</h2>
         <input type="button" name="registereduserbutton" value="Registered User?" onclick="showRegisteredUserForm()" class="basic_button" />
         <input type="button" name="newpersonbutton" value="New Person?" onclick="showNewPersonForm()" class="basic_button" />
         <input type="button" name="goback" value="Go back" onclick="document.location.href='myportal.php'" class="basic_button" />
@@ -64,8 +65,15 @@
 <?php
 include 'connect.php';
 session_start();
+
+//Boolean to enter switch statement
 $switchBool = false;
+//Boolean to flag if user adding their own account as linked person
 $sameUserBool = false;
+//Boolean to flag is registered user is already linked to account attempting add
+$userAlreadyLinkedBool = false;
+//Boolean to flag if email of user posted is not stored in DB
+$emailDoesNotExistBool = false;
 
 //Check to see if user is the same
 if($_SESSION['user']){}
@@ -82,10 +90,18 @@ $user = $_SESSION['user'];
         //Store posted email address
         $email = mysql_real_escape_string($_POST['newRegisteredUserText']);
         
-        //Store accountID of registered user that is being added onto account as a person
-        $registeredUserQuery = mysql_query("Select accountID from accounts WHERE email = '$email'");
-        $registeredUserAccountID = mysql_result($registeredUserQuery, 0);
+        //Query to grab account ID for registered user that is being added onto account as a person
+        $registeredUserQuery = mysql_query("Select accountID from accounts WHERE email = '$email'") or die(mysql_error());
         
+        //If query failed and no accountID is stored, email does not exist
+        if(mysql_numrows($registeredUserQuery) == 0){
+            $emailDoesNotExistBool = true;
+        }
+        
+        else{
+        //Query successful, store account ID        
+        $registeredUserAccountID = mysql_result($registeredUserQuery, 0);
+            
         //Store accountID of user that is logged in and adding on a new registered user as a person
         $accountQuery = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
         $accountID = mysql_result($accountQuery,0);
@@ -96,20 +112,20 @@ $user = $_SESSION['user'];
         
         //Store personID of registered user that is being added onto account as a person
         $newRegisteredPersonQuery = mysql_query("Select 0_personID from mappings WHERE accountID = '$registeredUserAccountID'");
-        $newRegisteredPersonID = mysql_result($newRegisteredPersonQuery, 0);
+        $newRegisteredPersonID = mysql_result($newRegisteredPersonQuery, 0) * -1;
         
         //Query for correct row in mappings
         $mappingsQuery = mysql_query("SELECT * from mappings where accountID = '$accountID'");
         $row = mysql_fetch_array($mappingsQuery);
         
-        //Check to see if user is trying to add themself
+        //Check to see if user is trying to add themselves
         if($accountID == $registeredUserAccountID)
         {
             $sameUserBool = true;
         }
         
         //i starts at 1 and goes to 10 since 9 people can be added 
-        for($i = 1; $i < 10 && $switchBool == false && $sameUserBool == false; $i++)  
+        for($i = 1; $i < 10 && $switchBool == false && $sameUserBool == false && $emailDoesNotExistBool == false; $i++)  
             {
                 $colName = $i.'_personID';
             
@@ -118,6 +134,7 @@ $user = $_SESSION['user'];
                     {
                         $switchBool = true;
                         $sameUserBool = false;
+                        $emailDoesNotExistBool = false;
                         switch($i)
                         {
                             case 1:
@@ -151,15 +168,25 @@ $user = $_SESSION['user'];
                         
                     }
                 }
+    
         //Alert successful add and move to myportal
-        if($sameUserBool == false){
+        if($sameUserBool == false && $emailDoesNotExistBool == false){
         Print '<script>alert("The new person was successfully added!");</script>';
         Print '<script>window.location.assign("myportal.php");</script>';
         }
         
+        //Alert if user trying to add their own account
         if($sameUserBool == true)
         {
             Print'<script>alert("You cannot add yourself to your own account!");</script>';
+            Print '<script>window.location.assign("myportal.php");</script>';
+        }
+        }
+        
+        //Alert if email is not in db
+        if($emailDoesNotExistBool == true)
+        {
+            Print'<script>alert("This email is not currently registered!!");</script>';
             Print '<script>window.location.assign("myportal.php");</script>';
         }
     }
@@ -184,7 +211,7 @@ $user = $_SESSION['user'];
         //Auto incremented value stored in variable
         $personID = mysql_insert_id();
 
-                //Switch statement that inserts into specified column....hopefully
+                //Switch statement that inserts into specified column
                 for($i = 1; $i < 10 && $switchBool == false; $i++)
                 {
                     $colName = $i.'_personID';
