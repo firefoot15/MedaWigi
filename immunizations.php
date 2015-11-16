@@ -68,13 +68,12 @@
   </div>
 
 </div>
-	<body></br></br>
+	<body>
 		<h2>IMMUNIZATIONS</h2>
         <div class="wrapper">  
-        <table class="page_table"><tr><td class="page_table"></td><td><center>   
-            
+        <table class="page_table"><tr><td></td><td><center>   
+        <h1>Immunizations</h1>    
         <table class="table3">
-        <th2 colspan="5"><b>Immunizations</b></th2>
 			<tr>
 				<th align="left">Name</th>
 				<th align="left">Date Administered</th>

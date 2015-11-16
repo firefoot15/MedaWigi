@@ -70,13 +70,12 @@
   </div>
 
 </div>
-	<body></br></br>
+	<body>
 		<h2>CONTACTS</h2>
         <div class="wrapper">   
-        <table class="page_table"><tr><td class="page_table"></td><td><center>    
-            
+        <table class="page_table"><tr><td></td><td><center>    
+        <h1>Contacts</h1>    
         <table class="table3">
-        <th2 colspan="5"><b>Contacts</b></th2>
 			<tr>
 				<th align="left">Name</th>
 				<th align="left">Relationship</th>

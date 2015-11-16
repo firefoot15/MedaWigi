@@ -69,13 +69,12 @@
   </div>
 
 </div>
-	<body></br></br>
+	<body>
 		<h2>CONDITIONS</h2>
         <div class="wrapper">   
-        <table class="page_table"><tr><td class="page_table"></td><td><center>    
-            
+        <table class="page_table"><tr><td></td><td><center>    
+        <h1>Conditions</h1>    
         <table class="table3">
-        <th2 colspan="4"><b>Conditions</b></th2>
 			<tr>
 				<th align="left">Name</th>
 				<th>Description</th>
