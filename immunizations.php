@@ -22,10 +22,6 @@
 <html>
 	<head>
 		<title>Immunizations</title>
-
-		<link rel="stylesheet" type="text/css" href="style.css">
-        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <script src="medawigi.js"></script>
@@ -73,7 +69,6 @@
 
 </div>
 	<body></br></br>
-
 		<h2>IMMUNIZATIONS</h2>
         <div class="wrapper">  
         <table class="page_table"><tr><td class="page_table"></td><td><center>   
@@ -171,11 +166,6 @@
 		</table>
         </form>
     </center></td></tr></table> 
-
-
-
-
-
 
 		<script>
 			function deleteFunction(id)
