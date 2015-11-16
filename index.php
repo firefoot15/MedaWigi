@@ -7,7 +7,7 @@
 </head>
 <div class="top">
   <div id="logo">
-    <img />
+    <img src="http://medawigi.no-ip.org/images/logo.png" />
     
   </div>
   <div class="sammich">
