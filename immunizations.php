@@ -79,7 +79,7 @@
         <table class="page_table"><tr><td class="page_table"></td><td><center>   
             
         <table class="table3">
-        <th2 colspan="5">Immunizations</th2>
+        <th2 colspan="5"><b>Immunizations</b></th2>
 			<tr>
 				<th align="left">Name</th>
 				<th align="left">Date Administered</th>
