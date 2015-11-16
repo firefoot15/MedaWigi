@@ -22,12 +22,12 @@
 <html>
 	<head>
 		<title>Immunizations</title>
-<<<<<<< HEAD
+
 		<link rel="stylesheet" type="text/css" href="style.css">
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     </head>	
 	<body></br></br>
-=======
+
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <script src="medawigi.js"></script>
@@ -39,8 +39,6 @@
   </div>
   <div class="sammich">
     <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
-
-
 
     <div class="menu">
       <ul id="menu-list">
@@ -77,7 +75,7 @@
 
 </div>
 	<body><center></br></br>
->>>>>>> ba2b5b5f3ab9a3dfbe68941cc77eab9a47bb6b5b
+
 		<h2>IMMUNIZATIONS</h2>
         <div class="wrapper">  
         <table class="page_table"><tr><td class="page_table"></td><td><center>   
