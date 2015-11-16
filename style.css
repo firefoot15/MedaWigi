@@ -43,10 +43,10 @@ a:hover, a:visited, a:link, a:active
 	background: #ee2c2c;
 	color: #fff;
     font: 16px Oswald;
-	-webkit-border-radius: 2px;
-	-khtml-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
+	-webkit-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
     border-style: solid;
     border-color: #ee2c2c;
 	}
@@ -63,10 +63,10 @@ a:hover, a:visited, a:link, a:active
 	color: #fff;
 	width: 160px;
     font: 16px Oswald; 
-	-webkit-border-radius: 2px;
-	-khtml-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
+	-webkit-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
     border-style: solid;
     border-color: #ee2c2c;
 	}

@@ -37,7 +37,7 @@
         <div class="wrapper">    
 		<form action="editcontact.php" method="POST">
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th colspan="2">Edit Entry</th>
+		<th2 colspan="2">Edit Contact</th2>
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Relationship: </td>
