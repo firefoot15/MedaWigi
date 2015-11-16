@@ -207,8 +207,9 @@
 		</table></br>
 
 		<table>
-		<th colspan="2"></th>
+		<th colspan="3"></th>
             <tr><td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
+                <td><a href="addjournal.php"><input type="button" value="Add Entry" class="basic_button"/></a></td>
                 <td><input type="submit" name="submit" value="Search" class="basic_button"/></td></tr>
         </table>            
 		</form>      

@@ -155,7 +155,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	mysql_query("INSERT INTO events (eventDate, eventTime, personID, eventSubject, eventContent) VALUES ('$date','$time','$person','$subject','$content')"); 
 
 	Print '<script>alert("Successfully added!");</script>';
-	Print '<script>window.location.assign("searchjournal.php");</script>'; 
+	Print '<script>window.location.assign("journal.php");</script>'; 
 }
 ?>
 	
