@@ -50,7 +50,7 @@
         {
             ?>
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th colspan="2">Insurance</th>
+		<th2 colspan="2">Insurance Information</th2>
 			<tr><td>Provider: </td>
 				<td><?php echo $provider; ?></td></tr>
 			<tr><td>Plan: </td>
@@ -79,7 +79,7 @@
         {
             ?>
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th colspan="2">Insurance</th>
+		<th2 colspan="2">Add Insurance</th2>
         <form action="insurance.php" id="addEntry" name="addEntryFrom" style="display:none;" method="POST">
 			<tr><td>Provider: </td>
 				<td><input type="text" name="provider" required="required" maxlength="18"/></td></tr>

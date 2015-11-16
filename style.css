@@ -83,19 +83,19 @@ a:hover, a:visited, a:link, a:active
 	width: 400px;
 	height: 70px;
     text-align: left;
-	text-indent: 20px;
+	text-indent: 30px; /*20*/
 	padding: 0 0 0 0;
-    font: 3.2em/70px Oswald;     
+    font: 58px Oswald;
     color: #fff;
 	-webkit-border-radius: 30px;
 	-khtml-border-radius: 30px;
 	-moz-border-radius: 30px;
-	border-top-right-radius: 30px;
-	border-bottom-right-radius: 30px;
+	border-radius: 30px;
 	}
  
 .myportal_button:hover {
 	background: #cd2626;
+	font-size: 200%;    
 	}
 
 /* My portal button with profile image */
@@ -106,7 +106,7 @@ a:hover, a:visited, a:link, a:active
 	height: 70px;
 	text-align: left;
 	padding: 0 0 0 0;
-	font: 3.2em/12px Oswald;
+	font: 58px Oswald;
 	color: #fff;
 	-webkit-border-radius: 30px;
 	-khtml-border-radius: 30px;
@@ -117,10 +117,15 @@ a:hover, a:visited, a:link, a:active
 
 .profile_button:hover {
 	background: #cd2626;
+	font-size: 200%;    
 	}
 
 .delete_link {
 	color: #202020;
+	}
+
+.delete_link:hover {
+	font-size: 125%;
 	}
 
 /* Default form table with first column right-aligned 
@@ -208,7 +213,7 @@ menu.html
 */
 .top {
   height: 75px;
-  background-color: red;
+  background-color: #ee2c2c;
 }
 
 /*
@@ -234,7 +239,7 @@ menu.html
   margin-top: 65px;
   float: right;
   width: 200px;
-  background-color: #1492cc;
+  background-color: #202020;
 }
 /*
 Sammich is the Hamburger menu button
