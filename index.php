@@ -2,6 +2,7 @@
 	<head> 
 		<title> MedaWiGi</title>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <script src="medawigi.js"></script>
 </head>
 <div class="top">
