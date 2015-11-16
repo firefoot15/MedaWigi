@@ -85,7 +85,7 @@
 	<body><center></br></br>
         <h2>VIEW ENTRY</h2>
         <div class="wrapper">    
-        <table class="table2">
+        <table class="table5">
         <th2 colspan="2">View Event</th2>
             <tr><td>Date: </td>
 				<td><?php echo htmlspecialchars($reformatted_date); ?></td></tr>
@@ -97,13 +97,13 @@
 				<td><?php echo htmlspecialchars($subject); ?></td></tr>
         </table></br>
     
-		<table class="table3">
+		<table class="table2">
 			<?php
 					// Output table entries
 					Print '<tr><td>'.$row['eventContent']."</td></tr>";
 			?>
 		</table></br>
 
-        <a href="journal.php"><input type="button" value="Done" class="basic_button"/></a>
+        <a href="searchjournal.php"><input type="button" value="Done" class="basic_button"/></a>
     </div></center></body>
 </html>

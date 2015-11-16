@@ -261,6 +261,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	mysql_query("UPDATE events SET eventDate='$date', eventTime='$time', personID='$person', eventSubject='$subject', eventContent='$content' WHERE eventID='$eid'");
 
 	Print '<script>alert("Successfully changed!");</script>';
-	Print '<script>window.location.assign("journal.php");</script>'; 
+	Print '<script>window.location.assign("searchjournal.php");</script>'; 
 }
 ?>

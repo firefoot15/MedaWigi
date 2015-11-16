@@ -75,13 +75,12 @@
 	<body><center></br></br>
         <h2>VIEW ENTRY</h2>
         <div class="wrapper">    
-        <table class="table2">
-        <th2 colspan="2">View Condition</th2>
-            <tr><td>Name: </td>
-				<td><?php echo htmlspecialchars($name); ?></td></tr>          
-        </table></br>
+ 
+        <th2>View Condition:</th2></br>
+        <?php echo htmlspecialchars($name); ?></br></br>
+        
     
-		<table class="table3">
+		<table class="table2">
 			<?php
 					// Output table entries
 					Print '<tr><td>'.$row['condiDescription']."</td></tr>";

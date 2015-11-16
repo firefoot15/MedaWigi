@@ -75,9 +75,9 @@
         <div class="wrapper">    
         <table class="table3">
 			<tr>
-				<th>Name</th>
-				<th>Relationship</th>
-				<th>Phone</th>
+				<th align="left">Name</th>
+				<th align="left">Relationship</th>
+				<th align="left">Phone</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
@@ -92,11 +92,11 @@
 
 				// Output table entries
 				Print "<tr>";
-					Print '<td align="center">'.$name."</td>";
-					Print '<td align="center">'.$relationship."</td>"; 
-					Print '<td align="center">'.$phone."</td>";
-					Print '<td align="center"><a href="editcontact.php?id='.$row['contactID'].'"><img src="images/editButton.png" height="11" width="11"/></a></td>';
-					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['contactID'].')"><img src="images/deleteButton.png" height="11" width="11"/></a> </td>';
+					Print '<td>'.$name."</td>";
+					Print '<td>'.$relationship."</td>"; 
+					Print '<td>'.$phone."</td>";
+					Print '<td align="center"><a href="editcontact.php?id='.$row['contactID'].'"><img src="images/editButton.png" height="14" width="14"/></a></td>';
+					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['contactID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a></td>';
 				Print "</tr>";
 			}
 			?>

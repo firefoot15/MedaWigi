@@ -13,6 +13,6 @@
 	{
 		$id = $_GET['id'];
 		mysql_query("DELETE FROM events WHERE eventID='$id'");
-		header("location:journal.php");
+		header("location:searchjournal.php");
 	}
 ?>
