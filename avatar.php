@@ -71,12 +71,13 @@
   </div>
 
 </div>
-	<body><center></br></br>
-		<h2>PICK AVATAR</h2>	
-        <div class="wrapper">
+	<body>
+		<h2>AVATARS</h2>
+        <div class="wrapper"><center>   
+        <h1>Pick Avatar</h1>    
 		<input type="image" src="<?php echo htmlspecialchars($avatarPath); ?>"/>
-		<table class="table4" cellpadding="5" cellspacing="5">
-		<th colspan="4">Current Avatar</th>
+		
+        <table class="table4" cellpadding="5" cellspacing="5">
 			<tr><td><img src="images/profilepic1.png"/></td>
 			<td><img src="images/profilepic2.png"/></td>
 			<td><img src="images/profilepic3.png"/></td>
@@ -121,8 +122,9 @@
             <a href="editperson.php"><input type="button" value="Done" class="basic_button"/></a>
             <input type="submit" value="Submit" class="basic_button">          
 
-		</form>            
-    </div></center></body>
+		</form> 
+        </center>    
+    </div></body>
 </html>
 
 <?php

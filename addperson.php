@@ -1,7 +1,12 @@
+<?php
+session_start();
+include 'connect.php';
+?>
+
 <html>
 
 <head>
-    <title>Add A Person</title>
+    <title>Add Person</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <script src="medawigi.js"></script>
@@ -53,12 +58,15 @@
 <div class="wrapper"></div>
 
 <body>
-    <center>
+    <h2>ADD PERSON</h2>
+    <div class="wrapper">
+    <table class="page_table"><tr><td></td><td><center>
         <h1>Add New People!</h1>
-        <h2>Add Person</h2>
+            
+        <input type="button" name="goback" value="Cancel" onclick="document.location.href='myportal.php'" class="basic_button" />
         <input type="button" name="registereduserbutton" value="Registered User?" onclick="showRegisteredUserForm()" class="basic_button" />
         <input type="button" name="newpersonbutton" value="New Person?" onclick="showNewPersonForm()" class="basic_button" />
-        <input type="button" name="goback" value="Go back" onclick="document.location.href='myportal.php'" class="basic_button" />
+        
         <br/>
         <br/>
         <form action="addperson.php" id="newRegisteredUser" name="newRegisteredUserForm" style="display:none;" method="POST">
@@ -66,8 +74,9 @@
             <input type="text" name="newRegisteredUserText" />
             <br/>
             <br/>
-            <input type="submit" name="submitRegisteredUserButton" value="Add" class="basic_button" />
             <input type="reset" name="cancelRegisteredUserButton" value="Cancel" onclick="hideRegisteredUserForm()" class="basic_button" />
+            <input type="submit" name="submitRegisteredUserButton" value="Add" class="basic_button" />
+            
         </form>
 
         <form action="addperson.php" id="newPerson" name="NewPersonForm" style="display:none;" method="POST">
@@ -81,10 +90,11 @@
             <input type="text" name="lastNameText" />
             <br/>
             <br/>
-            <input type="submit" name="submitNewPersonButton" value="Add" class="basic_button" />
             <input type="reset" name="cancelNewPersonButton" value="Cancel" onclick="hideNewPersonForm()" class="basic_button" />
+            <input type="submit" name="submitNewPersonButton" value="Add" class="basic_button" />
+            
         </form>
-    </center>
+    </center></td></tr></table>
 </body>
 
 </html>
@@ -108,8 +118,6 @@
 </script>
 
 <?php
-include 'connect.php';
-session_start();
 
 //Boolean to enter switch statement
 $switchBool = false;

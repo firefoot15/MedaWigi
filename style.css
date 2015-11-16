@@ -1,3 +1,9 @@
+/* Horizontal header */
+h1 {
+	font: bold 54px Oswald;
+	color: #202020; 
+	}
+
 /* Vertical header */
 h2 {
 	position: absolute;
@@ -10,26 +16,17 @@ h2 {
 	-moz-transform: rotate(270deg);
 	-webkit-transform: rotate(270deg);
 	-o-transform: rotate(270deg);
-    margin-top: 10%;
+    margin-top: 15%;
     margin-left: -328px;    
 	}
-
-/* Table headers */
-th {
-    font-size: 140%;
-}
-
-th2 {
-    font-size: 140%;
-}
 
 body {
 	background-color: #202020;
     background-image: url('images/background2.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
-	font: 24px Oswald;
-	color: #202020;
+	font: bold 24px Oswald;
+	color: #202020;     
 	}
 
 /* Removes line from under links */

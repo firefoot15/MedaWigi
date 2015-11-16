@@ -6,7 +6,7 @@
 
 <html>
 	<head>
-		<title>Registration Page</title>
+		<title>Registration</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <script src="medawigi.js"></script>
@@ -56,11 +56,12 @@
 
 </div>
 	
-	<body><center><br/><br/>
+	<body>
 		<h2>CREATE ACCOUNT</h2>
-        <div class="wrapper">    
-		<table class="table1" cellpadding="2" cellspacing="5">
-		<th2 colspan="2">Sign Up!</th2>
+        <div class="wrapper">  
+        <table class="page_table"><tr><td></td><td><center>        
+		<h1>Sign Up!</h1>
+        <table class="table1" cellpadding="2" cellspacing="5">
 		<form action="register.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" required="required" maxlength="30"/></td></tr>
@@ -142,7 +143,8 @@
 				<input type="submit" value="Submit" class="basic_button"></td></tr>
 		</form>
 		</table>
-    </div></center></body>
+        </center></td></tr></table>    
+    </div></body>
 </html>
 
 <?php

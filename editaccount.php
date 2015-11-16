@@ -30,7 +30,7 @@
 		?>
 <html>
 	<head>
-		<title>Edit Account Page</title>
+		<title>Edit Account</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <script src="medawigi.js"></script>
@@ -80,12 +80,13 @@
 
 </div>
 			
-	<body><center><br/><br/>
+	<body>
 		<h2>EDIT ACCOUNT</h2>	
-        <div class="wrapper">    
-		<table class="table1" cellpadding="2" cellspacing="5">
-		<th2 colspan="2">Edit Account</th2>
-		<form action="editaccount.php" method="POST">			
+        <div class="wrapper"> 
+        <table class="page_table"><tr><td></td><td><center>    
+		<h1>Edit Account</h1>
+        <table class="table1" cellpadding="2" cellspacing="5">
+		<form action="editaccount.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" value="<?php echo $firstName; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Middle Initial: </td>
@@ -121,7 +122,8 @@
 				<input type="submit" value="Submit" class="basic_button"></td></tr> 
 		</form>
 		</table>
-    </div></center></body>
+        </center></td></tr></table>    
+    </div></body>
 </html>
 
 <?php
