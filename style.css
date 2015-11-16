@@ -260,7 +260,6 @@ Medawigi that goes in the top bar
 menu.html
 */
 #logo img {
-  content: url("./images/logo.png");
   position: absolute;
   left: 10px;
   height: 85px;
