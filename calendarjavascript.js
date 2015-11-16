@@ -607,49 +607,49 @@
 // custom zabuto calendar
 
 
-if ($("#my-calendar").length > 0) {
-  $("#my-calendar").zabuto_calendar({
-    language: "fr",
-    year: 2015,
-    month: 1,
-    show_previous: 1,
-    show_next: 2,
-    // show_reminder: true,
-    // show_today: false,
-    // show_days: true,
-    // weekstartson: 0,
-    // nav_icon: {
-    //   prev: '<i class="fa fa-chevron-circle-left"></i>',
-    //   next: '<i class="fa fa-chevron-circle-right"></i>'
-    // },
-    callbacks: {
-      on_cell_double_clicked: function() {
-        return cellDoubleClicked(this);
-      },
-      on_cell_clicked: function() {
-        return cellClicked(this);
-      },
-      on_nav_clicked: function() {
-        return navClicked(this);
-      },
-      on_event_clicked: function() {
-        return eventClicked(this);
-      }
-    },
-    events: {
-      local: events_array,
-      ajax: {
-        url: "" // load ajax json events here...
-      }
-    },
-    legend: [
-      {label: "Rendez-vous", type: "appointment"},
-      {label: "Journal Event", type: "journal"},
-      {label: "Evenement B", type: "eventtype3"},
-      {label: "<span class='fa fa-bell-o'></span> Rappel", type: "reminder"}
-    ]
-  });
-}
+//if ($("#my-calendar").length > 0) {
+//  $("#my-calendar").zabuto_calendar({
+//    language: "fr",
+//    year: 2015,
+//    month: 1,
+//    show_previous: 1,
+//    show_next: 2,
+//    // show_reminder: true,
+//    // show_today: false,
+//    // show_days: true,
+//    // weekstartson: 0,
+//    // nav_icon: {
+//    //   prev: '<i class="fa fa-chevron-circle-left"></i>',
+//    //   next: '<i class="fa fa-chevron-circle-right"></i>'
+//    // },
+//    callbacks: {
+//      on_cell_double_clicked: function() {
+//        return cellDoubleClicked(this);
+//      },
+//      on_cell_clicked: function() {
+//        return cellClicked(this);
+//      },
+//      on_nav_clicked: function() {
+//        return navClicked(this);
+//      },
+//      on_event_clicked: function() {
+//        return eventClicked(this);
+//      }
+//    },
+//    events: {
+//      local: events_array,
+//      ajax: {
+//        url: "show_data.php" // load ajax json events here...
+//      }
+//    },
+//    legend: [
+//      {label: "Rendez-vous", type: "appointment"},
+//      {label: "Journal Event", type: "journal"},
+//      {label: "Evenement B", type: "eventtype3"},
+//      {label: "<span class='fa fa-bell-o'></span> Rappel", type: "reminder"}
+//    ]
+//  });
+//}
 
 function cellDoubleClicked(cell_element) {
   // console.log($(cell_element).data("hasEvent"));
@@ -665,7 +665,7 @@ function cellClicked(cell_element) {
     var day_events = $('#my-calendar').zabuto_calendar('getEventsAt', day_date);
     $("#list-container").load( "/my-nice-events-list.php", { date:day_date, events:day_events, show_reminder:false }, function( response, status, xhr ) {
       if ( status == "error" ) {
-        alert("Une erreur est survenue !");
+        alert("cellClicked ERROR !");
       }
     });
   }
@@ -693,7 +693,7 @@ function eventClicked(event_element) {
 function openModal(url, data_options, focus_on_first_field) {
   $("#modal-container").load(url, data_options, function(response, status, xhr) {
     if (status == "error") {
-      alert("Une erreur est survenue !");
+      alert("openModal ERROR !");
       return false;
     } else {
       var modal = $("#modal-container").find(".modal");

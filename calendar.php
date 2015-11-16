@@ -12,9 +12,6 @@
     <div id="my-calendar"></div>
     <div id="list-container"></div>
     <div id="modal-container"></div>
-
-
-
 </head>
 
 <body>
@@ -36,37 +33,6 @@
             return events_array;
         }
         
-        
-        
-        
-//        var events_array = [{
-//            "id": "2015-01-03-1",
-//            "date": "2015-01-03",
-//            "title": "Appointment with John Doe",
-//            "type": "appointment",
-//            "disabled": true,
-//            "reminder": "",
-//            "time": "09:00",
-//            "description": "Lorem ipsum dolor sit amet."
-//            }, {
-//            "id": "2015-01-15-1",
-//            "date": "2015-01-15",
-//            "title": "Appointment with Jane Doe",
-//            "type": "eventtype2",
-//            "disabled": true,
-//            "reminder": "-5",
-//            "time": "11:00",
-//            "description": "Lorem ipsum dolor sit amet."
-//            }, {
-//            "id": "2015-02-02-1",
-//            "date": "2015-02-02",
-//            "title": "Appointment with clicable Jim Doe",
-//            "type": "eventtype3",
-//            "disabled": false,
-//            "reminder": "3",
-//            "time": "09:00",
-//            "description": "Lorem ipsum dolor sit amet."
-//            }];
 
         $(document).ready(function () {
             $("#my-calendar").zabuto_calendar({
@@ -88,7 +54,8 @@
                 events: {
                     local: events_array,
                     ajax: {
-                        url: "show_data.php" // load ajax json events here...
+                        url: "show_data.php",
+                        modal: true
                     }
                 },
                 legend: [
@@ -112,6 +79,8 @@
             });
 
         });
+        
+        
     </script>
     
      <?php
@@ -155,10 +124,9 @@
             $subject = $row['eventSubject'];
             $content = $row['eventContent'];
             $type = "journal";
-            echo $id;
-            echo $date;
-            echo $subject;
-            echo "<br>";
+//            echo $id . " ";
+              echo $date . "<br>";
+//            echo $subject . " " . "<br>";
             
             echo "<script> createEventsForArray('$id', '$date', '$subject', '$type', '$time', '$content'); 
             </script>";   
