@@ -102,9 +102,32 @@
 <html>
 	<head>
 		<title>Journal</title>
-		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
-        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-	</head>		
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<script src="medawigi.js"></script>
+</head>
+<div class="top">
+  <div id="logo">
+    <img />
+    
+  </div>
+  <div class="sammich">
+    <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
+
+
+
+    <div class="menu">
+      <ul id="menu-list">
+        <br>
+        <li id="home"><a href="index.php">Home</a></li>
+        <br>
+        <li id="contact"><a href="contact.html">Contact us</a></li>
+        <br>
+      </ul>
+    </div>
+  </div>
+
+</div>
 	<body><center></br></br>
 		<h2>SEARCH EVENTS</h2>
         <div class="wrapper">    

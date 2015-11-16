@@ -193,6 +193,14 @@ menu.html
 }
 
 /*
+menu-lists links get bigger as you hover
+*/
+#menu-list a:hover,
+#menud-list a:active {
+  font-size: 175%;
+}
+
+/*
 Link hover and active
 This allows people to see which link they are hovering over
 menu.html
@@ -219,8 +227,8 @@ menu.html
   content: url("./images/logo.png");
   position: absolute;
   left: 10px;
-  height: 50px;
-  margin-top: 10px;
+  height: 80px;
+  margin-top: 0px;
 }
 
 /*
@@ -234,7 +242,7 @@ menu.html
   margin-top: 65px;
   float: right;
   width: 200px;
-  background-color: #1492cc;
+  background-color: #202020;
 }
 /*
 Sammich is the Hamburger menu button
