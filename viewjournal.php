@@ -58,6 +58,6 @@
 			?>
 		</table></br>
 
-        <a href="journal.php"><input type="button" value="Done" class="basic_button"/></a>
+        <a href="searchjournal.php"><input type="button" value="Done" class="basic_button"/></a>
     </div></center></body>
 </html>

@@ -9,8 +9,8 @@
 		else{
 			header("location:myportal.php");}
 
-		$user = $_SESSION['user'];			
-		$id = $_SESSION['id'];	
+		$user = $_SESSION['user'];
+		$id = $_SESSION['id'];
 		?>
 <html>
 	<head>
@@ -21,8 +21,9 @@
 	<body><center></br></br>
 		<h2>ABOUT</h2>
         <div class="wrapper"> 
-		<p><b>MedaWigi</b><br><br>When you want it, you got it, all your medical<br>information in one place, supplied by MedaWigi!</p>
+        <th2><b>MedaWigi</b></th2>    
+		<p><br>When you want it, you got it, all your medical<br>information in one place, supplied by MedaWigi!</p>
 		<p>For more information or to report<br>problems, contact the authors:<br>.<br>.<br>.<br></p>
-		<a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>" class="basic_button">Return to Home</a>
+		<a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>" class="basic_button2">home</a>
     </div></center></body>
 </html>	
