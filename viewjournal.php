@@ -84,9 +84,11 @@
 
 	<body><center></br></br>
         <h2>VIEW ENTRY</h2>
-        <div class="wrapper">    
-        <table class="table5">
-        <th2 colspan="2">View Event</th2>
+        <div class="wrapper">  
+        <table class="page_table"><tr><td class="page_table"></td><td><center>    
+            
+        <table class="table2">
+        <th2 colspan="2"><b>View Event</b></th2>
             <tr><td>Date: </td>
 				<td><?php echo htmlspecialchars($reformatted_date); ?></td></tr>
 			<tr><td>Time: </td>
@@ -105,5 +107,6 @@
 		</table></br>
 
         <a href="searchjournal.php"><input type="button" value="Done" class="basic_button"/></a>
-    </div></center></body>
+        </center></td></tr></table>    
+    </div></body>
 </html>

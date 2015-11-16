@@ -128,9 +128,9 @@ a:hover, a:visited, a:link, a:active
 	font-size: 125%;
 	}
 
-/*  */
+/* Sets two columns for all pages where the first column is the vertical bar and the second is the page content. */
 .page_table {
-    width: 1192px;
+    width: 1200px;
     padding: 0;
     }
 
@@ -147,7 +147,7 @@ a:hover, a:visited, a:link, a:active
     }
 
 .page_table td:second-child {
-    width: 942px;
+    width: 950px;
     }
 
 .page_table th2 {
@@ -198,16 +198,6 @@ a:hover, a:visited, a:link, a:active
     background: #fff;
     color: #202020;
     text-align: center;    
-    }
-
-/* Table that sits above table2, smaller width constraint
-    appears on view options for allergies.php, journal.php */
-.table5 {
-    border: 0;
-    background: #fff;
-    color: #202020;
-    font-size: 20px;
-    width: 400px;    
     }
 
 .wrapper {  

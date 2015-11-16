@@ -72,12 +72,13 @@
 
 </div>
 
-	<body><center></br></br>
+	<body></br></br>
         <h2>VIEW ENTRY</h2>
         <div class="wrapper">    
- 
-        <th2>View Condition:</th2></br>
-        <?php echo htmlspecialchars($name); ?></br></br>
+        <table class="page_table"><tr><td class="page_table"></td><td><center>
+            
+        <th2><b>View Condition:</b></th2></br>
+        <font size="5"><?php echo htmlspecialchars($name); ?></font></br></br>
         
     
 		<table class="table2">
@@ -88,5 +89,6 @@
 		</table></br>
 
         <a href="conditions.php"><input type="button" value="Done" class="basic_button"/></a>
-    </div></center></body>
+        </center></td></tr></table>
+    </div></body>
 </html>

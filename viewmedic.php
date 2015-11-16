@@ -73,11 +73,13 @@
 
 </div>
 
-	<body><center></br></br>
+	<body></br></br>
         <h2>VIEW ENTRY</h2>
         <div class="wrapper">    
-        <table class="table5">
-        <th2 colspan="2">View Medication</th2>
+        <table class="page_table"><tr><td class="page_table"></td><td><center>    
+            
+        <table class="table2">
+        <th2 colspan="2"><b></b>View Medication</b></th2>
             <tr><td>Name: </td>
 				<td><?php echo htmlspecialchars($name); ?></td></tr>
 			<tr><td>Status: </td>
@@ -94,5 +96,6 @@
 		</table></br>
 
         <a href="medications.php"><input type="button" value="Done" class="basic_button"/></a>
-    </div></center></body>
+        </center></td></tr></table>    
+    </div></body>
 </html>
