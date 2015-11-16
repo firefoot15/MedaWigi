@@ -85,15 +85,14 @@
   </div>
 
 </div>
-
-
-	<body><center></br></br>
+	<body>
 		<h2>H O M E</h2>
         <div class="wrapper">
-        <th2><b><?php if($nickname == 'Me')echo 'My'; else echo htmlspecialchars($nickname)."'s";?> Page</b></th2></br></br>
-        <th><?php if(date("m/d") == $reformatted_date) echo 'Happy Birthday!'; ?></th></br></br>
-		<table class="table4" cellpadding="5" cellspacing="5">
-		<th3 colspan="2">OPTIONS:</th3>
+        <table class="page_table"><tr><td></td><td><center>
+        <h1><?php if($nickname == 'Me')echo 'My'; else echo htmlspecialchars($nickname)."'s";?> Page</h1>
+        <h3><?php if(date("m/d") == $reformatted_date) echo 'Happy Birthday!'; ?><h3></br></br>
+		<table class="table5" cellpadding="10" cellspacing="10">
+		<th colspan="2">OPTIONS:</th>
 			<tr><td><a href="medications.php" class="basic_button2">Medications</a></td>
             <td><a href="calendar.php" class="basic_button2">Calendar</a></td></tr>
 
@@ -112,7 +111,6 @@
             <tr><td><a href="myportal.php" class="basic_button2">Return to Portal</a></td>
 			<td><a href="logout.php" class="basic_button2">Logout</a></td></tr>
 		</table>
-
-		
-    </div></center></body>
+        </center></td></tr></table>
+    </div></body>
 </html>		

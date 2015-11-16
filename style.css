@@ -185,7 +185,7 @@ a:hover, a:visited, a:link, a:active
     }
 
 /* Default form table 
-    appears on personhome.php */
+    appears on avatar.php */
 .table4 {
     border: 0;
     background: #fff;
@@ -195,6 +195,23 @@ a:hover, a:visited, a:link, a:active
 
 .table4 td:first-child {
     width: 50px;
+    }
+
+/* Default form table 
+    appears on personhome.php */
+.table5 {
+    border: 0;
+    background: #fff;
+    color: #202020;
+    text-align: center;  
+    }
+
+.table5 td:first-child {
+    width: 50px;
+    }
+
+.table5 th {
+    font-size: 20px;
     }
 
 .wrapper {  
