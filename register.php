@@ -14,7 +14,7 @@
 		<h2>CREATE ACCOUNT</h2>
         <div class="wrapper">    
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th colspan="2">Sign Up!</th>
+		<th2 colspan="2">Sign Up!</th2>
 		<form action="register.php" method="POST">
 			<tr><td>First Name: </td>
 				<td><input type="text" name="firstName" required="required" maxlength="30"/></td></tr>

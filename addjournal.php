@@ -52,7 +52,7 @@
         <div class="wrapper">     
 		<form action="addjournal.php" method="POST">            
 		<table class="table2">
-		<th colspan="2">New Entry</th>
+		<th2 colspan="2">Add Event</th2>
 			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01">January</option>

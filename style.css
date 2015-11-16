@@ -43,10 +43,10 @@ a:hover, a:visited, a:link, a:active
 	background: #ee2c2c;
 	color: #fff;
     font: 16px Oswald;
-	-webkit-border-radius: 2px;
-	-khtml-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
+	-webkit-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
     border-style: solid;
     border-color: #ee2c2c;
 	}
@@ -63,10 +63,10 @@ a:hover, a:visited, a:link, a:active
 	color: #fff;
 	width: 160px;
     font: 16px Oswald; 
-	-webkit-border-radius: 2px;
-	-khtml-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
+	-webkit-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
     border-style: solid;
     border-color: #ee2c2c;
 	}
@@ -129,6 +129,7 @@ a:hover, a:visited, a:link, a:active
     border: 0;
     background: #fff;
     color: #202020;
+    font-size: 20px;
     }
 
 .table1 td:first-child {
@@ -141,15 +142,17 @@ a:hover, a:visited, a:link, a:active
     border: 0;
     background: #fff;
     color: #202020;
+    font-size: 20px;
     width: 500px;    
     }
 
-/* Form table with border
+/* Form table that used to have border
     appears on allergies.php, journal.php */
 .table3 {
+    border: 0;
     background: #fff;
     color: #202020;
-    font-size: 12px;
+    font-size: 16px;
     width: 500px;
     }
 
@@ -163,10 +166,11 @@ a:hover, a:visited, a:link, a:active
     }
 
 .wrapper {
+    margin-left:auto;
+    margin-right:auto;    
     width: 1024;
     }
 
-	
 /*
 List items don't have bullets or numbers
 menu.html
@@ -208,7 +212,7 @@ menu.html
 }
 
 /*
-Medawigi that goes in the top bar
+Medawigi that goes in the top bar 
 menu.html
 */
 #logo img {
@@ -244,4 +248,122 @@ associated with menu.html
   width: 50px;
   height: 50px;
   float: right;
+}
+
+/*
+rounded textboxes for text fields
+*/
+input[type="text"] {
+  width: 200px;
+  height: 25px;
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  
+  zoom: 1;
+  /* for IE7*/
+  
+  vertical-align: middle;
+}
+
+/*
+input for email makes it rounded!
+*/
+input[type="Email"] {
+  width: 200px;
+  height: 25px;
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  
+  zoom: 1;
+  /* for IE7*/
+  
+  vertical-align: middle;
+}
+
+/*
+all text areas will have round edges!
+*/
+textarea {
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  
+  zoom: 1;
+  /* for IE7*/
+  
+  vertical-align: middle;
+}
+
+/*
+rounded edges on password field
+*/ 
+input[type="password"] {
+  width: 200px;
+  height: 25px;
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  
+  zoom: 1;
+  /* for IE7*/
+  
+  vertical-align: middle;
+}
+/*
+contact.html uses this
+*/
+select {
+  //rounded corners
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Oswald;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  /* for IE7*/
+  zoom: 1;
+  /* for IE7*/
+  vertical-align: middle;
 }	

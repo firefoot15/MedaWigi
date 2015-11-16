@@ -44,7 +44,7 @@
         <div class="wrapper">    
 		<form action="editinsur.php" method="POST">			
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th colspan="2">Edit Insurance</th>					
+		<th2 colspan="2">Edit Insurance</th2>					
 			<tr><td>Provider: </td>
 				<td><input type="text" name="provider" value="<?php echo $provider; ?>" required="required" maxlength="18"/></td></tr>
 			<tr><td>Plan: </td>

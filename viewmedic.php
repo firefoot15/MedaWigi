@@ -33,7 +33,7 @@
         <h2>VIEW ENTRY</h2>
         <div class="wrapper">    
         <table class="table2">
-        <th colspan="2">Current Entry</th>
+        <th2 colspan="2">View Medication</th2>
             <tr><td>Name: </td>
 				<td><?php echo htmlspecialchars($name); ?></td></tr>
 			<tr><td>Status: </td>

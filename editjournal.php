@@ -71,7 +71,7 @@
         <div class="wrapper">    
 		<form action="editjournal.php" method="POST">
 		<table class="table2">
-		<th colspan="2">Edit Entry</th>
+		<th2 colspan="2">Edit Event</th2>
 			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01"<?php if($month == '01') echo 'selected="selected"'; ?>>January</option>

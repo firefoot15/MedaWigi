@@ -11,6 +11,12 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	</head>
+<div class="top">
+  <div id="logo">
+    <img />
+    
+  </div>
+</div>
 	<body><center>
     <h2>MY PORTAL</h2>	    
     <div class="wrapper">
