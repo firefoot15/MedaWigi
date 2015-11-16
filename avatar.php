@@ -10,11 +10,11 @@
 		else{
 			header("location:myportal.php");}
 
-		$user = $_SESSION['user'];			
-		$id = $_SESSION['id'];	
+		$user = $_SESSION['user'];
+		$id = $_SESSION['id'];
 		
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
-		$row = mysql_fetch_array($query);		
+		$row = mysql_fetch_array($query);
 		
 		$avatarPath = $row['profilepic'];
 		$temp = substr($avatarPath, 17);
@@ -73,57 +73,56 @@
 </div>
 	<body>
 		<h2>AVATARS</h2>
-        <div class="wrapper"><center>   
+        <div class="wrapper">
+        <table class="page_table"><tr><td></td><td><center>
         <h1>Pick Avatar</h1>    
 		<input type="image" src="<?php echo htmlspecialchars($avatarPath); ?>"/>
-		
+		<br>Current Avatar        
         <table class="table4" cellpadding="5" cellspacing="5">
 			<tr><td><img src="images/profilepic1.png"/></td>
 			<td><img src="images/profilepic2.png"/></td>
 			<td><img src="images/profilepic3.png"/></td>
 			<td><img src="images/profilepic4.png"/></td></tr>
-			<tr><td>1.</td><td>2.</td><td>3.</td><td>4.</td></tr>
+			<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
 			
 			<tr><td><img src="images/profilepic5.png"/></td>
 			<td><img src="images/profilepic6.png"/></td>
 			<td><img src="images/profilepic7.png"/></td>
 			<td><img src="images/profilepic8.png"/></td></tr>
-			<tr><td>5.</td><td>6.</td><td>7.</td><td>8.</td></tr>
+			<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
 			
 			<tr><td><img src="images/profilepic9.png"/></td>
 			<td><img src="images/profilepic10.png"/></td>
 			<td><img src="images/profilepic11.png"/></td>
 			<td><img src="images/profilepic12.png"/></td></tr>
-			<tr><td>9.</td><td>10.</td><td>11.</td><td>12.</td></tr>
+			<tr><td>9</td><td>10</td><td>11</td><td>12</td></tr>
 			
 			<tr><td><img src="images/profilepic13.png"/></td>
 			<td><img src="images/profilepic14.png"/></td>
 			<td><img src="images/profilepic15.png"/></td>
 			<td><img src="images/profilepic16.png"/></td></tr>
-			<tr><td>13.</td><td>14.</td><td>15.</td><td>16.</td></tr>
+			<tr><td>13</td><td>14</td><td>15</td><td>16</td></tr>
 		</table>
 
         <form action="avatar.php" method="POST">
-        <table class="table1" cellpadding="5" cellspacing="5">  
-		<th colspan="2"></th>            
-			<tr><td>Select a new avatar: </td>            
-                <td><select name="avatar">
+            <br>*Images designed by Freepik
+			<br>Select a new avatar:             
+                <select name="avatar">
 				    <?php for($i=16; $i>=1; $i--){
                         if($avatarNum == $i){
                             echo "<option value='images/profilepic$i.png' selected>$i</option>";}
                         else{
                             echo "<option value='images/profilepic$i.png'>$i</option>";}}
 				    ?>
-                </select></td></tr>
-            <tr><td>*Images designed by Freepik</td>
-                <td></td></tr>
-        </table>
-            
+                </select>
+
+            <br>
+            <br>
             <a href="editperson.php"><input type="button" value="Done" class="basic_button"/></a>
             <input type="submit" value="Submit" class="basic_button">          
 
 		</form> 
-        </center>    
+        </center></td></tr></table>
     </div></body>
 </html>
 

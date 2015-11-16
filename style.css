@@ -147,10 +147,6 @@ a:hover, a:visited, a:link, a:active
     width: 950px;
     }
 
-.page_table th2 {
-    font-size: 220%;
-    }
-
 /* Default form table with first column right-aligned 
     appears on register.php, editaccount.php, editperson.php */
 .table1 {
@@ -194,7 +190,11 @@ a:hover, a:visited, a:link, a:active
     border: 0;
     background: #fff;
     color: #202020;
-    text-align: center;    
+    text-align: left;  
+    }
+
+.table4 td:first-child {
+    width: 50px;
     }
 
 .wrapper {  
