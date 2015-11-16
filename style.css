@@ -25,7 +25,7 @@ th2 {
 
 body {
 	background-color: #202020;
-    background-image: url('images/background.png');
+    background-image: url('images/background2.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
 	font: 24px Oswald;
@@ -128,6 +128,32 @@ a:hover, a:visited, a:link, a:active
 	font-size: 125%;
 	}
 
+/* Sets two columns for all pages where the first column is the vertical bar and the second is the page content. */
+.page_table {
+    width: 1200px;
+    padding: 0;
+    }
+
+.page_table tr {
+    padding: 0;
+    }
+
+.page_table td {
+    padding: 0;
+    }
+
+.page_table td:first-child {
+    width: 250px;
+    }
+
+.page_table td:second-child {
+    width: 950px;
+    }
+
+.page_table th2 {
+    font-size: 220%;
+    }
+
 /* Default form table with first column right-aligned 
     appears on register.php, editaccount.php, editperson.php */
 .table1 {
@@ -174,19 +200,7 @@ a:hover, a:visited, a:link, a:active
     text-align: center;    
     }
 
-/* Table that sits above table2, smaller width constraint
-    appears on view options for allergies.php, journal.php */
-.table5 {
-    border: 0;
-    background: #fff;
-    color: #202020;
-    font-size: 20px;
-    width: 400px;    
-    }
-
-.wrapper {
-    margin-left:auto;
-    margin-right:auto;    
+.wrapper {  
     width: 1024;
     }
 
@@ -209,6 +223,7 @@ menu.html
   font-size: 24px;
   text-decoration: none;
   color: #ffffff;
+  font-size: 175%;
 }
 
 /*
@@ -218,7 +233,7 @@ menu.html
 */
 a:hover,
 a:active {
-  font-size: 175%;
+font-size:175%;
 }
 
 /*
@@ -235,11 +250,9 @@ Medawigi that goes in the top bar
 menu.html
 */
 #logo img {
-  content: url("./images/logo.png");
   position: absolute;
   left: 10px;
-  height: 50px;
-  margin-top: 10px;
+  height: 85px;
 }
 
 /*
@@ -247,7 +260,7 @@ The list of links
 menu.html
 */
 #menu-list {
-  right: 0px;
+  right: 5px;
   position: absolute;
   visibility: hidden;
   margin-top: 65px;
@@ -262,9 +275,9 @@ associated with menu.html
 
 .sammich {
   position: absolute;
-  margin-top: 10px;
-  right: 10px;
-  width: 50px;
+  right: 0px;
+margin-top:5px;  
+width: 50px;
   height: 50px;
   float: right;
 }
@@ -273,7 +286,7 @@ associated with menu.html
 rounded textboxes for text fields
 */
 input[type="text"] {
-  height: 25px;
+  height: 30px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -297,10 +310,10 @@ input for email makes it rounded!
 */
 input[type="Email"] {
   width: 200px;
-  height: 25px;
+  height: 30px;
   //rounded corners
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -345,7 +358,7 @@ rounded edges on password field
 */ 
 input[type="password"] {
   width: 200px;
-  height: 25px;
+  height: 30px;
   //rounded corners
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;

@@ -1,7 +1,7 @@
 <!--    JOURNAL PAGE
         Users set search criteria for events. 
-        Returns entries for all persons attached to account. ////////////////////////////////////// CHANGE THIS
-        Includes CRUD functions.
+        Allows user to access events for all persons attached to account.
+        Hidden add event form.
  -->
 		<?php
         include 'connect.php';
@@ -107,7 +107,7 @@
 	<body><center></br></br>
 		<h2>SEARCH ENTRIES</h2>
         <div class="wrapper">    
-		<form action="journal.php" method="POST">
+		<form action="searchjournal.php" method="POST">
 		<table class="table5">
 		<th colspan="2">Basic Search</th>
 			<tr><td>Person: </td>
@@ -210,7 +210,7 @@
 		<th colspan="3"></th>
             <tr><td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
                 <td><a href="addjournal.php"><input type="button" value="Add Entry" class="basic_button"/></a></td>
-                <td><input type="submit" name="submit" value="Search" class="basic_button"/></td></tr>
+                <td><a href="searchjournal.php"><input type="button" value="Search" class="basic_button"/></a></td></tr>
         </table>            
 		</form>      
 

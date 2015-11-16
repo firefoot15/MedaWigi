@@ -22,13 +22,60 @@
 	<head>
 		<title>Conditions</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-	</head>	
-	<body><center></br></br>
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<script src="medawigi.js"></script>
+</head>
+<div class="top">
+  <div id="logo">
+    <img />
+    
+  </div>
+  <div class="sammich">
+    <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
+
+
+
+    <div class="menu">
+      <ul id="menu-list">
+        <br>
+        <li id="home"><a href="personhome.php">Home</a></li>
+        <br>
+        <li id="insurance_contact"><a href="insurance.php">Insurance</a></li>
+        <br>
+        <li id="calendar"><a href="calendar.php">Calendar</a></li>
+        <br>
+        <li id="journal"><a href="journal.php">Journal</a></li>
+        <br>
+        <li id="medications"><a href="medication.php">Medications</a></li>
+        <br>
+        <li id="allergies"><a href="allergies.php">Allergies</a></li>
+        <br>
+	<li id="immunizations"><a href="immunizations.php">Immunizations</a></li>
+	<br>
+	<li id="contacts"><a href="contacts.php">Contacts</a></li>
+	<br>
+	<li id="conditions"><a href="conditions.php">Conditions</a></li>
+	<br>
+        <li id="contact"><a href="contact.html">Contact us</a></li>
+        <br>
+        <li id="editprofile"><a href="editprofile.php">Edit Profile</a></li>
+        <br>
+        <li id="switch_profile"><a href="#">Switch Profile</a></li>
+        <br>
+        <li id="logout"><a href="logout.php">Logout</a></li>
+        <br>
+      </ul>
+    </div>
+  </div>
+
+</div>
+	<body></br></br>
 		<h2>CONDITIONS</h2>
-        <div class="wrapper">    
+        <div class="wrapper">   
+        <table class="page_table"><tr><td class="page_table"></td><td><center>    
+            
         <table class="table3">
-        <th2 colspan="4">Conditions</th2>
+        <th2 colspan="4"><b>Conditions</b></th2>
 			<tr>
 				<th align="left">Name</th>
 				<th>Description</th>
@@ -55,10 +102,12 @@
 		</table></br>
     
 		<table>
-		<th colspan="2"></th>
-            <tr><td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
+		<th colspan="4"></th>
+            <tr><td></td><td></td>
+                <td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
                 <td><a href="addcondi.php"><input type="button" value="Add Entry" class="basic_button"/></a></td></tr>
         </table>
+</center></td></tr></table>            
 
 		<script>
 			function deleteFunction(id)
@@ -70,5 +119,5 @@
 				}
 			}
 		</script>
-    </div></center></body>
+    </div></body>
 </html>

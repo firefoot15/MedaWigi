@@ -2,11 +2,12 @@
 	<head> 
 		<title> MedaWiGi</title>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <script src="medawigi.js"></script>
 </head>
 <div class="top">
   <div id="logo">
-    <img />
+    <img src="http://medawigi.no-ip.org/images/logo.png" />
     
   </div>
   <div class="sammich">
