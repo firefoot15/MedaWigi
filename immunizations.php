@@ -25,8 +25,6 @@
 
 		<link rel="stylesheet" type="text/css" href="style.css">
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    </head>	
-	<body></br></br>
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -74,7 +72,7 @@
   </div>
 
 </div>
-	<body><center></br></br>
+	<body></br></br>
 
 		<h2>IMMUNIZATIONS</h2>
         <div class="wrapper">  
