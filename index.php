@@ -19,7 +19,6 @@
       <ul id="menu-list">
         <br>
         <li id="home"><a href="index.php">Home</a></li>
-        <br>
         <li id="contact"><a href="contact.html">Contact us</a></li>
         <br>
       </ul>

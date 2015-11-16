@@ -217,7 +217,7 @@ menu.html
 */
 #menu-list a {
   font-family: "Oswald";
-  font-size: 24px;
+  font-size: 20px;
   text-decoration: none;
   color: #ffffff;
   font-size: 175%;
@@ -257,10 +257,10 @@ The list of links
 menu.html
 */
 #menu-list {
-  right: 5px;
+  right: 0px;
   position: absolute;
   visibility: hidden;
-  margin-top: 65px;
+  margin-top: 67px;
   float: right;
   width: 200px;
   background-color: #202020;
@@ -272,7 +272,7 @@ associated with menu.html
 
 .sammich {
   position: absolute;
-  right: 0px;
+  right: 10px;
 margin-top:5px;  
 width: 50px;
   height: 50px;
