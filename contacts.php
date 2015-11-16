@@ -70,11 +70,13 @@
   </div>
 
 </div>
-	<body><center></br></br>
+	<body></br></br>
 		<h2>CONTACTS</h2>
-        <div class="wrapper">    
+        <div class="wrapper">   
+        <table class="page_table"><tr><td class="page_table"></td><td><center>    
+            
         <table class="table3">
-        <th2 colspan="5">Contacts</th2>
+        <th2 colspan="5"><b>Contacts</b></th2>
 			<tr>
 				<th align="left">Name</th>
 				<th align="left">Relationship</th>
@@ -131,6 +133,7 @@
                 <td><input type="submit" name="submitAddEntry" value="Submit" onclick="submitAddEntryForm()" class="basic_button"/></td></tr>  
 		</table>
         </form>
+    </center></td></tr></table>            
 
 		<script>
 			function deleteFunction(id)
@@ -150,7 +153,7 @@
                 document.getElementById('addEntry').style.display="none";
             }            
 		</script>
-    </div></center></body>
+    </div></body>
 </html>
 
 <?php

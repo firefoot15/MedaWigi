@@ -69,11 +69,13 @@
   </div>
 
 </div>
-	<body><center></br></br>
+	<body></br></br>
 		<h2>CONDITIONS</h2>
-        <div class="wrapper">    
+        <div class="wrapper">   
+        <table class="page_table"><tr><td class="page_table"></td><td><center>    
+            
         <table class="table3">
-        <th2 colspan="4">Conditions</th2>
+        <th2 colspan="4"><b>Conditions</b></th2>
 			<tr>
 				<th align="left">Name</th>
 				<th>Description</th>
@@ -100,10 +102,12 @@
 		</table></br>
     
 		<table>
-		<th colspan="2"></th>
-            <tr><td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
+		<th colspan="4"></th>
+            <tr><td></td><td></td>
+                <td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
                 <td><a href="addcondi.php"><input type="button" value="Add Entry" class="basic_button"/></a></td></tr>
         </table>
+</center></td></tr></table>            
 
 		<script>
 			function deleteFunction(id)
@@ -115,5 +119,5 @@
 				}
 			}
 		</script>
-    </div></center></body>
+    </div></body>
 </html>
