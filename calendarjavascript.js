@@ -671,111 +671,45 @@
 //  }
 //}
 
-//function eventClicked(event_element) {
-//  var event_object = $(event_element).data("event_object");
-//  var url = "/my-nice-modal.php";
-//  var modal = openModal(url, {
-//      date: event_object.date, 
-//      id: event_object.id, 
-//      title: event_object.title, 
-//      type: event_object.type, 
-//      reminder: event_object.reminder, 
-//    }, true );
-//  $('#list-container').empty();
-//}
-//
-//function openModal(url, data_options, focus_on_first_field) {
-//  $("#modal-container").load(url, data_options, function(response, status, xhr) {
-//    if (status == "error") {
-//      alert("openModal ERROR !");
-//      return false;
-//    } else {
-//      var modal = $("#modal-container").find(".modal");
-//      modal.modal('toggle');
-//      return modal;
-//    }
-//  });
-//}
+function eventClicked(event_element) {
+    alert("eventClicked");
+  var event_object = $(event_element).data("event_object");
+  //var url = "/my-nice-modal.php";
+  var modal = openModal({
+      id: event_object.id, 
+      date: event_object.date, 
+      title: event_object.title, 
+      type: event_object.type, 
+      disabled: true,
+      reminder: event_object.reminder, 
+      time: event_object.time,
+      description: event_object.description
+    }, true );
+  $('#list-container').empty();
+}
+
+function overlay() {
+	el = document.getElementById("overlay");
+	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+}
+
+function openModal(data_options, focus_on_first_field) {
+  $("#modal-container").load(data_options, function(response, status, xhr) {
+    if (status == "error") {
+      alert("openModal ERROR !");
+      return false;
+    } else {
+      var modal = $("#modal-container").find(".modal");
+      modal.modal('toggle');
+      return modal;
+    }
+  });
+}
 
 
 
 //************************************************************
 
-
-
-//function cellDoubleClicked(cell_element) {
-//  // console.log($(cell_element).data("hasEvent"));
-//  var day_date = $(cell_element).data("date");
-//    alert(day_date);
-////  var url = "/my-nice-modal.php";
-////  var modal = openModal(url, {date:day_date}, true);
-//}
-
-function cellClicked(cell_element) {
-  // console.log($(cell_element).data("hasEvent"));
-  alert("fdskjhfljkgdhsaj");
-}
-
-function eventClicked(event_element) {
-    
-  //var event_object = $(event_element).data("event_object");
-    
-    alert("eventCLICKED");
-//  var modal = openModal({
-//      date: event_object.date, 
-//      id: event_object.id, 
-//      title: event_object.title, 
-//      type: event_object.type, 
-//      reminder: event_object.reminder, 
-//      description: event_object.description
-//    });
-//  $('#list-container').empty();
-}
-
-function openModal(data_options) {
-    
-    var $modalHeaderButton = $('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>');
-            var $modalHeaderTitle = $('<h4 class="modal-title" id="' + data_options.id + '_modal_title">' + data_options.title + '</h4>');
-
-            var $modalHeader = $('<div class="modal-header"></div>');
-            $modalHeader.append($modalHeaderButton);
-            $modalHeader.append($modalHeaderTitle);
-
-            var $modalBody = $('<div class="modal-body" id="' + data_options.id + '_modal_body">' + data_options.description + '</div>');
-
-//            var $modalFooter = $('<div class="modal-footer" id="' + data_options.id + '_modal_footer"></div>');
-//            if (typeof(footer) !== 'undefined') {
-//                var $modalFooterAddOn = $('<div>' + footer + '</div>');
-//                $modalFooter.append($modalFooterAddOn);
-//            }
-
-            var $modalContent = $('<div class="modal-content"></div>');
-            $modalContent.append($modalHeader);
-            $modalContent.append($modalBody);
-//            $modalContent.append($modalFooter);
-
-            var $modalDialog = $('<div class="modal-dialog"></div>');
-            $modalDialog.append($modalContent);
-
-            var $modalFade = $('<div class="modal fade" id="' + data_options.id + '_modal" tabindex="-1" role="dialog" aria-labelledby="' + data_options.id + '_modal_title" aria-hidden="true"></div>');
-            $modalFade.append($modalDialog);
-
-            $modalFade.data('dateId', data_options.id);
-            $modalFade.attr("dateId", data_options.id);
-
-            return $modalFade;
-//    
-//  $("#modal-container").load(data_options, function(response, status, xhr) {
-//    if (status == "error") {
-//      alert("openModal ERROR !");
-//      return false;
-//    } else {
-//      var modal = $("#modal-container").find(".modal");
-//      modal.modal('toggle');
-//      return modal;
-//    }
-//  });
-}
 
 
 /* ----- Modal functions ----- */
@@ -812,3 +746,5 @@ function openModal(data_options) {
 //
 //            return $modalFade;
 //        }
+
+

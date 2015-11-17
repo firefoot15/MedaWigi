@@ -5,18 +5,24 @@
     include 'connect.php';
     session_start();
     ?>
-        <title>Calendar</title>
-        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-        <script src="calendarjavascript.js"></script>
-        <link rel="stylesheet" type="text/css" href="calendarstyle.css">
+    
+    <title>Calendar</title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <script src="calendarjavascript.js"></script>
+    <link rel="stylesheet" type="text/css" href="calendarstyle.css">
 
-        <div id="my-calendar"></div>
+    <div id="my-calendar"></div>
+    <div id="modal-container"></div>
+    <div id="list-container"></div>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <script src="medawigi.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-        <script src="medawigi.js"></script>
+
+    
 </head>
 <!--
 <div class="top">
@@ -169,24 +175,7 @@
                         url: "show_data.php" // load ajax json events here...
                     }
                 },
-                legend: [
-                    {
-                        label: "Rendez-vous",
-                        type: "appointment"
-                },
-                    {
-                        label: "Journal Event",
-                        type: "journal"
-                },
-                    {
-                        label: "Evenement B",
-                        type: "eventtype3"
-                },
-                    {
-                        label: "<span class='fa fa-bell-o'></span> Rappel",
-                        type: "reminder"
-                }
-    ]
+             
             });
         </script>
 
