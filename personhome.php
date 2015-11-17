@@ -72,7 +72,7 @@
         <table class="page_table"><tr><td></td><td><center>
         <h1><?php if($nickname == 'Me')echo 'My'; else echo htmlspecialchars($nickname)."'s";?> Page</h1>
         <h3><?php if(date("m/d") == $reformatted_date) echo 'Happy Birthday!'; ?><h3></br></br>
-		<table class="table5" cellpadding="10" cellspacing="10">
+		<table class="table5" cellpadding="10" cellspacing="20">
 		<th colspan="2">OPTIONS:</th>
 			<tr><td><a href="medications.php" class="basic_button2">Medications</a></td>
             <td><a href="calendar.php" class="basic_button2">Calendar</a></td></tr>
@@ -82,16 +82,14 @@
 			
             <tr><td><a href="allergies.php" class="basic_button2">Allergies</a></td>
 			<td><a href="insurance.php" class="basic_button2">Insurance</a></td></tr>
-			
+
             <tr><td><a href="conditions.php" class="basic_button2">Conditions</a></td>
             <td><a href="contacts.php" class="basic_button2">Contacts</a></td></tr>
-            
-            <tr><td><a href="editperson.php" class="basic_button2">Edit Person</a></td>
-            <td><a href="about.php" class="basic_button2">About</a></td></tr>
-			
-            <tr><td><a href="myportal.php" class="basic_button2">Return to Portal</a></td>
-			<td><a href="logout.php" class="basic_button2">Logout</a></td></tr>
-		</table>
+
+        </table>
+            <br>
+            <br>
+            <a href="about.php" class="basic_button2">About</a>
         </center></td></tr></table>
     </div></body>
 </html>		

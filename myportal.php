@@ -87,7 +87,7 @@
 		{
             ?>
                 <!-- display add person button-->
-				<a href="addperson.php" class="myportal_button" value="">Add Person</a><br/>
+				<a href="addperson.php" class="myportal_button" value="">Add Profile</a><br/>
 			<?php
 		}
 		?>    
