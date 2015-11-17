@@ -85,16 +85,14 @@
 			?>
         </table></br>    
             
-        <table>
-		<th colspan="4"></th>
-            <tr><td></td><td></td>
-                <td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
+        <table class="table6" cellpadding="2" cellspacing="5">
+            <tr><td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
                 <td><input type="submit" name="addEntryButton" value="Add Entry" onclick="showAddEntryForm()" class="basic_button"/></td></tr> 
 		</table></br> 
             
             			<!-- Add contacts form-->
         <form action="contacts.php" id="addEntry" name="addEntryFrom" style="display:none;" method="POST">       
-		<table class="table1" cellpadding="2" cellspacing="5">
+		<table class="table6" cellpadding="2" cellspacing="5">
 		<th colspan="2">New Entry</th>
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" required="required" maxlength="30"/></td></tr>
@@ -106,10 +104,8 @@
                     <input type="text" name="subscriberNumber" required="required" maxlength="4" size="4"/></td></tr>
         </table></br>
     
-        <table>    
-        <th colspan="4"></th>    
-            <tr><td></td><td></td>
-                <td><input type="submit" name="cancelAddEntry" value="Cancel" onclick="hideAddEntryForm()" class="basic_button"/></td>
+        <table class="table6" cellpadding="2" cellspacing="5">      
+            <tr><td><input type="submit" name="cancelAddEntry" value="Cancel" onclick="hideAddEntryForm()" class="basic_button"/></td>
                 <td><input type="submit" name="submitAddEntry" value="Submit" onclick="submitAddEntryForm()" class="basic_button"/></td></tr>  
 		</table>
         </form>

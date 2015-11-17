@@ -64,7 +64,7 @@
 		<form action="editcontact.php" method="POST">
         <table class="page_table"><tr><td></td><td><center>
         <h1>Edit Contact</h1>                            
-		<table class="table1" cellpadding="2" cellspacing="5">
+		<table class="table6" cellpadding="2" cellspacing="5">
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Relationship: </td>
@@ -75,10 +75,8 @@
                     <input type="text" name="subscriberNumber" value="<?php echo $subscriberNumber; ?>" required="required" maxlength="4" size="4"/></td></tr>
 		</table></br>
             
-		<table>
-		<th colspan="4"></th>
-			<tr><td></td><td></td>
-				<td><a href="contacts.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
+		<table class="table6" cellpadding="2" cellspacing="5">
+			<tr><td><a href="contacts.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
 				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 
 		</table>
 		</form>

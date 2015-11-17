@@ -64,7 +64,7 @@
 		<form action="editimmun.php" method="POST">
         <table class="page_table"><tr><td></td><td><center>
         <h1>Edit Immunization</h1>                      
-		<table class="table1" cellpadding="2" cellspacing="5">
+		<table class="table6" cellpadding="2" cellspacing="5">
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Date Administered: </td>
@@ -108,10 +108,8 @@
 				<td><input type="text" name="location" value="<?php echo $location; ?>" required="required" maxlength="30"/></td></tr>            
         </table></br>
             
-		<table>
-		<th colspan="4"></th>
-			<tr><td></td><td></td>
-				<td><a href="immunizations.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
+		<table class="table6" cellpadding="2" cellspacing="5">
+			<tr><td><a href="immunizations.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
 				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</table>
 		</form>

@@ -75,7 +75,7 @@
         if(isset($provider))
         {
             ?>
-		<table class="table1" cellpadding="2" cellspacing="5">
+		<table class="table6" cellpadding="2" cellspacing="5">
         <h1>Insurance Information</h1>
 			<tr><td>Provider: </td>
 				<td><?php echo $provider; ?></td></tr>
@@ -91,10 +91,8 @@
 				<td><?php echo $reformatted_date; ?></td></tr>  
         </table></br>
     
-		<table>
-		<th colspan="4"></th>
-            <tr><td></td><td></td>            
-                <td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
+		<table class="table6" cellpadding="2" cellspacing="5">
+            <tr><td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
                 <td><a href="editinsur.php"><input type="button" value="Edit" class="basic_button"/></a></td></tr>
         </table>    
     
