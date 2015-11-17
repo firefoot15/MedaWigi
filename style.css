@@ -11,20 +11,20 @@ h2 {
 	color: #fff;
 	width: 1000px;   
 	height: 100px;
-    text-align: left;
+    	text-align: left;
 	-ms-transform: rotate(270deg);
 	-moz-transform: rotate(270deg);
 	-webkit-transform: rotate(270deg);
 	-o-transform: rotate(270deg);
-    margin-top: 15%;
-    margin-left: -328px;    
+    	margin-top: 15%;
+    	margin-left: -328px;    
 	}
 
 body {
 	background-color: #202020;
-    background-image: url('images/background2.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    	background-image: url('images/background2.png');
+    	background-repeat: no-repeat;
+    	background-attachment: fixed;
 	font: bold 24px Oswald;
 	color: #202020;     
 	}
@@ -39,18 +39,18 @@ a:hover, a:visited, a:link, a:active
 .basic_button {
 	background: #ee2c2c;
 	color: #fff;
-    font: 16px Oswald;
+    	font: 16px Oswald;
 	-webkit-border-radius: 12px;
 	-khtml-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
-    border-style: solid;
-    border-color: #ee2c2c;
+    	border-style: solid;
+    	border-color: #ee2c2c;
 	}
 	
 .basic_button:hover {
 	background: #cd2626;
-    border-color: #cd2626;
+    	border-color: #cd2626;
 	}
 
 /* Default button with width constraint */
@@ -59,31 +59,31 @@ a:hover, a:visited, a:link, a:active
 	background: #ee2c2c;
 	color: #fff;
 	width: 160px;
-    font: 16px Oswald; 
+    	font: 16px Oswald; 
 	-webkit-border-radius: 12px;
 	-khtml-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
-    border-style: solid;
-    border-color: #ee2c2c;
+    	border-style: solid;
+    	border-color: #ee2c2c;
 	}
 
 .basic_button2:hover {
 	background: #cd2626;
-    border-color: #cd2626;
+    	border-color: #cd2626;
 	}
 
 /* Default my portal button */
 .myportal_button {
-    display: block;
+    	display: block;
 	background: #ee2c2c;
 	width: 400px;
 	height: 70px;
-    text-align: left;
+    	text-align: left;
 	text-indent: 30px; /*20*/
 	padding: 0 0 0 0;
-    font: 58px Oswald;
-    color: #fff;
+    	font: 58px Oswald;
+    	color: #fff;
 	-webkit-border-radius: 30px;
 	-khtml-border-radius: 30px;
 	-moz-border-radius: 30px;
@@ -392,18 +392,20 @@ input[type="password"] {
   vertical-align: middle;
 }
 
-input[type="submit"] {
+#log input[type="submit"] {
 	display: block;
 	background: #ee2c2c;
 	color: #fff;
 	width: 160px;
-    font: 16px Oswald; 
+    	font: 16px Oswald; 
 	-webkit-border-radius: 12px;
 	-khtml-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
-    border-style: solid;
-    border-color: #ee2c2c;}
+    	border-style: solid;
+    	border-color: #ee2c2c;
+	
+}
 /*
 contact.html uses this
 */
