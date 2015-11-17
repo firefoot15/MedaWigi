@@ -72,7 +72,7 @@
         <table class="page_table"><tr><td></td><td><center>
         <h1>Edit Insurance</h1>    
 		<form action="editinsur.php" method="POST">
-		<table class="table6" cellpadding="2" cellspacing="5">
+		<table class="table1" cellpadding="2" cellspacing="5">
 			<tr><td>Provider: </td>
 				<td><input type="text" name="provider" value="<?php echo $provider; ?>" required="required" maxlength="18"/></td></tr>
 			<tr><td>Plan: </td>
