@@ -1,6 +1,6 @@
 /* Horizontal header */
 h1 {
-	font: bold 54px Oswald;
+	font: bold 48px Oswald;
 	color: #202020; 
 	}
 
@@ -92,7 +92,7 @@ a:hover, a:visited, a:link, a:active
  
 .myportal_button:hover {
 	background: #cd2626;
-	font-size: 200%;    
+	font-size: 280%;    
 	}
 
 /* My portal button with profile image */
@@ -114,7 +114,7 @@ a:hover, a:visited, a:link, a:active
 
 .profile_button:hover {
 	background: #cd2626;
-	font-size: 200%;    
+	font-size: 280%;    
 	}
 
 .delete_link {
@@ -184,7 +184,7 @@ a:hover, a:visited, a:link, a:active
     text-indent: 10px;
     }
 
-/* Default form table 
+/* Default form table, forced center 
     appears on avatar.php */
 .table4 {
     border: 0;
@@ -212,6 +212,20 @@ a:hover, a:visited, a:link, a:active
 
 .table5 th {
     font-size: 20px;
+    }
+
+/* Default form table with first column right-aligned, forced center
+    appears on editallergies.php */
+.table6 {
+    border: 0;
+    background: #fff;
+    color: #202020;
+    font-size: 20px;
+    }
+
+.table6 td:first-child {
+    text-align: right;
+    width: 50px;
     }
 
 .wrapper {  
