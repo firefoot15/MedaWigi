@@ -222,7 +222,7 @@
             <tr><td>Subject: </td>
 				<td><input type="text" name="subject" value="<?php echo $subject; ?>" maxlength="30"/></td></tr>
 			<tr><td>Content: </td>
-				<td><textarea rows="20" cols="50" type="text" name="content" required="required" maxlength="1000"><?php echo $content; ?></textarea></td></tr>
+				<td><textarea rows="10" cols="50" type="text" name="content" required="required" maxlength="1000"><?php echo $content; ?></textarea></td></tr>
 		</table></br>
         
         <table>
