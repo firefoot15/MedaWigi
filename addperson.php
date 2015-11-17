@@ -213,7 +213,7 @@ $user = $_SESSION['user'];
         //Alert if email is not in db
         if($emailDoesNotExistBool == true)
         {
-            Print'<script>alert("This email is not currently registered!!");</script>';
+            Print'<script>alert("This email is not currently registered!");</script>';
             Print '<script>window.location.assign("myportal.php");</script>';
         }
     }
