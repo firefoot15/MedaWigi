@@ -56,10 +56,10 @@
   </div>
 
 </div>
-	<body><center>
-    <h2>MY PORTAL</h2>	    
+	<body>
+    <h2>MY PORTAL</h2>
     <div class="wrapper">
-	<body><center>    
+    <table class="page_table"><tr><td></td><td><center>
 		<form action="myportal.php" method="POST"><br/>
 		<?php
         
@@ -127,5 +127,6 @@
 			<!-- display logout button-->
 			<a href="logout.php" class="myportal_button">Logout</a>
 		</form>
-    </center></body></div>
+        </center></td></tr></table>
+    </div></body>
 </html>            

@@ -72,14 +72,12 @@
   </div>
 
 </div>
-
-	<body></br></br>
+	<body>
         <h2>VIEW ENTRY</h2>
         <div class="wrapper">    
-        <table class="page_table"><tr><td class="page_table"></td><td><center>    
-            
+        <table class="page_table"><tr><td></td><td><center>    
+        <h1>View Medication</h1>    
         <table class="table2">
-        <th2 colspan="2"><b></b>View Medication</b></th2>
             <tr><td>Name: </td>
 				<td><?php echo htmlspecialchars($name); ?></td></tr>
 			<tr><td>Status: </td>

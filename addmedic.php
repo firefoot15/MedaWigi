@@ -68,17 +68,17 @@
   </div>
 
 </div>
-	</head>
-	<body><center></br></br>
+	<body>
 		<h2>NEW ENTRY</h2>
-        <div class="wrapper">     
+        <div class="wrapper">
+        <table class="page_table"><tr><td></td><td><center>
+        <h1>Add Medication</h1>    
 		<form action="addmedic.php" method="POST">            
-		<table class="table2">
-		<th2 colspan="2">Add Medication</th2>         
+		<table class="table2">        
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" required="required" maxlength="50" size="50"/></td></tr>          
 			<tr><td>Status: </td>
-                <td><input type="checkbox" name="status" value="Current"/></td></tr>
+                <td><input type="checkbox" name="status" value="Current"/><font size="2"> *Only check if current prescription.</font></td></tr>
 			<tr><td>Rx #: </td>
 				<td><input type="text" name="rx" maxlength="15"/></td></tr>              
 			<tr><td>Directions: </td>
@@ -91,8 +91,9 @@
                 <td><a href="medications.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
 				<td><input type="submit" value="Submit" class="basic_button"/></td></tr> 
 		</table>
-		</form>            
-    </div></center></body>
+		</form>
+        </center></td></tr></table>    
+    </div></body>
 </html>
 
 <?php

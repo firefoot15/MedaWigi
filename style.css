@@ -147,10 +147,6 @@ a:hover, a:visited, a:link, a:active
     width: 950px;
     }
 
-.page_table th2 {
-    font-size: 220%;
-    }
-
 /* Default form table with first column right-aligned 
     appears on register.php, editaccount.php, editperson.php */
 .table1 {
@@ -189,12 +185,33 @@ a:hover, a:visited, a:link, a:active
     }
 
 /* Default form table 
-    appears on personhome.php */
+    appears on avatar.php */
 .table4 {
     border: 0;
     background: #fff;
     color: #202020;
-    text-align: center;    
+    text-align: left;  
+    }
+
+.table4 td:first-child {
+    width: 50px;
+    }
+
+/* Default form table 
+    appears on personhome.php */
+.table5 {
+    border: 0;
+    background: #fff;
+    color: #202020;
+    text-align: center;  
+    }
+
+.table5 td:first-child {
+    width: 50px;
+    }
+
+.table5 th {
+    font-size: 20px;
     }
 
 .wrapper {  
@@ -217,7 +234,7 @@ menu.html
 */
 #menu-list a {
   font-family: "Oswald";
-  font-size: 24px;
+  font-size: 20px;
   text-decoration: none;
   color: #ffffff;
   font-size: 175%;
@@ -257,10 +274,10 @@ The list of links
 menu.html
 */
 #menu-list {
-  right: 5px;
+  right: 0px;
   position: absolute;
   visibility: hidden;
-  margin-top: 65px;
+  margin-top: 67px;
   float: right;
   width: 200px;
   background-color: #202020;
@@ -272,7 +289,7 @@ associated with menu.html
 
 .sammich {
   position: absolute;
-  right: 0px;
+  right: 10px;
 margin-top:5px;  
 width: 50px;
   height: 50px;

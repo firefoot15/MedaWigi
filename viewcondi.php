@@ -71,16 +71,13 @@
   </div>
 
 </div>
-
-	<body></br></br>
+	<body>
         <h2>VIEW ENTRY</h2>
         <div class="wrapper">    
-        <table class="page_table"><tr><td class="page_table"></td><td><center>
-            
-        <th2><b>View Condition:</b></th2></br>
-        <font size="5"><?php echo htmlspecialchars($name); ?></font></br></br>
+        <table class="page_table"><tr><td></td><td><center>
+        <h1>View Condition:</h1>    
+        <font size="6"><?php echo htmlspecialchars($name); ?></font></br></br>
         
-    
 		<table class="table2">
 			<?php
 					// Output table entries

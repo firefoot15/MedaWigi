@@ -11,7 +11,7 @@
     
   </div>
   <div class="sammich">
-    <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
+    <img onclick="menu()" class="sammich" src="http://medawigi.no-ip.org/images/sammich-white.png" />
 
 
 
@@ -19,7 +19,6 @@
       <ul id="menu-list">
         <br>
         <li id="home"><a href="index.php">Home</a></li>
-        <br>
         <li id="contact"><a href="contact.html">Contact us</a></li>
         <br>
       </ul>

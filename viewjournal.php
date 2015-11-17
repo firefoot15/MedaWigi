@@ -81,14 +81,12 @@
   </div>
 
 </div>
-
-	<body><center></br></br>
+	<body>
         <h2>VIEW ENTRY</h2>
         <div class="wrapper">  
-        <table class="page_table"><tr><td class="page_table"></td><td><center>    
-            
+        <table class="page_table"><tr><td></td><td><center>    
+        <h1>View Event</h1> 
         <table class="table2">
-        <th2 colspan="2"><b>View Event</b></th2>
             <tr><td>Date: </td>
 				<td><?php echo htmlspecialchars($reformatted_date); ?></td></tr>
 			<tr><td>Time: </td>
