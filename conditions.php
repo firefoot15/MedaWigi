@@ -21,7 +21,7 @@
 <html>
 	<head>
 		<title>Conditions</title>
-				<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 		<script src="medawigi.js"></script>
 	</head>
@@ -30,7 +30,7 @@
     <img src="http://medawigi.no-ip.org/images/logo.png";/>
   </div>
   <div class="sammich">
-    <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
+    <img onclick="menu()" class="sammich" src="http://medawigi.no-ip.org/images/sammich-white.png" />
     <div class="menu">
       <ul id="menu-list">
         <li id="home"><a href="personhome.php">Home</a></li>

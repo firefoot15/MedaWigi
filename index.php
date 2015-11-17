@@ -31,7 +31,7 @@
 		<br/>
 
 
-		<form action="checklogin.php" method="POST">
+		<form id="log" action="checklogin.php" method="POST">
 		Username:<input type="text" name="username" required="required" PLACEHOLDER="Enter your Username"/> <br/>
 		Password: <input type="password" name="password" required="required" PLACEHOLDER="Enter your password"/> <br/>
 
