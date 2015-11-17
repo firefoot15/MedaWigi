@@ -131,7 +131,7 @@
         <table class="page_table"><tr><td></td><td><center>
         <h1>Basic Search</h1>                
 		<form action="searchjournal.php" method="POST">
-		<table class="table1">
+		<table class="table6" cellpadding="2" cellspacing="5">
 			<tr><td>Person: </td>
 				<td><select name="person">
 					<?php for($i=0; $i < count($idArray); $i++){
