@@ -240,6 +240,12 @@ menu.html
   font-size: 175%;
 }
 
+#menu-list a:hover,
+#menu-list a:active {
+font-size:175%;
+}
+
+
 /*
 Link hover and active
 This allows people to see which link they are hovering over
