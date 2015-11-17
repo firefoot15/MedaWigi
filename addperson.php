@@ -76,7 +76,7 @@ include 'connect.php';
             
         </form>
     </center></td></tr></table>
-</body>
+</div></body>
 
 </html>
 

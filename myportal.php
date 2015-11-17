@@ -20,7 +20,8 @@
     <img onclick="menu()" class="sammich" src="http://medawigi.no-ip.org/images/sammich-white.png" />
     <div class="menu">
       <ul id="menu-list">
-        <li id="logout"><a href="logout.php">Logout</a></li>
+        <li id="editaccount"><a href="editaccount.php">Edit Account</a></li>
+        <li id="logout"><a href="logout.php">Logout</a></li>  
       </ul>
     </div>
   </div>
@@ -90,11 +91,6 @@
 			<?php
 		}
 		?>    
-
-			<!-- display edit account button-->
-			<a href="editaccount.php" class="myportal_button">Edit Account</a><br/>        
-			<!-- display logout button-->
-			<a href="logout.php" class="myportal_button">Logout</a>
 		</form>
         </center></td></tr></table>
     </div></body>
