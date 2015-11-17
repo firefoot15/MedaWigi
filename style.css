@@ -391,6 +391,19 @@ input[type="password"] {
   
   vertical-align: middle;
 }
+
+input[type="submit"] {
+	display: block;
+	background: #ee2c2c;
+	color: #fff;
+	width: 160px;
+    font: 16px Oswald; 
+	-webkit-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+    border-style: solid;
+    border-color: #ee2c2c;}
 /*
 contact.html uses this
 */
