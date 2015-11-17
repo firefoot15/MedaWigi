@@ -77,13 +77,13 @@
   </div>
 
 </div>
-
-	<body><center></br></br>
-		<h2>EDIT ENTRY</h2>	
+	<body>
+		<h2>EDIT ENTRY</h2>
         <div class="wrapper">    
 		<form action="editimmun.php" method="POST">
+        <table class="page_table"><tr><td></td><td><center>
+        <h1>Edit Immunization</h1>                      
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th2 colspan="2">Edit Immunization</th2>
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>" required="required" maxlength="30"/></td></tr>
 			<tr><td>Date Administered: </td>
@@ -128,13 +128,14 @@
         </table></br>
             
 		<table>
-		<th colspan="3"></th>		
-			<tr><td></td>			
+		<th colspan="4"></th>
+			<tr><td></td><td></td>
 				<td><a href="immunizations.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
 				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 	
 		</table>
-		</form>		
-    </div></center></body>
+		</form>
+        </center></td></tr></table>    
+    </div></body>
 </html>
 
 <?php

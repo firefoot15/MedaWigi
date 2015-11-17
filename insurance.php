@@ -62,10 +62,10 @@
   </div>
 
 </div>
-	<body><center></br></br>
+	<body>
 		<h2>INSURANCE</h2>
         <div class="wrapper">   
-            
+        <table class="page_table"><tr><td></td><td><center>    
         <?php
             
         // View insurance form    
@@ -73,7 +73,7 @@
         {
             ?>
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th2 colspan="2">Insurance Information</th2>
+        <h1>Insurance Information</h1>
 			<tr><td>Provider: </td>
 				<td><?php echo $provider; ?></td></tr>
 			<tr><td>Plan: </td>
@@ -89,9 +89,10 @@
         </table></br>
     
 		<table>
-		<th colspan="2"></th>
-            <tr><td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
-                <td><a href="editinsur.php"><input type="button" value="Edit Insurance" class="basic_button"/></a></td></tr>
+		<th colspan="4"></th>
+            <tr><td></td><td></td>            
+                <td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
+                <td><a href="editinsur.php"><input type="button" value="Edit" class="basic_button"/></a></td></tr>
         </table>    
     
             <?php
@@ -102,7 +103,7 @@
         {
             ?>
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th2 colspan="2">Add Insurance</th2>
+		<h1>Add Insurance</h1>
         <form action="insurance.php" id="addEntry" name="addEntryFrom" style="display:none;" method="POST">
 			<tr><td>Provider: </td>
 				<td><input type="text" name="provider" required="required" maxlength="18"/></td></tr>
@@ -142,7 +143,6 @@
                             echo "<option value='$j'>$j</option>";}
 					?>
 				</select></td></tr>
-			<tr><td></td></tr>
             <tr><td></td>
 				<td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Cancel" class="basic_button"/></a>
 				<input type="submit" name="submitAddEntry" onClick="window.location.reload()" value="Submit" class="basic_button"></td></tr>            
@@ -150,9 +150,10 @@
         </table>
             <?php            
         }
-            
-           ?>        
-    </div></center></body>
+
+           ?>    
+        </center></td></tr></table>
+    </div></body>
 </html>            
 
 

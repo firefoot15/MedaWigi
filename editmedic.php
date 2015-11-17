@@ -75,17 +75,17 @@
   </div>
 
 </div>
-	
-	<body><center></br></br>
+	<body>
 		<h2>EDIT ENTRY</h2>
-        <div class="wrapper">    
+        <div class="wrapper">   
+        <table class="page_table"><tr><td></td><td><center>
+        <h1>Edit Medication</h1>             
 		<form action="editmedic.php" method="POST">
 		<table class="table2">
-		<th2 colspan="2">Edit Medication</th2>
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>" required="required" maxlength="50"/></td></tr>
 			<tr><td>Status: </td>
-                <td><input type="checkbox" name="status" value="Current"<?php if($status == 'Current') echo 'checked="checked"'; ?>></td></tr>
+                <td><input type="checkbox" name="status" value="Current"<?php if($status == 'Current') echo 'checked="checked"'; ?>><font size="2"> *Only check if current prescription.</font></td></tr>
             <tr><td>Rx #: </td>
 				<td><input type="text" name="rx" value="<?php echo $rx; ?>" maxlength="15"/></td></tr>
 			<tr><td>Directions: </td>
@@ -99,7 +99,8 @@
 				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 
 		</table>
 		</form>
-    </div></center></body>
+        </center></td></tr></table>    
+    </div></body>
 </html>
 
 <?php

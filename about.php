@@ -64,13 +64,15 @@
   </div>
 
 </div>
-
-	<body><center></br></br>
-		<h2>ABOUT</h2>
-        <div class="wrapper"> 
-        <th2><b>MedaWigi</b></th2>    
-		<p><br>When you want it, you got it, all your medical<br>information in one place, supplied by MedaWigi!</p>
-		<p>For more information or to report<br>problems, contact the authors:<br>.<br>.<br>.<br></p>
-		<a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>" class="basic_button2">home</a>
-    </div></center></body>
-</html>	
+    
+    <body>
+    <h2>ABOUT</h2>
+    <div class="wrapper"> 
+        <table class="page_table"><tr><td></td><td><center>
+        <h1>MedaWigi</h1>    
+            <p><br>When you want it, you got it, all your medical<br>information in one place, supplied by MedaWigi!</p>
+            <p>For more information or to report<br>problems, contact the authors:<br>.<br>.<br>.<br></p>
+            <a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>" class="basic_button2">Home</a>
+        </center></td></tr></table>
+    </div></body>
+</html>

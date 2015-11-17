@@ -85,12 +85,13 @@
 
 </div>
 
-	<body><center></br></br>
+	<body>
 		<h2>EDIT INSURANCE</h2>
-        <div class="wrapper">    
-		<form action="editinsur.php" method="POST">			
+        <div class="wrapper">
+        <table class="page_table"><tr><td></td><td><center>
+        <h1>Edit Insurance</h1>    
+		<form action="editinsur.php" method="POST">
 		<table class="table1" cellpadding="2" cellspacing="5">
-		<th2 colspan="2">Edit Insurance</th2>					
 			<tr><td>Provider: </td>
 				<td><input type="text" name="provider" value="<?php echo $provider; ?>" required="required" maxlength="18"/></td></tr>
 			<tr><td>Plan: </td>
@@ -138,16 +139,13 @@
 				            echo "<option value='$j'>$j</option>";}}
 					?>
 				</select></td></tr>                
-		</table></br>
-            
-		<table>
-		<th colspan="3"></th>
-			<tr><td></td>
-				<td><a href="insurance.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
-				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 	
+            <tr><td></td>
+				<td><a href="insurance.php"><input type="button" value="Cancel" class="basic_button"/></a>
+				<input type="submit" value="Submit" class="basic_button"></td></tr>
 		</table>
 		</form>
-    </div></center></body>
+        </center></td></tr></table>    
+    </div></body>
 </html>
 
 <?php

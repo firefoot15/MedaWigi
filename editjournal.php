@@ -111,13 +111,13 @@
   </div>
 
 </div>
-	
-	<body><center></br></br>
+	<body>
 		<h2>EDIT ENTRY</h2>
-        <div class="wrapper">    
+        <div class="wrapper">
+        <table class="page_table"><tr><td></td><td><center>
+        <h1>Edit Event</h1>               
 		<form action="editjournal.php" method="POST">
 		<table class="table2">
-		<th2 colspan="2">Edit Event</th2>
 			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01"<?php if($month == '01') echo 'selected="selected"'; ?>>January</option>
@@ -232,7 +232,8 @@
 				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 
 		</table>
 		</form>
-    </div></center></body>
+        </center></td></tr></table>    
+    </div></body>
 </html>
 
 <?php
