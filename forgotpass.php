@@ -3,13 +3,14 @@ include 'connect.php';
 session_start();
 $userEmail = "";
 if(isset($_POST['submitEmailButton'])){
-    $email = mysql_real_escape_string($_POST['email']);
+    $email = mysql_real_escape_string($_POST['emailForm']);
     $userEmail = $email;
     $emailDoesNotExistBool = false;
     
     //Grab the secret question based off of email
-    $secretQuestQuery = mysql_query("SELECT secretQuest from accounts WHERE email ='$email' limit 1");
+    $secretQuestQuery = mysql_query("SELECT secretQuest from accounts WHERE email ='$email'");
     
+    //Validation
     if(mysql_numrows($secretQuestQuery) !=0){
         $emailDoesNotExistBool = false;
         $secretQuest = mysql_result($secretQuestQuery,0);
@@ -22,23 +23,21 @@ if(isset($_POST['submitEmailButton'])){
     }
 }
 
-//Valudate secret answer
+//Validate secret answer
 if(isset($_POST['secretQuestionSubmitButton'])){
-    $secretAnswer = mysql_real_escape_string($_POST['secretAnswer']);
+    $secretAnswer = mysql_real_escape_string($_POST['secretAnswerForm']);
     $secretAnswerCorrectBool = false;
         
     
     //Grab correct secretAnswer
-    $secretAnswerQuery = mysql_query("SELECT answerQuest from accounts WHERE email='$userEmail' limit 1");
+    $secretAnswerQuery = mysql_query("SELECT answerQuest from accounts WHERE email='$userEmail'");
     
     if(mysql_numrows($secretAnswerQuery) !=0){
         $userSecretAnswer = mysql_result($secretAnswerQuery,0);
         if($secretAnswer == $userSecretAnswer){
-            
-            
+            //Email Logic here
         }
         else{
-            
             $secretAnswerCorrectBool = true;
         }
     }
@@ -46,8 +45,6 @@ if(isset($_POST['secretQuestionSubmitButton'])){
         $sercetAnswerCorrectBool = true;
     }
 }
-
-
 ?>
 
     <html>
@@ -108,30 +105,25 @@ if(isset($_POST['secretQuestionSubmitButton'])){
         <center>
             <h1>Forgot Your Password?</h1>
             <br/>
-            <form id="emailCheck" action="forgotpass.php" method="POST">
+            <form id="emailCheck" action="forgotpass.php" method="POST" >
                 Email:
-                <input type="text" id="email" name="email" required="required" />
-                <input type="submit" name="submitEmailButton" value="Submit" class="basic_button" onsubmit="showSecretCheckForm();"/>
+                <input type="email" id="email" name="emailForm" required="required" />
+                <input type="submit" name="submitEmailButton" value="Submit" class="basic_button" onclick="showSecretCheckForm()"  />
                 <input type="reset" name="cancel" value="Cancel" onclick="document.location.href='index.php'" class="basic_button" />
             </form>
             <br/>
             <br/>
-
-            <form action="forgotpass.php" id="secretCheck" action="forgotpass.php" style="display:none;" method="POST" onsubmit="">
+            <form action="forgotpass.php" id="secretCheck" action="forgotpass.php" style="display:none;" method="POST">
                 <?php
                 if(isset($secretQuest)){
                     echo $secretQuest;
                 }
-                else{
-//                    Print'<script>alert("This email is not registered in MedaWigi!");</script>';
-//                    Print '<script>window.location.assign("index.php");</script>';
-                }
-        ?>
-                    <input type="text" id="secretAnswer" name="secretAnswer" required="required" />
+                ?>
+                    <input type="text" id="secretAnswer" name="secretAnswerForm" required="required" />
                     <input type="submit" name="secretQuestionSubmitButton" value="Submit" class="basic_button" />
                     <input type="reset" name="secretQuestionCancelButton" value="Cancel" class="basic_button" onclick="document.location.href='index.php'" />
             </form>
-        </center>
+        
     </body>
 
     </html>
@@ -140,16 +132,13 @@ if(isset($_POST['secretQuestionSubmitButton'])){
         function showSecretCheckForm() {
             document.getElementById('secretCheck').style.display = "block";
         }
-
         function hideSecretCheckForm() {
-            document.getElementById('secretCheck').style.display = "block";
+            document.getElementById('secretCheck').style.display = "none";
         }
-
         function showEmailCheckForm() {
-            document.getElementById('emailCheck').show.display = "block";
+            document.getElementById('emailCheck').style.display = "block";
         }
-
         function hideEmailCheckForm() {
-            document.getElementById('emailcheck').show.display = "none";
+            document.getElementById('emailcheck').style.displayS = "hidden";
         }
     </script>
