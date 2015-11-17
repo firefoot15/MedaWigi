@@ -67,7 +67,7 @@
 		<table class="table6" cellpadding="2" cellspacing="5">
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" value="<?php echo $name; ?>" required="required" maxlength="30"/></td></tr>
-			<tr><td>Date Administered: </td>
+			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01"<?php if($month == '01') echo 'selected="selected"'; ?>>January</option>
 					<option value="02"<?php if($month == '02') echo 'selected="selected"'; ?>>February</option>

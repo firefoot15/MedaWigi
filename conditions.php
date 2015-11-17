@@ -81,10 +81,8 @@
 
 		</table></br>
     
-		<table>
-		<th colspan="4"></th>
-            <tr><td></td><td></td>
-                <td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
+		<table class="table6" cellpadding="2" cellspacing="5">
+            <tr><td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td>
                 <td><a href="addcondi.php"><input type="button" value="Add Entry" class="basic_button"/></a></td></tr>
         </table>
 </center></td></tr></table>            

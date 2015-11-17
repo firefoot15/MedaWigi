@@ -103,7 +103,7 @@
 		<th colspan="2">New Entry</th>
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" required="required" maxlength="30"/></td></tr>
-			<tr><td>Date Administered: </td>
+			<tr><td>Date: </td>
 				<td><select name="month">
 					<option value="01">January</option>
 					<option value="02">February</option>

@@ -197,7 +197,7 @@ a:hover, a:visited, a:link, a:active
     width: 50px;
     }
 
-/* Default form table 
+/* Default form table, 
     appears on personhome.php */
 .table5 {
     border: 0;
@@ -215,7 +215,7 @@ a:hover, a:visited, a:link, a:active
     }
 
 /* Default form table with first column right-aligned, forced center
-    appears on editallergies.php */
+    appears on edit files */
 .table6 {
     border: 0;
     background: #fff;
