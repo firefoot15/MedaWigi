@@ -75,7 +75,8 @@
         <h1>Search Results</h1>            
                    
         <?php
-
+        
+        // Accepts from journal.php
         if($_SERVER['REQUEST_METHOD'] == "POST")
         {
             $pid = $_POST['person'];            
@@ -86,7 +87,7 @@
             $endMonth = $_POST['endMonth'];
             $endDay = $_POST['endDay'];
             $endYear = $_POST['endYear'];
-    
+            
             // Reformatted date
             $startDate = $startYear.'-'.$startMonth.'-'.$startDay;
             $endDate = $endYear.'-'.$endMonth.'-'.$endDay;
@@ -94,16 +95,32 @@
             // Preserve search variables
             $sessionArray = array($pid, $subject, $startDate, $endDate);
             $_SESSION['sessionArray'] = $sessionArray;
+        }
         
-            // Sort output by date
-            $query = mysql_query("Select * from events WHERE personID = '$pid' AND eventSubject = '$subject' ORDER BY eventDate ASC, eventTime ASC");
-            if(mysql_num_rows($query) == 0){
-                Print 'There are no matches for this search.';}
-            else{
-                    // Use personID from event table to access nickname in persons table
-                    $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
-                    $nickname = mysql_result($query2, 0);                       
+        // Accepts from edit/view/delete pages
+        // Accesses search variables saved in session array
+        else
+        {
+            if(isset($_SESSION['sessionArray']))
+            {
+                $sessionArray = $_SESSION['sessionArray'];
+                $pid = $sessionArray[0];  
+                $subject = $sessionArray[1];
+                $startDate = $sessionArray[2];
+                $endDate = $sessionArray[3];           
+            }
+        }
+            
+        // Sort output by date
+        $query = mysql_query("Select * from events WHERE personID = '$pid' AND eventSubject = '$subject' ORDER BY eventDate ASC, eventTime ASC");
+        if(mysql_num_rows($query) == 0){
+            Print 'There are no matches for this search.';}
+        else{
+                // Use personID from event table to access nickname in persons table
+                $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+                $nickname = mysql_result($query2, 0);                       
                 ?>
+            
         <font size="6"><?php echo htmlspecialchars($nickname); ?>: <?php echo htmlspecialchars($subject); ?></font></br></br>
         <table class="table3">
 			<tr>
@@ -112,7 +129,7 @@
 				<th>Content</th>
 				<th>Edit</th>
 				<th>Delete</th>
-			</tr>		
+			</tr>
 			
             <?php
 
@@ -159,7 +176,6 @@
                 <td><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a></td></tr>
 		</table>          
             <?php            
-		}
             
     // Checks that dates from events table is within range of dates specified by the user.
 	function checkRange($startDate, $endDate, $tableDate)

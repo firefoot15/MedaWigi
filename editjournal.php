@@ -228,7 +228,7 @@
         <table>
         <th colspan="4"></th>    
             <tr><td></td><td></td>
-				<td><a href="journal.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
+				<td><a href="searchjournal.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
 				<td><input type="submit" value="Submit" class="basic_button"></td></tr> 
 		</table>
 		</form>
