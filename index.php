@@ -1,20 +1,16 @@
 <html>
 	<head> 
-		<title> MedaWiGi</title>
-<link rel="stylesheet" type="text/css" href="style.css">
-<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-<script src="medawigi.js"></script>
-</head>
+	<title> MedaWiGi</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<script src="medawigi.js"></script>
+	</head>
 <div class="top">
   <div id="logo">
     <img src="http://medawigi.no-ip.org/images/logo.png" />
-    
   </div>
   <div class="sammich">
     <img onclick="menu()" class="sammich" src="http://medawigi.no-ip.org/images/sammich-white.png" />
-
-
-
     <div class="menu">
       <ul id="menu-list">
         <br>
