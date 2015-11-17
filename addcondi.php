@@ -68,12 +68,13 @@
   </div>
 
 </div>
-	<body><center></br></br>
+	<body>
 		<h2>NEW ENTRY</h2>
-        <div class="wrapper">     
+        <div class="wrapper">  
+        <table class="page_table"><tr><td></td><td><center>   
+        <h1>Add Condition</h1>    
 		<form action="addcondi.php" method="POST">            
-		<table class="table2">
-		<th2 colspan="2">Add Condition</th2>         
+		<table class="table2">        
 			<tr><td>Name: </td>
 				<td><input type="text" name="name" required="required" maxlength="30"/></td></tr>                     
 			<tr><td>Description: </td>
@@ -86,8 +87,9 @@
                 <td><a href="conditions.php"><input type="button" value="Cancel" class="basic_button"/></a></td>
 				<td><input type="submit" value="Submit" class="basic_button"/></td></tr> 
 		</table>
-		</form>            
-    </div></center></body>
+		</form>  
+        </center></td></tr></table>    
+    </div></body>
 </html>
 
 <?php
