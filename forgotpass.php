@@ -75,9 +75,10 @@ if(isset($_POST['submitEmailButton'])){
 
 
 <body>
+    <center>
     <h1>Forgot Your Password?</h1>
     <br/>
-    <form id="emailcheck" action="forgotpass.php" method="POST">
+    <form id="emailCheck" action="forgotpass.php" method="POST">
         Email:
         <input type="text" id="email" name="email" required="required" />
         <input type="submit" name="submitEmailButton" value="Submit" onclick="showSecretCheckForm();" class="basic_button" />
@@ -86,7 +87,7 @@ if(isset($_POST['submitEmailButton'])){
     <br/>
     <br/>
 
-    <form action="forgotpass.php" id="secretcheck" action="forgotpass.php" style="display:none;" method="POST">
+    <form action="forgotpass.php" id="secretCheck" action="forgotpass.php" style="display:none;" method="POST">
         <?php
         echo $secretQuest;
         ?>
@@ -94,6 +95,7 @@ if(isset($_POST['submitEmailButton'])){
         <input type="submit" name="secretQuestionSubmitButton" value="Submit" class="basic_button"/>
         <input type="reset" name="secretQuestionCancelButton" value="Cancel" class="basic_button" onclick="document.location.href='index.php'" />
     </form>
+        </center>
 </body>
 
 </html>
@@ -116,36 +118,3 @@ if(isset($_POST['submitEmailButton'])){
     }
 </script>
 
-<?php
-//if($_SERVER["REQUEST_METHOD"] == "POST"){
-include 'connect.php';
-session_start();
-if(isset($_POST['submit'])){
-//    $requestMethod = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
-//    if ($requestMethod == 'post') {  
-    $email = mysql_real_escape_string($_POST['email']);
-    $sessionEmail = $_SESSION['email'];
-    $bool = true;
-    
-    $query = mysql_query("SELECT * from accounts WHERE email ='$email'");
-    $exists = mysql_num_rows($query);
-    if($exists > 0)
-    {
-        while($row = mysql_fetch_assoc($query))
-        {            
-            $table_users = $row['sessionEmail'];
-            if($sessionEmail == $table_users)
-            {
-                Print'<script>alert("This email is currently in use!");</script>';
-            }
-            else{
-                $bool = false;
-                if(!$bool){
-                Print'<script>alert("This email is currently not in use");</script>';
-                }
-            }
-        }
-        
-    }      
-}
-?>
