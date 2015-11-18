@@ -72,7 +72,12 @@
         <table class="page_table"><tr><td></td><td><center>
         <h1><?php if($nickname == 'Me')echo 'My'; else echo htmlspecialchars($nickname)."'s";?> Page</h1>
         <h3><?php if(date("m/d") == $reformatted_date) echo 'Happy Birthday!'; ?><h3></br></br>
-		<table class="table5" cellpadding="10" cellspacing="10">
+            
+        <h4><font size="6">MedaWigi</font></h4>        
+            <p><br>When you want it, you got it, all your medical<br>information in one place, supplied by MedaWigi!</p>
+            <p>Choose an option below to precede:<br></p>
+            
+        <table class="table5" cellpadding="10" cellspacing="10">
 		<th colspan="2">OPTIONS:</th>
 			<tr><td><a href="medications.php" class="basic_button2">Medications</a></td>
             <td><a href="calendar.php" class="basic_button2">Calendar</a></td></tr>
@@ -87,9 +92,6 @@
             <td><a href="contacts.php" class="basic_button2">Contacts</a></td></tr>
 
         </table>
-            <br>
-            <br>
-            <a href="about.php" class="basic_button2">About</a>
         </center></td></tr></table>
     </div></body>
 </html>		
