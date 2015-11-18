@@ -1,9 +1,12 @@
 <?php
 include 'connect.php';
 session_start();
-$email = "";
+$userEmail = "";
+
 if(isset($_POST['submitEmailButton'])){
     $email = mysql_real_escape_string($_POST['emailForm']);
+    $_SESSION['email']= $email;
+    $userEmail = $email;
     $emailDoesNotExistBool = false;
     
     //Grab the secret question based off of email
@@ -24,24 +27,34 @@ if(isset($_POST['submitEmailButton'])){
 
 //Validate secret answer
 if(isset($_POST['secretQuestionSubmitButton'])){
-    $secretAnswer = mysql_real_escape_string($_POST['secretAnswerForm']);
-    $secretAnswerCorrectBool = false;
+    $secretAnswer = mysql_real_escape_string($_POST['secretAnswerForm']);   
+    $userEmail = $_SESSION['email'];
+    $secretAnswerCorrectBool = true;
         
     
     //Grab correct secretAnswer
-    $secretAnswerQuery = mysql_query("SELECT answerQuest from accounts WHERE email='$email'");
-    $userSecretAnswer = mysql_result($secretAnswerQuery,0);
-    
+    $secretAnswerQuery = mysql_query("SELECT * from accounts WHERE email='$userEmail'");
+    $row = mysql_fetch_array($secretAnswerQuery);
+    $userSecretAnswer = $row['answerQuest'];
+ 
+    //If query returned correct
     if(mysql_numrows($secretAnswerQuery) !=0){
-        $userSecretAnswer = mysql_result($secretAnswerQuery,0);
-        if($secretAnswer == $userSecretAnswer){
+        if($secretAnswer === $userSecretAnswer){
+            $secretAnswerCorrectBool = true;
+            $tempPassword = substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 10);
+            $updatePasswordQuery = mysql_query("UPDATE accounts SET password = '$tempPassword' WHERE email = '$userEmail'");
+//            $mail('medawigi@gmail.com', "Your Temporary Password!", "Here is your temporary password!: '$tempPassword', please change your password upon your next log in!");
         }
         else{
-            $secretAnswerCorrectBool = true;
+            $secretAnswerCorrectBool = false;
+            Print'<script>alert("The entered secret answer is incorrecet!");</script>';
+            Print '<script>window.location.assign("forgotpass.php");</script>';
         }
     }
     else{
-        $sercetAnswerCorrectBool = true;
+        $sercetAnswerCorrectBool = false;
+         Print'<script>alert("The entered secret answer is incorrecet!");</script>';
+         Print '<script>window.location.assign("forgotpass.php");</script>';  
     }
 }
 ?>
@@ -107,19 +120,17 @@ if(isset($_POST['secretQuestionSubmitButton'])){
             <form id="emailCheck" action="forgotpass.php" method="POST" >
                 Email:
                 <input type="email" id="email" name="emailForm" required="required" />
-                <input type="submit" name="submitEmailButton" value="Submit" class="basic_button" onsubmit="showSecretCheckForm();" />
+                <input type="submit" name="submitEmailButton" value="Submit" class="basic_button" />
                 <input type="reset" name="cancel" value="Cancel" onclick="document.location.href='index.php'" class="basic_button" />
             </form>
             <br/>
             <br/>
-            <form action="forgotpass.php" id="secretCheck" action="forgotpass.php" method="POST">
+            <form id="secretCheck" action="forgotpass.php" method="POST">
                 <?php
                 if(isset($secretQuest)){
                     echo $secretQuest.": ";
                     echo '<input type="text" id="secretAnswer" name="secretAnswerForm" required="required" />';
                     echo '<input type="submit" name="secretQuestionSubmitButton" value="Submit" class="basic_button" />';
-                    //echo "<input type='reset' name='secretQuestionCancelButton' value='Cancel' class='basic_button' onclick='document.location.href='index.php''/>";
-                        
                 }
                 ?>
             </form>
@@ -127,21 +138,3 @@ if(isset($_POST['secretQuestionSubmitButton'])){
     </body>
 
     </html>
-
-    <script>
-        function showSecretCheckForm() {
-            document.getElementsByName('secretAnswerForm').style.display = "block";
-            document.getElementsByName('secretQuestionSubmitButton').style.display = "block";
-            document.getElementsByName('secretQuestionCancelButton').style.display = "block";
-            
-        }
-        function hideSecretCheckForm() {
-            document.getElementById('secretCheck').style.display = "none";
-        }
-        function showEmailCheckForm() {
-            document.getElementById('emailCheck').style.display = "block";
-        }
-        function hideEmailCheckForm() {
-            document.getElementById('emailcheck').style.display = "none";
-        }
-    </script>
