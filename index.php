@@ -23,8 +23,9 @@
 
 </div>
 	<body>
-		<center>
-		<h1> MedaWiGi</h1>
+        <div class="wrapper">
+        <table class="page_table"><tr><td></td><td><center><center>
+		<h1>MedaWiGi</h1>
 		<img src="http://tomshattuck.typepad.com/.a/6a01538f4b955c970b017ee8bf71a8970d-pi" 
 		style="width: 300px; height 500px;">
 
@@ -37,11 +38,11 @@
 
 			<a href="register.php">New User?</a> <br/>
 			<a href="forgotpass.php"> Forgot Password?</a> <br/>
-
+            <br>
+            <br>
 			<input type="submit" value="Login" />
 		</form>
-		
-		</center>
-
+        </center></td></tr></table>
+    </div>
 </body>
 </html>
