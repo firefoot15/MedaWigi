@@ -78,7 +78,7 @@
             
             ?>
                 <!-- display profile button-->				
-                <a href="personhome.php?id=<?php echo htmlspecialchars($row['personID']); ?>" class="profile_button"><img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/>
+                <a href="personhome.php?id=<?php echo htmlspecialchars($row['personID']); ?>" class="profile_button">&nbsp;&nbsp;&nbsp;<img src="<?php echo htmlspecialchars($avatarPath); ?>"/><?php echo "\t\t".htmlspecialchars($nickname); ?></a><br/>
             <?php
 
             // The personID in 0_personID is attached to the account, it CANNOT be deleted 

@@ -79,8 +79,7 @@ a:hover, a:visited, a:link, a:active
 	background: #ee2c2c;
 	width: 400px;
 	height: 70px;
-    text-align: left;
-	text-indent: 30px;
+    text-align: center;
 	padding: 0 0 0 0;
     font: 58px Oswald;
     color: #fff;
@@ -108,8 +107,7 @@ a:hover, a:visited, a:link, a:active
 	-webkit-border-radius: 30px;
 	-khtml-border-radius: 30px;
 	-moz-border-radius: 30px;
-	border-top-right-radius: 30px;
-	border-bottom-right-radius: 30px;
+	border-radius: 30px;
 	}
 
 .profile_button:hover {
