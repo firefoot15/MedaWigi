@@ -228,6 +228,20 @@ a:hover, a:visited, a:link, a:active
     width: 50px;
     }
 
+/* Default form table with first column right-aligned, forced center
+    appears on insurance files */
+.table7 {
+    border: 0;
+    background: #fff;
+    color: #202020;
+    font-size: 20px;
+    }
+
+.table7 td:first-child {
+    text-align: right;
+    width: 100px;
+    }
+
 .wrapper {  
     width: 1024;
     }
