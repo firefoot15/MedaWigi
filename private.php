@@ -1,2 +1,9 @@
 
-<?php include '../contact.php';?>
+<?php 
+include '../contact.php';
+
+        session_start();
+        session_destroy();
+        header("location:index.php");
+
+?>
