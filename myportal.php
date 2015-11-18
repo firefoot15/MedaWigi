@@ -21,6 +21,9 @@
     <div class="menu">
       <ul id="menu-list">
         <li id="editaccount"><a href="editaccount.php">Edit Account</a></li>
+        <li id="calendar"><a href="calendar.php?id=<?php echo htmlspecialchars($personID); ?>">Calendar</a></li>
+        <li id="journal"><a href="journal.php?id=<?php echo htmlspecialchars($personID); ?>">Journal</a></li>
+        <li id="contact"><a href="contact.html">Contact us</a></li>          
         <li id="logout"><a href="logout.php">Logout</a></li>  
       </ul>
     </div>

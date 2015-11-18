@@ -141,6 +141,10 @@
 					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a></td>';
 				Print "</tr>";
 				    }
+                    else
+                    {
+                        Print 'There are no matches for this search.';
+                    }
                 }    
 			?>
         </table></br>             

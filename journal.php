@@ -184,7 +184,7 @@
 				<select name="startYear">
 					<?php for($i=1, $j=date("Y"); $i<=80; $i++, $j--){
 						if($startYear == $j){
-				            echo "<option value='$j' selected>$j</option>";}
+				            echo "<option value='$j' selected>$j</option>";}////////////////////////////////////// change date range?
 						else{
 				            echo "<option value='$j'>$j</option>";}}
 					?>
@@ -213,7 +213,7 @@
 								echo "<option value='0$i'>$i</option>";}}
 						else{
 							if($endDay == $i){
-								echo "<option value='$i' selected>$i</option>";} ////////////////////////////////////// change date range?
+								echo "<option value='$i' selected>$i</option>";} 
 							else{
 								echo "<option value='$i'>$i</option>";}}}
 					?>
