@@ -49,7 +49,7 @@
     <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
     <div class="menu">
       <ul id="menu-list">
-        <li id="home"><a href="personhome.php">Home</a></li>
+        <li id="home"><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>">Home</a></li>
         <li id="insurance_contact"><a href="insurance.php">Insurance</a></li>
         <li id="calendar"><a href="calendar.php">Calendar</a></li>
         <li id="journal"><a href="journal.php">Journal</a></li>
@@ -59,8 +59,8 @@
 	<li id="contacts"><a href="contacts.php">Contacts</a></li>
 	<li id="conditions"><a href="conditions.php">Conditions</a></li>
         <li id="contact"><a href="contact.html">Contact us</a></li>
-        <li id="editprofile"><a href="editprofile.php">Edit Profile</a></li>
-        <li id="switch_profile"><a href="personhome.php">Switch Profile</a></li>
+        <li id="editprofile"><a href="editperson.php">Edit Profile</a></li>
+        <li id="switch_profile"><a href="myportal.php">Switch Profile</a></li>
         <li id="logout"><a href="logout.php">Logout</a></li>
       </ul>
     </div>
