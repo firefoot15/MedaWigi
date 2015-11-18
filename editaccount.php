@@ -26,11 +26,6 @@
 		$password = $row['password'];
 		$secretQuest = $row['secretQuest'];
 		$answerQuest = $row['answerQuest'];
-
-        // Access personID associated with account
-        $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
-        $personID = mysql_result($query, 0);
-
 		?>
 <html>
 	<head>
@@ -166,6 +161,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if($bool) 
 	{
 		mysql_query("UPDATE accounts SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', email='$email', username='$username', password='$password', secretQuest='$secretQuest', answerQuest='$answerQuest' WHERE accountID = '$accountID'");
+        
+        // Access personID associated with account
+        $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
+        $personID = mysql_result($query, 0);
         
         // Update persons table based upon personID
         mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix' WHERE personID = '$personID'");

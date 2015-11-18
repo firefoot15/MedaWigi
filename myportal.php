@@ -4,6 +4,24 @@
 		Caps number of profiles at 10
 		Edit account, add person & logout option
  -->		
+<?php
+        include 'connect.php'; 
+		session_start();
+		if($_SESSION['user']){ }
+		else{
+			header("location:index.php");}
+
+		$user = $_SESSION['user'];
+
+        // Use username to access accountID in accounts table
+		$query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+		$accountID = mysql_result($query, 0); 
+
+        // Access personID associated with account
+        $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
+        $personID = mysql_result($query, 0);
+
+?>
 
 <html>
 	<head>
@@ -34,19 +52,7 @@
     <div class="wrapper">
     <table class="page_table"><tr><td></td><td><center>
 		<form action="myportal.php" method="POST"><br/>
-		<?php
-        
-        include 'connect.php'; 
-		session_start();
-		if($_SESSION['user']){ }
-		else{
-			header("location:index.php");}
-
-		$user = $_SESSION['user'];
-
-        // Use username to access accountID in accounts table
-		$query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
-		$accountID = mysql_result($query, 0);    
+		<?php   
             
 		// Use accountID to access personIDs in mappings table      
         $query = mysql_query("Select * from mappings WHERE accountID = '$accountID'");
