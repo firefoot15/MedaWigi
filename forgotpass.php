@@ -78,33 +78,28 @@ if(isset($_POST['secretQuestionSubmitButton'])){
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <script src="medawigi.js"></script>
     </head>
-    <div class="top">
-        <div id="logo">
-            <img />
-
-        </div>
-        <div class="sammich">
-            <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
-
-
-
-            <div class="menu">
-                <ul id="menu-list">
-                    <br>
-                    <li id="home"><a href="index.php">Home</a></li>
-                    <br>
-                    <li id="contact"><a href="contact.html">Contact us</a></li>
-                    <br>
-                </ul>
-            </div>
-        </div>
-
+<div class="top">
+  <div id="logo">
+    <img src="http://medawigi.no-ip.org/images/logo.png" />
+  </div>
+  <div class="sammich">
+    <img onclick="menu()" class="sammich" src="http://medawigi.no-ip.org/images/sammich-white.png" />
+    <div class="menu">
+      <ul id="menu-list">
+        <br>
+        <li id="home"><a href="index.php">Home</a></li>
+        <li id="contact"><a href="contact.html">Contact us</a></li>
+        <br>
+      </ul>
     </div>
+  </div>
 
-
-    <body>
-        <center>
-            <h1>Forgot Your Password?</h1>
+</div>
+<body>
+    <h2>RESET PASSWORD</h2>
+    <div class="wrapper">
+    <table class="page_table"><tr><td></td><td><center>        
+        <h1>Forgot Your Password?</h1>
             <br/>
             <form id="emailCheck" action="forgotpass.php" method="POST">
                 Email:
@@ -123,7 +118,7 @@ if(isset($_POST['secretQuestionSubmitButton'])){
                 }
                 ?>
             </form>
-        </center>
-    </body>
+    </center></td></tr></table>
+</div></body>
 
-    </html>
+</html>

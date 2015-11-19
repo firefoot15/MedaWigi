@@ -51,10 +51,10 @@
 	</head>
 <div class="top">
   <div id="logo">
-    <img src="http://medawigi.no-ip.org/images/logo.png";/>
+    <img src="http://medawigi.no-ip.org/images/logo.png" />
   </div>
   <div class="sammich">
-    <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
+    <img onclick="menu()" class="sammich" src="http://medawigi.no-ip.org/images/sammich-white.png" />
     <div class="menu">
       <ul id="menu-list">
         <li id="home"><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>">Home</a></li>

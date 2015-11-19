@@ -123,7 +123,7 @@ a:hover, a:visited, a:link, a:active
 	font-size: 125%;
 	}
 
-/* Sets two columns for all pages where the first column is the vertical bar and the second is the page content. */
+/* Sets two columns for all pages where the first column is the vertical header and the second is the page content. */
 .page_table {
     width: 1200px;
     padding: 0;
@@ -309,9 +309,10 @@ menu.html
   right: 0px;
   position: absolute;
   visibility: hidden;
-  margin-top: 67px;
+  margin-top: 70px;
   float: right;
   width: 200px;
+  text-align: right;
   background-color: #202020;
 }
 /*
