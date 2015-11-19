@@ -21,7 +21,7 @@ h2 {
 	}
 
 body {
-	background-color: #202020;
+	background-color: #ffffff;
     background-image: url('images/background2.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -262,7 +262,7 @@ menu.html
   font-family: "Oswald";
   font-size: 20px;
   text-decoration: none;
-  color: #ffffff;
+  color: #202020;
   /*font-size: 175%;*/
 }
 
@@ -313,7 +313,7 @@ menu.html
   float: right;
   width: 200px;
   text-align: right;
-  background-color: #202020;
+  background-color: #ffffff;
 }
 /*
 Sammich is the Hamburger menu button
