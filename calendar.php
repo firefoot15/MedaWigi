@@ -11,6 +11,32 @@
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
         <link href="/Content/theme/base/jquery.ui.all.css" rel="stylesheet" />
+        
+        <div class="top">
+  <div id="logo">
+    <img src="http://medawigi.no-ip.org/images/logo.png";/>
+  </div>
+  <div class="sammich">
+    <img onclick="menu()" class="sammich" src="http://medawigi.no-ip.org/images/sammich-white.png" />
+    <div class="menu">
+      <ul id="menu-list">
+        <li id="home"><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>">Home</a></li>
+        <li id="insurance_contact"><a href="insurance.php">Insurance</a></li>
+        <li id="calendar"><a href="calendar.php">Calendar</a></li>
+        <li id="journal"><a href="journal.php">Journal</a></li>
+        <li id="medications"><a href="medications.php">Medications</a></li>
+        <li id="allergies"><a href="allergies.php">Allergies</a></li>
+	<li id="immunizations"><a href="immunizations.php">Immunizations</a></li>
+	<li id="contacts"><a href="contacts.php">Contacts</a></li>
+	<li id="conditions"><a href="conditions.php">Conditions</a></li>
+        <li id="contact"><a href="contact.html">Contact us</a></li>
+        <li id="editprofile"><a href="editperson.php">Edit Profile</a></li>
+        <li id="switch_profile"><a href="myportal.php">Switch Profile</a></li>
+        <li id="logout"><a href="logout.php">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 
 
@@ -27,39 +53,7 @@
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <script src="medawigi.js"></script>
 
-
 </head>
-<head>
-		<title>Conditions</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-		<script src="medawigi.js"></script>
-	</head>
-<div class="top">
-  <div id="logo">
-    <img src="http://medawigi.no-ip.org/images/logo.png";/>
-  </div>
-  <div class="sammich">
-    <img onclick="menu()" class="sammich" src="http://medawigi.no-ip.org/images/sammich-white.png" />
-    <div class="menu">
-      <ul id="menu-list">
-        <li id="home"><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>">Home</a></li>
-        <li id="insurance_contact"><a href="insurance.php">Insurance</a></li>
-        <li id="calendar"><a href="calendar.php">Calendar</a></li>
-        <li id="journal"><a href="journal.php">Journal</a></li>
-        <li id="medications"><a href="medications.php">Medications</a></li>
-        <li id="allergies"><a href="allergies.php">Allergies</a></li>
-	    <li id="immunizations"><a href="immunizations.php">Immunizations</a></li>
-	    <li id="contacts"><a href="contacts.php">Contacts</a></li>
-	    <li id="conditions"><a href="conditions.php">Conditions</a></li>
-        <li id="contact"><a href="contact.html">Contact us</a></li>
-        <li id="editprofile"><a href="editperson.php">Edit Profile</a></li>
-        <li id="switch_profile"><a href="myportal.php">Switch Profile</a></li>
-        <li id="logout"><a href="logout.php">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
 
 <body>
     <script>
