@@ -43,17 +43,28 @@ if(isset($_POST['secretQuestionSubmitButton'])){
             $secretAnswerCorrectBool = true;
             $tempPassword = substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 10);
             $updatePasswordQuery = mysql_query("UPDATE accounts SET password = '$tempPassword' WHERE email = '$userEmail'");
-//            $mail('medawigi@gmail.com', "Your Temporary Password!", "Here is your temporary password!: '$tempPassword', please change your password upon your next log in!");
+            
+            //Set up the email variables
+            $headline = "Your Temporary Password!";
+            $message = "Here is your temporary password!: '$tempPassword', please change your password upon your next log in!";
+            $from = "medawigi@gmail.com";
+            $headers = "From:" .$from;
+            
+            //mail($userEmail, $headline, $message, $headers);
+            
+            //Alert letting the user know the temp password was sent to their email
+            Print'<script>alert("An email containing your temporary password has been sent!");</script>';
+            Print '<script>window.location.assign("index.php");</script>';
         }
         else{
             $secretAnswerCorrectBool = false;
-            Print'<script>alert("The entered secret answer is incorrecet!");</script>';
+            Print'<script>alert("The entered secret answer is not correct!");</script>';
             Print '<script>window.location.assign("forgotpass.php");</script>';
         }
     }
     else{
         $sercetAnswerCorrectBool = false;
-         Print'<script>alert("The entered secret answer is incorrecet!");</script>';
+         Print'<script>alert("The entered secret answer is not correct!");</script>';
          Print '<script>window.location.assign("forgotpass.php");</script>';  
     }
 }
