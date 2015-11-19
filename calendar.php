@@ -35,7 +35,7 @@
   </div>
 </div>
 
-
+	<h2> CALENDAR</h2>
      <title>Calendar</title>
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
