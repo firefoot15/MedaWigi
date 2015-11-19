@@ -52,15 +52,18 @@ include 'connect.php';
 
         <form action="addperson.php" id="newPerson" name="NewPersonForm" style="display:none;" method="POST">
             Nickname*:
-            <input type="text" name="nicknameText" />
+            <input type="text" name="nicknameText" required="required" maxlength="15"/>
             <br/>
             <br/> First Name:
-            <input type="text" name="firstNameText" />
+            <input type="text" name="firstNameText" required="required" maxlength="30"/>
             <br/>
             <br/> Last Name:
-            <input type="text" name="lastNameText" />
+            <input type="text" name="lastNameText" required="required" maxlength="30"/>
             <br/>
+            <br/> *This is the name that will be displayed
+            <br/> with their information.
             <br/>
+            <br/>            
             <input type="reset" name="cancelNewPersonButton" value="Cancel" onclick="hideNewPersonForm()" class="basic_button" />
             <input type="submit" name="submitNewPersonButton" value="Add" class="basic_button" />
             
