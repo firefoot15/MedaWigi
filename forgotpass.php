@@ -50,7 +50,7 @@ if(isset($_POST['secretQuestionSubmitButton'])){
             $from = "medawigi@gmail.com";
             $headers = "From:" .$from;
             
-            //mail($userEmail, $headline, $message, $headers);
+            mail($userEmail, $headline, $message, $headers);
             
             //Alert letting the user know the temp password was sent to their email
             Print'<script>alert("An email containing your temporary password has been sent!");</script>';
