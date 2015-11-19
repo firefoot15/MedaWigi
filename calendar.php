@@ -35,6 +35,7 @@
   </div>
 </div>
 
+<center>
      <title>Calendar</title>
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
@@ -51,7 +52,7 @@
         <div id="my-calendar"></div>
         <div id="list-container"></div>
   
-
+</center>
 </head>
 
 
