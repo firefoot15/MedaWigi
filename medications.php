@@ -15,6 +15,18 @@
 
 		$user = $_SESSION['user'];
 		$id = $_SESSION['id'];
+
+        // Access accountID associated with person
+        $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+        $accountID = mysql_result($query, 0);     
+
+        // Access personID associated with account to be used in h1
+        $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
+        $pid = mysql_result($query, 0);
+
+        // Use personID to access nickname in persons table to be used in h1
+		$query = mysql_query("Select nickname from persons WHERE personID = '$id' limit 1");
+		$nickname = mysql_result($query, 0); 
         ?>
 
             <!-- View medications form-->
@@ -54,7 +66,7 @@
 		<h2>MEDICATIONS</h2>
         <div class="wrapper"> 
         <table class="page_table"><tr><td></td><td><center>
-        <h1>Medications</h1>    
+        <h1><?php if($pid == $id)echo 'My'; else echo htmlspecialchars($nickname)."'s";?> Medications</h1>    
         <table class="table3">
 			<tr>
 				<th align="left">Name</th>

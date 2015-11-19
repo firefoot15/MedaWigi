@@ -16,11 +16,6 @@
         // Use username to access accountID in accounts table
 		$query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
 		$accountID = mysql_result($query, 0); 
-
-        // Access personID associated with account
-        $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
-        $personID = mysql_result($query, 0);
-
 ?>
 
 <html>
