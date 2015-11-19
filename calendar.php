@@ -6,6 +6,7 @@
     include 'connect.php';
     session_start();
     ?>
+      <link href='style.css' rel='stylesheet' type='text/css'>    
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <script src="medawigi.js"></script>
 <div class="top">
@@ -34,11 +35,7 @@
   </div>
 </div>
 
-</head>
-
-
-<body>
-        <title>Calendar</title>
+     <title>Calendar</title>
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
@@ -53,9 +50,13 @@
 
         <div id="my-calendar"></div>
         <div id="list-container"></div>
+  
+
+</head>
 
 
-
+<body>
+       
     <script>
         var events_array = [];
 
