@@ -128,7 +128,7 @@ if(isset($_POST['secretQuestionSubmitButton'])){
         <center>
             <h1>Forgot Your Password?</h1>
             <br/>
-            <form id="emailCheck" action="forgotpass.php" method="POST" >
+            <form id="emailCheck" action="forgotpass.php" method="POST">
                 Email:
                 <input type="email" id="email" name="emailForm" required="required" />
                 <input type="submit" name="submitEmailButton" value="Submit" class="basic_button" />
