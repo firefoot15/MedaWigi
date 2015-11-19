@@ -1,18 +1,7 @@
 <html>
 
 <head>
-    <?php 
-    include 'connect.php';
-    session_start();
-    ?>
-
-        <title>Calendar</title>
-        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-        <link href="/Content/theme/base/jquery.ui.all.css" rel="stylesheet" />
-        
-        <div class="top">
+<div class="top">
   <div id="logo">
     <img src="http://medawigi.no-ip.org/images/logo.png";/>
   </div>
@@ -38,7 +27,18 @@
   </div>
 </div>
 
+    <?php 
+    include 'connect.php';
+    session_start();
+    ?>
 
+        <title>Calendar</title>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+        <link href="/Content/theme/base/jquery.ui.all.css" rel="stylesheet" />
+        
+  
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
