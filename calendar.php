@@ -47,19 +47,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
         <script src="calendarjavascript.js"></script>
         <link rel="stylesheet" type="text/css" href="calendarstyle.css">
+        
+        <div id="my-calendar"></div>
+        <div id="list-container"></div>
 
 </head>
 
 
 <body>
-	        <div class="wrapper">
-        <table class="page_table"><tr><td></td><td><center><center>
-		<h2>CALENDAR</h2>
-		<div id="my-calendar"></div>
-        	<div id="list-container"></div>
-        </center></td></tr></table>
-    </div>
-
     <script>
         var events_array = [];
 
