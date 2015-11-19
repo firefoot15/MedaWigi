@@ -117,7 +117,7 @@
 						if($i == 13)
 							echo "<option value='' selected></option>";
 						elseif($i<10)
-							echo "<option value='0$i'>0$i</option>";
+							echo "<option value='0$i'>$i</option>";
 						else
 							echo "<option value='$i'>$i</option>";}
 					?>
@@ -127,7 +127,7 @@
 						if($i == 60)
 							echo "<option value='' selected></option>";
 						elseif($i<10)
-							echo "<option value='0$i'>0$i</option>";
+							echo "<option value='0$i'>$i</option>";
 						else
 							echo "<option value='$i'>$i</option>";}
 					?>

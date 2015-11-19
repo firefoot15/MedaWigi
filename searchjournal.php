@@ -94,13 +94,17 @@
             
         // Sort output by date
         $query = mysql_query("Select * from events WHERE personID = '$pid' AND eventSubject = '$subject' ORDER BY eventDate ASC, eventTime ASC");
-        if(mysql_num_rows($query) == 0){
-            Print 'There are no matches for this search.';}
-        else{
-                // Use personID from event table to access nickname in persons table
-                $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
-                $nickname = mysql_result($query2, 0);                       
-                ?>
+        if(mysql_num_rows($query) == 0)
+        {
+			Print '<script>alert("There are no matches for this search.");</script>'; 
+			Print '<script>window.location.assign("journal.php");</script>';
+        }
+        else
+        {
+            // Use personID from event table to access nickname in persons table
+            $query2 = mysql_query("Select nickname from persons WHERE personID = '$pid' limit 1");
+            $nickname = mysql_result($query2, 0);                       
+            ?>
             
         <font size="6"><?php echo htmlspecialchars($nickname); ?>: <?php echo htmlspecialchars($subject); ?></font></br></br>
         <table class="table3">
@@ -113,39 +117,43 @@
 			</tr>
 			
             <?php
+            
+            // Check if any values are in range
+            $bool = false;
+            
+            while($row = mysql_fetch_array($query))
+            {
+			    $tableDate = $row['eventDate'];
+                $time = $row['eventTime'];
+			
+			    $year = substr($tableDate, 0, 4);
+			    $month = substr($tableDate, 5, 2);
+			    $day = substr($tableDate, 8, 2);
+			
+                // Reformat for output
+			    $reformatted_date = $month.'-'.$day.'-'.$year;
 
-                while($row = mysql_fetch_array($query))
+                if(checkRange($startDate, $endDate, $tableDate))
                 {
-				    $date = $row['eventDate'];
-                    $time = $row['eventTime'];
-				
-				    $year = substr($date, 0, 4);
-				    $month = substr($date, 5, 2);
-				    $day = substr($date, 8, 2);
-				
-                    // Reformat for output
-				    $reformatted_date = $month.'-'.$day.'-'.$year;
-                    
-                    // Reformat for checkRange() function
-				    $tableDate = $year.'-'.$month.'-'.$day;
-
-				    if(checkRange($startDate, $endDate, $tableDate))
-                    {
-
-				// Output table entries
-				Print "<tr>";
-					Print '<td align="center">'.$reformatted_date."</td>";
-					Print '<td align="center">'.$time."</td>"; 
-					Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="17" width="17"/></a></td>';
-					Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="14" width="14"/></a></td>';
-					Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a></td>';
-				Print "</tr>";
-				    }
-                    else
-                    {
-                        Print 'There are no matches for this search.';
-                    }
-                }    
+                    $bool = true;        
+				    // Output table entries
+				    Print "<tr>";
+                        Print '<td align="center">'.$reformatted_date."</td>";
+                        Print '<td align="center">'.$time."</td>"; 
+                        Print '<td align="center"><a href="viewjournal.php?id='.$row['eventID'].'"><img src="images/viewButton.png" height="17" width="17"/></a></td>';
+                        Print '<td align="center"><a href="editjournal.php?id='.$row['eventID'].'"><img src="images/editButton.png" height="14" width="14"/></a></td>';
+                        Print '<td align="center"><a href="#" onclick="deleteFunction('.$row['eventID'].')"><img src="images/deleteButton.png" height="14" width="14"/></a></td>';
+                    Print "</tr>";
+				}
+            }
+            
+            // If no values were in range, output message
+            if($bool == false)
+            {
+                Print '<script>alert("There are no matches for this search.");</script>'; 
+                Print '<script>window.location.assign("journal.php");</script>';
+            }
+            
 			?>
         </table></br>             
             <?php

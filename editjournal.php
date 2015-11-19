@@ -143,7 +143,7 @@
 							if($i == 13){
 								echo "<option value='' selected></option>";}
 							elseif($i<10){
-								echo "<option value='0$i'>0$i</option>";}
+								echo "<option value='0$i'>$i</option>";}
 							else{
 								echo "<option value='$i'>$i</option>";}}
 						else{	
@@ -151,9 +151,9 @@
 								echo "<option value=''></option>";}
 							elseif($i<10){
 								if($hour == $i){
-									echo "<option value='0$i' selected>0$i</option>";}
+									echo "<option value='0$i' selected>$i</option>";}
 								else{
-									echo "<option value='0$i'>0$i</option>";}}
+									echo "<option value='0$i'>$i</option>";}}
 							else{
 								if($hour == $i){
 									echo "<option value='$i' selected>$i</option>";}
@@ -167,7 +167,7 @@
 							if($i == 60){
 								echo "<option value='' selected></option>";}
 							elseif($i<10){
-								echo "<option value='0$i'>0$i</option>";}
+								echo "<option value='0$i'>$i</option>";}
 							else{
 								echo "<option value='$i'>$i</option>";}}
 						else{
@@ -175,9 +175,9 @@
 								echo "<option value=''></option>";}
 							elseif($i<10){
 								if($minute == $i){
-									echo "<option value='0$i' selected>0$i</option>";}
+									echo "<option value='0$i' selected>$i</option>";}
 								else{
-									echo "<option value='0$i'>0$i</option>";}}
+									echo "<option value='0$i'>$i</option>";}}
 							else{
 								if($minute == $i){
 									echo "<option value='$i' selected>$i</option>";}
