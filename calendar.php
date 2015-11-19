@@ -8,16 +8,23 @@
     
     <title>Calendar</title>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <script src="calendarjavascript.js"></script>
     <link rel="stylesheet" type="text/css" href="calendarstyle.css">
 
     <div id="my-calendar"></div>
-    <div id="modal-container"></div>
+    <div class='modal' id="modal-container">
+        <div id="modalText"></div>
+    </div>
     <div id="list-container"></div>
+
     
-    <link rel="stylesheet" type="text/css" href="style.css">
+    
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <script src="medawigi.js"></script>
 
@@ -85,7 +92,7 @@
                 "date": date,
                 "title": title,
                 "type": type,
-                "disabled": true,
+                "disabled": false,
                 "reminder": "",
                 "time": time,
                 "description": description
@@ -143,18 +150,12 @@
        
             
         }
-    }
-    
-    
+    }  
 ?>
 
         <script>
             $("#my-calendar").zabuto_calendar({
                 language: "en",
-                // nav_icon: {
-                //   prev: '<i class="fa fa-chevron-circle-left"></i>',
-                //   next: '<i class="fa fa-chevron-circle-right"></i>'
-                // },
                 callbacks: {
                     on_cell_double_clicked: function () {
                         return cellDoubleClicked(this);

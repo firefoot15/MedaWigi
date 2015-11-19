@@ -1,3 +1,4 @@
+
 /**
  * Zabuto Calendar customized by fro_oo
  *
@@ -446,6 +447,7 @@
    // draw the events functions ----------------------------------------------------------------------------
    
    _drawAllCalendarEvents: function() {
+              console.log("drawAllCalendarEvent function");
      var events = this.$eventsArray;
      if (events !== false) {
        $(events).each($.proxy(function (index, event) {
@@ -455,6 +457,7 @@
    },
    
    _drawCalendarEvent: function(event_object) {
+       console.log("drawCalendarEvent function");
      if (!this.$calendarElement.data('showReminder') && event_object.type == 'reminder') return;
      var id = this.$calendarElement.attr('id') + '-' + event_object.date;
      var $dayCellElement = $('#' + id);
@@ -501,6 +504,7 @@
    
    // create an event (object & element)
    addEvent: function(event_object) {
+       console.log("addEvent function");
      if (typeof(event_object) != 'object' || event_object.id === undefined || event_object.date === undefined || event_object.title === undefined) return;
      var dateArray = event_object.date.split('-');
      if (!checkValidDate(dateArray[0], dateArray[1], dateArray[2])) return;
@@ -513,6 +517,8 @@
    
    // create events from the array
    addEvents: function(events_array) {
+             console.log("addEvent function w/ array");
+
      $.each(events_array, $.proxy(function(k, event_object) {
        this.addEvent(event_object);
      }, this));
@@ -604,52 +610,8 @@
 // ===========================================================================================
 // ===========================================================================================
 
-// custom zabuto calendar
 
-
-//if ($("#my-calendar").length > 0) {
-//  $("#my-calendar").zabuto_calendar({
-//    language: "fr",
-//    year: 2015,
-//    month: 1,
-//    show_previous: 1,
-//    show_next: 2,
-//    // show_reminder: true,
-//    // show_today: false,
-//    // show_days: true,
-//    // weekstartson: 0,
-//    // nav_icon: {
-//    //   prev: '<i class="fa fa-chevron-circle-left"></i>',
-//    //   next: '<i class="fa fa-chevron-circle-right"></i>'
-//    // },
-//    callbacks: {
-//      on_cell_double_clicked: function() {
-//        return cellDoubleClicked(this);
-//      },
-//      on_cell_clicked: function() {
-//        return cellClicked(this);
-//      },
-//      on_nav_clicked: function() {
-//        return navClicked(this);
-//      },
-//      on_event_clicked: function() {
-//        return eventClicked(this);
-//      }
-//    },
-//    events: {
-//      local: events_array,
-//      ajax: {
-//        url: "show_data.php" // load ajax json events here...
-//      }
-//    },
-//    legend: [
-//      {label: "Rendez-vous", type: "appointment"},
-//      {label: "Journal Event", type: "journal"},
-//      {label: "Evenement B", type: "eventtype3"},
-//      {label: "<span class='fa fa-bell-o'></span> Rappel", type: "reminder"}
-//    ]
-//  });
-//}
+/*Original Functions*/
 
 //function cellDoubleClicked(cell_element) {
 //  // console.log($(cell_element).data("hasEvent"));
@@ -665,27 +627,92 @@
 //    var day_events = $('#my-calendar').zabuto_calendar('getEventsAt', day_date);
 //    $("#list-container").load( "/my-nice-events-list.php", { date:day_date, events:day_events, show_reminder:false }, function( response, status, xhr ) {
 //      if ( status == "error" ) {
-//        alert("cellClicked ERROR !");
+//        alert("Une erreur est survenue !");
 //      }
 //    });
 //  }
 //}
 
+function navClicked(nav_element) {
+   console.log('navClicked');
+   console.log(nav_element);
+   console.log($(nav_element).data("navigation") + ' > ' + $(nav_element).data("to").month + '/' + $(nav_element).data("to").year);
+}
+//
+//function eventClicked(event_element) {
+//  var event_object = $(event_element).data("event_object");
+//  var url = "/my-nice-modal.php";
+//  var modal = openModal(url, {
+//      date: event_object.date, 
+//      id: event_object.id, 
+//      title: event_object.title, 
+//      type: event_object.type, 
+//      reminder: event_object.reminder, 
+//    }, true );
+//  $('#list-container').empty();
+//}
+//
+//function openModal(url, data_options, focus_on_first_field) {
+//  $("#modal-container").load(url, data_options, function(response, status, xhr) {
+//    if (status == "error") {
+//      alert("Une erreur est survenue !");
+//      return false;
+//    } else {
+//      var modal = $("#modal-container").find(".modal");
+//      modal.modal('toggle');
+//      return modal;
+//    }
+//  });
+//}
+
+
+
+
+
+
+
+
+/*Modified Functions*/
+
+function cellDoubleClicked(cell_element) {
+  // console.log($(cell_element).data("hasEvent"));
+  var day_date = $(cell_element).data("date");
+  var url = "/my-nice-modal.php";
+  var modal = openModal(url, {date:day_date}, true);
+}
+
+function cellClicked(cell_element) {
+  // console.log($(cell_element).data("hasEvent"));
+    
+  if (!$(cell_element).data("hasEvent")) {
+      alert("No Events!");
+  }
+    
+
+//    $("#list-container").load( "/my-nice-events-list.php", { date:day_date, events:day_events, show_reminder:false }, function( response, status, xhr ) {
+//      if ( status == "error" ) {
+//        alert("cellClicked ERROR !");
+//      }
+//    });
+  
+}
+
 function eventClicked(event_element) {
-    alert("eventClicked");
+    console.log("eventClicked");
   var event_object = $(event_element).data("event_object");
-  //var url = "/my-nice-modal.php";
-  var modal = openModal({
+  var url = "/my-nice-modal.php";
+  var modal = openModal(url, {
       id: event_object.id, 
       date: event_object.date, 
       title: event_object.title, 
       type: event_object.type, 
-      disabled: true,
+      disabled: false,
       reminder: event_object.reminder, 
       time: event_object.time,
       description: event_object.description
     }, true );
-  $('#list-container').empty();
+    
+    $('#list-container').empty();
 }
 
 function overlay() {
@@ -693,17 +720,56 @@ function overlay() {
 	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 }
 
-function openModal(data_options, focus_on_first_field) {
-  $("#modal-container").load(data_options, function(response, status, xhr) {
-    if (status == "error") {
-      alert("openModal ERROR !");
-      return false;
-    } else {
-      var modal = $("#modal-container").find(".modal");
-      modal.modal('toggle');
-      return modal;
-    }
-  });
+function openModal(url, data_options, focus_on_first_field) {
+    console.log("openModal bitch");
+    
+    $('<div/>').html("Details: " + data_options.description).dialog({
+        modal: true,
+        buttons: {
+            Ok: function() {
+                $(this).dialog("close");
+            }
+        },
+        title: data_options.title
+    });
+ 
+//    $("#modal-container").dialog({
+//        modal: true,
+//        buttons: {
+//            Ok: function() {
+//                $(this).dialog("close");
+//            }
+//        },
+//        title: data_options.title
+//    });
+    
+    
+    
+    
+//    var title = data_options.title;
+//    
+//    
+//    var ele = document.createElement("modal");
+//    var modalEle = document.getElementById('#modal-container');
+//    modalEle.innerHTML = title;
+//    
+//    
+//    var modal = $("#modal-container").find(".modal");
+//    modal.modal('toggle');
+//    return modal;
+    
+    
+//  $("#modal-container").load(url, data_options, function(response, status, xhr) {
+//    if (status == "error") {
+//      alert("openModal ERROR !");
+//      return false;
+//    } else {
+//        console.log("else statement");
+//      var modal = $("#modal-container").find(".modal");
+//      modal.modal('toggle');
+//      return modal;
+//    }
+//  });
 }
 
 
@@ -712,7 +778,7 @@ function openModal(data_options, focus_on_first_field) {
 
 
 
-/* ----- Modal functions ----- */
+/* ----- Modal functions (DOES NOT REALTE TO THE ABOVE CODE. HERE FOR REFERENCE/HELP ONNLY)----- */
 
 //        function createModal(id, title, body, footer) {
 //            var $modalHeaderButton = $('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>');
