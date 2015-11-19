@@ -50,13 +50,13 @@
 
         <div id="my-calendar"></div>
         <div id="list-container"></div>
-       <h2> CALENDAR</h2>
+      
 
 </head>
 
 
 <body>
-       
+        <h2> CALENDAR</h2>
     <script>
         var events_array = [];
 
