@@ -48,10 +48,6 @@
         <script src="calendarjavascript.js"></script>
         <link rel="stylesheet" type="text/css" href="calendarstyle.css">
 
-        <div id="my-calendar"></div>
-        <div id="list-container"></div>
-      
-
 </head>
 
 
@@ -59,6 +55,8 @@
 	        <div class="wrapper">
         <table class="page_table"><tr><td></td><td><center><center>
 		<h2>CALENDAR</h2>
+		<div id="my-calendar"></div>
+        	<div id="list-container"></div>
         </center></td></tr></table>
     </div>
 
