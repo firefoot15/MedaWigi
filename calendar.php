@@ -75,7 +75,7 @@
     <script>
         var events_array = [];
 
-        function createEventsForArray(id, date, title, type, time, description) {
+        function createEventsForArray(id, date, title, type, time, description,person) {
             events_array.push({
                 "id": id,
                 "date": date,
@@ -84,7 +84,8 @@
                 "disabled": false,
                 "reminder": "",
                 "time": time,
-                "description": description
+                "description": description,
+                "person": person
             });
             return events_array;
         }
@@ -117,6 +118,9 @@
         
         $personID = $personIDArray[$ind];
         $query = mysql_query("Select * from events WHERE personID='$personID'");  
+        $query2 = mysql_query("Select nickname from persons WHERE personID='$personID'");
+        $nickname = mysql_result($query2, 0);
+        
      
         while($row = mysql_fetch_assoc($query)) {
             
@@ -128,7 +132,7 @@
             $type = "journal";
     
                 
-            echo "<script> createEventsForArray('$id','$date','$subject','$type','$time','$content');</script>";
+            echo "<script> createEventsForArray('$id','$date','$subject','$type','$time','$content', '$nickname');</script>";
                  
         }
     }  

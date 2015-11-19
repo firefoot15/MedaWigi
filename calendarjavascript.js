@@ -457,7 +457,6 @@
    },
    
    _drawCalendarEvent: function(event_object) {
-       console.log("drawCalendarEvent function");
      if (!this.$calendarElement.data('showReminder') && event_object.type == 'reminder') return;
      var id = this.$calendarElement.attr('id') + '-' + event_object.date;
      var $dayCellElement = $('#' + id);
@@ -465,7 +464,7 @@
      $dayCellElement.data('hasEvent', true);
      
      var msg = (event_object.disabled == true) ? 'You cannot edit this event' : 'Click to edit this event';
-     var $dayEventElement = $('<span id="'+event_object.id+'" class="badge" title="'+msg+' : ' + event_object.title + '">' + event_object.title + '</span>');
+     var $dayEventElement = $('<span id="'+event_object.id+'" class="badge" title="'+msg+' : ' + event_object.title + '">' + event_object.person + ": " + event_object.title + '</span>');
      $dayEventElement.data('event_object', event_object);
      if (event_object.disabled == true) {
        $dayEventElement.addClass('disabled-event');
@@ -504,7 +503,6 @@
    
    // create an event (object & element)
    addEvent: function(event_object) {
-       console.log("addEvent function");
      if (typeof(event_object) != 'object' || event_object.id === undefined || event_object.date === undefined || event_object.title === undefined) return;
      var dateArray = event_object.date.split('-');
      if (!checkValidDate(dateArray[0], dateArray[1], dateArray[2])) return;
@@ -517,8 +515,6 @@
    
    // create events from the array
    addEvents: function(events_array) {
-             console.log("addEvent function w/ array");
-
      $.each(events_array, $.proxy(function(k, event_object) {
        this.addEvent(event_object);
      }, this));
@@ -639,7 +635,8 @@ function eventClicked(event_element) {
       disabled: false,
       reminder: event_object.reminder, 
       time: event_object.time,
-      description: event_object.description
+      description: event_object.description,
+      person: event_object.person
     }, true );
     
     $('#list-container').empty();
@@ -652,9 +649,9 @@ function overlay() {
 
 function openModal(data_options, focus_on_first_field) {
     
-    $('<div/>').html("Details: " + data_options.description).dialog({
+    $('<div/>').html("DATE: " + data_options.date + "<br>" + "TIME: " + data_options.time + "<br>" + "DETAILS: " + data_options.description).dialog({
         modal: true,
-        title: data_options.title,
+        title: data_options.person + ": " + data_options.title,
         resizable: true,
     });
 }
