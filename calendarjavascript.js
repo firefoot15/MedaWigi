@@ -611,97 +611,27 @@
 // ===========================================================================================
 
 
-/*Original Functions*/
-
-//function cellDoubleClicked(cell_element) {
-//  // console.log($(cell_element).data("hasEvent"));
-//  var day_date = $(cell_element).data("date");
-//  var url = "/my-nice-modal.php";
-//  var modal = openModal(url, {date:day_date}, true);
-//}
-//
-//function cellClicked(cell_element) {
-//  // console.log($(cell_element).data("hasEvent"));
-//  if ($(cell_element).data("hasEvent")) {
-//    var day_date = $(cell_element).data("date");
-//    var day_events = $('#my-calendar').zabuto_calendar('getEventsAt', day_date);
-//    $("#list-container").load( "/my-nice-events-list.php", { date:day_date, events:day_events, show_reminder:false }, function( response, status, xhr ) {
-//      if ( status == "error" ) {
-//        alert("Une erreur est survenue !");
-//      }
-//    });
-//  }
-//}
-
 function navClicked(nav_element) {
    console.log('navClicked');
    console.log(nav_element);
    console.log($(nav_element).data("navigation") + ' > ' + $(nav_element).data("to").month + '/' + $(nav_element).data("to").year);
 }
-//
-//function eventClicked(event_element) {
-//  var event_object = $(event_element).data("event_object");
-//  var url = "/my-nice-modal.php";
-//  var modal = openModal(url, {
-//      date: event_object.date, 
-//      id: event_object.id, 
-//      title: event_object.title, 
-//      type: event_object.type, 
-//      reminder: event_object.reminder, 
-//    }, true );
-//  $('#list-container').empty();
-//}
-//
-//function openModal(url, data_options, focus_on_first_field) {
-//  $("#modal-container").load(url, data_options, function(response, status, xhr) {
-//    if (status == "error") {
-//      alert("Une erreur est survenue !");
-//      return false;
-//    } else {
-//      var modal = $("#modal-container").find(".modal");
-//      modal.modal('toggle');
-//      return modal;
-//    }
-//  });
-//}
-
-
-
-
-
-
-
-
-/*Modified Functions*/
-
-function cellDoubleClicked(cell_element) {
-  // console.log($(cell_element).data("hasEvent"));
-  var day_date = $(cell_element).data("date");
-  var url = "/my-nice-modal.php";
-  var modal = openModal(url, {date:day_date}, true);
-}
 
 function cellClicked(cell_element) {
-  // console.log($(cell_element).data("hasEvent"));
-    
+  // console.log($(cell_element).data("hasEvent"));  
   if (!$(cell_element).data("hasEvent")) {
-      alert("No Events!");
+      $('<div/>').html("Currently, no events exist on this day.").dialog({
+        modal: true,
+        title: "ALERT",
+        resizable: true,
+    });
   }
-    
-
-//    $("#list-container").load( "/my-nice-events-list.php", { date:day_date, events:day_events, show_reminder:false }, function( response, status, xhr ) {
-//      if ( status == "error" ) {
-//        alert("cellClicked ERROR !");
-//      }
-//    });
-  
 }
 
 function eventClicked(event_element) {
     console.log("eventClicked");
   var event_object = $(event_element).data("event_object");
-  var url = "/my-nice-modal.php";
-  var modal = openModal(url, {
+  var modal = openModal({
       id: event_object.id, 
       date: event_object.date, 
       title: event_object.title, 
@@ -720,97 +650,11 @@ function overlay() {
 	el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 }
 
-function openModal(url, data_options, focus_on_first_field) {
-    console.log("openModal bitch");
+function openModal(data_options, focus_on_first_field) {
     
     $('<div/>').html("Details: " + data_options.description).dialog({
         modal: true,
-        buttons: {
-            Ok: function() {
-                $(this).dialog("close");
-            }
-        },
-        title: data_options.title
+        title: data_options.title,
+        resizable: true,
     });
- 
-//    $("#modal-container").dialog({
-//        modal: true,
-//        buttons: {
-//            Ok: function() {
-//                $(this).dialog("close");
-//            }
-//        },
-//        title: data_options.title
-//    });
-    
-    
-    
-    
-//    var title = data_options.title;
-//    
-//    
-//    var ele = document.createElement("modal");
-//    var modalEle = document.getElementById('#modal-container');
-//    modalEle.innerHTML = title;
-//    
-//    
-//    var modal = $("#modal-container").find(".modal");
-//    modal.modal('toggle');
-//    return modal;
-    
-    
-//  $("#modal-container").load(url, data_options, function(response, status, xhr) {
-//    if (status == "error") {
-//      alert("openModal ERROR !");
-//      return false;
-//    } else {
-//        console.log("else statement");
-//      var modal = $("#modal-container").find(".modal");
-//      modal.modal('toggle');
-//      return modal;
-//    }
-//  });
 }
-
-
-
-//************************************************************
-
-
-
-/* ----- Modal functions (DOES NOT REALTE TO THE ABOVE CODE. HERE FOR REFERENCE/HELP ONNLY)----- */
-
-//        function createModal(id, title, body, footer) {
-//            var $modalHeaderButton = $('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>');
-//            var $modalHeaderTitle = $('<h4 class="modal-title" id="' + id + '_modal_title">' + title + '</h4>');
-//
-//            var $modalHeader = $('<div class="modal-header"></div>');
-//            $modalHeader.append($modalHeaderButton);
-//            $modalHeader.append($modalHeaderTitle);
-//
-//            var $modalBody = $('<div class="modal-body" id="' + id + '_modal_body">' + body + '</div>');
-//
-//            var $modalFooter = $('<div class="modal-footer" id="' + id + '_modal_footer"></div>');
-//            if (typeof(footer) !== 'undefined') {
-//                var $modalFooterAddOn = $('<div>' + footer + '</div>');
-//                $modalFooter.append($modalFooterAddOn);
-//            }
-//
-//            var $modalContent = $('<div class="modal-content"></div>');
-//            $modalContent.append($modalHeader);
-//            $modalContent.append($modalBody);
-//            $modalContent.append($modalFooter);
-//
-//            var $modalDialog = $('<div class="modal-dialog"></div>');
-//            $modalDialog.append($modalContent);
-//
-//            var $modalFade = $('<div class="modal fade" id="' + id + '_modal" tabindex="-1" role="dialog" aria-labelledby="' + id + '_modal_title" aria-hidden="true"></div>');
-//            $modalFade.append($modalDialog);
-//
-//            $modalFade.data('dateId', id);
-//            $modalFade.attr("dateId", id);
-//
-//            return $modalFade;
-//        }
-
-

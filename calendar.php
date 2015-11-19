@@ -5,33 +5,30 @@
     include 'connect.php';
     session_start();
     ?>
-    
-    <title>Calendar</title>
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
-    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+        <title>Calendar</title>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+        <link href="/Content/theme/base/jquery.ui.all.css" rel="stylesheet" />
 
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <script src="calendarjavascript.js"></script>
-    <link rel="stylesheet" type="text/css" href="calendarstyle.css">
 
-    <div id="my-calendar"></div>
-    <div class='modal' id="modal-container">
-        <div id="modalText"></div>
-    </div>
-    <div id="list-container"></div>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <script src="calendarjavascript.js"></script>
+        <link rel="stylesheet" type="text/css" href="calendarstyle.css">
 
-    
-    
-    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <script src="medawigi.js"></script>
+        <div id="my-calendar"></div>
+        <div id="list-container"></div>
 
 
-    
+
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <script src="medawigi.js"></script>
+
+
 </head>
-<!--
 <div class="top">
     <div id="logo">
         <img />
@@ -41,15 +38,12 @@
         <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
 
 
-
         <div class="menu">
             <ul id="menu-list">
                 <br>
                 <li id="home"><a href="personhome.php">Home</a></li>
                 <br>
                 <li id="insurance_contact"><a href="insurance.php">Insurance</a></li>
-                <br>
-                <li id="calendar"><a href="calendar.php">Calendar</a></li>
                 <br>
                 <li id="journal"><a href="journal.php">Journal</a></li>
                 <br>
@@ -76,17 +70,12 @@
     </div>
 
 </div>
--->
-
 
 <body>
-
     <script>
         var events_array = [];
 
         function createEventsForArray(id, date, title, type, time, description) {
-
-
             events_array.push({
                 "id": id,
                 "date": date,
@@ -97,14 +86,9 @@
                 "time": time,
                 "description": description
             });
-
-
             return events_array;
         }
     </script>
-
-
-
 
     <?php
     /* Verify Username */
@@ -127,14 +111,12 @@
         }
     }
 
-    
 
     // Create journey events for each person and populate calendar
     for($ind=0; $ind<count($personIDArray); $ind++) {
         
         $personID = $personIDArray[$ind];
-        $query = mysql_query("Select * from events WHERE personID='$personID'");
-        
+        $query = mysql_query("Select * from events WHERE personID='$personID'");  
      
         while($row = mysql_fetch_assoc($query)) {
             
@@ -147,12 +129,10 @@
     
                 
             echo "<script> createEventsForArray('$id','$date','$subject','$type','$time','$content');</script>";
-       
-            
+                 
         }
     }  
 ?>
-
         <script>
             $("#my-calendar").zabuto_calendar({
                 language: "en",
@@ -176,13 +156,9 @@
                         url: "show_data.php" // load ajax json events here...
                     }
                 },
-             
+
             });
         </script>
-
-
-
-
 </body>
 
 </html>

@@ -1,10 +1,14 @@
 .zabuto_calendar {
-  margin-top: 10px;
-  clear: both;
+    margin-top: 10px;
+    clear: both;
+    z-index: 2;
 }
 
 .zabuto_calendar .table {
-  width: 100%;
+  width: 90%;
+  height: 90%;
+    border: 5px solid #000000;
+    
 }
 
 .zabuto_calendar .table tr th,
@@ -66,7 +70,8 @@
 /* tr.calendar-week-header */
 
 .zabuto_calendar .table tr.calendar-week-header th {
-  background-color: #f0f0f0;
+  background-color: #000000;
+    color: #ffffff;
 }
 
 .zabuto_calendar .table tr.calendar-week-header th,
@@ -95,7 +100,9 @@
 }
 
 .zabuto_calendar .table tr.calendar-week td.today-cell {
-  background-color: #2f9fe0;
+  background-color: #bde1f5;
+    border: 3px solid #666666;
+    
 }
 
 .zabuto_calendar .table tr.calendar-week td i.day-number {
@@ -106,7 +113,8 @@
 }
 
 .zabuto_calendar .table tr.calendar-week td.today-cell i.day-number {
-  color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
 }
 
 .zabuto_calendar .table tr.calendar-week td div {
@@ -132,6 +140,7 @@
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+    background-color: ee2c2c;
 -moz-box-shadow: 1px 1px 3px 0px #666666;
 -webkit-box-shadow: 1px 1px 3px 0px #666666;
 -o-box-shadow: 1px 1px 3px 0px #666666;
@@ -139,16 +148,17 @@ box-shadow: 1px 1px 3px 0px #666666;
 filter:progid:DXImageTransform.Microsoft.Shadow(color=#666666, Direction=134, Strength=3);
 }
 
-.modal {
+.ui-dialog .ui-dialog-content {
+  position: relative; 
   width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
+  margin: .5em 1em;
+  padding: .5em 1em;
   background-color: #fff;
-  border-radius: 2px;
+  border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
+
 
 div.zabuto_calendar div.legend {
   margin-top: 5px;
@@ -160,3 +170,99 @@ div.zabuto_calendar div.legend span {
   font-size: 10px;
   font-weight: normal;
 }
+
+/*
+Dialog box formatting for calendar
+*/
+
+.ui-dialog .ui-dialog-titlebar{
+    border: none;
+    background: #000000;
+    color: #ffffff;
+}
+
+.ui-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    padding: 0 !important;
+}
+
+ .ui-widget-content {
+    border:none;
+     
+}
+
+
+
+/*
+Links are white 
+menu.html
+*/
+#menu-list a {
+  font-family: "Oswald";
+  font-size: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  /*font-size: 175%;*/
+}
+
+#menu-list a:hover,
+#menu-list a:active {
+font-size:175%;
+}
+
+
+/*
+Link hover and active
+This allows people to see which link they are hovering over
+menu.html
+*/
+a:hover,
+a:active {
+font-size:175%;
+}
+
+
+/*
+Medawigi that goes in the top bar 
+menu.html
+*/
+#logo img {
+  position: absolute;
+  left: 10px;
+  height: 85px;
+}
+
+/*
+The list of links 
+menu.html
+*/
+#menu-list {
+  right: 0px;
+  position: absolute;
+  visibility: hidden;
+  margin-top: 67px;
+  float: right;
+  width: 200px;
+  background-color: #202020;
+}
+/*
+Sammich is the Hamburger menu button
+associated with menu.html
+*/
+
+.sammich {
+  position: absolute;
+  right: 10px;
+    top: 5px;
+  margin-top:5px;  
+  width: 50px;
+  height: 50px;
+  float: right;
+    z-index: 1;
+}
+
+
+
