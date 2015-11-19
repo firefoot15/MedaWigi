@@ -118,7 +118,7 @@
 			
             <?php
             
-            // Check if any values are in range
+            // Set to true if any values are in range
             $bool = false;
             
             while($row = mysql_fetch_array($query))

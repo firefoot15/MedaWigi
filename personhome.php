@@ -15,14 +15,22 @@
 		else{
 			header("location:myportal.php");}
 
-		$user = $_SESSION['user'];			
-		$id = $_GET['id'];	
+		$user = $_SESSION['user'];
+		$id = $_GET['id'];
 
-            // Create sessionID	
+            // Create sessionID
 			$_SESSION['id'] = $id;
-		
+
+        // Access accountID associated with person
+        $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+        $accountID = mysql_result($query, 0);     
+
+        // Access personID associated with account to be used in h1
+        $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");
+        $pid = mysql_result($query, 0);
+
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
-		$row = mysql_fetch_array($query);			
+		$row = mysql_fetch_array($query);
 		$nickname = $row['nickname'];
 		$firstName = $row['firstName'];
 		$birthDate = $row['birthDate'];
@@ -70,7 +78,7 @@
 		<h2>H O M E</h2>
         <div class="wrapper">
         <table class="page_table"><tr><td></td><td><center>
-        <h1><?php if($nickname == 'Me')echo 'My'; else echo htmlspecialchars($nickname)."'s";?> Page</h1>
+        <h1><?php if($pid == $id)echo 'My'; else echo htmlspecialchars($nickname)."'s";?> Page</h1>
         <h3><?php if(date("m/d") == $reformatted_date) echo 'Happy Birthday!'; ?><h3></br></br>
             
         <h4><font size="6">MedaWigi</font></h4>        

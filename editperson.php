@@ -3,7 +3,7 @@
 		General input validation, no account information
 		Link to avatar page
 		Updates accounts and persons table
- -->		
+ -->
 		<?php
 
         include 'connect.php'; 
@@ -16,11 +16,11 @@
 		else{
 			header("location:myportal.php");}
 
-		$user = $_SESSION['user'];			
-		$id = $_SESSION['id'];	
-		
+		$user = $_SESSION['user'];
+		$id = $_SESSION['id'];
+
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
-		$row = mysql_fetch_array($query);		
+		$row = mysql_fetch_array($query);
 
 		$firstName = $row['firstName'];
 		$lastName = $row['lastName'];
@@ -99,7 +99,7 @@
 					<input type="radio" name="gender" value="Unspecified"<?php echo ($gender == 'Unspecified')?'checked':'' ?>>Unspecified<br>
 				</f2></td></tr>
 			<tr><td>Race: </td>
-				<td><select name="race"> 					
+				<td><select name="race"> 
 					<option value="American Indian or Alaska Native"<?php if($race == 'American Indian or Alaska Native') echo 'selected="selected"'; ?>>American Indian or Alaska Native</option>
 					<option value="Asian"<?php if($race == 'Asian') echo 'selected="selected"'; ?>>Asian</option>
 					<option value="Black or African American"<?php if($race == 'Black or African American') echo 'selected="selected"'; ?>>Black or African American</option>
@@ -130,7 +130,7 @@
 							if($day == $i){
 								echo "<option value='' selected></option>";}
 							else{
-								echo "<option value=''></option>";}}							
+								echo "<option value=''></option>";}}
 						elseif($i<10){ 
 							if($day == $i){
 								echo "<option value='0$i' selected>$i</option>";}
@@ -147,7 +147,7 @@
 					<?php for($i=0, $j=date("Y"); $i<=80; $i++, $j--){
 						if(empty($year)){
 							if($i == 80){
-								echo "<option value='' selected></option>";}	
+								echo "<option value='' selected></option>";}
 							else{
 								echo "<option value='$j'>$j</option>";}}
 						else{
