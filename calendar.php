@@ -56,7 +56,12 @@
 
 
 <body>
-        <h2> CALENDAR</h2>
+	        <div class="wrapper">
+        <table class="page_table"><tr><td></td><td><center><center>
+		<h2>CALENDAR</h2>
+        </center></td></tr></table>
+    </div>
+
     <script>
         var events_array = [];
 
