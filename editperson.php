@@ -19,6 +19,26 @@
 		$user = $_SESSION['user'];
 		$id = $_SESSION['id'];
 
+        // Access accountID associated with person
+        $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
+        $accountID = mysql_result($query, 0);     
+        
+		// Use accountID to access personIDs in mappings table      
+        $query = mysql_query("Select * from mappings WHERE accountID = '$accountID'");
+		$row = mysql_fetch_array($query);
+
+        // Find all negative personIDs associated with an account
+        for($i = 0; $i < 10; $i++)
+        {
+            $colName = $i.'_personID';
+            $pid = $row[$colName];
+            if($pid < 0 && abs($pid) == $id)
+            {
+                Print '<script>alert("You are unable to edit this profile.");</script>'; 
+                Print '<script>window.location.assign("myportal.php");</script>';                
+            }    
+        }
+
 		$query = mysql_query("Select * from persons WHERE personID = '$id'");
 		$row = mysql_fetch_array($query);
 
@@ -38,7 +58,7 @@
 
 <html>
 	<head>
-		<title>Edit Person Page</title>
+		<title>Edit Person</title>
 		<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -195,10 +215,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	// Write to tables
 	mysql_query("UPDATE persons SET firstName='$firstName', lastName='$lastName', middleName='$middleName', suffix='$suffix', nickname='$nickname', gender='$gender', race='$race', birthDate='$birthDate' WHERE personID = '$id'");
-    
-	// Access accountID associated with person
-    $query = mysql_query("Select accountID from accounts WHERE username = '$user' limit 1");
-	$accountID = mysql_result($query, 0);     
 
     // Access personID associated with account
     $query = mysql_query("Select 0_personID from mappings WHERE accountID = '$accountID' limit 1");

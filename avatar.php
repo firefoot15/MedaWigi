@@ -99,7 +99,7 @@
 
             <br>
             <br>
-            <a href="editperson.php"><input type="button" value="Done" class="basic_button"/></a>
+            <a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>"><input type="button" value="Done" class="basic_button"/></a>
             <input type="submit" value="Submit" class="basic_button">          
 
 		</form> 
