@@ -16,7 +16,7 @@ h2 {
 	-moz-transform: rotate(270deg);
 	-webkit-transform: rotate(270deg);
 	-o-transform: rotate(270deg);
-    margin-top: 15%;
+    margin-top: 15%; /*10%*/
     margin-left: -328px;    
 	}
 
