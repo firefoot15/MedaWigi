@@ -1,12 +1,43 @@
 <html>
 
 <head>
+
     <?php 
     include 'connect.php';
     session_start();
     ?>
+    
+          <link href='style.css' rel='stylesheet' type='text/css'>    
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <script src="medawigi.js"></script>
+<div class="top">
+  <div id="logo">
+    <img src="http://medawigi.no-ip.org/images/logo.png";/>
+  </div>
+  <div class="sammich">
+    <img onclick="menu()" class="sammich" src="http://medawigi.no-ip.org/images/sammich-white.png" />
+    <div class="menu">
+      <ul id="menu-list">
+        <li id="home"><a href="personhome.php?id=<?php echo htmlspecialchars($id); ?>">Home</a></li>
+        <li id="insurance_contact"><a href="insurance.php">Insurance</a></li>
+        <li id="calendar"><a href="calendar.php">Calendar</a></li>
+        <li id="journal"><a href="journal.php">Journal</a></li>
+        <li id="medications"><a href="medications.php">Medications</a></li>
+        <li id="allergies"><a href="allergies.php">Allergies</a></li>
+	<li id="immunizations"><a href="immunizations.php">Immunizations</a></li>
+	<li id="contacts"><a href="contacts.php">Contacts</a></li>
+	<li id="conditions"><a href="conditions.php">Conditions</a></li>
+        <li id="contact"><a href="contact.html">Contact us</a></li>
+        <li id="editprofile"><a href="editperson.php">Edit Profile</a></li>
+        <li id="switch_profile"><a href="myportal.php">Switch Profile</a></li>
+        <li id="logout"><a href="logout.php">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-        <title>Calendar</title>
+
+<title>Calendar</title>
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
@@ -23,59 +54,10 @@
         <div id="list-container"></div>
 
 
-
-        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-        <script src="medawigi.js"></script>
-
-
-</head>
-<div class="top">
-    <div id="logo">
-        <img />
-
-    </div>
-    <div class="sammich">
-        <img onclick="menu()" class="sammich" src="https://cdn2.iconfinder.com/data/icons/menu-elements/154/round-border-menu-bar-128.png" />
-
-
-        <div class="menu">
-            <ul id="menu-list">
-                <br>
-                <li id="home"><a href="personhome.php">Home</a></li>
-                <br>
-                <li id="insurance_contact"><a href="insurance.php">Insurance</a></li>
-                <br>
-                <li id="journal"><a href="journal.php">Journal</a></li>
-                <br>
-                <li id="medications"><a href="medication.php">Medications</a></li>
-                <br>
-                <li id="allergies"><a href="allergies.php">Allergies</a></li>
-                <br>
-                <li id="immunizations"><a href="immunizations.php">Immunizations</a></li>
-                <br>
-                <li id="contacts"><a href="contacts.php">Contacts</a></li>
-                <br>
-                <li id="conditions"><a href="conditions.php">Conditions</a></li>
-                <br>
-                <li id="contact"><a href="contact.html">Contact us</a></li>
-                <br>
-                <li id="editprofile"><a href="editprofile.php">Edit Profile</a></li>
-                <br>
-                <li id="switch_profile"><a href="#">Switch Profile</a></li>
-                <br>
-                <li id="logout"><a href="logout.php">Logout</a></li>
-                <br>
-            </ul>
-        </div>
-    </div>
-
-</div>
-
 <body>
     <script>
         var events_array = [];
-
-        function createEventsForArray(id, date, title, type, time, description) {
+        function createEventsForArray(id, date, title, type, time, description,person) {
             events_array.push({
                 "id": id,
                 "date": date,
@@ -84,7 +66,8 @@
                 "disabled": false,
                 "reminder": "",
                 "time": time,
-                "description": description
+                "description": description,
+                "person": person
             });
             return events_array;
         }
@@ -110,13 +93,14 @@
             array_push($personIDArray, $personID);
         }
     }
-
-
     // Create journey events for each person and populate calendar
     for($ind=0; $ind<count($personIDArray); $ind++) {
         
         $personID = $personIDArray[$ind];
         $query = mysql_query("Select * from events WHERE personID='$personID'");  
+        $query2 = mysql_query("Select nickname from persons WHERE personID='$personID'");
+        $nickname = mysql_result($query2, 0);
+        
      
         while($row = mysql_fetch_assoc($query)) {
             
@@ -128,7 +112,7 @@
             $type = "journal";
     
                 
-            echo "<script> createEventsForArray('$id','$date','$subject','$type','$time','$content');</script>";
+            echo "<script> createEventsForArray('$id','$date','$subject','$type','$time','$content', '$nickname');</script>";
                  
         }
     }  
@@ -156,7 +140,6 @@
                         url: "show_data.php" // load ajax json events here...
                     }
                 },
-
             });
         </script>
 </body>
