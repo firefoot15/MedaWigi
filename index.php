@@ -15,7 +15,7 @@
       <ul id="menu-list">
         <br>
         <li id="home"><a href="index.php">Home</a></li>
-        <li id="contact"><a href="contact.html">Contact us</a></li>
+        <li id="contact"><a href="contactIndex.html">Contact us</a></li>
         <br>
       </ul>
     </div>
